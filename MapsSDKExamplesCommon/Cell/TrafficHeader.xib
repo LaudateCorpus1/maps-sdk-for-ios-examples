@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="41"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hL2-ct-gOk">
+                    <rect key="frame" x="8" y="14" width="52" height="14.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="52" id="DCr-d4-Ifn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAp-JX-4Ji">
+                    <rect key="frame" x="80" y="14" width="209" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lf-bX-KiD">
+                    <rect key="frame" x="297" y="14" width="70" height="14.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="Ok6-WJ-ZtD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9N-kN-Ps5">
+                    <rect key="frame" x="375" y="14" width="40" height="14.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="wbc-gQ-pAk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hL2-ct-gOk" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="17D-LZ-FD3"/>
+                <constraint firstItem="EAp-JX-4Ji" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="RNX-w7-6fK"/>
+                <constraint firstItem="1lf-bX-KiD" firstAttribute="leading" secondItem="EAp-JX-4Ji" secondAttribute="trailing" constant="8" id="eSC-Vn-mF1"/>
+                <constraint firstItem="EAp-JX-4Ji" firstAttribute="leading" secondItem="hL2-ct-gOk" secondAttribute="trailing" constant="20" id="kiE-a2-Qbf"/>
+                <constraint firstItem="N9N-kN-Ps5" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="lZA-vJ-neh"/>
+                <constraint firstItem="N9N-kN-Ps5" firstAttribute="leading" secondItem="1lf-bX-KiD" secondAttribute="trailing" constant="8" id="nFO-cG-t38"/>
+                <constraint firstItem="hL2-ct-gOk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="qrQ-ba-LE9"/>
+                <constraint firstItem="1lf-bX-KiD" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="rg7-vz-o43"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="N9N-kN-Ps5" secondAttribute="trailing" constant="8" id="z1m-3U-KGS"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="57.5" y="-223.5"/>
+        </view>
+    </objects>
+</document>

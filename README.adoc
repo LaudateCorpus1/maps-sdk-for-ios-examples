@@ -1,0 +1,87 @@
+= Maps SDK For iOS Examples
+
+Clone repository and build the Maps SDK Examples app to see key features of the Maps SDK.
+Modify the source code to learn more about the SDK.
+This Maps SDK Examples app is provided by TomTom and subject to TomToms privacy policy at https://www.tomtom.com/privacy/[https://tomtom.com/privacy].
+Developers using TomTom SDKs and APIs in their apps similarly bear responsibility to adhere to applicable privacy laws.
+These Maps SDK Examples are provided as-is and shall be used internally, and for evaluation purposes only. Any other use is strictly prohibited.
+
+== Documentation
+
+More informations how to start are available on: https://developer.tomtom.com/maps-sdk-ios/downloads[Maps SDK for iOS page].
+
+* https://developer.tomtom.com/maps-sdk-ios/map[Map]
+* https://developer.tomtom.com/maps-sdk-ios/traffic-0[Search]
+* https://developer.tomtom.com/maps-sdk-ios/search-0[Routing]
+* https://developer.tomtom.com/maps-sdk-ios/route-0[Traffic]
+* https://developer.tomtom.com/maps-sdk-ios/release-notes[Release notes]
+* https://developer.tomtom.com/maps-sdk-ios/migrate-google-maps-tomtom[Migration guide from Google Maps SDK]
+
+== Api Reference
+
+* https://developer.tomtom.com/maps-sdk-ios/api-reference-3[Appledocs for Map]
+* https://developer.tomtom.com/maps-sdk-ios/api-reference-4[Appledocs for Search]
+* https://developer.tomtom.com/maps-sdk-ios/api-reference-5[Appledocs for Routing]
+* https://developer.tomtom.com/maps-sdk-ios/api-reference-6[Appledocs for Traffic]
+
+== Project set up
+
+To develop your own application with Maps SDK, you need to make sure that the pre-requisites are in place
+and that you have added Maps SDK as a dependency into your project. Follow the steps below and then
+you are ready to code!
+
+[[pre-requisites]]
+=== Get the pre-requisites in place:
+
+* XCode installed
+(https://developer.apple.com/xcode/[How to install XCode])
+* Set up the application deployment target to 9.1 or higher
+
+[[setting-up-a-project]]
+=== Set up your project like this:
+
+1.  Open XCode
+2.  Create a new project or open an existing one
+
+[[choose-module]]
+=== Choose SDK modules for your app
+Either independently include modules for Maps, Search and/or Routing or all of them at once.
+You can do so by adding Maps SDK modules to Podfile and running pod install again:
+
+* MAP - Getting started
+* SEARCH - Getting started
+* ROUTING - Getting started
+
+=== Configuration for all Maps SDK modules
+
+To include all Maps SDK modules in your app, modify Info.plist:
+
+*  Add services keys inside Info.plist taken from http://developer.tomtom.com
+
+*  Modify Info.plist
+
+*  Create Podfile
+
+[source,ruby,indent=0]
+----
+pod 'TomTomOnlineSDKMaps'
+pod 'TomTomOnlineSDKSearch'
+pod 'TomTomOnlineSDKRouting'
+pod 'TomTomOnlineSDKMapsUIExtensions'
+----
+
+*  Now go to console and install frameworks by typing *pod install*
+
+[[building-and-launching-application]]
+=== Building and Launching
+
+To build your application open a newly created by Cocoapods XCode workspace, not a project.
+
+[[maps-sdk-examples-app]]
+=== Maps SDK Examples app
+Download and build the Maps SDK Examples app to see key features of the Maps SDK. Modify the source code to learn more about the SDK.
+Speed up development by using the source code in your own app.
+
+This Maps SDK Examples app is provided by TomTom and subject to TomToms privacy policy at https://tomtom.com/privacy.
+Developers using TomTom SDKs and APIs in their apps similarly bear responsibility to adhere to applicable privacy laws.
+These Maps SDK Examples are provided as-is and shall be used internally, and for evaluation purposes only. Any other use is strictly prohibited.
