@@ -21,12 +21,12 @@ public class ManeuverIconGenerator: NSObject {
 
     @objc public static func imageForInstruction(_ instruction: TTInstruction) -> UIImage {
         var direction: String = ""
-        let maneuver = instruction.maneuver!
+        let maneuver = instruction.maneuver
         if maneuver.contains("TURN") || maneuver.contains("SHARP") {
             let myArray = maneuver.components(separatedBy: CharacterSet.init(charactersIn: "_"))
-            direction = String(format: "maneuver_%@_%ld", myArray.last!.lowercased(), labs(instruction.turnAngleInDecimalDegrees.intValue))
+            direction = String(format: "maneuver_%@_%ld", myArray.last!.lowercased(), labs(instruction.turnAngleInDecimalDegreesValue))
         } else if maneuver.contains("ROUNDABOUT") {
-            direction = "maneuver_roundabout_right_\(labs(instruction.turnAngleInDecimalDegrees.intValue))"
+            direction = "maneuver_roundabout_right_\(labs(instruction.turnAngleInDecimalDegreesValue))"
         } else if maneuver.contains("ENTER") {
             direction = "maneuver_left_45"
         } else if maneuver.contains("EXIT") {

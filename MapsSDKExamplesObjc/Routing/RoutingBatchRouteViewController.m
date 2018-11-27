@@ -181,7 +181,6 @@ typedef NS_ENUM(NSInteger, BatchRouteType) {
 
 #pragma mark TTRouteDelegate
 
-
 - (void)routeClicked:(TTMapRoute * _Nonnull)route {
     NSString *desc;
     for(TTMapRoute *mapRoute in self.mapView.routeManager.routes) {

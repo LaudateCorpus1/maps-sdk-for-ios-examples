@@ -87,7 +87,7 @@ class MapUIExtensionsViewController: MapBaseViewController {
         
         let customControlLeftButton = UIButton()
         customControlLeftButton.setImage(UIImage(named: "arrow_left_custom"), for: .normal)
-        customControlLeftButton.setImage(UIImage(named: "arrow_down_highlighted_custom"), for: .highlighted)
+        customControlLeftButton.setImage(UIImage(named: "arrow_left_highlighted_custom"), for: .highlighted)
         controlView.controlView?.leftControlBtn = customControlLeftButton
         let customControlRightButton = UIButton()
         customControlRightButton.setImage(UIImage(named: "arrow_right_custom"), for: .normal)

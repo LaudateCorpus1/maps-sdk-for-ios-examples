@@ -53,7 +53,7 @@
 }
 
 - (void)displayEntryPointsForShoppingMall {
-    TTSearchQuery *query = [[TTSearchQueryBuilder createWithTerm:@"Kalvertoren Singel 451"]
+    TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:@"Kalvertoren Singel 451"] withIdxSet:TTSearchIndexPointOfInterest]
                             build];
     [self.search searchWithQuery:query];
 }

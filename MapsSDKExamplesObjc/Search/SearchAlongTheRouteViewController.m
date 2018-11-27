@@ -58,6 +58,7 @@
             break;
         case 1:
             [self searchForGasStations];
+            break;
         default:
             [self searchForCarRepair];
             break;

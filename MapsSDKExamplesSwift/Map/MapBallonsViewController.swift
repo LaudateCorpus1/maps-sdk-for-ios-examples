@@ -45,7 +45,7 @@ class MapBallonsViewController: MapBaseViewController, TTAnnotationDelegate {
         if let customAnnotation = self.customAnnotation, customAnnotation == selectedAnnotation {
             return CustomCallout(frame: CGRect.zero)
         } else {
-            return TTCalloutViewSimple(annotation: selectedAnnotation)
+            return TTCalloutOutlineView(text: "\(selectedAnnotation.coordinate.latitude),\(selectedAnnotation.coordinate.longitude)")
         }
     }
     

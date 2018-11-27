@@ -67,6 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = MapShapesViewController()
             case 15:
                 newViewController = MapMarkersClusteringViewController()
+            case 16:
+                newViewController = MapFollowTheChevronController()
             default:
                 fatalError("This VC is not handled")
             }

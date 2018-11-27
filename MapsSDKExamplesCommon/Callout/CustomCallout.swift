@@ -15,6 +15,13 @@ import TomTomOnlineSDKMaps
 public class CustomCallout: UIView, TTCalloutView {
     
     public var annotation: TTAnnotation?
+    public var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
+    
+    public init(frame: CGRect, cooridnate: CLLocationCoordinate2D) {
+        self.coordinate = cooridnate
+        super.init(frame: frame)
+        setup()
+    }
 
     override public init(frame: CGRect) {
         super.init(frame: frame)

@@ -69,7 +69,10 @@ public class MenuLabels: NSObject {
                                                             subtitleLabel: "Mark different areas on the map by using circles polygons and polylines"),
                                                  SubOptions(iconImage: "marker_clustering_image",
                                                             titleLabel: "Marker clustering",
-                                                            subtitleLabel: "Collect multiple markers in a customizable cluster.")
+                                                            subtitleLabel: "Collect multiple markers in a customizable cluster."),
+                                                SubOptions(iconImage: "map_follow_chevron_image",
+                                                            titleLabel: "Follow the chevron",
+                                                            subtitleLabel: "Camera follows the chevron.")
         ]),
                              Options(category: .Traffic,
                                      mainImage: "traffic_image",

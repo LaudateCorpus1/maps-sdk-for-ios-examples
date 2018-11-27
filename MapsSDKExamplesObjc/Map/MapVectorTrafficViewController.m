@@ -33,10 +33,14 @@
     [super displayExampleWithID:ID on:on];
     switch (ID) {
         case 1:
-            [self hideFLow];
+            [self hideFlow];
             break;
         default:
-            [self displayFlow];
+            if (on) {
+                [self displayFlow];
+            } else {
+                [self hideFlow];
+            }
             break;
     }
 }
@@ -47,7 +51,7 @@
     self.mapView.trafficFlowOn = YES;
 }
 
-- (void)hideFLow {
+- (void)hideFlow {
     self.mapView.trafficFlowOn = NO;
 }
 

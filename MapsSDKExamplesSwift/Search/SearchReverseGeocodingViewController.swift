@@ -52,7 +52,7 @@ class SearchReverseGeocodingViewController: MapBaseViewController, TTMapViewDele
     //MARK: TTAnnotationDelegate
     
     func annotationManager(_ manager: TTAnnotationManager, viewForSelectedAnnotation selectedAnnotation: TTAnnotation) -> UIView & TTCalloutView {
-        return TTCalloutViewSimple(text: geocoderResult)
+        return TTCalloutOutlineView(text: geocoderResult)
     }
     
     //MARK: TTReverseGeocoderDelegate

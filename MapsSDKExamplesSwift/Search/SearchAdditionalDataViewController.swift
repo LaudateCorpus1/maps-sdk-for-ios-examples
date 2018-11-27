@@ -21,7 +21,7 @@ class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegat
     let searchAdditionalData = TTAdditionalDataSearch()
     
     override func getOptionsView() -> OptionsView {
-        return OptionsViewSingleSelect(labels: ["Amsterdam", "Berlin", "Poland"], selectedID: -1)
+        return OptionsViewSingleSelect(labels: ["Poland", "Amsterdam", "Schiphol"], selectedID: -1)
     }
     
     override func viewDidLoad() {
@@ -38,11 +38,11 @@ class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegat
         mapView.annotationManager.removeAllOverlays()
         switch ID {
         case 2:
-            displayAdditionalDataPoland()
+            displayAdditionalDataLanduse()
         case 1:
-            displayAdditionalDataBerlin()
-        default:
             displayAdditionalDataAmsterdam()
+        default:
+            displayAdditionalDataPoland()
         }
     }
     
@@ -55,9 +55,9 @@ class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegat
         search.search(with: query)
     }
     
-    func displayAdditionalDataBerlin() {
-        let query = TTSearchQueryBuilder.create(withTerm: "Berlin")
-            .withIdxSet(.geographies)
+    func displayAdditionalDataLanduse() {
+        let query = TTSearchQueryBuilder.create(withTerm: "Amsterdam Airport Schiphol")
+            .withIdxSet(.pointOfInterest)
             .build()
         search.search(with: query)
     }

@@ -39,9 +39,17 @@ class MapRasterTrafficViewController: MapBaseViewController {
         case 2:
             hideTraffic()
         case 1:
-            displayFLow()
+            if on {
+                displayFlow()
+            } else {
+                hideFlow()
+            }
         default:
-            displayIncidents()
+            if on {
+                displayIncidents()
+            } else {
+                hideIncidents()
+            }
         }
     }
     
@@ -50,9 +58,17 @@ class MapRasterTrafficViewController: MapBaseViewController {
     func displayIncidents() {
         mapView.trafficIncidentsOn = true
     }
+
+    func hideIncidents() {
+        mapView.trafficIncidentsOn = false
+    }
     
-    func displayFLow() {
+    func displayFlow() {
         mapView.trafficFlowOn = true
+    }
+
+    func hideFlow() {
+        mapView.trafficFlowOn = false
     }
     
     func hideTraffic() {

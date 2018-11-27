@@ -51,7 +51,7 @@
     } else if ([self.results[indexPath.row] isKindOfClass:[TTInstruction class]]) {
         TTInstruction *instruction = (TTInstruction *)self.results[indexPath.row];
         ManeuverCell *maneuverCell = [[ManeuverCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reusableManeuverCellID"];
-        int distanceToManeuver = instruction.routeOffsetInMeters.intValue;
+        NSInteger distanceToManeuver = instruction.routeOffsetInMetersValue;
         maneuverCell.maneuverDistance.text = [FormatUtils  formatDistanceWithMeters:distanceToManeuver];
         maneuverCell.maneuverDescription.text = instruction.message;
         maneuverCell.maneuverImageView.image = [ManeuverIconGenerator imageForInstruction:instruction];

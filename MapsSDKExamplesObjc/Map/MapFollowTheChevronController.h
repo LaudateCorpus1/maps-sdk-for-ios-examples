@@ -9,15 +9,9 @@
  * immediately return it to TomTom N.V.
  */
 
-#import <Foundation/Foundation.h>
-#import "ButtonsBaseViewController.h"
-#import <TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.h>
+#import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
+#import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-@interface MapBaseViewController : ButtonsBaseViewController
-
-@property (nonatomic, weak) TTMapView *mapView;
-- (void)setupMap;
-- (void)setupCenterOnWillHappen;
-- (void)onMapReady;
+@interface MapFollowTheChevronController : MapBaseViewController
 
 @end

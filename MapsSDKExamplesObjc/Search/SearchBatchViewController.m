@@ -51,13 +51,13 @@
 #pragma mark Examples
 
 - (void)batchSearchWithTerm:(NSString *)term {
-    TTSearchQuery *query1 = [[[[TTSearchQueryBuilder createWithTerm:term]
+    TTSearchQuery *query1 = [[[[[TTSearchQueryBuilder createWithTerm:term] withCategory:YES]
                                withPosition:[TTCoordinate AMSTERDAM_CENTER_LOCATION]]
                               withLimit:10]
                              build];
-    TTSearchQuery *query2 = [[[[TTSearchQueryBuilder createWithTerm:term]
+    TTSearchQuery *query2 = [[[[[TTSearchQueryBuilder createWithTerm:term] withCategory:YES]
                                withPosition:[TTCoordinate HAARLEM]]
-                              withLimit:10]
+                              withLimit:15]
                              build];
     TTSearchCircle *geometry = [TTSearchCircle circleWithCenter:[TTCoordinate HOOFDDORP] radius:4000];
     TTGeometrySearchQuery *geometryQuery = [[TTGeometrySearchQueryBuilder createWithTerm:term searchShapes:@[geometry]]

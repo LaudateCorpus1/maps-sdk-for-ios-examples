@@ -55,7 +55,7 @@
 
 
 - (UIView<TTCalloutView> *)annotationManager:(id<TTAnnotationManager>)manager viewForSelectedAnnotation:(TTAnnotation *)selectedAnnotation {
-    return [[TTCalloutViewSimple alloc] initWithText:self.geocoderResult];
+    return [[TTCalloutOutlineView alloc] initWithText:self.geocoderResult];
 }
 
 #pragma mark TTReverseGeocoderDelegate

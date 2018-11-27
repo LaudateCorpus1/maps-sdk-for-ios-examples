@@ -35,9 +35,13 @@ class MapVectorTrafficViewController: MapBaseViewController {
         super.displayExample(withID: ID, on: on)
         switch ID {
         case 1:
-            hideFLow()
+            hideFlow()
         default:
-            displayFlow()
+            if on {
+                displayFlow()
+            } else {
+                hideFlow()
+            }
         }
     }
     
@@ -47,7 +51,7 @@ class MapVectorTrafficViewController: MapBaseViewController {
         mapView.trafficFlowOn = true
     }
     
-    func hideFLow() {
+    func hideFlow() {
         mapView.trafficFlowOn = false
     }
 

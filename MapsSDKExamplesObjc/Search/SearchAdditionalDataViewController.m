@@ -52,7 +52,7 @@
 @implementation SearchAdditionalDataViewController
 
 - (OptionsView *)getOptionsView {
-    return [[OptionsViewSingleSelect alloc] initWithLabels:@[@"Amsterdam", @"Berlin", @"Poland"] selectedID:-1];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[@"Poland", @"Amsterdam", @"Schiphol"] selectedID:-1];
 }
 
 - (void)viewDidLoad {
@@ -71,13 +71,13 @@
     [self.progress show];
     switch (ID) {
         case 2:
-            [self displayAdditionalDataPoland];
+            [self displayAdditionalDataLanduse];
             break;
         case 1:
-            [self displayAdditionalDataBerlin];
+            [self displayAdditionalDataAmsterdam];
             break;
         default:
-            [self displayAdditionalDataAmsterdam];
+            [self displayAdditionalDataPoland];
             break;
     }
 }
@@ -91,9 +91,9 @@
     [self.search searchWithQuery:query];
 }
 
-- (void)displayAdditionalDataBerlin {
-    TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:@"Berlin"]
-                             withIdxSet:TTSearchIndexGeographies]
+- (void)displayAdditionalDataLanduse {
+    TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:@"Amsterdam Airport Schiphol"]
+                             withIdxSet:TTSearchIndexPointOfInterest]
                             build];
     [self.search searchWithQuery:query];
 }

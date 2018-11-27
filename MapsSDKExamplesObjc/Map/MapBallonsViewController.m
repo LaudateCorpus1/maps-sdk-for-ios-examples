@@ -45,7 +45,7 @@
     if(self.customAnnotation && self.customAnnotation == selectedAnnotation) {
         return [[CustomCallout alloc] initWithFrame:CGRectZero];
     } else {
-        return [[TTCalloutViewSimple alloc] initWithAnnotation:selectedAnnotation];
+        return [[TTCalloutOutlineView alloc] initWithText:[NSString stringWithFormat:@"%f,%f", selectedAnnotation.coordinate.latitude, selectedAnnotation.coordinate.longitude]];
     }
 }
 

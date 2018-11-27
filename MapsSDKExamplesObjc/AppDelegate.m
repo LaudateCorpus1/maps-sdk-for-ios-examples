@@ -26,6 +26,7 @@
 #import "MapBallonsViewController.h"
 #import "MapShapesViewController.h"
 #import "MapMarkersClusteringViewController.h"
+#import "MapFollowTheChevronController.h"
 #import "TrafficIncidentsViewController.h"
 #import "SearchAddressViewController.h"
 #import "SearchCategoryViewController.h"
@@ -121,6 +122,9 @@
                 break;
             case 15:
                 newViewController = [MapMarkersClusteringViewController new];
+                break;
+            case 16:
+                newViewController = [MapFollowTheChevronController new];
                 break;
             default:
                 [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];

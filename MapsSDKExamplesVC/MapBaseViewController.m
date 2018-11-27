@@ -17,7 +17,9 @@
     [super viewDidLoad];
     [self setupMap];
     [self setupControls];
-    self.mapView.showsUserLocation = YES;
+    [self.mapView onMapReadyCompletion:^{
+        [self onMapReady];
+    }];
 }
 
 - (void)setupMap {
@@ -30,6 +32,10 @@
 
 - (void)setupCenterOnWillHappen {
     [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM] withZoom:10];
+}
+
+- (void)onMapReady {
+    self.mapView.showsUserLocation = YES;
 }
 
 @end

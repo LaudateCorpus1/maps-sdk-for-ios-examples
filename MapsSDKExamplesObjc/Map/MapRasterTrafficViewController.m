@@ -38,10 +38,18 @@
             [self hideTraffic];
             break;
         case 1:
-            [self displayFLow];
+            if (on) {
+                [self displayFlow];
+            } else {
+                [self hideFlow];
+            }
             break;
         default:
-            [self displayIncidents];
+            if (on) {
+                [self displayIncidents];
+            } else {
+                [self hideFlow];
+            }
             break;
     }
 }
@@ -52,8 +60,16 @@
     self.mapView.trafficIncidentsOn = YES;
 }
 
-- (void)displayFLow {
+- (void)hideIncidents {
+    self.mapView.trafficIncidentsOn = NO;
+}
+
+- (void)displayFlow {
     self.mapView.trafficFlowOn = YES;
+}
+
+- (void)hideFlow {
+    self.mapView.trafficFlowOn = NO;
 }
 
 - (void)hideTraffic {

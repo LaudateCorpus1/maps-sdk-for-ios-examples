@@ -32,6 +32,7 @@ class SearchBatchViewController: MapBaseViewController, TTBatchSearchDelegate, T
     
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
+        mapView.annotationManager.clustering = true
         mapView.annotationManager.removeAllOverlays()
         mapView.annotationManager.removeAllAnnotations()
         progress.show()
@@ -49,12 +50,14 @@ class SearchBatchViewController: MapBaseViewController, TTBatchSearchDelegate, T
     
     func batchSearch(term: String) {
         let query1 = TTSearchQueryBuilder.create(withTerm: term)
+            .withCategory(true)
             .withPosition(TTCoordinate.AMSTERDAM_CENTER_LOCATION())
             .withLimit(10)
             .build()
         let query2 = TTSearchQueryBuilder.create(withTerm: term)
+            .withCategory(true)
             .withPosition(TTCoordinate.HAARLEM())
-            .withLimit(10)
+            .withLimit(15)
             .build()
         let geometry = TTSearchCircle(center: TTCoordinate.HOOFDDORP(), radius: 4000)
         let geometryQuery = TTGeometrySearchQueryBuilder.create(withTerm: term, searchShapes: [geometry])

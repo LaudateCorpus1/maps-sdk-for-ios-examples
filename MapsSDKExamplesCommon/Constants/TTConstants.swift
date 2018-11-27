@@ -76,5 +76,36 @@ public class TTCoordinate: NSObject {
     @objc public static func ALPHEN_AAN_DEN_RIJN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.128247, 4.668368) }
     @objc public static func PORTUGAL_COIMBRA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(40.209408, -8.423741) }
     @objc public static func PORTUGAL_NOVA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(40.10995732392718, -8.501433134078981) }
+    @objc public static func LODZ_SREBRZYNSKA_START() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.772756, 19.423065) }
+    @objc public static func LODZ_SREBRZYNSKA_WAYPOINT_A() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.780990, 19.451229) }
+    @objc public static func LODZ_SREBRZYNSKA_WAYPOINT_B() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.786451, 19.449562) }
+    @objc public static func LODZ_SREBRZYNSKA_WAYPOINT_C() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.791383, 19.420641) }
+    @objc public static func LODZ_SREBRZYNSKA_STOP() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.773136, 19.4233983) }
+}
 
+public class TTCamera: NSObject {
+    @objc public static func ANIMATION_TIME() -> Int32 {
+        return 1
+    }
+    @objc public static func BEARING_START() -> Double {
+        return 0
+    }
+    @objc public static func DEFAULT_MAP_ZOOM_LEVEL_FOR_EXAMPLE() -> Double {
+        return 12
+    }
+    @objc public static func DEFAULT_MAP_ZOOM_LEVEL_FOR_DRIVING() -> Int32 {
+        return 17
+    }
+    @objc public static func DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING() -> Double {
+        return 50
+    }
+    @objc public static func DEFAULT_VERTICAL_PADDING() -> CGFloat {
+        return 30.0
+    }
+    @objc public static func DEFAULT_HORIZONTAL_PADDING() -> CGFloat {
+        return 10.0
+    }
+    @objc public static func MAP_DEFAULT_INSETS() -> UIEdgeInsets {
+        return UIEdgeInsetsMake(TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale);
+    }
 }

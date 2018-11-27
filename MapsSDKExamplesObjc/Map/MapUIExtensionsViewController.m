@@ -90,7 +90,7 @@
     
     UIButton *customControlLeftButton = [UIButton new];
     [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_left_custom"] forState:UIControlStateNormal];
-    [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_down_highlighted_custom"] forState:UIControlStateHighlighted];
+    [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_left_highlighted_custom"] forState:UIControlStateHighlighted];
     self.controlView.controlView.leftControlBtn = customControlLeftButton;
     UIButton *customControlRightButton = [UIButton new];
     [customControlRightButton setImage:[UIImage imageNamed:@"arrow_right_custom"] forState:UIControlStateNormal];

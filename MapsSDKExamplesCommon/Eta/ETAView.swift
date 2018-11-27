@@ -43,15 +43,15 @@ public class ETAView: UIView {
     }
     
     @objc public func show(summary: TTSummary, style: ETAView.ETAViewStyle) {
-        let components = summary.arrivalTime!.components
+        let components = summary.arrivalTime.components
         switch style {
         case .consumptionLiters:
-            time.text = "Consumption \(String(format: "%.2f", summary.fuelConsumptionInLiters.doubleValue)) liters"
+            time.text = "Consumption \(String(format: "%.2f", summary.fuelConsumptionInLitersValue)) liters"
             if let leftIcon = leftIcon {
                 leftIcon.removeFromSuperview()
             }
         case .consumptionKWh:
-            time.text = "Consumption \(String(format: "%.2f", summary.batteryConsumptionInkWh.doubleValue)) kWh"
+            time.text = "Consumption \(String(format: "%.2f", summary.batteryConsumptionInkWhValue)) kWh"
             if let leftIcon = leftIcon {
                 leftIcon.removeFromSuperview()
             }
@@ -62,7 +62,7 @@ public class ETAView: UIView {
             time.text = String(format: "%02d:%02d", components.hour, components.minute)
             leftIcon.image = UIImage(named: "Destination")!
         }
-        distance.text = "\(FormatUtils.formatDistance(meters: summary.lengthInMeters.uintValue))"
+        distance.text = "\(FormatUtils.formatDistance(meters: UInt(summary.lengthInMetersValue)))"
         isHidden = false
     }
     

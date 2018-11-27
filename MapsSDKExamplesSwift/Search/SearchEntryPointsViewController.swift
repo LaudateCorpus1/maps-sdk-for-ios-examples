@@ -51,7 +51,7 @@ class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate {
     }
     
     func displayEntryPointsForShoppingMall() {
-        let query = TTSearchQueryBuilder.create(withTerm: "Kalvertoren Singel 451")
+        let query = TTSearchQueryBuilder.create(withTerm: "Kalvertoren Singel 451").withIdxSet(TTSearchIndex.pointOfInterest)
             .build()
         search.search(with: query)
     }
