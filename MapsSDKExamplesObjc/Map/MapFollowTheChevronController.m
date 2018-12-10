@@ -95,7 +95,11 @@
                                                                      withPitch:[TTCamera DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING]
                                                                       withZoom:[TTCamera DEFAULT_MAP_ZOOM_LEVEL_FOR_DRIVING]];
     [self.mapView setCameraPosition:camera];
+    
+    
+    if (self.chevron != nil){
     [self.mapView.trackingManager startTrackingObject:self.chevron];
+    }
 }
 
 - (void)stop {

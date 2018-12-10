@@ -86,7 +86,9 @@ class MapFollowTheChevronController: MapBaseViewController {
                                       withZoom: TTCamera.DEFAULT_MAP_ZOOM_LEVEL_FOR_DRIVING())
         mapView.setCameraPosition(camera)
 
+        if chevron != nil {
         mapView.trackingManager.start(chevron!)
+        }
     }
 
     func stop() {

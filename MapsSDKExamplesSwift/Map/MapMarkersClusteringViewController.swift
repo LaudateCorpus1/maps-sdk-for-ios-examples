@@ -16,15 +16,15 @@ import TomTomOnlineSDKMaps
 
 class MapMarkersClusteringViewController: MapBaseViewController {
     
-    override func setupCenterOnWillHappen() {
+    override func setupCenterOnWillHappen() {}
+    
+    override func onMapReady() {
+        super.onMapReady()
+        mapView.zoomToAllAnnotations()
     }
     
     override func setupMap() {
         super.setupMap()
-        mapView.onMapReadyCompletion {
-            self.mapView.zoomToAllAnnotations()
-        }
-        
         mapView.annotationManager.clustering = true
         addRandomMarkers()
     }

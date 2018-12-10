@@ -11,11 +11,13 @@
 
 #import "RoutingBaseViewController.h"
 
+
 @implementation RoutingBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupEtaView];
+    [self setupMatrixETAView];
 }
 
 - (void)setupCenterOnWillHappen {
@@ -39,6 +41,29 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[v0(50)]" options:0 metrics:nil views:@{@"v0": etaView}]];
 }
 
+- (void)setupMatrixETAView {
+    MatrixETAView *matrixEta = [MatrixETAView new];
+    [self.view addSubview:matrixEta];
+    self.matrixETAView = matrixEta;
+    matrixEta.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[v0]-0-|" options:0 metrics:nil views:@{@"v0": matrixEta}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[v0(144)]" options:0 metrics:nil views:@{@"v0": matrixEta}]];
+    [self hideMatrixEta];
+}
+
+- (void)showMatrixEta:(BOOL)oneToMany withMatrixResponse:(TTMatrixRouteResponse*)response {
+    self.matrixETAView.hidden = NO;
+    if(oneToMany) {
+        [self.matrixETAView displayETAOneToManyWithMatrix:response];
+    } else {
+        [self.matrixETAView displayETAManyToManyWithMatrix:response];
+    }
+}
+
+- (void)hideMatrixEta {
+    self.matrixETAView.hidden = YES;
+}
+
 - (void)showETA:(TTSummary *)summary {
     [self.etaView showWithSummary:summary style:ETAViewStylePlain];
 }
@@ -54,6 +79,15 @@
                                            10 * UIScreen.mainScreen.scale);
     self.mapView.contentInset = insets;
     [self.mapView.routeManager showAllRoutesOverview];
+}
+
+- (void)zoomToAllMarkers {
+    UIEdgeInsets insets = UIEdgeInsetsMake(80 * UIScreen.mainScreen.scale,
+                                           10 * UIScreen.mainScreen.scale,
+                                           30 * UIScreen.mainScreen.scale,
+                                           10 * UIScreen.mainScreen.scale);
+    self.mapView.contentInset = insets;
+    [self.mapView zoomToAllAnnotations];
 }
 
 @end

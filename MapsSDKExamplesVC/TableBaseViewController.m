@@ -62,7 +62,7 @@
         if (LocationManager.shared.lastLocation != nil) {
             distance = [LocationManager.shared.lastLocation distanceFromLocation:[[CLLocation alloc] init:searchResult.position]];
         }
-        NSString *distanceAsText =  [FormatUtils  formatDistanceWithMeters:distance];
+        NSString *distanceAsText =  [FormatUtils formatDistanceWithMeters:distance];
         NSString *text = [NSString stringWithFormat:@"%@ %@ %@ %@", distanceAsText, searchResult.address.country, searchResult.address.freeformAddress, searchResult.address.countryCode];
         cell.textLabel.numberOfLines = 4;
         cell.textLabel.text = text;

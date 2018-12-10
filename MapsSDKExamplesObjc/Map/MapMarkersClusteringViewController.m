@@ -15,11 +15,13 @@
 
 - (void)setupCenterOnWillHappen {}
 
+- (void)onMapReady {
+    [super onMapReady];
+    [self.mapView zoomToAllAnnotations];
+}
+
 - (void)setupMap {
     [super setupMap];
-    [self.mapView onMapReadyCompletion:^{
-        [self.mapView zoomToAllAnnotations];
-    }];
     self.mapView.annotationManager.clustering = YES;
     [self addRandomMarkers];
 }

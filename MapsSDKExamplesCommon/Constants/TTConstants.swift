@@ -12,6 +12,14 @@
 import UIKit
 import CoreLocation
 
+
+
+public class TTSecoundMap: NSObject {
+    @objc public static func SecoundMapSize() -> Int { return 190}
+    @objc public static func SecoundMapBorderSize() -> CGFloat { return 5.0 }
+}
+
+
 public class TTColor: NSObject {
     
     @objc public static func White() -> UIColor { return UIColor.white }
@@ -23,6 +31,7 @@ public class TTColor: NSObject {
     @objc public static func GreenDark() -> UIColor { return UIColor(red: 0.4784, green: 0.6627, blue: 0.1254, alpha: 1.0) }
     @objc public static func Red() -> UIColor { return UIColor(red: 1, green: 0, blue: 0, alpha: 1.0) }
     @objc public static func RedSemiTransparent() -> UIColor { return UIColor(red: 1, green: 0, blue: 0, alpha: 0.3) }
+    @objc public static func Yellow() -> UIColor { return UIColor.yellow }
     
 }
 
@@ -43,6 +52,10 @@ struct TTCollectionViewCell {
 
 public class TTCoordinate: NSObject {
 
+    @objc public static func PASSENGER_ONE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.379958,4.856268) }
+    @objc public static func PASSENGER_TWO() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.330002,4.914814) }
+    @objc public static func TAXI_ONE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.348068,4.832925) }
+    @objc public static func TAXI_TWO() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.347154,4.901458) }
     @objc public static func LODZ_SENKIEWICZA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.7689803,19.4245332) }
     @objc public static func LODZ_DREWNOWSKA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.7797617,19.444442) }
     @objc public static func LODZ() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.773097,19.4105534) }
@@ -54,6 +67,11 @@ public class TTCoordinate: NSObject {
     @objc public static func POLAND() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.9324518, 16.8922826) }
     @objc public static func AMSTERDAM() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.377271, 4.909466) }
     @objc public static func AMSTERDAM_CENTER_LOCATION() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.373154, 4.890659) }
+    @objc public static func AMSTERDAM_RESTAURANT_WAGAMAMA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.362620, 4.883390) }
+    @objc public static func AMSTERDAM_RESTAURANT_BRIDGES() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.370813, 4.895107) }
+    @objc public static func AMSTERDAM_RESTAURANT_GREETJE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.371536, 4.907739) }
+    @objc public static func AMSTERDAM_RESTAURANT_LA_RIVE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.360276, 4.905146) }
+    @objc public static func AMSTERDAM_RESTAURANT_ENVY() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.371450, 4.883201) }
     @objc public static func AMSTERDAM_CIRCLE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.3639871,4.7953232) }
     @objc public static func AMSTERDAM_A10() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.3691851,4.8505632) }
     @objc public static func HAARLEM() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.381222, 4.637558) }

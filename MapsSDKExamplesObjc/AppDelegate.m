@@ -26,6 +26,7 @@
 #import "MapBallonsViewController.h"
 #import "MapShapesViewController.h"
 #import "MapMarkersClusteringViewController.h"
+#import "MapMultipleViewController.h"
 #import "MapFollowTheChevronController.h"
 #import "TrafficIncidentsViewController.h"
 #import "SearchAddressViewController.h"
@@ -50,6 +51,7 @@
 #import "RoutingSupportingPointsViewController.h"
 #import "RoutingReachableRangeViewController.h"
 #import "RoutingBatchRouteViewController.h"
+#import "RoutingMatrixViewController.h"
 
 @interface AppDelegate () <ExampleDisplayRequest>
 
@@ -126,6 +128,9 @@
             case 16:
                 newViewController = [MapFollowTheChevronController new];
                 break;
+            case 17:
+                newViewController = [MapMultipleViewController new];
+                break;
             default:
                 [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];
                 break;
@@ -173,6 +178,9 @@
                 break;
             case 10:
                 newViewController = [RoutingBatchRouteViewController new];
+                break;
+            case 11:
+                newViewController = [RoutingMatrixViewController new];
                 break;
             default:
                 [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];

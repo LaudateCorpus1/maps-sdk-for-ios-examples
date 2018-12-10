@@ -69,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = MapMarkersClusteringViewController()
             case 16:
                 newViewController = MapFollowTheChevronController()
+            case 17:
+                newViewController = MapMultipleViewController()
             default:
                 fatalError("This VC is not handled")
             }
@@ -103,6 +105,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = RoutingReachableRangeViewController()
             case 10:
                 newViewController = RoutingBatchRouteViewController()
+            case 11:
+                newViewController = RoutingMatrixViewController()
             default:
                 fatalError("This VC is not handled")
             }

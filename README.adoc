@@ -51,6 +51,7 @@ You can do so by adding Maps SDK modules to Podfile and running pod install agai
 * MAP - Getting started
 * SEARCH - Getting started
 * ROUTING - Getting started
+* TRAFFIC - Getting started
 
 === Configuration for all Maps SDK modules
 
@@ -67,10 +68,13 @@ To include all Maps SDK modules in your app, modify Info.plist:
 pod 'TomTomOnlineSDKMaps'
 pod 'TomTomOnlineSDKSearch'
 pod 'TomTomOnlineSDKRouting'
+pod 'TomTomOnlineSDKTraffic'
 pod 'TomTomOnlineSDKMapsUIExtensions'
+pod 'TomTomOnlineSDKMapsStaticImage'
 ----
 
 *  Now go to console and install frameworks by typing *pod install*
+
 
 [[building-and-launching-application]]
 === Building and Launching

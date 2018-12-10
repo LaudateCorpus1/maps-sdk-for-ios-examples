@@ -208,7 +208,5 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
         let components:NSDateComponents =  calendar.dateComponents(unitFlags, from: eta) as NSDateComponents
         let dateInString = "\(components.hour):\(components.minute) \(desc)"
         self.etaView.update(eta: dateInString, metersDistance: UInt(summary.lengthInMetersValue))
-        
-        
     }
 }

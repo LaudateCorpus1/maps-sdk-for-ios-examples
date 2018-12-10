@@ -39,5 +39,9 @@ public extension CLLocation {
         let longitude = Math.randBetween(low: center.longitude - 0.1, high: center.longitude + 0.1)
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
+    
+    @objc static public func locationsEquals(first: CLLocationCoordinate2D, second: CLLocationCoordinate2D) -> Bool {
+        return (fabs(first.latitude - second.latitude) < .ulpOfOne) && (fabs(first.longitude - second.longitude) < .ulpOfOne)
+    }
 
 }

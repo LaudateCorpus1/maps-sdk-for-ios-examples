@@ -20,7 +20,6 @@ class OptionsCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        //self.separatorInset = .zero
         self.preservesSuperviewLayoutMargins = false
         self.layoutMargins = .zero
     }

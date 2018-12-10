@@ -11,16 +11,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
-#import "MapBaseViewController.h"
-#import <TomTomOnlineSDKRouting/TomTomOnlineSDKRouting.h>
+#import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-@interface RoutingBaseViewController : MapBaseViewController
-@property (nonatomic, weak) ETAView *etaView;
-@property (nonatomic, weak) MatrixETAView *matrixETAView;
-- (void)showETA:(TTSummary *)summary;
-- (void)hideEta;
-- (void)displayRouteOverview;
-- (void)zoomToAllMarkers;
-- (void)showMatrixEta:(BOOL)oneToMany withMatrixResponse:(TTMatrixRouteResponse*)response;
-- (void)hideMatrixEta;
+@interface MapMultipleViewController : MapBaseViewController
+
 @end

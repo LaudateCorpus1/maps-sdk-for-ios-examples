@@ -23,7 +23,6 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //self.separatorInset = .zero
         self.preservesSuperviewLayoutMargins = false
         self.layoutMargins = .zero
     }
@@ -67,7 +66,7 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
         label.textColor = TTColor.GrayLight()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
-        label.numberOfLines = 3
+        label.numberOfLines = 4
         return label
     }()
     

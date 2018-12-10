@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6E14CCFC2148F7D10060C405 /* RoutingBatchRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCFB2148F7D10060C405 /* RoutingBatchRouteViewController.swift */; };
 		6E14CCFF2148FBB50060C405 /* RoutingBatchRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCFE2148FBB50060C405 /* RoutingBatchRouteViewController.m */; };
+		6E241CFA21AEDD2500818A53 /* MapMultipleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */; };
 		6E365F672158E77900FD24D2 /* MapVectorTrafficViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E365F662158E77900FD24D2 /* MapVectorTrafficViewControllerTests.m */; };
 		6E365F6F2158EE1800FD24D2 /* XCUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E365F6E2158EE1800FD24D2 /* XCUIElement.m */; };
 		6E365F722158F18800FD24D2 /* XCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E365F712158F18800FD24D2 /* XCTestCase.m */; };
@@ -30,6 +31,7 @@
 		6E4F76AB215272CD0084946F /* MapBallonsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F76AA215272CD0084946F /* MapBallonsViewControllerTests.swift */; };
 		6E4F76AD2152735C0084946F /* MapShapesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F76AC2152735C0084946F /* MapShapesViewControllerTests.swift */; };
 		6E4F76AF215273990084946F /* MapMarkersClusteringViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F76AE215273990084946F /* MapMarkersClusteringViewControllerTests.swift */; };
+		6E769330219D858200D8717A /* MapMultipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76932F219D858200D8717A /* MapMultipleViewController.swift */; };
 		6EB3C4B3215A05BD00AC580C /* MapPerspectiveViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4B2215A05BD00AC580C /* MapPerspectiveViewControllerTests.m */; };
 		6EB3C4B5215A069F00AC580C /* MapEventsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4B4215A069F00AC580C /* MapEventsViewControllerTests.m */; };
 		6EB3C4B7215A078300AC580C /* MapUIExtensionsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4B6215A078300AC580C /* MapUIExtensionsViewControllerTests.m */; };
@@ -61,6 +63,8 @@
 		6EB3C4EE215A342100AC580C /* SearchEntryPointsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4ED215A342100AC580C /* SearchEntryPointsViewControllerTests.m */; };
 		6EB3C4F0215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4EF215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m */; };
 		6EB3C4F2215A351400AC580C /* SearchBatchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4F1215A351400AC580C /* SearchBatchViewControllerTests.m */; };
+		6EE8F36721B14882006B8149 /* MapMultipleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F36621B14882006B8149 /* MapMultipleViewControllerTests.m */; };
+		6EE8F36921B14984006B8149 /* MapMultipleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F36821B14984006B8149 /* MapMultipleViewControllerTests.swift */; };
 		72006913213E4BCF005B20D1 /* MapsSDKExamplesVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 72006903213E4BCF005B20D1 /* MapsSDKExamplesVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72006917213E4BCF005B20D1 /* MapsSDKExamplesVC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72006901213E4BCF005B20D1 /* MapsSDKExamplesVC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7200691E213E4BEB005B20D1 /* MapBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7220279A213D135C00296ACF /* MapBaseViewController.m */; };
@@ -116,6 +120,11 @@
 		72006968213FA5D6005B20D1 /* SearchBatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253A664212D8EB800C469FF /* SearchBatchViewController.swift */; };
 		7200696B213FA98E005B20D1 /* SearchBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 72006969213FA98E005B20D1 /* SearchBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7200696C213FA98E005B20D1 /* SearchBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7200696A213FA98E005B20D1 /* SearchBaseViewController.m */; };
+		7215016F21A68CAD0016C396 /* MatrixETAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7215016E21A68CAD0016C396 /* MatrixETAView.swift */; };
+		7215017121A6A50B0016C396 /* MatrixRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7215017021A6A50B0016C396 /* MatrixRow.xib */; };
+		7215017321A6AA330016C396 /* MatrixRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7215017221A6AA330016C396 /* MatrixRow.swift */; };
+		7215017421A6B25B0016C396 /* MatrixRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7215017021A6A50B0016C396 /* MatrixRow.xib */; };
+		7215017521A6B25C0016C396 /* MatrixRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7215017021A6A50B0016C396 /* MatrixRow.xib */; };
 		7216F251215224DF00DB2159 /* MapTilesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F250215224DF00DB2159 /* MapTilesViewControllerTests.swift */; };
 		7216F2672152343A00DB2159 /* MapTilesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7216F2662152343A00DB2159 /* MapTilesViewControllerTests.m */; };
 		7216F26C2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F26B2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift */; };
@@ -180,6 +189,9 @@
 		722027A3213D33CE00296ACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722027A2213D33CE00296ACF /* Assets.xcassets */; };
 		722A8907216B73E900078A32 /* LICENSE.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 722A8906216B73E900078A32 /* LICENSE.pdf */; };
 		722A8908216B73E900078A32 /* LICENSE.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 722A8906216B73E900078A32 /* LICENSE.pdf */; };
+		7238475421A7FE43007F775D /* RoutingMatrixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7238475321A7FE43007F775D /* RoutingMatrixViewController.m */; };
+		7238475621A82FA0007F775D /* RoutingMatrixViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238475521A82FA0007F775D /* RoutingMatrixViewControllerTests.swift */; };
+		7238475821A830F4007F775D /* RoutingMatrixViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7238475721A830F4007F775D /* RoutingMatrixViewControllerTests.m */; };
 		723F24C8216F63AE007D7FB1 /* MapsSDKExamples.h in Headers */ = {isa = PBXBuildFile; fileRef = 723F24C6216F63AE007D7FB1 /* MapsSDKExamples.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		724F2C6621198D1C00412634 /* MapTilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F2C6521198D1C00412634 /* MapTilesViewController.swift */; };
 		7266CFBA211B0B6A00162D91 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 7266CFB9211B0B6A00162D91 /* style.json */; };
@@ -211,6 +223,7 @@
 		7280A27021479E100078B943 /* CustomCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AA4696211D8F4F0019EC72 /* CustomCallout.xib */; };
 		7280A2712147A66C0078B943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722027A2213D33CE00296ACF /* Assets.xcassets */; };
 		7280A2722147A6760078B943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722027A2213D33CE00296ACF /* Assets.xcassets */; };
+		7281DB1B21A427A7002422D8 /* RoutingMatrixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7281DB1A21A427A7002422D8 /* RoutingMatrixViewController.swift */; };
 		729FFC802134234600467D60 /* Maneuver.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729FFC7F2134234600467D60 /* Maneuver.xcassets */; };
 		729FFC82213426DF00467D60 /* ManeuverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729FFC81213426DF00467D60 /* ManeuverCell.xib */; };
 		72AA4697211D8F4F0019EC72 /* CustomCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AA4696211D8F4F0019EC72 /* CustomCallout.xib */; };
@@ -262,6 +275,7 @@
 		9C77CF3D2106F7B600A3179B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77CF3C2106F7B600A3179B /* AppDelegate.swift */; };
 		9C77CF442106F7B800A3179B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C77CF432106F7B800A3179B /* Assets.xcassets */; };
 		9C77CF472106F7B800A3179B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C77CF452106F7B800A3179B /* LaunchScreen.storyboard */; };
+		9C81FE2121AED86400D9C2C4 /* MapsSDKExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7220273D2139607500296ACF /* MapsSDKExamplesCommon.framework */; };
 		9CCB057421885E55006BA780 /* FollowTheChevronSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057321885E54006BA780 /* FollowTheChevronSource.swift */; };
 		9CCB057621887A49006BA780 /* MapFollowTheChevronControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057521887A49006BA780 /* MapFollowTheChevronControllerTests.swift */; };
 		9CCB057821887BAB006BA780 /* MapFollowTheChevronControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057721887BAB006BA780 /* MapFollowTheChevronControllerTests.m */; };
@@ -364,6 +378,8 @@
 		6E14CCFB2148F7D10060C405 /* RoutingBatchRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingBatchRouteViewController.swift; sourceTree = "<group>"; };
 		6E14CCFD2148FBB50060C405 /* RoutingBatchRouteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutingBatchRouteViewController.h; sourceTree = "<group>"; };
 		6E14CCFE2148FBB50060C405 /* RoutingBatchRouteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingBatchRouteViewController.m; sourceTree = "<group>"; };
+		6E241CF821AEDD2500818A53 /* MapMultipleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapMultipleViewController.h; sourceTree = "<group>"; };
+		6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMultipleViewController.m; sourceTree = "<group>"; };
 		6E365F662158E77900FD24D2 /* MapVectorTrafficViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapVectorTrafficViewControllerTests.m; sourceTree = "<group>"; };
 		6E365F6E2158EE1800FD24D2 /* XCUIElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCUIElement.m; sourceTree = "<group>"; };
 		6E365F712158F18800FD24D2 /* XCTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCTestCase.m; sourceTree = "<group>"; };
@@ -386,6 +402,7 @@
 		6E4F76AA215272CD0084946F /* MapBallonsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBallonsViewControllerTests.swift; sourceTree = "<group>"; };
 		6E4F76AC2152735C0084946F /* MapShapesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapShapesViewControllerTests.swift; sourceTree = "<group>"; };
 		6E4F76AE215273990084946F /* MapMarkersClusteringViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkersClusteringViewControllerTests.swift; sourceTree = "<group>"; };
+		6E76932F219D858200D8717A /* MapMultipleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMultipleViewController.swift; sourceTree = "<group>"; };
 		6EB3C4B2215A05BD00AC580C /* MapPerspectiveViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPerspectiveViewControllerTests.m; sourceTree = "<group>"; };
 		6EB3C4B4215A069F00AC580C /* MapEventsViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapEventsViewControllerTests.m; sourceTree = "<group>"; };
 		6EB3C4B6215A078300AC580C /* MapUIExtensionsViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapUIExtensionsViewControllerTests.m; sourceTree = "<group>"; };
@@ -420,6 +437,8 @@
 		6EE13A88210AFC7000B7507A /* SubOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptions.swift; sourceTree = "<group>"; };
 		6EE13A8A210B136800B7507A /* SubOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsViewController.swift; sourceTree = "<group>"; };
 		6EE13A8C210B2F8100B7507A /* SubOptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		6EE8F36621B14882006B8149 /* MapMultipleViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMultipleViewControllerTests.m; sourceTree = "<group>"; };
+		6EE8F36821B14984006B8149 /* MapMultipleViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMultipleViewControllerTests.swift; sourceTree = "<group>"; };
 		72006901213E4BCF005B20D1 /* MapsSDKExamplesVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapsSDKExamplesVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72006903213E4BCF005B20D1 /* MapsSDKExamplesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsSDKExamplesVC.h; sourceTree = "<group>"; };
 		72006904213E4BCF005B20D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -435,6 +454,9 @@
 		7200695A213EAF6C005B20D1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72006969213FA98E005B20D1 /* SearchBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBaseViewController.h; sourceTree = "<group>"; };
 		7200696A213FA98E005B20D1 /* SearchBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBaseViewController.m; sourceTree = "<group>"; };
+		7215016E21A68CAD0016C396 /* MatrixETAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixETAView.swift; sourceTree = "<group>"; };
+		7215017021A6A50B0016C396 /* MatrixRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatrixRow.xib; sourceTree = "<group>"; };
+		7215017221A6AA330016C396 /* MatrixRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixRow.swift; sourceTree = "<group>"; };
 		7216F24321521BEA00DB2159 /* MapsSDKExamplesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapsSDKExamplesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7216F250215224DF00DB2159 /* MapTilesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTilesViewControllerTests.swift; sourceTree = "<group>"; };
 		7216F2572152326900DB2159 /* MapsSDKExamplesObjcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapsSDKExamplesObjcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -488,6 +510,10 @@
 		7220279A213D135C00296ACF /* MapBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapBaseViewController.m; sourceTree = "<group>"; };
 		722027A2213D33CE00296ACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		722A8906216B73E900078A32 /* LICENSE.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LICENSE.pdf; sourceTree = "<group>"; };
+		7238475221A7FE43007F775D /* RoutingMatrixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutingMatrixViewController.h; sourceTree = "<group>"; };
+		7238475321A7FE43007F775D /* RoutingMatrixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingMatrixViewController.m; sourceTree = "<group>"; };
+		7238475521A82FA0007F775D /* RoutingMatrixViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingMatrixViewControllerTests.swift; sourceTree = "<group>"; };
+		7238475721A830F4007F775D /* RoutingMatrixViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingMatrixViewControllerTests.m; sourceTree = "<group>"; };
 		723F24C4216F63AE007D7FB1 /* MapsSDKExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapsSDKExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		723F24C6216F63AE007D7FB1 /* MapsSDKExamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsSDKExamples.h; sourceTree = "<group>"; };
 		724F2C6521198D1C00412634 /* MapTilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTilesViewController.swift; sourceTree = "<group>"; };
@@ -566,6 +592,7 @@
 		7280A263214597360078B943 /* RoutingSupportingPointsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingSupportingPointsViewController.m; sourceTree = "<group>"; };
 		7280A265214597480078B943 /* RoutingReachableRangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutingReachableRangeViewController.h; sourceTree = "<group>"; };
 		7280A266214597480078B943 /* RoutingReachableRangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingReachableRangeViewController.m; sourceTree = "<group>"; };
+		7281DB1A21A427A7002422D8 /* RoutingMatrixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingMatrixViewController.swift; sourceTree = "<group>"; };
 		728325EB212BD98700088FE6 /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
 		728325ED212C1FC300088FE6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		728325EF212C3DD700088FE6 /* SearchLanguageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLanguageSelectorViewController.swift; sourceTree = "<group>"; };
@@ -656,6 +683,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C81FE2121AED86400D9C2C4 /* MapsSDKExamplesCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,8 +774,8 @@
 				72202773213BB50D00296ACF /* Traffic */,
 				72202774213BB51400296ACF /* Search */,
 				72202775213BB51900296ACF /* Routing */,
-				722027092139605300296ACF /* AppDelegate.m */,
 				722027082139605300296ACF /* AppDelegate.h */,
+				722027092139605300296ACF /* AppDelegate.m */,
 				722027112139605300296ACF /* Assets.xcassets */,
 				6EB3C4D4215A233600AC580C /* Maneuver.xcassets */,
 				72AB739E213FE89200D72DF1 /* gif_annotation.gif */,
@@ -825,6 +853,8 @@
 				72AB739C213FDABD00D72DF1 /* MapMarkersClusteringViewController.m */,
 				9C40F4E9218741580086C13B /* MapFollowTheChevronController.h */,
 				9C40F4EA218741580086C13B /* MapFollowTheChevronController.m */,
+				6E241CF821AEDD2500818A53 /* MapMultipleViewController.h */,
+				6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -892,6 +922,8 @@
 				7280A266214597480078B943 /* RoutingReachableRangeViewController.m */,
 				6E14CCFD2148FBB50060C405 /* RoutingBatchRouteViewController.h */,
 				6E14CCFE2148FBB50060C405 /* RoutingBatchRouteViewController.m */,
+				7238475221A7FE43007F775D /* RoutingMatrixViewController.h */,
+				7238475321A7FE43007F775D /* RoutingMatrixViewController.m */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -916,6 +948,7 @@
 				7266CFB5211B001800162D91 /* MapShapesViewController.swift */,
 				7266CFB7211B007F00162D91 /* MapMarkersClusteringViewController.swift */,
 				9C10102A2181E9250064B7D5 /* MapFollowTheChevronController.swift */,
+				6E76932F219D858200D8717A /* MapMultipleViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1004,6 +1037,7 @@
 				72AA46CA2126E6D50019EC72 /* RoutingSupportingPointsViewController.swift */,
 				72AA46CC2126E6E90019EC72 /* RoutingReachableRangeViewController.swift */,
 				6E14CCFB2148F7D10060C405 /* RoutingBatchRouteViewController.swift */,
+				7281DB1A21A427A7002422D8 /* RoutingMatrixViewController.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -1014,6 +1048,9 @@
 				72AA46B32126BEAF0019EC72 /* ETAView.xib */,
 				72AA46B12126BEA60019EC72 /* ETAView.swift */,
 				72AA46D2212981400019EC72 /* ETAWithSegmentsView.swift */,
+				7215016E21A68CAD0016C396 /* MatrixETAView.swift */,
+				7215017021A6A50B0016C396 /* MatrixRow.xib */,
+				7215017221A6AA330016C396 /* MatrixRow.swift */,
 			);
 			path = Eta;
 			sourceTree = "<group>";
@@ -1309,6 +1346,7 @@
 				722027122139605300296ACF /* Assets.xcassets in Resources */,
 				6EB3C4D5215A233700AC580C /* Maneuver.xcassets in Resources */,
 				7200695B213EAF6C005B20D1 /* LaunchScreen.storyboard in Resources */,
+				7215017421A6B25B0016C396 /* MatrixRow.xib in Resources */,
 				72AB73A1213FE89200D72DF1 /* style.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1321,6 +1359,7 @@
 				72006932213E52BD005B20D1 /* CustomCallout.xib in Resources */,
 				7200692E213E52B6005B20D1 /* ManeuverCell.xib in Resources */,
 				7200692F213E52B6005B20D1 /* TrafficCell.xib in Resources */,
+				7215017121A6A50B0016C396 /* MatrixRow.xib in Resources */,
 				72006930213E52B6005B20D1 /* TrafficHeader.xib in Resources */,
 				72006931213E52B9005B20D1 /* ETAView.xib in Resources */,
 			);
@@ -1341,6 +1380,7 @@
 				9C77CF472106F7B800A3179B /* LaunchScreen.storyboard in Resources */,
 				729FFC82213426DF00467D60 /* ManeuverCell.xib in Resources */,
 				7220268321392EBD00296ACF /* gif_annotation.gif in Resources */,
+				7215017521A6B25C0016C396 /* MatrixRow.xib in Resources */,
 				9C77CF442106F7B800A3179B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1381,10 +1421,12 @@
 				72AB7379213FDA1700D72DF1 /* MapLanguageViewController.m in Sources */,
 				7280A2372144F2F20078B943 /* SearchMaxFuzzinessLevelViewController.m in Sources */,
 				72AB7388213FDA6000D72DF1 /* MapPerspectiveViewController.m in Sources */,
+				7238475421A7FE43007F775D /* RoutingMatrixViewController.m in Sources */,
 				7280A258214596F30078B943 /* RoutingDepartureArrivalTimeViewController.m in Sources */,
 				7280A25E214597180078B943 /* RoutingManeuverListViewController.m in Sources */,
 				7280A2462144F35F0078B943 /* SearchAdditionalDataViewController.m in Sources */,
 				7280A24C2145968D0078B943 /* RoutingTravelModesViewController.m in Sources */,
+				6E241CFA21AEDD2500818A53 /* MapMultipleViewController.m in Sources */,
 				72AB737C213FDA2800D72DF1 /* MapGeopoliticalViewController.m in Sources */,
 				72AB7391213FDA8B00D72DF1 /* MapMarkersViewController.m in Sources */,
 				72202778213BB56300296ACF /* MapTilesViewController.m in Sources */,
@@ -1441,9 +1483,11 @@
 				7220277021396FC000296ACF /* Date.swift in Sources */,
 				7220277121396FC000296ACF /* CLLocation.swift in Sources */,
 				7200692D213E4F3F005B20D1 /* ManeuverCell.swift in Sources */,
+				7215016F21A68CAD0016C396 /* MatrixETAView.swift in Sources */,
 				7200692C213E4F3C005B20D1 /* TrafficCell.swift in Sources */,
 				7220276D21396FC000296ACF /* ManeuverIconGenerator.swift in Sources */,
 				72006936213E5781005B20D1 /* MenuLabels.swift in Sources */,
+				7215017321A6AA330016C396 /* MatrixRow.swift in Sources */,
 				72202787213D01C400296ACF /* OptionsViewSingleSelect.swift in Sources */,
 				72202784213D01BA00296ACF /* TTConstants.swift in Sources */,
 				7200692B213E4EBD005B20D1 /* AboutViewController.swift in Sources */,
@@ -1478,6 +1522,7 @@
 				72006961213FA5D6005B20D1 /* SearchTypeaheadParameterViewController.swift in Sources */,
 				7200695C213EB224005B20D1 /* TrafficIncidentsViewController.swift in Sources */,
 				72AB7367213FD32200D72DF1 /* RoutingTravelModesViewController.swift in Sources */,
+				7281DB1B21A427A7002422D8 /* RoutingMatrixViewController.swift in Sources */,
 				72AB7368213FD32200D72DF1 /* RoutingRouteTypesViewController.swift in Sources */,
 				72006963213FA5D6005B20D1 /* SearchReverseGeocodingViewController.swift in Sources */,
 				7200693B213E68C6005B20D1 /* MapCustomStyleViewController.swift in Sources */,
@@ -1492,6 +1537,7 @@
 				72AB736B213FD32200D72DF1 /* RoutingDepartureArrivalTimeViewController.swift in Sources */,
 				7200693E213E68CD005B20D1 /* MapPerspectiveViewController.swift in Sources */,
 				72AB736E213FD32200D72DF1 /* RoutingConsumptionModelViewController.swift in Sources */,
+				6E769330219D858200D8717A /* MapMultipleViewController.swift in Sources */,
 				72AB7369213FD32200D72DF1 /* RoutingRouteAvoidsViewController.swift in Sources */,
 				72AB7370213FD32200D72DF1 /* RoutingReachableRangeViewController.swift in Sources */,
 				72006943213E68D8005B20D1 /* MapBallonsViewController.swift in Sources */,
@@ -1555,7 +1601,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesVC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1581,7 +1626,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesVC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1639,7 +1683,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1658,7 +1701,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1679,7 +1721,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1696,13 +1737,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesCommon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1729,7 +1770,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesVC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1900,7 +1940,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1922,7 +1961,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1939,13 +1977,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesCommon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1966,13 +2004,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesCommon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2000,7 +2038,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamples/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2028,7 +2065,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamples/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2056,7 +2092,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamples/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2084,7 +2119,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamples/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2143,7 +2177,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2162,7 +2195,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2183,7 +2215,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2200,13 +2231,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesCommon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2233,7 +2264,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MapsSDKExamplesVC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2297,7 +2327,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2352,7 +2381,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2370,7 +2398,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2391,7 +2418,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";

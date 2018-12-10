@@ -72,7 +72,10 @@ public class MenuLabels: NSObject {
                                                             subtitleLabel: "Collect multiple markers in a customizable cluster."),
                                                 SubOptions(iconImage: "map_follow_chevron_image",
                                                             titleLabel: "Follow the chevron",
-                                                            subtitleLabel: "Camera follows the chevron.")
+                                                            subtitleLabel: "Camera follows the chevron."),
+                                                SubOptions(iconImage: "multiple_maps",
+                                                           titleLabel: "Multiple maps",
+                                                           subtitleLabel: "Display more then one map on controller.")
         ]),
                              Options(category: .Traffic,
                                      mainImage: "traffic_image",
@@ -120,7 +123,10 @@ public class MenuLabels: NSObject {
                                                             subtitleLabel: "Calculates a set of locations that can be reached from the origin."),
                                                  SubOptions(iconImage: "batch_routing_image",
                                                             titleLabel: "Batch Routing",
-                                                            subtitleLabel: "Allow your users to send multiple synchronous routing requests with Batch Routing.")
+                                                            subtitleLabel: "Allow your users to send multiple synchronous routing requests with Batch Routing."),
+                                                 SubOptions(iconImage: "matrix_routing",
+                                                            titleLabel: "Matrix Routing",
+                                                            subtitleLabel: "Calculates a matrix of route summaries for a set of routes defined with origin and destination.")
                                 ]),
                              Options(category: .Search,
                                      mainImage: "search_image",
