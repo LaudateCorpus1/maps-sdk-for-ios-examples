@@ -36,6 +36,7 @@ you are ready to code!
 * XCode installed
 (https://developer.apple.com/xcode/[How to install XCode])
 * Set up the application deployment target to 9.1 or higher
+* Install cocoapods ( https://cocoapods.org/[How to install Cocoapods] )
 
 [[setting-up-a-project]]
 === Set up your project like this:

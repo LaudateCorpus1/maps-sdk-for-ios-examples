@@ -75,7 +75,10 @@ public class MenuLabels: NSObject {
                                                             subtitleLabel: "Camera follows the chevron."),
                                                 SubOptions(iconImage: "multiple_maps",
                                                            titleLabel: "Multiple maps",
-                                                           subtitleLabel: "Display more then one map on controller.")
+                                                           subtitleLabel: "Display more then one map on controller."),
+                                                SubOptions(iconImage: "custom_route",
+                                                           titleLabel: "Custom route style",
+                                                           subtitleLabel: "Defines custom style for route.")
         ]),
                              Options(category: .Traffic,
                                      mainImage: "traffic_image",
@@ -126,7 +129,10 @@ public class MenuLabels: NSObject {
                                                             subtitleLabel: "Allow your users to send multiple synchronous routing requests with Batch Routing."),
                                                  SubOptions(iconImage: "matrix_routing",
                                                             titleLabel: "Matrix Routing",
-                                                            subtitleLabel: "Calculates a matrix of route summaries for a set of routes defined with origin and destination.")
+                                                            subtitleLabel: "Calculates a matrix of route summaries for a set of routes defined with origin and destination."),
+                                                 SubOptions(iconImage: "avoidArea",
+                                                            titleLabel: "Avoid vignettes and areas",
+                                                            subtitleLabel: "Allow your users to avoid specific region and/or routes which includes requirement for vignettes.")
                                 ]),
                              Options(category: .Search,
                                      mainImage: "search_image",

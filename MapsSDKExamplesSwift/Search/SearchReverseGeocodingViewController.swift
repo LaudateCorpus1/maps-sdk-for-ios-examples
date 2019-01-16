@@ -69,6 +69,6 @@ class SearchReverseGeocodingViewController: MapBaseViewController, TTMapViewDele
     }
     
     func reverseGeocoder(_ reverseGeocoder: TTReverseGeocoder, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
+        handleError(error)
     }
 }

@@ -45,24 +45,24 @@
     [self searchForTerm:term withLanguage:[self languageForIndex:self.segmentedControl.selectedSegmentIndex]];
 }
 
-- (TTLanguage)languageForIndex:(NSInteger)index {
+- (NSString*)languageForIndex:(NSInteger)index {
     switch (index) {
         case 3:
-            return TTLanguageFrenchFR;
+            return @"fr-FR";
         case 2:
-            return TTLanguageSpanishES;
+            return @"es-ES";
         case 1:
-            return TTLanguageGerman;
+            return @"de-DE";
         default:
-            return TTLanguageEnglishGB;
+            return @"en-GB";
     }
 }
 
 #pragma mark Example
 
-- (void)searchForTerm:(NSString *)term withLanguage:(TTLanguage)language {
+- (void)searchForTerm:(NSString *)term withLanguage:(NSString*)language {
     TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:term]
-                             withLanguage:language]
+                             withLang:language]
                             build];
     [self.search searchWithQuery:query];
 }
@@ -75,8 +75,7 @@
 }
 
 - (void)search:(TTSearch *)search failedWithError:(TTResponseError *)error {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", error.userInfo[@"description"]]];
-    [self.progress hide];
+    [self handleError:error];
 }
 
 @end

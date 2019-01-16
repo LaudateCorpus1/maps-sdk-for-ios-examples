@@ -119,9 +119,7 @@ class RoutingReachableRangeViewController: RoutingBaseViewController, TTReachabl
     }
     
     func reachableRange(_ range: TTReachableRange, completedWith responseError: TTResponseError) {
-        toast.toast(message: "error " + (responseError.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(responseError)
     }
 
 }

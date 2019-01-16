@@ -58,6 +58,7 @@ typedef NS_ENUM(NSInteger, BatchRouteType) {
     [super displayExampleWithID:ID on:on];
     [self.mapView.routeManager removeAllRoutes];
     [self.progress show];
+    [self.etaView hide];
     switch (ID) {
         case 2:
             [self performAvoids];
@@ -163,15 +164,14 @@ typedef NS_ENUM(NSInteger, BatchRouteType) {
 }
 
 - (void)batch:(TTBatchRoute * _Nonnull)route failedWithError:(TTResponseError * _Nonnull)responseError {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:responseError];
 }
 
 #pragma mark TTBatchRouteVisistor
 
 - (void)visitRoute:(TTRouteResult *)response {
-    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:response.routes.firstObject imageStart:[TTMapRoute defaultImageDeparture] imageEnd:[TTMapRoute defaultImageDestination]];
+    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:response.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+                                                     imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     mapRoute.extraData = response.routes.firstObject.summary;
     [self.mapView.routeManager addRoute:mapRoute];
     [self.progress hide];
@@ -184,8 +184,10 @@ typedef NS_ENUM(NSInteger, BatchRouteType) {
 - (void)routeClicked:(TTMapRoute * _Nonnull)route {
     NSString *desc;
     for(TTMapRoute *mapRoute in self.mapView.routeManager.routes) {
-        mapRoute.active = route == mapRoute;
+        [self.mapView.routeManager updateRoute:mapRoute style:TTMapRouteStyle.defaultInactiveStyle];
     }
+    [self.mapView.routeManager updateRoute:route style:TTMapRouteStyle.defaultActiveStyle];
+    [self.mapView.routeManager bringToFrontRoute:route];
     desc = [(NSArray *)[self.routeDesc objectForKey:@(self.type)] objectAtIndex:[self.mapView.routeManager.routes indexOfObject:route]];
     [self updateETA:route desc:desc];
 }
@@ -200,7 +202,7 @@ typedef NS_ENUM(NSInteger, BatchRouteType) {
     [calendar setTimeZone: [NSTimeZone localTimeZone]];
     NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:eta];
     NSString *dateInString = [NSString stringWithFormat:@"%02ld:%02ld %@", components.hour, components.minute, desc];
-    [self.etaView updateWithEta:dateInString metersDistance:summary.lengthInMeters.unsignedIntegerValue];
+    [self.etaView updateWithEta:dateInString metersDistance:summary.lengthInMetersValue];
 }
 
 @end

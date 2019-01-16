@@ -28,6 +28,12 @@
     return [[OptionsView alloc] initWithLabels:@[] selectedID:-1];
 }
 
+- (void)handleError:(NSError*)responseError {
+    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
+    [self.progress hide];
+    [self.optionsView deselectAll];
+}
+
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {}

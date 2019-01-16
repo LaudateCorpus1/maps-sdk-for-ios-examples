@@ -47,7 +47,7 @@ class SearchTypeaheadParameterViewController: SearchBaseViewController, TTSearch
     }
     
     func search(_ search: TTSearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
+        handleError(error)
     }
     
     func cancelSearch() {

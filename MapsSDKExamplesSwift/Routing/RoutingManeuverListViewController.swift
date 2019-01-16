@@ -31,7 +31,7 @@ class RoutingManeuverListViewController: TableBaseViewController, TTRouteRespons
         tableView.rowHeight = 70
         tableView.tableHeaderView = etaView
         etaView.addTarget(self, action: #selector(languageChanged(sender:)))
-        displayManeuverList(language: .englishGB)
+        displayManeuverList(language: "en-GB")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -42,21 +42,21 @@ class RoutingManeuverListViewController: TableBaseViewController, TTRouteRespons
     @objc func languageChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 3:
-            displayManeuverList(language: .german)
+            displayManeuverList(language: "fr-FR")
         case 2:
-            displayManeuverList(language: .spanishES)
+            displayManeuverList(language: "es-ES")
         case 1:
-            displayManeuverList(language: .frenchFR)
+            displayManeuverList(language: "de-DE")
         default:
-            displayManeuverList(language: .englishGB)
+            displayManeuverList(language: "en-GB")
         }
     }
     
-    func displayManeuverList(language: TTLanguage) {
+    func displayManeuverList(language: String) {
         progress.show()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
             .withInstructionsType(.text)
-            .withLanguage(language)
+            .withLang(language)
             .build()
         routePlanner.plan(with: query)
     }
@@ -73,7 +73,6 @@ class RoutingManeuverListViewController: TableBaseViewController, TTRouteRespons
     }
     
     func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
-        toast.toast(message: "error " + (responseError.userInfo["description"] as! String))
-        progress.hide()
+        handleError(responseError)
     }
 }

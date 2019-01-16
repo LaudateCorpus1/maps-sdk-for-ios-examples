@@ -81,35 +81,35 @@
 
 - (void)route:(TTRoute *)route completedWithResult:(TTRouteResult *)result {
     BOOL isActive = YES;
+    TTMapRoute *activeRoute;
     for (TTFullRoute *plannedRoute in result.routes) {
         TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:plannedRoute
-                                                         imageStart:[TTMapRoute defaultImageDeparture]
-                                                           imageEnd:[TTMapRoute defaultImageDestination]];
+                                                     withRouteStyle:isActive ? TTMapRouteStyle.defaultActiveStyle : TTMapRouteStyle.defaultInactiveStyle
+                                                         imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
         [self.mapView.routeManager addRoute:mapRoute];
-        mapRoute.active = isActive;
         mapRoute.extraData = plannedRoute.summary;
         if(isActive){
+            activeRoute = mapRoute;
             [self.etaView showWithSummary:plannedRoute.summary style:ETAViewStylePlain];
         }
         isActive = NO;
     }
+    [self.mapView.routeManager bringToFrontRoute:activeRoute];
     [self displayRouteOverview];
     [self.progress hide];
 }
 
 - (void)route:(TTRoute *)route completedWithResponseError:(TTResponseError *)responseError {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:responseError];
 }
 
 #pragma mark TTRouteDelegate
 
 - (void)routeClicked:(TTMapRoute *)route {
     for (TTMapRoute *mapRoute in self.mapView.routeManager.routes) {
-        mapRoute.active = NO;
+        [self.mapView.routeManager updateRoute:mapRoute style:TTMapRouteStyle.defaultInactiveStyle];
     }
-    route.active = YES;
+    [self.mapView.routeManager updateRoute:route style:TTMapRouteStyle.defaultActiveStyle];
     [self.etaView showWithSummary:(TTSummary *)route.extraData style:ETAViewStylePlain];
 }
 

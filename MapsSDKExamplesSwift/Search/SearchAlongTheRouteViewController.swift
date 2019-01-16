@@ -90,17 +90,17 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
             return
         }
         mapRoute = TTMapRoute(coordinatesData: plannedRoute,
-                                  imageStart: TTMapRoute.defaultImageDeparture(),
-                                  imageEnd: TTMapRoute.defaultImageDestination())
+                              with: TTMapRouteStyle.defaultActive(),
+                              imageStart: TTMapRoute.defaultImageDeparture(),
+                              imageEnd: TTMapRoute.defaultImageDestination())
         mapView.routeManager.add(mapRoute)
-        mapRoute.isActive = true
+        mapView.routeManager.bring(toFrontRoute: mapRoute)
         displayRouteOverview()
         progress.hide()
     }
     
     func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
-        toast.toast(message: "error " + (responseError.userInfo["description"] as! String))
-        progress.hide()
+        handleError(responseError)
     }
     
     //MARK: TTAlongRouteSearchDelegate
@@ -116,8 +116,7 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
     }
     
     func search(_ search: TTAlongRouteSearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
+        handleError(error)
     }
     
 }

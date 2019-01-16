@@ -74,7 +74,7 @@
 }
 
 - (void)reverseGeocoder:(TTReverseGeocoder *)reverseGeocoder failedWithError:(TTResponseError *)error {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", error.userInfo[@"description"]]];
+    [self handleError:error];
 }
 
 @end

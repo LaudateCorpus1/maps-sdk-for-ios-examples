@@ -79,11 +79,12 @@
 }
 
 - (void)displayPlannedRoute:(TTFullRoute *)plannedRoute {
-    self.route = [TTMapRoute routeWithCoordinatesData:plannedRoute imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
+    self.route = [TTMapRoute routeWithCoordinatesData:plannedRoute withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+                                           imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self.mapView.routeManager addRoute:self.route];
         [self.mapView.routeManager showRouteOverview:self.route];
-        [self.mapView.routeManager.routes.firstObject setActive:true];
+        [self.mapView.routeManager bringToFrontRoute:self.route];
         [self showRoute];
     }];
 }

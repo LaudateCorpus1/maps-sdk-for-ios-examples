@@ -27,6 +27,7 @@
 }
 
 - (void)onMapReady {
+    [super onMapReady];
     [self setupSecoundMap];
 }
 

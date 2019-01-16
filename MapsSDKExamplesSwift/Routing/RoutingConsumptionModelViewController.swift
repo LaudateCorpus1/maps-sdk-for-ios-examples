@@ -103,34 +103,37 @@ class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteR
     
     func route(_ route: TTRoute, completedWith result: TTRouteResult) {
         var isActive = true
+        var activeRoute: TTMapRoute?
         for plannedRoute in result.routes {
             let mapRoute = TTMapRoute(coordinatesData: plannedRoute,
+                                      with: isActive ? TTMapRouteStyle.defaultActive() : TTMapRouteStyle.defaultInactive(),
                                       imageStart: TTMapRoute.defaultImageDeparture(),
                                       imageEnd: TTMapRoute.defaultImageDestination())
             mapView.routeManager.add(mapRoute)
-            mapRoute.isActive = isActive
             mapRoute.extraData = plannedRoute.summary
             if isActive {
+                activeRoute = mapRoute
                 etaView.show(summary: plannedRoute.summary, style: style)
             }
             isActive = false
         }
+        mapView.routeManager.bring(toFrontRoute: activeRoute!)
         displayRouteOverview()
         progress.hide()
     }
     
     func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
-        toast.toast(message: "error " + (responseError.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(responseError)
     }
     
     //MARK: TTRouteDelegate
     
     func routeClicked(_ route: TTMapRoute) {
         for mapRoute in self.mapView.routeManager.routes {
-            mapRoute.isActive = route == mapRoute
+            mapView.routeManager.update(mapRoute, style: TTMapRouteStyle.defaultInactive())
         }
+        mapView.routeManager.update(route, style: TTMapRouteStyle.defaultActive())
+        mapView.routeManager.bring(toFrontRoute: route)
         etaView.show(summary: route.extraData as! TTSummary, style: style)
     }
 

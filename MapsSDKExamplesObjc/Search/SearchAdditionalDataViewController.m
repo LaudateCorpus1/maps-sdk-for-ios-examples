@@ -67,8 +67,8 @@
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
     [super displayExampleWithID:ID on:on];
-    [self.mapView.routeManager removeAllRoutes];
     [self.progress show];
+    [self.mapView.annotationManager removeAllOverlays];
     switch (ID) {
         case 2:
             [self displayAdditionalDataLanduse];
@@ -125,9 +125,7 @@
 }
 
 - (void)search:(TTSearch *)search failedWithError:(TTResponseError *)error {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", error.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:error];
 }
 
 #pragma mark TTAdditionalDataSearchDelegate
@@ -149,9 +147,7 @@
 }
 
 - (void)additionalDataSearch:(TTAdditionalDataSearch *)additionalDataSearch failedWithError:(TTResponseError *)error {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", error.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:error];
 }
 
 @end

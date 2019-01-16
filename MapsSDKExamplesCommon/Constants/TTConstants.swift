@@ -32,7 +32,11 @@ public class TTColor: NSObject {
     @objc public static func Red() -> UIColor { return UIColor(red: 1, green: 0, blue: 0, alpha: 1.0) }
     @objc public static func RedSemiTransparent() -> UIColor { return UIColor(red: 1, green: 0, blue: 0, alpha: 0.3) }
     @objc public static func Yellow() -> UIColor { return UIColor.yellow }
-    
+    @objc public static func Purple() -> UIColor { return UIColor(red:0.48, green:0.14, blue:0.51, alpha:1.0) }
+    @objc public static func Pink() -> UIColor { return UIColor(red:0.90, green:0.00, blue:0.92, alpha:1.0) }
+    @objc public static func Blue() -> UIColor { return UIColor(red:0.00, green:0.01, blue:0.98, alpha:1.0) }
+    @objc public static func BlueLight() -> UIColor { return UIColor(red:0.10, green:0.71, blue:0.77, alpha:1.0) }
+    @objc public static func GreenBright() -> UIColor { return UIColor(red:0.19, green:0.94, blue:0.00, alpha:1.0) }
 }
 
 struct TTCollectionViewCell {
@@ -99,6 +103,14 @@ public class TTCoordinate: NSObject {
     @objc public static func LODZ_SREBRZYNSKA_WAYPOINT_B() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.786451, 19.449562) }
     @objc public static func LODZ_SREBRZYNSKA_WAYPOINT_C() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.791383, 19.420641) }
     @objc public static func LODZ_SREBRZYNSKA_STOP() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.773136, 19.4233983) }
+    @objc public static func CZECH_REPUBLIC() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(50.746420115485755, 14.799316562712196) }
+    @objc public static func ROMANIA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(45.33232542221267, 22.753418125212196) }
+    @objc public static func BUDAPEST_LOCATION() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(47.498733, 19.072646) }
+    @objc public static func ARAD_TOP_LEFT_NEIGHBORHOOD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(46.241223, 21.012896) }
+    @objc public static func ARAD_BOTTOM_RIGHT_NEIGHBORHOOD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(45.861624, 21.506465) }
+    @objc public static func ARAD_BOTTOM_LEFT_NEIGHBORHOOD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(45.861624, 21.012896) }
+    @objc public static func ARAD_TOP_RIGHT_NEIGHBORHOOD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(46.241223, 21.506465) }
+    
 }
 
 public class TTCamera: NSObject {

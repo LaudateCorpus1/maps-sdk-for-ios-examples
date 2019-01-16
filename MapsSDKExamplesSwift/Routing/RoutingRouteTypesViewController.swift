@@ -74,19 +74,18 @@ class RoutingRouteTypesViewController: RoutingBaseViewController, TTRouteRespons
             return
         }
         let mapRoute = TTMapRoute(coordinatesData: plannedRoute,
+                                  with: TTMapRouteStyle.defaultActive(),
                                   imageStart: TTMapRoute.defaultImageDeparture(),
                                   imageEnd: TTMapRoute.defaultImageDestination())
         mapView.routeManager.add(mapRoute)
-        mapRoute.isActive = true
+        mapView.routeManager.bring(toFrontRoute: mapRoute)
         etaView.show(summary: plannedRoute.summary, style: .plain)
         displayRouteOverview()
         progress.hide()
     }
     
     func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
-        toast.toast(message: "error " + (responseError.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(responseError)
     }
 
 }

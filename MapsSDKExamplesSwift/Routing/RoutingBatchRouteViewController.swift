@@ -41,9 +41,9 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.batchRoute = TTBatchRoute()
-        self.batchRoute.delegate = self
-        self.mapView.routeManager.delegate = self
+        batchRoute = TTBatchRoute()
+        batchRoute.delegate = self
+        mapView.routeManager.delegate = self
         
     }
     
@@ -51,21 +51,22 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
     
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
-        self.mapView.routeManager.removeAllRoutes()
-        self.progress.show()
+        mapView.routeManager.removeAllRoutes()
+        progress.show()
+        etaView.hide()
         
         switch ID {
         case 2:
-            self.performAvoids()
-            self.type = BatchRouteType.BatchRouteTypeAvoids
+            performAvoids()
+            type = BatchRouteType.BatchRouteTypeAvoids
             break
         case 1:
-            self.performRouteType()
-            self.type = BatchRouteType.BatchRouteTypeRoute
+            performRouteType()
+            type = BatchRouteType.BatchRouteTypeRoute
             break
         default:
-            self.performTravelMode()
-            self.type = BatchRouteType.BatchRouteTypeTravelMode
+            performTravelMode()
+            type = BatchRouteType.BatchRouteTypeTravelMode
             break
         }
     }
@@ -73,7 +74,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
     //MARK: Examples
     
     func performTravelMode() {
-        self.type = .BatchRouteTypeTravelMode
+        type = .BatchRouteTypeTravelMode
         let queryCar = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROTTERDAM(), andOrig: TTCoordinate.AMSTERDAM())
             .withComputeBestOrder(true)
             .withTraffic(true)
@@ -96,14 +97,13 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
             .add(queryPedestrain)
             .build()
         
-        self.batchRoute = TTBatchRoute()
-        self.batchRoute.delegate = self
-        self.batchRoute.batchRoute(with: batchQuery)
+        batchRoute = TTBatchRoute()
+        batchRoute.delegate = self
+        batchRoute.batchRoute(with: batchQuery)
     }
     
     func performRouteType() {
-        self.type = .BatchRouteTypeRoute
-        
+        type = .BatchRouteTypeRoute
         let queryFastest = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROTTERDAM(), andOrig: TTCoordinate.AMSTERDAM())
             .withComputeBestOrder(true)
             .withTraffic(true)
@@ -127,15 +127,14 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
             .add(queryEco)
             .build()
         
-        self.batchRoute = TTBatchRoute()
-        self.batchRoute.delegate = self
-        self.batchRoute.batchRoute(with: batchQuery)
+        batchRoute = TTBatchRoute()
+        batchRoute.delegate = self
+        batchRoute.batchRoute(with: batchQuery)
         
     }
     
     func performAvoids() {
-        self.type = .BatchRouteTypeRoute
-        
+        type = .BatchRouteTypeRoute
         let queryMotorways = TTRouteQueryBuilder.create(withDest: TTCoordinate.OSLO(), andOrig: TTCoordinate.AMSTERDAM())
             .withComputeBestOrder(true)
             .withTraffic(true)
@@ -159,41 +158,42 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
             .add(queryTollRoads)
             .build()
         
-        self.batchRoute = TTBatchRoute()
-        self.batchRoute.delegate = self
-        self.batchRoute.batchRoute(with: batchQuery)
+        batchRoute = TTBatchRoute()
+        batchRoute.delegate = self
+        batchRoute.batchRoute(with: batchQuery)
     }
 
     //MARK: TTBatchRouteResponseDelegate
     
     func batch(_ route: TTBatchRoute, completedWith response: TTBatchRouteResponse) {
-        self.progress.hide()
+        progress.hide()
         response.visit(self)
     }
     
     func batch(_ route: TTBatchRoute, failedWithError responseError: TTResponseError) {
-        self.toast.toast(message: "Error \(String(describing: responseError.userInfo["description"]))")
-        self.progress.hide()
-        self.optionsView.deselectAll()
+        handleError(responseError)
     }
     
     //MARK: TTBatchRouteVisistor
     
     func visitRoute(_ response: TTRouteResult) {
         let mapRoute = TTMapRoute(coordinatesData: response.routes.first!,
+                                  with: TTMapRouteStyle.defaultInactive(),
                                   imageStart: TTMapRoute.defaultImageDeparture(),
                                   imageEnd: TTMapRoute.defaultImageDestination())
         mapRoute.extraData = response.routes.first?.summary
-        self.mapView.routeManager.add(mapRoute)
-        self.progress.hide()
-        self.displayRouteOverview()
+        mapView.routeManager.add(mapRoute)
+        progress.hide()
+        displayRouteOverview()
     }
     
     //MARK: TTRouteDelegate
     func routeClicked(_ route: TTMapRoute) {
         for mapRoute in self.mapView.routeManager.routes {
-            mapRoute.isActive = route == mapRoute
+            mapView.routeManager.update(mapRoute, style: TTMapRouteStyle.defaultInactive())
         }
+        mapView.routeManager.update(route, style: TTMapRouteStyle.defaultActive())
+        mapView.routeManager.bring(toFrontRoute: route)
         let desc = routeDesc[type]![mapView.routeManager.routes.index(of: route)!]
         updateEta(mapRoute: route, desc: desc)
     }
@@ -207,6 +207,6 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
         let unitFlags = Set<Calendar.Component>([.hour,.minute])
         let components:NSDateComponents =  calendar.dateComponents(unitFlags, from: eta) as NSDateComponents
         let dateInString = "\(components.hour):\(components.minute) \(desc)"
-        self.etaView.update(eta: dateInString, metersDistance: UInt(summary.lengthInMetersValue))
+        etaView.update(eta: dateInString, metersDistance: UInt(summary.lengthInMetersValue))
     }
 }

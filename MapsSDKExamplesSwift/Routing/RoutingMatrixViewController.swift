@@ -83,9 +83,7 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
     }
     
     func matrix(_ matrix: TTMatrixRoute, completedWith responseError: TTResponseError) {
-        toast.toast(message: "error " + (responseError.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(responseError)
     }
     
     func presentOneToMany(response: TTMatrixRouteResponse) {

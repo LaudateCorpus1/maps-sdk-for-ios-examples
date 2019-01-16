@@ -62,12 +62,13 @@ class MapFollowTheChevronController: MapBaseViewController {
 
     func displayPlannedRoute(plannedRoute: TTFullRoute) {
         self.route = TTMapRoute(coordinatesData: plannedRoute,
+                                with: TTMapRouteStyle.defaultActive(),
                                 imageStart: TTMapRoute.defaultImageDeparture(),
                                 imageEnd: TTMapRoute.defaultImageDestination())
         OperationQueue.main.addOperation({
             self.mapView.routeManager.add(self.route!)
             self.mapView.routeManager.showRouteOverview(self.route!)
-            self.mapView.routeManager.routes.first?.isActive = true
+            self.mapView.routeManager.bring(toFrontRoute: self.route!)
             self.showRoute()
         })
     }
@@ -75,7 +76,6 @@ class MapFollowTheChevronController: MapBaseViewController {
     func createChevron() {
         self.mapView.isShowsUserLocation = false
         chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withNormalImageName: "active", withDimmedImage: TTChevronObject.defaultDimmedImage(), withDimmedImageName: "inactive");
-
     }
 
     func start() {
@@ -93,7 +93,6 @@ class MapFollowTheChevronController: MapBaseViewController {
 
     func stop() {
         mapView.trackingManager.stop(chevron!)
-
         showRoute()
     }
 

@@ -24,7 +24,7 @@ import CoreLocation
         manager = trackingManager
         object = trackingObject
         mapRoute = route
-        prevCoordinate = MapFollowTheChevronSource.coordinateForValue(value: self.mapRoute.fullRoute()[0])
+        prevCoordinate = MapFollowTheChevronSource.coordinateForValue(value: self.mapRoute.coordinatesData()[0])
     }
 
     public static func coordinateForValue(value: NSValue) -> CLLocationCoordinate2D {
@@ -39,10 +39,10 @@ import CoreLocation
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
 
             index = index + 1;
-            if index == self.mapRoute.fullRoute().count {
+            if index == self.mapRoute.coordinatesData().count {
                 index = 0;
             }
-            let coordiante = MapFollowTheChevronSource.coordinateForValue(value: self.mapRoute.fullRoute()[index])
+            let coordiante = MapFollowTheChevronSource.coordinateForValue(value: self.mapRoute.coordinatesData()[index])
             let bearing = self.bearingWithCoordinate(coordinate: coordiante, prevCoordianate: self.prevCoordinate!)
             let location = TTLocation(coordinate: coordiante, withBearing: bearing)
             self.manager.update(self.object, with: location)

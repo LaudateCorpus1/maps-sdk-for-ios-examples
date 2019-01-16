@@ -42,8 +42,7 @@
 }
 
 - (void)incidentDetails:(TTTrafficIncidents *)trafficIncidents failedWithError:(TTResponseError *)error {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", error.userInfo[@"description"]]];
-    [self.progress hide];
+    [self handleError:error];
 }
 
 @end

@@ -23,7 +23,7 @@
 
 - (void)setupMap {
     [super setupMap];
-    [self.mapView setMapLanguage:TTLanguageEnglishGB];
+    [self.mapView setLanguage:@"en-GB"];
 }
 
 #pragma mark OptionsViewDelegate
@@ -46,15 +46,15 @@
 #pragma mark Examples
 
 - (void)setLanguageEnglish {
-    [self.mapView setMapLanguage:TTLanguageEnglishGB];
+    [self.mapView setLanguage:@"en-GB"];
 }
 
 - (void)setLanguageRussian {
-    [self.mapView setMapLanguage:TTLanguageRussian];
+    [self.mapView setLanguage:@"ru-RU"];
 }
 
 - (void)setLanguageDutch {
-    [self.mapView setMapLanguage:TTLanguageDutchNL];
+    [self.mapView setLanguage:@"nl-NL"];
 }
 
 @end

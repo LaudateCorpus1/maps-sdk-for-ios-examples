@@ -77,9 +77,7 @@ class SearchBatchViewController: MapBaseViewController, TTBatchSearchDelegate, T
     }
     
     func batch(_ batch: TTBatchSearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(error)
     }
     
     //MARK: TTBatchVisistor

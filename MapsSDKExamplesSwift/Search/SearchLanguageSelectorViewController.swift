@@ -44,24 +44,24 @@ class SearchLanguageSelectorViewController: SearchBaseViewController, TTSearchDe
         searchForTerm(term, with: languageForIndex(index: segmentedControl!.selectedSegmentIndex))
     }
     
-    func languageForIndex(index: Int) -> TTLanguage {
+    func languageForIndex(index: Int) -> String {
         switch index {
         case 3:
-            return TTLanguage.frenchFR
+            return "fr-FR"
         case 2:
-            return TTLanguage.spanishES
+            return "es-ES"
         case 1:
-            return TTLanguage.german
+            return "de-DE"
         default:
-            return TTLanguage.englishGB
+            return "en-GB"
         }
     }
     
     //MARK: Example
     
-    func searchForTerm(_ term: String, with language: TTLanguage) {
+    func searchForTerm(_ term: String, with language: String) {
         let query = TTSearchQueryBuilder.create(withTerm: term)
-            .withLanguage(language)
+            .withLang(language)
             .build()
         search.search(with: query)
     }
@@ -74,8 +74,7 @@ class SearchLanguageSelectorViewController: SearchBaseViewController, TTSearchDe
     }
     
     func search(_ search: TTSearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
+        handleError(error)
     }
 
 }

@@ -15,74 +15,70 @@ import MapsSDKExamplesVC
 import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
 
-class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRouteResponseDelegate {
+class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteResponseDelegate {
 
     let routePlanner = TTRoute()
-    var waypoints = [TTCoordinate.HAMBURG(), TTCoordinate.ZURICH(), TTCoordinate.BRUSSELS()]
+    var routeStyle = TTMapRouteStyleBuilder().build()
+    var iconStart = TTMapRoute.defaultImageDeparture()
+    var iconEnd = TTMapRoute.defaultImageDestination()
     
     override func getOptionsView() -> OptionsView {
-        return OptionsViewSingleSelect(labels: ["Initial order", "Best order", "No waypoints"], selectedID: -1)
+        return OptionsViewSingleSelect(labels: ["Basic", "Custom"], selectedID: -1)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
-        for coordinate in waypoints {
-            mapView.annotationManager.add(TTAnnotation(coordinate: coordinate))
-        }
     }
-    
-    //MARK: OptionsViewDelegate
     
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
         progress.show()
         switch ID {
-        case 2:
-            displayNoWaypointsRoute()
         case 1:
-            displayBestOrderRoute()
+            displayCustomRoute()
         default:
-            displayInitialOrderRoute()
+            displayBasicRoute()
         }
     }
     
     //MARK: Examples
     
-    func displayInitialOrderRoute() {
-        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
-            .withWayPoints(&waypoints, count: UInt(waypoints.count))
-            .build()
-        routePlanner.plan(with: query)
+    func displayBasicRoute() {
+        routeStyle = TTMapRouteStyle.defaultActive()
+        iconStart = TTMapRoute.defaultImageDeparture()
+        iconEnd = TTMapRoute.defaultImageDestination()
+        planRoute()
     }
     
-    func displayBestOrderRoute() {
-        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
-            .withWayPoints(&waypoints, count: UInt(waypoints.count))
-            .withComputeBestOrder(true)
+    func displayCustomRoute() {
+        routeStyle = TTMapRouteStyleBuilder()
+            .withWidth(2.0)
+            .withFill(.black)
+            .withOutlineColor(.red)
             .build()
-        routePlanner.plan(with: query)
+        iconStart = UIImage(named: "Start")!
+        iconEnd = UIImage(named: "End")!
+        planRoute()
     }
     
-    func displayNoWaypointsRoute() {
-        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
+    private func planRoute() {
+        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
+            .withTravelMode(.car)
             .build()
         routePlanner.plan(with: query)
     }
     
     //MARK: TTRouteResponseDelegate
-    
+
     func route(_ route: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
-        let mapRoute = TTMapRoute(coordinatesData: plannedRoute,
-                                  with: TTMapRouteStyle.defaultActive(),
-                                  imageStart: TTMapRoute.defaultImageDeparture(),
-                                  imageEnd: TTMapRoute.defaultImageDestination())
+        let mapRoute = TTMapRoute(coordinatesData: plannedRoute, with: routeStyle,
+                                  imageStart: iconStart, imageEnd: iconEnd)
         mapView.routeManager.add(mapRoute)
-        mapView.routeManager.bring(toFrontRoute: mapRoute)
         etaView.show(summary: plannedRoute.summary, style: .plain)
         displayRouteOverview()
         progress.hide()
@@ -91,5 +87,5 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
     func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-
+    
 }

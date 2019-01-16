@@ -71,35 +71,43 @@ class RoutingAlternativesRouteViewController: RoutingBaseViewController, TTRoute
     //MARK: TTRouteResponseDelegate
     
     func route(_ route: TTRoute, completedWith result: TTRouteResult) {
-        var isActive = true
+        var activeRoute: TTMapRoute?
         for planedRoute in result.routes {
-            let mapRoute = TTMapRoute(coordinatesData: planedRoute,
-                                      imageStart: TTMapRoute.defaultImageDeparture(),
-                                      imageEnd: TTMapRoute.defaultImageDestination())
-            mapView.routeManager.add(mapRoute)
-            mapRoute.isActive = isActive
-            mapRoute.extraData = planedRoute.summary
-            if isActive {
+            if activeRoute == nil {
+                let mapRoute = TTMapRoute(coordinatesData: planedRoute,
+                                          with: TTMapRouteStyle.defaultActive(),
+                                          imageStart: TTMapRoute.defaultImageDeparture(),
+                                          imageEnd: TTMapRoute.defaultImageDestination())
+                mapView.routeManager.add(mapRoute)
+                mapRoute.extraData = planedRoute.summary
+                activeRoute = mapRoute
                 etaView.show(summary: planedRoute.summary, style: .plain)
+            } else {
+                let mapRoute = TTMapRoute(coordinatesData: planedRoute,
+                                          with: TTMapRouteStyle.defaultInactive(),
+                                          imageStart: TTMapRoute.defaultImageDeparture(),
+                                          imageEnd: TTMapRoute.defaultImageDestination())
+                mapView.routeManager.add(mapRoute)
+                mapRoute.extraData = planedRoute.summary
             }
-            isActive = false
         }
+        mapView.routeManager.bring(toFrontRoute: activeRoute!)
         displayRouteOverview()
         progress.hide()
     }
     
     func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
-        toast.toast(message: "error " + (responseError.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(responseError)
     }
     
     //MARK: TTRouteDelegate
     
     func routeClicked(_ route: TTMapRoute) {
         for mapRoute in self.mapView.routeManager.routes {
-            mapRoute.isActive = route == mapRoute
+            mapView.routeManager.update(mapRoute, style: TTMapRouteStyle.defaultInactive())
         }
+        mapView.routeManager.update(route, style: TTMapRouteStyle.defaultActive())
+        mapView.routeManager.bring(toFrontRoute: route)
         etaView.show(summary: route.extraData as! TTSummary, style: .plain)
     }
 

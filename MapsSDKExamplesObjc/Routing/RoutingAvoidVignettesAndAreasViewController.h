@@ -9,19 +9,11 @@
  * immediately return it to TomTom N.V.
  */
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
-#import <TomTomOnlineUtils/TomTomOnlineUtils.h>
-#import "BaseViewController.h"
+#import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-@interface ButtonsBaseViewController : BaseViewController <OptionsViewDelegate>
 
-@property (nonatomic, weak) OptionsView *optionsView;
-
-- (void)setupControls;
-- (OptionsView * _Nonnull)getOptionsView;
-- (void)handleError:(TTResponseError*)responseError;
-#pragma mark OptionsViewDelegate
-- (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on;
+@interface RoutingAvoidVignettesAndAreasViewController : RoutingBaseViewController
 
 @end

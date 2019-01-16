@@ -108,9 +108,7 @@ class SearchGeometryViewController: MapBaseViewController, TTGeometrySearchDeleg
     }
     
     func search(_ search: TTGeometrySearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(error)
     }
 
 }

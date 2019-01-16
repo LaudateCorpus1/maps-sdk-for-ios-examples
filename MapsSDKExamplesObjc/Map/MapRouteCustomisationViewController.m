@@ -9,24 +9,30 @@
  * immediately return it to TomTom N.V.
  */
 
-#import "RoutingRouteAvoidsViewController.h"
-#import <TomTomOnlineSDKRouting/TomTomOnlineSDKRouting.h>
+#import "MapRouteCustomisationViewController.h"
 #import <TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.h>
+#import <TomTomOnlineSDKRouting/TomTomOnlineSDKRouting.h>
 
-@interface RoutingRouteAvoidsViewController() <TTRouteResponseDelegate>
-@property (nonatomic, strong) TTRoute *routePlanner;
+@interface MapRouteCustomisationViewController() <TTRouteResponseDelegate>
+@property (nonatomic) TTRoute *routePlanner;
+@property (nonatomic) TTMapRouteStyle* routeStyle;
+@property (nonatomic) UIImage* iconStart;
+@property (nonatomic) UIImage* iconEnd;
 @end
 
-@implementation RoutingRouteAvoidsViewController
+@implementation MapRouteCustomisationViewController
 
 - (OptionsView *)getOptionsView {
-    return [[OptionsViewSingleSelect alloc] initWithLabels:@[@"Motorways", @"Toll roads", @"Ferries"] selectedID:-1];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[@"Basic", @"Custom"] selectedID:-1];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.routePlanner = [TTRoute new];
     self.routePlanner.delegate = self;
+    self.routeStyle = [[TTMapRouteStyleBuilder new] build];
+    self.iconStart = TTMapRoute.defaultImageDeparture;
+    self.iconEnd = TTMapRoute.defaultImageDestination;
 }
 
 #pragma mark OptionsViewDelegate
@@ -36,53 +42,50 @@
     [self.mapView.routeManager removeAllRoutes];
     [self.progress show];
     switch (ID) {
-        case 2:
-            [self displayAvoidFerriesRoute];
-            break;
         case 1:
-            [self displayAvoidTollRoadsRoute];
+            [self displayCustomRoute];
             break;
         default:
-            [self displayAvoidMotorwaysRoute];
+            [self displayBasicRoute];
             break;
     }
 }
 
 #pragma mark Examples
 
-- (void)displayAvoidMotorwaysRoute {
-    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate OSLO] andOrig:[TTCoordinate AMSTERDAM]]
-                            withAvoidType:TTOptionTypeAvoidMotorways]
-                           build];
-    [self.routePlanner planRouteWithQuery:query];
+- (void)displayBasicRoute {
+    self.routeStyle = TTMapRouteStyle.defaultActiveStyle;
+    self.iconStart = TTMapRoute.defaultImageDeparture;
+    self.iconEnd = TTMapRoute.defaultImageDestination;
+    [self planRoute];
 }
 
-
-- (void)displayAvoidTollRoadsRoute {
-    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate OSLO] andOrig:[TTCoordinate AMSTERDAM]]
-                            withAvoidType:TTOptionTypeAvoidTollRoads]
-                           build];
-    [self.routePlanner planRouteWithQuery:query];
+- (void)displayCustomRoute {
+    self.routeStyle = [[[[[TTMapRouteStyleBuilder new]
+                          withWidth:2.0]
+                         withFillColor:UIColor.blackColor]
+                        withOutlineColor:UIColor.redColor]
+                       build];
+    self.iconStart = [UIImage imageNamed:@"Start"];
+    self.iconEnd = [UIImage imageNamed:@"End"];
+    [self planRoute];
 }
 
-- (void)displayAvoidFerriesRoute {
-    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate OSLO] andOrig:[TTCoordinate AMSTERDAM]]
-                            withAvoidType:TTOptionTypeAvoidFerries]
+- (void)planRoute {
+    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate AMSTERDAM] andOrig:[TTCoordinate ROTTERDAM]]
+                            withTravelMode:TTOptionTravelModeCar]
                            build];
     [self.routePlanner planRouteWithQuery:query];
 }
 
 #pragma mark TTRouteResponseDelegate
-
 - (void)route:(TTRoute *)route completedWithResult:(TTRouteResult *)result {
     TTFullRoute *plannedRoute = result.routes.firstObject;
     if(!plannedRoute) {
         return;
     }
-    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle
-                                                     imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
+    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:plannedRoute withRouteStyle:self.routeStyle imageStart:self.iconStart imageEnd:self.iconEnd];
     [self.mapView.routeManager addRoute:mapRoute];
-    [self.mapView.routeManager bringToFrontRoute:mapRoute];
     [self.etaView showWithSummary:plannedRoute.summary style:ETAViewStylePlain];
     [self displayRouteOverview];
     [self.progress hide];

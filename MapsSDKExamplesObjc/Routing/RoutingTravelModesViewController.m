@@ -77,18 +77,17 @@
     if(!plannedRoute) {
         return;
     }
-    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject imageStart:[TTMapRoute defaultImageDeparture] imageEnd:[TTMapRoute defaultImageDestination]];
+    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+                                                     imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     [self.mapView.routeManager addRoute:mapRoute];
-    mapRoute.active = YES;
+    [self.mapView.routeManager bringToFrontRoute:mapRoute];
     [self.etaView showWithSummary:plannedRoute.summary style:ETAViewStylePlain];
     [self displayRouteOverview];
     [self.progress hide];
 }
 
 - (void)route:(TTRoute *)route completedWithResponseError:(TTResponseError *)responseError {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:responseError];
 }
 
 @end

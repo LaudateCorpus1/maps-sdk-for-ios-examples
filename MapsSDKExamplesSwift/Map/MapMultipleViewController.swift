@@ -28,6 +28,7 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
     }
     
     override func onMapReady() {
+        super.onMapReady()
         self.setupSecoundMap()
     }
     

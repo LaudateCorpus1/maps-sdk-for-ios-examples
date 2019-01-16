@@ -113,9 +113,7 @@
 }
 
 - (void)search:(TTGeometrySearch *)search failedWithError:(TTResponseError *)error {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", error.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:error];
 }
 
 @end

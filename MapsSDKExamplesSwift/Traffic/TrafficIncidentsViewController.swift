@@ -42,8 +42,7 @@ class TrafficIncidentsViewController: TrafficBaseViewController, TTTrafficIncide
     }
     
     func incidentDetails(_ trafficIncidents: TTTrafficIncidents, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
+        handleError(error)
     }
     
 }

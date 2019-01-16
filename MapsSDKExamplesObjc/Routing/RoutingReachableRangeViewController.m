@@ -124,9 +124,7 @@
 }
 
 - (void)reachableRange:(TTReachableRange *)range completedWithResponseError:(TTResponseError *)responseError {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:responseError];
 }
 
 @end

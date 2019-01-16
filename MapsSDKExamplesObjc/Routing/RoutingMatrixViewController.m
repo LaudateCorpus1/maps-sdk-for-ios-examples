@@ -83,9 +83,7 @@
 }
 
 - (void)matrix:(TTMatrixRoute *)matrix completedWithResponseError:(TTResponseError *)responseError {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
-    [self.progress hide];
-    [self.optionsView deselectAll];
+    [self handleError:responseError];
 }
 
 - (void)presentOneToMany:(TTMatrixRouteResponse *)response {

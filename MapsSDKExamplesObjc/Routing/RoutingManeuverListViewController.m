@@ -32,7 +32,7 @@
     self.tableView.rowHeight = 70;
     self.tableView.tableHeaderView = etaView;
     [etaView addTarget:self action:@selector(languageChanged:)];
-    [self displayManeuverList:TTLanguageEnglishGB];
+    [self displayManeuverList:@"en-GB"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -43,25 +43,25 @@
 - (void)languageChanged:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
         case 3:
-            [self displayManeuverList:TTLanguageGerman];
+            [self displayManeuverList:@"fr-FR"];
             break;
         case 2:
-            [self displayManeuverList:TTLanguageSpanishES];
+            [self displayManeuverList:@"es-ES"];
             break;
         case 1:
-            [self displayManeuverList:TTLanguageFrenchFR];
+            [self displayManeuverList:@"de-DE"];
             break;
         default:
-            [self displayManeuverList:TTLanguageEnglishGB];
+            [self displayManeuverList:@"en-GB"];
             break;
     }
 }
 
-- (void)displayManeuverList:(TTLanguage)language {
+- (void)displayManeuverList:(NSString*)language {
     [self.progress show];
     TTRouteQuery *query = [[[[TTRouteQueryBuilder createWithDest:[TTCoordinate BERLIN] andOrig:[TTCoordinate AMSTERDAM]]
                              withInstructionsType:TTOptionInstructionsTypeText]
-                            withLanguage:language]
+                            withLang:language]
                            build];
     [self.routePlanner planRouteWithQuery:query];
 }
@@ -79,8 +79,7 @@
 }
 
 - (void)route:(TTRoute *)route completedWithResponseError:(TTResponseError *)responseError {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
-    [self.progress hide];
+    [self handleError:responseError];
 }
 
 @end

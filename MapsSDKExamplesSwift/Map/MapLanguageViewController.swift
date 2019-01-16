@@ -21,7 +21,7 @@ class MapLanguageViewController: MapBaseViewController {
     
     override func setupMap() {
         super.setupMap()
-        mapView.setMapLanguage(.englishGB)
+        mapView.setLanguage("en-GB")
     }
     
     override func setupCenterOnWillHappen() {
@@ -45,15 +45,15 @@ class MapLanguageViewController: MapBaseViewController {
     //MARK: Examples
     
     func setLanguageEnglish() {
-        mapView.setMapLanguage(.englishGB)
+        mapView.setLanguage("en-GB")
     }
     
     func setLanguageRussian() {
-        mapView.setMapLanguage(.russian)
+        mapView.setLanguage("ru-RU")
     }
     
     func setLanguageDutch() {
-        mapView.setMapLanguage(.dutchNL)
+        mapView.setLanguage("nl-NL")
     }
 
 }

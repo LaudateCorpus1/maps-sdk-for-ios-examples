@@ -94,16 +94,16 @@
     if(!result.routes.firstObject) {
         return;
     }
-    self.mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject imageStart:[TTMapRoute defaultImageDeparture] imageEnd:[TTMapRoute defaultImageDestination]];
+    self.mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+                                              imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     [self.mapView.routeManager addRoute:self.mapRoute];
-    self.mapRoute.active = YES;
+    [self.mapView.routeManager bringToFrontRoute:self.mapRoute];
     [self displayRouteOverview];
     [self.progress hide];
 }
 
 - (void)route:(TTRoute *)route completedWithResponseError:(TTResponseError *)responseError {
-    [self.toast toastWithMessage:responseError.userInfo[@"description"]];
-    [self.progress hide];
+    [self handleError:responseError];
 }
 
 #pragma mark TTAlongRouteSearchDelegate
@@ -119,8 +119,7 @@
 }
 
 - (void)search:(TTAlongRouteSearch *)search failedWithError:(TTResponseError *)error {
-    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", error.userInfo[@"description"]]];
-    [self.progress hide];
+    [self handleError:error];
 }
 
 @end

@@ -86,9 +86,7 @@ class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegat
     }
     
     func search(_ search: TTSearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(error)
     }
     
     //MARK: TTAdditionalDataSearchDelegate
@@ -110,9 +108,7 @@ class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegat
     }
     
     func additionalDataSearch(_ additionalDataSearch: TTAdditionalDataSearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(error)
     }
 
 }

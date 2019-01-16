@@ -80,9 +80,7 @@ class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate {
     }
     
     func search(_ search: TTSearch, failedWithError error: TTResponseError) {
-        toast.toast(message: "error " + (error.userInfo["description"] as! String))
-        progress.hide()
-        optionsView.deselectAll()
+        handleError(error)
     }
 
 }

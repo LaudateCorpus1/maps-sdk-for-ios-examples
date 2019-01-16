@@ -77,12 +77,15 @@ public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDeleg
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let matrixResults = Array(results!.values)
+        let matrixRow = MatrixRow(style: .default, reuseIdentifier: MatrixETAView.REUSABLE_ID)
+        guard let results = self.results else {
+            return matrixRow
+        }
+        let matrixResults = Array(results.values)
         let length = matrixResults[indexPath.row].summary!.lengthInMetersValue
         let eta = matrixResults[indexPath.row].summary!.arrivalTime
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm"
-        let matrixRow = MatrixRow(style: .default, reuseIdentifier: MatrixETAView.REUSABLE_ID)
         matrixRow.label_1.text = "\(indexPath.row+1)"
         matrixRow.label_2.text = currentSecondColumn[indexPath.row]
         matrixRow.label_3.text = currentThirdColumn[indexPath.row]
