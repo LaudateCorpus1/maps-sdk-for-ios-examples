@@ -15,6 +15,7 @@ import UIKit
 public class OptionsViewController: OptionsBaseViewController, UICollectionViewDelegateFlowLayout {
     
     @objc public weak var exampleDelegate: ExampleDisplayRequest?
+    private let reuseIdentifier = "cellID"
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
         self.collectionView?.backgroundColor = TTColor.BlackLight()
         navigationItem.title = "TomTom Maps SDK Examples"
 
-        collectionView?.register(OptionsCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView?.register(OptionsCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
     override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -33,7 +34,6 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
         return MenuLabels.valueArray.count
     }
 
-    private let reuseIdentifier = "cell"
     override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! OptionsCollectionViewCell
 

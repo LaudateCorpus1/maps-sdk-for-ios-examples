@@ -11,9 +11,11 @@
 
 #import "RoutingReachableRangeViewController.h"
 #import <TomTomOnlineSDKRouting/TomTomOnlineSDKRouting.h>
+#import "ReachableRangeQueryFactory.h"
 
 @interface RoutingReachableRangeViewController() <TTReachableRangeDelegate>
 @property (nonatomic, strong) TTReachableRange *reachabeRange;
+@property (nonatomic, strong) ReachableRangeQueryFactory *queryFactory;
 @end
 
 @implementation RoutingReachableRangeViewController
@@ -28,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.queryFactory = [ReachableRangeQueryFactory alloc];
     self.reachabeRange = [TTReachableRange new];
     self.reachabeRange.delegate = self;
 }
@@ -54,59 +57,15 @@
 #pragma mark Examples
 
 - (void)displayReachableRangeForCombustion {
-    TTSpeedConsumption consumption[1];
-    consumption[0] = TTSpeedConsumptionMake(50, 6.3);
-    TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder createWithCenterLocation:[TTCoordinate AMSTERDAM]] withSpeedConsumptionInLitersPairs:consumption count:1]
-                                              withVehicleWeight:1600]
-                                             withCurrentFuelInLiters:43]
-                                            withFuelEnergyDensityInMJoulesPerLiter:34.2]
-                                           withCurrentAuxiliaryPowerInLitersPerHour:1.7]
-                                          withAccelerationEfficiency:0.33]
-                                         withDecelerationEfficiency:0.33]
-                                        withUphillEfficiency:0.33]
-                                       withDownhillEfficiency:0.33]
-                                      withVehicleEngineType:TTOptionVehicleEngineTypeCombustion]
-                                     withFuelBudgetInLiters:5]
-                                    build];
-    [self.reachabeRange findReachableRangeWithQuery:query];
+    [self.reachabeRange findReachableRangeWithQuery:[self.queryFactory createReachableRangeQueryForCombustion]];
 }
 
 - (void)displayReachableRangeForElectric {
-    TTSpeedConsumption consumption[1];
-    consumption[0] = TTSpeedConsumptionMake(50, 6.3);
-    
-    TTReachableRangeQuery *query = query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder createWithCenterLocation:[TTCoordinate AMSTERDAM]] withSpeedConsumptionInkWhPairs:consumption count:1]
-                                                      withVehicleWeight:1600]
-                                                     withCurrentChargeInkWh:43]
-                                                    withMaxChargeInkWh:85]
-                                                   withAuxiliaryPowerInkW:1.7]
-                                                  withAccelerationEfficiency:0.33]
-                                                 withDecelerationEfficiency:0.33]
-                                                withUphillEfficiency:0.33]
-                                               withDownhillEfficiency:0.33]
-                                              withVehicleEngineType:TTOptionVehicleEngineTypeElectric]
-                                             withEnergyBudgetInKWh:5]
-                                            build];
-    [self.reachabeRange findReachableRangeWithQuery:query];
+    [self.reachabeRange findReachableRangeWithQuery:[self.queryFactory createReachableRangeQueryForElectric]];
 }
 
 - (void)displayReachableRangeIn2hTime {
-    TTSpeedConsumption consumption[1];
-    consumption[0] = TTSpeedConsumptionMake(50, 6.3);
-    
-    TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder createWithCenterLocation:[TTCoordinate AMSTERDAM]] withSpeedConsumptionInkWhPairs:consumption count:1]
-                                              withVehicleWeight:1600]
-                                             withCurrentChargeInkWh:43]
-                                            withMaxChargeInkWh:85]
-                                           withAuxiliaryPowerInkW:1.7]
-                                          withAccelerationEfficiency:0.33]
-                                         withDecelerationEfficiency:0.33]
-                                        withUphillEfficiency:0.33]
-                                       withDownhillEfficiency:0.33]
-                                      withVehicleEngineType:TTOptionVehicleEngineTypeElectric]
-                                     withTimeBudgetInSeconds:7200]
-                                    build];
-    [self.reachabeRange findReachableRangeWithQuery:query];
+    [self.reachabeRange findReachableRangeWithQuery:[self.queryFactory createReachableRangeQueryForElectricLimitTo2Hours]];
 }
 
 #pragma mark TTReachableRangeDelegate

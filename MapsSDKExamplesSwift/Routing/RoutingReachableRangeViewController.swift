@@ -18,6 +18,7 @@ import TomTomOnlineSDKMaps
 class RoutingReachableRangeViewController: RoutingBaseViewController, TTReachableRangeDelegate {
 
     let reachabeRange = TTReachableRange()
+    let queryFactory = ReachableRangeQueryFactory()
     
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Combustion", "Electric", "Time - 2h"], selectedID: -1)
@@ -51,57 +52,15 @@ class RoutingReachableRangeViewController: RoutingBaseViewController, TTReachabl
     //MARK: Examples
     
     func displayReachableRangeForCombustion() {
-        var speedConsumption = [TTSpeedConsumptionMake(50, 6.3)]
-        let query = TTReachableRangeQueryBuilder.create(withCenterLocation: TTCoordinate.AMSTERDAM())
-            .withSpeedConsumption(inLitersPairs: &speedConsumption, count: UInt(speedConsumption.count))
-            .withVehicleWeight(1600)
-            .withCurrentFuel(inLiters: 43)
-            .withFuelEnergyDensity(inMJoulesPerLiter: 34.2)
-            .withCurrentAuxiliaryPower(inLitersPerHour: 1.7)
-            .withAccelerationEfficiency(0.33)
-            .withDecelerationEfficiency(0.33)
-            .withUphillEfficiency(0.33)
-            .withDownhillEfficiency(0.33)
-            .withVehicleEngineType(.combustion)
-            .withFuelBudget(inLiters: 5)
-            .build()
-        reachabeRange.find(with: query)
+        reachabeRange.find(with: queryFactory.createReachableRangeQueryForCombustion())
     }
     
     func displayReachableRangeForElectric() {
-        var speedConsumption = [TTSpeedConsumptionMake(50, 6.3)]
-        let query = TTReachableRangeQueryBuilder.create(withCenterLocation: TTCoordinate.AMSTERDAM())
-            .withSpeedConsumptionInkWhPairs(&speedConsumption, count: UInt(speedConsumption.count))
-            .withVehicleWeight(1600)
-            .withCurrentChargeInkWh(43)
-            .withMaxChargeInkWh(85)
-            .withAuxiliaryPowerInkW(1.7)
-            .withAccelerationEfficiency(0.33)
-            .withDecelerationEfficiency(0.33)
-            .withUphillEfficiency(0.33)
-            .withDownhillEfficiency(0.33)
-            .withVehicleEngineType(.electric)
-            .withEnergyBudget(inKWh: 5)
-            .build()
-        reachabeRange.find(with: query)
+        reachabeRange.find(with: queryFactory.createReachableRangeQueryForElectric())
     }
     
     func displayReachableRangeIn2hTime() {
-        var speedConsumption = [TTSpeedConsumptionMake(50, 6.3)]
-        let query = TTReachableRangeQueryBuilder.create(withCenterLocation: TTCoordinate.AMSTERDAM())
-            .withSpeedConsumptionInkWhPairs(&speedConsumption, count: UInt(speedConsumption.count))
-            .withVehicleWeight(1600)
-            .withCurrentChargeInkWh(43)
-            .withMaxChargeInkWh(85)
-            .withAuxiliaryPowerInkW(1.7)
-            .withAccelerationEfficiency(0.33)
-            .withDecelerationEfficiency(0.33)
-            .withUphillEfficiency(0.33)
-            .withDownhillEfficiency(0.33)
-            .withVehicleEngineType(.electric)
-            .withTimeBudget(inSeconds: 2 * 60 * 60)
-            .build()
-        reachabeRange.find(with: query)
+        reachabeRange.find(with: queryFactory.createReachableRangeQueryForElectricLimitTo2Hours())
     }
     
     //MARK: TTReachableRangeDelegate

@@ -23,10 +23,11 @@ class MapVectorTrafficViewController: MapBaseViewController {
         super.setupMap()
         mapView.setTilesType(.vector)
         mapView.trafficTileStyle = TTVectorTileType.setStyle(.relative)
+        mapView.trafficIncidentsStyle = .vector
     }
     
     override func getOptionsView() -> OptionsView {
-        return OptionsViewSingleSelect(labels: ["Flow", "No traffic"], selectedID: 1)
+        return OptionsViewMultiSelect(labels: ["Incidents", "Flow", "No traffic"], selectedID: 2)
     }
     
     //MARK: OptionsViewDelegate
@@ -34,18 +35,35 @@ class MapVectorTrafficViewController: MapBaseViewController {
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
-        case 1:
+        case 2:
+            hideIncidents()
             hideFlow()
-        default:
+            break;
+        case 1:
             if on {
                 displayFlow()
             } else {
                 hideFlow()
             }
+            break;
+        default:
+            if on {
+                displayIncidents()
+            } else {
+                hideIncidents()
+            }
         }
     }
     
     //MARK: Examples
+    
+    func displayIncidents() {
+        mapView.trafficIncidentsOn = true
+    }
+    
+    func hideIncidents() {
+        mapView.trafficIncidentsOn = false
+    }
     
     func displayFlow() {
         mapView.trafficFlowOn = true

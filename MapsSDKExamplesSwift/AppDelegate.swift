@@ -17,7 +17,7 @@ import MapsSDKExamplesVC
 class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
 
     var window: UIWindow?
-    var mainVC: OptionsViewController!
+    weak var mainVC: OptionsViewController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -73,6 +73,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = MapMultipleViewController()
             case 18:
                 newViewController = MapRouteCustomisationViewController()
+            case 19:
+                newViewController = MapMatchingViewController()
+            case 20:
+                newViewController = RouteMatchingViewController()
             default:
                 fatalError("This VC is not handled")
             }
@@ -108,8 +112,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 10:
                 newViewController = RoutingBatchRouteViewController()
             case 11:
-                newViewController = RoutingMatrixViewController()
+                newViewController = RoutingBatchReachableRouteViewController()
             case 12:
+                newViewController = RoutingMatrixViewController()
+            case 13:
                 newViewController = RoutingAvoidVignettesAndAreasViewController()
             default:
                 fatalError("This VC is not handled")

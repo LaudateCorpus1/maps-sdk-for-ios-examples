@@ -67,8 +67,19 @@ public class ETAView: UIView {
     }
     
     @objc public func update(eta: String, metersDistance: UInt){
-        self.time.text = eta
-        self.distance.text = "\(FormatUtils.formatDistance(meters: metersDistance))"
+        time.text = eta
+        distance.text = "\(FormatUtils.formatDistance(meters: metersDistance))"
+        isHidden = false
+    }
+    
+    @objc public func update(text: String, icon: UIImage){
+        time.text = text
+        time.font = UIFont(name: time.font.fontName, size: 12)
+        leftIcon.image = icon
+        leftIcon.contentMode = .center
+        if distance != nil {
+            distance.removeFromSuperview()
+        }
         isHidden = false
     }
     

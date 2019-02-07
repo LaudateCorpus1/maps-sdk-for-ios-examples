@@ -29,6 +29,8 @@
 #import "MapMultipleViewController.h"
 #import "MapFollowTheChevronController.h"
 #import "MapRouteCustomisationViewController.h"
+#import "MapMatchingViewController.h"
+#import "RouteMatchingViewController.h"
 #import "TrafficIncidentsViewController.h"
 #import "SearchAddressViewController.h"
 #import "SearchCategoryViewController.h"
@@ -52,6 +54,7 @@
 #import "RoutingSupportingPointsViewController.h"
 #import "RoutingReachableRangeViewController.h"
 #import "RoutingBatchRouteViewController.h"
+#import "RoutingBatchReachableRouteViewController.h"
 #import "RoutingAvoidVignettesAndAreasViewController.h"
 #import "RoutingMatrixViewController.h"
 
@@ -60,6 +63,8 @@
 @end
 
 @implementation AppDelegate
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -136,6 +141,12 @@
             case 18:
                 newViewController = [MapRouteCustomisationViewController new];
                 break;
+            case 19:
+                newViewController = [MapMatchingViewController new];
+                break;
+            case 20:
+                newViewController = [RouteMatchingViewController new];
+                break;
             default:
                 [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];
                 break;
@@ -185,9 +196,12 @@
                 newViewController = [RoutingBatchRouteViewController new];
                 break;
             case 11:
-                newViewController = [RoutingMatrixViewController new];
+                newViewController = [RoutingBatchReachableRouteViewController new];
                 break;
             case 12:
+                newViewController = [RoutingMatrixViewController new];
+                break;
+            case 13:
                 newViewController = [RoutingAvoidVignettesAndAreasViewController new];
                 break;
             default:

@@ -56,16 +56,16 @@
     TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC]
                             withTraffic:YES]
                            build];
-    
+    __weak RoutingAvoidVignettesAndAreasViewController *weakSelf = self;
     [self.routePlannerBasic planRouteWithQuery:query completionHandler:^(TTRouteResult * _Nullable result, TTResponseError * _Nullable error) {
         if (error != nil){
-            [self handleError:error];
-            [self.routePlannerBasic cancel];
+            [weakSelf handleError:error];
+            [weakSelf.routePlannerBasic cancel];
         }else {
             if (result != nil) {
                 TTFullRoute *plannedRoute = result.routes.firstObject;
-                [self displayRoute:@"No avoids" plannedRoute:plannedRoute routeStyle:[TTMapRouteStyle defaultActiveStyle]];
-                [self.progress hide];
+                [weakSelf displayRoute:@"No avoids" plannedRoute:plannedRoute routeStyle:[TTMapRouteStyle defaultActiveStyle]];
+                [weakSelf.progress hide];
             }
         }
     }];
@@ -80,13 +80,14 @@
                            build];
     
     dispatch_group_enter(group);
+    __weak RoutingAvoidVignettesAndAreasViewController *weakSelf = self;
     [self.routePlannerBasic planRouteWithQuery:query completionHandler:^(TTRouteResult * _Nullable result, TTResponseError * _Nullable error) {
         if (error != nil){
-            [self handleError:error];
+            [weakSelf handleError:error];
         }else {
             if (result != nil) {
                 TTFullRoute *plannedRoute = result.routes.firstObject;
-                [self displayRoute:@"No avoids" plannedRoute:plannedRoute routeStyle:[TTMapRouteStyle defaultActiveStyle]];
+                [weakSelf displayRoute:@"No avoids" plannedRoute:plannedRoute routeStyle:[TTMapRouteStyle defaultActiveStyle]];
             }
         }
         dispatch_group_leave(group);
@@ -99,19 +100,19 @@
     dispatch_group_enter(group);
     [self.routePlannerAvoid planRouteWithQuery:query2 completionHandler:^(TTRouteResult * _Nullable result, TTResponseError * _Nullable error) {
         if (error != nil){
-            [self handleError:error];
-            [self.routePlannerBasic cancel];
+            [weakSelf handleError:error];
+            [weakSelf.routePlannerBasic cancel];
         }else {
             if (result != nil) {
                 TTFullRoute *plannedRoute = result.routes.firstObject;
-                [self displayRoute:@"Avoids Vignettes" plannedRoute:plannedRoute routeStyle: [self setRouteStyle:[TTColor Pink] outlineColor:[TTColor Purple]]];
+                [weakSelf displayRoute:@"Avoids Vignettes" plannedRoute:plannedRoute routeStyle: [weakSelf setRouteStyle:[TTColor Pink] outlineColor:[TTColor Purple]]];
             }
         }
         dispatch_group_leave(group);
     }];
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        [self.progress hide];
+        [weakSelf.progress hide];
     });
 }
 
@@ -132,14 +133,15 @@
                             withTraffic:YES]
                            build];
     dispatch_group_enter(group);
+    __weak RoutingAvoidVignettesAndAreasViewController *weakSelf = self;
     [self.routePlannerBasic planRouteWithQuery:query completionHandler:^(TTRouteResult * _Nullable result, TTResponseError * _Nullable error) {
         if (error != nil){
-            [self handleError:error];
-            [self.routePlannerAvoid cancel];
+            [weakSelf handleError:error];
+            [weakSelf.routePlannerAvoid cancel];
         }else {
             if (result != nil) {
                 TTFullRoute *plannedRoute = result.routes.firstObject;
-                [self displayRoute:@"Avoid area" plannedRoute:plannedRoute routeStyle:[self setRouteStyle:[TTColor BlueLight] outlineColor:[TTColor BlueLight]]];
+                [weakSelf displayRoute:@"Avoid area" plannedRoute:plannedRoute routeStyle:[weakSelf setRouteStyle:[TTColor BlueLight] outlineColor:[TTColor BlueLight]]];
             }
         }
         dispatch_group_leave(group);
@@ -153,20 +155,19 @@
     dispatch_group_enter(group);
     [self.routePlannerAvoid planRouteWithQuery:query2 completionHandler:^(TTRouteResult * _Nullable result, TTResponseError * _Nullable error) {
         if (error != nil){
-            [self handleError:error];
-            [self.routePlannerBasic cancel];
+            [weakSelf handleError:error];
+            [weakSelf.routePlannerBasic cancel];
         }else {
             if (result != nil) {
                 TTFullRoute *plannedRoute = result.routes.firstObject;
-                [self displayRoute:@"Avoids Vignettes" plannedRoute:plannedRoute routeStyle: [self setRouteStyle:[TTColor GreenBright] outlineColor:[TTColor GreenBright]]];
+                [weakSelf displayRoute:@"Avoids Vignettes" plannedRoute:plannedRoute routeStyle: [weakSelf setRouteStyle:[TTColor GreenBright] outlineColor:[TTColor GreenBright]]];
             }
         }
         dispatch_group_leave(group);
     }];
     
-    
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        [self.progress hide];
+        [weakSelf.progress hide];
     });
 }
 

@@ -65,14 +65,15 @@
 
 - (void)createRoute {
     TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.LODZ_SREBRZYNSKA_STOP andOrig:TTCoordinate.LODZ_SREBRZYNSKA_START] withWayPoints:self.waypoints count:3] build];
+    __weak MapFollowTheChevronController *weakSelf = self;
     [_routePlanner planRouteWithQuery:query completionHandler:^(TTRouteResult * _Nullable routeResult, TTResponseError * _Nullable error) {
         TTFullRoute *plannedRoute = routeResult.routes.firstObject;
         if (plannedRoute != nil) {
-            [self displayPlannedRoute:plannedRoute];
-            [self createChevron];
-            [self.mapView.trackingManager addTrackingObject:self.chevron];
-            self.source = [[MapFollowTheChevronSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron route:self.route];
-            [self.source activate];
+            [weakSelf displayPlannedRoute:plannedRoute];
+            [weakSelf createChevron];
+            [weakSelf.mapView.trackingManager addTrackingObject:self.chevron];
+            weakSelf.source = [[MapFollowTheChevronSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron route:self.route];
+            [weakSelf.source activate];
             
         }
     }];
@@ -81,11 +82,12 @@
 - (void)displayPlannedRoute:(TTFullRoute *)plannedRoute {
     self.route = [TTMapRoute routeWithCoordinatesData:plannedRoute withRouteStyle:TTMapRouteStyle.defaultActiveStyle
                                            imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
+    __weak MapFollowTheChevronController *weakSelf = self;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [self.mapView.routeManager addRoute:self.route];
-        [self.mapView.routeManager showRouteOverview:self.route];
-        [self.mapView.routeManager bringToFrontRoute:self.route];
-        [self showRoute];
+        [weakSelf.mapView.routeManager addRoute:self.route];
+        [weakSelf.mapView.routeManager showRouteOverview:self.route];
+        [weakSelf.mapView.routeManager bringToFrontRoute:self.route];
+        [weakSelf showRoute];
     }];
 }
 

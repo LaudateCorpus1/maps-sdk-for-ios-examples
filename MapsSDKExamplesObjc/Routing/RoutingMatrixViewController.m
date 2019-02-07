@@ -89,15 +89,16 @@
 - (void)presentOneToMany:(TTMatrixRouteResponse *)response {
     TTAnnotation* annotationOrigin = [TTAnnotation annotationWithCoordinate:TTCoordinate.AMSTERDAM_CENTER_LOCATION annotationImage:[TTAnnotationImage createPNGWithName:@"Car"] anchor:TTAnnotationAnchorBottom type:TTAnnotationTypeFocal];
     [self.mapView.annotationManager addAnnotation:annotationOrigin];
+    __weak RoutingMatrixViewController *weakSelf = self;
     [response.results enumerateKeysAndObjectsUsingBlock:^(TTMatrixRoutingResultKey * _Nonnull key, TTMatrixRouteResult * _Nonnull obj, BOOL * _Nonnull stop) {
         TTAnnotation* annotation = [TTAnnotation annotationWithCoordinate:key.destination];
-        [self.mapView.annotationManager addAnnotation:annotation];
+        [weakSelf.mapView.annotationManager addAnnotation:annotation];
         
         CLLocationCoordinate2D cooridnates[2];
         cooridnates[0] = key.origin;
         cooridnates[1] = key.destination;
-        TTPolyline* polyline = [TTPolyline polylineWithCoordinates:cooridnates count:2 opacity:1 width:4 color:[self determineColorWith:key withResponse:response]];
-        [self.mapView.annotationManager addOverlay:polyline];
+        TTPolyline* polyline = [TTPolyline polylineWithCoordinates:cooridnates count:2 opacity:1 width:4 color:[weakSelf determineColorWith:key withResponse:response]];
+        [weakSelf.mapView.annotationManager addOverlay:polyline];
     }];
     [self.progress hide];
     [self showMatrixEta:self.oneToManySelected withMatrixResponse:response];
@@ -105,11 +106,12 @@
 }
 
 - (void)presentManyToMany:(TTMatrixRouteResponse *)response {
+    __weak RoutingMatrixViewController *weakSelf = self;
     [response.results enumerateKeysAndObjectsUsingBlock:^(TTMatrixRoutingResultKey * _Nonnull key, TTMatrixRouteResult * _Nonnull obj, BOOL * _Nonnull stop) {
         TTAnnotation* annotationOrigin = [TTAnnotation annotationWithCoordinate:key.origin annotationImage:[TTAnnotationImage createPNGWithName:@"Walk"] anchor:TTAnnotationAnchorBottom type:TTAnnotationTypeFocal];
-        [self.mapView.annotationManager addAnnotation:annotationOrigin];
+        [weakSelf.mapView.annotationManager addAnnotation:annotationOrigin];
         TTAnnotation* annotationDestination = [TTAnnotation annotationWithCoordinate:key.destination annotationImage:[TTAnnotationImage createPNGWithName:@"Car"] anchor:TTAnnotationAnchorBottom type:TTAnnotationTypeFocal];
-        [self.mapView.annotationManager addAnnotation:annotationDestination];
+        [weakSelf.mapView.annotationManager addAnnotation:annotationDestination];
         
         CLLocationCoordinate2D cooridnates[2];
         cooridnates[0] = key.origin;

@@ -17,8 +17,9 @@
     [super viewDidLoad];
     [self setupMap];
     [self setupControls];
+    __weak MapBaseViewController *weakSelf = self;
     [self.mapView onMapReadyCompletion:^{
-        [self onMapReady];
+        [weakSelf onMapReady];
     }];
 }
 

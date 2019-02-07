@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "batch_routing_image.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "batch_routing_image.jpg",
       "scale" : "2x"
     },
     {

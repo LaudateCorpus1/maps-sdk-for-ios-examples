@@ -37,13 +37,16 @@ class MapRasterTrafficViewController: MapBaseViewController {
         super.displayExample(withID: ID, on: on)
         switch ID {
         case 2:
-            hideTraffic()
+            hideIncidents()
+            hideFlow()
+            break;
         case 1:
             if on {
                 displayFlow()
             } else {
                 hideFlow()
             }
+            break;
         default:
             if on {
                 displayIncidents()
@@ -68,11 +71,6 @@ class MapRasterTrafficViewController: MapBaseViewController {
     }
 
     func hideFlow() {
-        mapView.trafficFlowOn = false
-    }
-    
-    func hideTraffic() {
-        mapView.trafficIncidentsOn = false
         mapView.trafficFlowOn = false
     }
 

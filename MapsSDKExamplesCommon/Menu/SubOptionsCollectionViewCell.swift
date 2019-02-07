@@ -80,7 +80,7 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
     
     let iconImage:UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "map_image")
+
         iv.contentMode = .scaleToFill
         iv.contentMode = .scaleAspectFill
         iv.layer.masksToBounds = true

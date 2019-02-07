@@ -20,7 +20,6 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
     let routePlannerAvoid = TTRoute()
     var dispatchGroup = DispatchGroup()
     
-    
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["No avoids", "Avoid Vignettes","Avoid area"], selectedID: -1)
     }
@@ -31,7 +30,6 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.annotationManager.delegate = self
         mapView.routeManager.delegate = self
     }

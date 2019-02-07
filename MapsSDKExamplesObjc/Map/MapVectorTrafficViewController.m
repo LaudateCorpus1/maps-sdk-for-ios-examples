@@ -18,13 +18,14 @@
 }
 
 - (OptionsView *)getOptionsView {
-    return [[OptionsViewSingleSelect alloc] initWithLabels:@[@"Flow", @"No traffic"] selectedID:1];
+    return [[OptionsViewMultiSelect alloc] initWithLabels:@[@"Incidents", @"Flow", @"No traffic"] selectedID:2];
 }
 
 - (void)setupMap {
     [super setupMap];
     [self.mapView setTilesType:TTMapTilesVector];
     self.mapView.trafficTileStyle = [TTVectorTileType setStyle:TTVectorStyleRelative];
+    self.mapView.trafficIncidentsStyle = TTTrafficIncidentsStyleVector;
 }
 
 #pragma mark OptionsViewDelegate
@@ -32,20 +33,35 @@
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
     [super displayExampleWithID:ID on:on];
     switch (ID) {
-        case 1:
+    case 2:
+            [self hideIncidents];
             [self hideFlow];
             break;
-        default:
-            if (on) {
-                [self displayFlow];
-            } else {
-                [self hideFlow];
-            }
+    case 1:
+        if (on) {
+            [self displayFlow];
+        } else {
+            [self hideFlow];
+        }
             break;
+    default:
+        if (on) {
+            [self displayIncidents];
+        } else {
+            [self hideIncidents];
+        }
     }
 }
 
 #pragma mark Examples
+
+- (void)displayIncidents {
+    self.mapView.trafficIncidentsOn = YES;
+}
+
+- (void)hideIncidents {
+    self.mapView.trafficIncidentsOn = NO;
+}
 
 - (void)displayFlow {
     self.mapView.trafficFlowOn = YES;

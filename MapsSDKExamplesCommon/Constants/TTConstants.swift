@@ -129,6 +129,9 @@ public class TTCamera: NSObject {
     @objc public static func DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING() -> Double {
         return 50
     }
+    @objc public static func DEFAULT_MAP_PITCH_FLAT() -> Double {
+        return 0
+    }
     @objc public static func DEFAULT_VERTICAL_PADDING() -> CGFloat {
         return 30.0
     }

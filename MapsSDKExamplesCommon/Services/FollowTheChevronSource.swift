@@ -24,13 +24,7 @@ import CoreLocation
         manager = trackingManager
         object = trackingObject
         mapRoute = route
-        prevCoordinate = MapFollowTheChevronSource.coordinateForValue(value: self.mapRoute.coordinatesData()[0])
-    }
-
-    public static func coordinateForValue(value: NSValue) -> CLLocationCoordinate2D {
-        var coordiante = CLLocationCoordinate2DMake(0, 0)
-        value.getValue(&coordiante)
-        return coordiante;
+        prevCoordinate = LocationUtils.coordinateForValue(value: self.mapRoute.coordinatesData()[0])
     }
 
     public func activate() {
@@ -42,8 +36,8 @@ import CoreLocation
             if index == self.mapRoute.coordinatesData().count {
                 index = 0;
             }
-            let coordiante = MapFollowTheChevronSource.coordinateForValue(value: self.mapRoute.coordinatesData()[index])
-            let bearing = self.bearingWithCoordinate(coordinate: coordiante, prevCoordianate: self.prevCoordinate!)
+            let coordiante = LocationUtils.coordinateForValue(value: self.mapRoute.coordinatesData()[index])
+            let bearing = LocationUtils.bearingWithCoordinate(coordinate: coordiante, prevCoordianate: self.prevCoordinate!)
             let location = TTLocation(coordinate: coordiante, withBearing: bearing)
             self.manager.update(self.object, with: location)
             
@@ -54,29 +48,5 @@ import CoreLocation
     public func deactivate() {
         // Stop Service
         timer?.invalidate()
-    }
-
-    func bearingWithCoordinate(coordinate: CLLocationCoordinate2D, prevCoordianate: CLLocationCoordinate2D) -> Double {
-        let prevLatitude = degreesToRadians(prevCoordianate.latitude)
-        let prevLongitude = degreesToRadians(prevCoordianate.longitude)
-        let latitude = degreesToRadians(coordinate.latitude)
-        let longitude = degreesToRadians(coordinate.longitude)
-
-        let degree = radiansToDegress(atan2(sin(longitude-prevLongitude)*cos(latitude),
-                                            cos(prevLatitude)*sin(latitude)-sin(prevLatitude)*cos(latitude)*cos(longitude-prevLongitude)))
-
-        if degree >= 0 {
-            return degree;
-        } else {
-            return 360.0 + degree;
-        }
-    }
-
-    func degreesToRadians(_ degrees: Double) -> Double {
-        return degrees * Double.pi / 180
-    }
-
-    func radiansToDegress(_ radians: Double) -> Double {
-        return radians * 180 / Double.pi
     }
 }

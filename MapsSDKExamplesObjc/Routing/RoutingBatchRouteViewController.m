@@ -12,7 +12,6 @@
 #import "RoutingBatchRouteViewController.h"
 
 
-
 typedef NS_ENUM(NSInteger, BatchRouteType) {
     BatchRouteTypeTravelMode,
     BatchRouteTypeRoute,
