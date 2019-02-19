@@ -181,6 +181,15 @@ public class MenuLabels: NSObject {
                                                         SubOptions(iconImage: "batch_search_image",
                                                                    titleLabel: "Batch search",
                                                                    subtitleLabel: "Allows to bundle multiple search requests.")
+                                        ]),
+                                    Options(category: .Geofencing,
+                                            mainImage: "geofencing_image",
+                                            iconImage: "geofencing_icon",
+                                            titleLabel: "Geofencing ",
+                                            subtitleLabel:"Geofencing service is intended to define virtual barriers on real geographical locations.",
+                                            subOptions:[SubOptions(iconImage: "geofencing_report_image",
+                                                                   titleLabel: "Geofencing report",
+                                                                   subtitleLabel: "Report contains information for a specified object or point.")
                                         ])
     ]
 

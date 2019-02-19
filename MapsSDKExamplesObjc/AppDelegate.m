@@ -57,6 +57,7 @@
 #import "RoutingBatchReachableRouteViewController.h"
 #import "RoutingAvoidVignettesAndAreasViewController.h"
 #import "RoutingMatrixViewController.h"
+#import "GeofencingReportViewController.h"
 
 @interface AppDelegate () <ExampleDisplayRequest>
 
@@ -242,6 +243,15 @@
                 break;
             case 10:
                 newViewController = [SearchBatchViewController new];
+                break;
+            default:
+                [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];
+                break;
+        }
+    } else if (category == 4) {
+        switch (index) {
+            case 0:
+                newViewController = [GeofencingReportViewController new];
                 break;
             default:
                 [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];

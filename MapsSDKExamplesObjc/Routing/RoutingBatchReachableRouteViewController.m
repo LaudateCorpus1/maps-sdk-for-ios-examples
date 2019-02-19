@@ -72,6 +72,7 @@
     [self.mapView.annotationManager addOverlay:polyline];
     self.index++;
     [self.polylines addObject:polyline];
+    free(coordinates);
 }
 
 #pragma mark TTAnnotationDelegate

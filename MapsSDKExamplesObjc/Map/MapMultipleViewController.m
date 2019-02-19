@@ -41,7 +41,7 @@
     [self.secondMap setStylePath:customStyle];
     [self.mapView addSubview:self.secondMap];
     [self setupConstraints];
-    [self.secondMap setCameraPosition:[[TTCameraPosition alloc] initWithCamerPosition:TTCoordinate.AMSTERDAM withAnimationDuration:0 withBearing:self.mapView.bearing withPitch:0 withZoom:8]];
+    [self.secondMap setCameraPosition:[[[[TTCameraPositionBuilder createWithCameraPosition:TTCoordinate.AMSTERDAM] withBearing:self.mapView.bearing] withZoom:8] build]];
     [self drawShapes];
 }
 
@@ -53,7 +53,7 @@
 - (void)updateSecoundMap:(CLLocationCoordinate2D) coordinate{
     if (self.secondMap != nil){
         [self drawShapes];
-        [self.secondMap setCameraPosition:[[TTCameraPosition alloc] initWithCamerPosition:coordinate withAnimationDuration:0]];
+        [self.secondMap setCameraPosition:[[TTCameraPositionBuilder createWithCameraPosition:coordinate]build]];
     }
 }
          

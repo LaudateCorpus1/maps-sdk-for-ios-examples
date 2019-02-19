@@ -30,7 +30,7 @@ import CoreLocation
     }
     
     @objc public func updateLocation(location: TTLocation) {
-        self.manager.update(self.object, with: location)
+        manager.update(object, with: location)
     }
     
     func bearingWithCoordinate(coordinate: CLLocationCoordinate2D, prevCoordianate: CLLocationCoordinate2D) -> Double {

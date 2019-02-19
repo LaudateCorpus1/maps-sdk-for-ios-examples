@@ -9,9 +9,8 @@
  * immediately return it to TomTom N.V.
  */
 
-#import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
 #import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-@interface MapFollowTheChevronController : RoutingBaseViewController
+@interface GeofencingReportViewController : GeofencingBaseViewController
 
 @end

@@ -300,6 +300,10 @@
 		9C78AB42220735F500EAC9FA /* MapMatchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C78AB41220735F500EAC9FA /* MapMatchingViewController.m */; };
 		9C78AB43220735FC00EAC9FA /* simple_route.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9C7076802203193300B3FF19 /* simple_route.csv */; };
 		9C78AB462207471A00EAC9FA /* RouteMatchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C78AB452207471A00EAC9FA /* RouteMatchingViewController.m */; };
+		9C78AB4C2209A9D800EAC9FA /* GeofencingReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78AB4B2209A9D700EAC9FA /* GeofencingReportViewController.swift */; };
+		9C78AB5C220D7ABF00EAC9FA /* GeofencingReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C78AB5B220D7ABF00EAC9FA /* GeofencingReportViewController.m */; };
+		9C78AB5F220D7B5200EAC9FA /* GeofencingBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C78AB5D220D7B5200EAC9FA /* GeofencingBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C78AB60220D7B5200EAC9FA /* GeofencingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C78AB5E220D7B5200EAC9FA /* GeofencingBaseViewController.m */; };
 		9C81FE2121AED86400D9C2C4 /* MapsSDKExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7220273D2139607500296ACF /* MapsSDKExamplesCommon.framework */; };
 		9CCB057421885E55006BA780 /* FollowTheChevronSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057321885E54006BA780 /* FollowTheChevronSource.swift */; };
 		9CCB057621887A49006BA780 /* MapFollowTheChevronControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057521887A49006BA780 /* MapFollowTheChevronControllerTests.swift */; };
@@ -728,6 +732,11 @@
 		9C78AB41220735F500EAC9FA /* MapMatchingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMatchingViewController.m; sourceTree = "<group>"; };
 		9C78AB442207471A00EAC9FA /* RouteMatchingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteMatchingViewController.h; sourceTree = "<group>"; };
 		9C78AB452207471A00EAC9FA /* RouteMatchingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteMatchingViewController.m; sourceTree = "<group>"; };
+		9C78AB4B2209A9D700EAC9FA /* GeofencingReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencingReportViewController.swift; sourceTree = "<group>"; };
+		9C78AB5A220D7ABF00EAC9FA /* GeofencingReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeofencingReportViewController.h; sourceTree = "<group>"; };
+		9C78AB5B220D7ABF00EAC9FA /* GeofencingReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeofencingReportViewController.m; sourceTree = "<group>"; };
+		9C78AB5D220D7B5200EAC9FA /* GeofencingBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeofencingBaseViewController.h; sourceTree = "<group>"; };
+		9C78AB5E220D7B5200EAC9FA /* GeofencingBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeofencingBaseViewController.m; sourceTree = "<group>"; };
 		9CCB057321885E54006BA780 /* FollowTheChevronSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowTheChevronSource.swift; sourceTree = "<group>"; };
 		9CCB057521887A49006BA780 /* MapFollowTheChevronControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFollowTheChevronControllerTests.swift; sourceTree = "<group>"; };
 		9CCB057721887BAB006BA780 /* MapFollowTheChevronControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapFollowTheChevronControllerTests.m; sourceTree = "<group>"; };
@@ -792,6 +801,8 @@
 		72006902213E4BCF005B20D1 /* MapsSDKExamplesVC */ = {
 			isa = PBXGroup;
 			children = (
+				9C78AB5D220D7B5200EAC9FA /* GeofencingBaseViewController.h */,
+				9C78AB5E220D7B5200EAC9FA /* GeofencingBaseViewController.m */,
 				7220277B213CF9C700296ACF /* BaseViewController.h */,
 				7220277C213CF9C700296ACF /* BaseViewController.m */,
 				72202795213D106200296ACF /* ButtonsBaseViewController.h */,
@@ -830,6 +841,7 @@
 				72202774213BB51400296ACF /* Search */,
 				72202775213BB51900296ACF /* Routing */,
 				9C78AB3F220735D300EAC9FA /* Driving */,
+				9C78AB59220D7AAA00EAC9FA /* Geofencing */,
 				722027082139605300296ACF /* AppDelegate.h */,
 				722027092139605300296ACF /* AppDelegate.m */,
 				722027112139605300296ACF /* Assets.xcassets */,
@@ -1221,6 +1233,7 @@
 				72AA46A321255C7D0019EC72 /* Search */,
 				72AA46AD21269C960019EC72 /* Routing */,
 				9C7076742202EC0D00B3FF19 /* Driving */,
+				9C78AB4A2209A9D700EAC9FA /* Geofencing */,
 				9C77CF3C2106F7B600A3179B /* AppDelegate.swift */,
 				9C77CF432106F7B800A3179B /* Assets.xcassets */,
 				729FFC7F2134234600467D60 /* Maneuver.xcassets */,
@@ -1241,6 +1254,23 @@
 				9C78AB452207471A00EAC9FA /* RouteMatchingViewController.m */,
 			);
 			path = Driving;
+			sourceTree = "<group>";
+		};
+		9C78AB4A2209A9D700EAC9FA /* Geofencing */ = {
+			isa = PBXGroup;
+			children = (
+				9C78AB4B2209A9D700EAC9FA /* GeofencingReportViewController.swift */,
+			);
+			path = Geofencing;
+			sourceTree = "<group>";
+		};
+		9C78AB59220D7AAA00EAC9FA /* Geofencing */ = {
+			isa = PBXGroup;
+			children = (
+				9C78AB5A220D7ABF00EAC9FA /* GeofencingReportViewController.h */,
+				9C78AB5B220D7ABF00EAC9FA /* GeofencingReportViewController.m */,
+			);
+			path = Geofencing;
 			sourceTree = "<group>";
 		};
 		9CCB057221885E54006BA780 /* Services */ = {
@@ -1272,6 +1302,7 @@
 				72006950213E845B005B20D1 /* TableBaseViewController.h in Headers */,
 				72006954213EACF1005B20D1 /* TrafficBaseViewController.h in Headers */,
 				72006922213E4D43005B20D1 /* ButtonsBaseViewController.h in Headers */,
+				9C78AB5F220D7B5200EAC9FA /* GeofencingBaseViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1509,6 +1540,7 @@
 				7200691F213E4BEB005B20D1 /* BaseViewController.m in Sources */,
 				7200696C213FA98E005B20D1 /* SearchBaseViewController.m in Sources */,
 				72AB7366213FC2E100D72DF1 /* RoutingBaseViewController.m in Sources */,
+				9C78AB60220D7B5200EAC9FA /* GeofencingBaseViewController.m in Sources */,
 				72006949213E7805005B20D1 /* CollectionBaseViewController.m in Sources */,
 				72006955213EACF1005B20D1 /* TrafficBaseViewController.m in Sources */,
 				7200691E213E4BEB005B20D1 /* MapBaseViewController.m in Sources */,
@@ -1567,6 +1599,7 @@
 				7280A2492144F3750078B943 /* SearchBatchViewController.m in Sources */,
 				7280A2342144F2D20078B943 /* SearchTypeaheadParameterViewController.m in Sources */,
 				7280A22E2144F2A80078B943 /* SearchCategoryViewController.m in Sources */,
+				9C78AB5C220D7ABF00EAC9FA /* GeofencingReportViewController.m in Sources */,
 				9C40F4EB218741580086C13B /* MapFollowTheChevronController.m in Sources */,
 				7280A23D2144F3220078B943 /* SearchAlongTheRouteViewController.m in Sources */,
 				7280A2312144F2BF0078B943 /* SearchLanguageSelectorViewController.m in Sources */,
@@ -1627,6 +1660,7 @@
 				7200695F213FA5D6005B20D1 /* SearchCategoryViewController.swift in Sources */,
 				72006964213FA5D6005B20D1 /* SearchAlongTheRouteViewController.swift in Sources */,
 				72006962213FA5D6005B20D1 /* SearchMaxFuzzinessLevelViewController.swift in Sources */,
+				9C78AB4C2209A9D800EAC9FA /* GeofencingReportViewController.swift in Sources */,
 				72006968213FA5D6005B20D1 /* SearchBatchViewController.swift in Sources */,
 				7200695E213FA5D0005B20D1 /* SearchAddressViewController.swift in Sources */,
 				72006939213E68C2005B20D1 /* MapLanguageViewController.swift in Sources */,

@@ -14,33 +14,48 @@ import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
 
-class MapFollowTheChevronController: MapBaseViewController {
+class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseDelegate {
 
     let routePlanner = TTRoute()
     var waypoints = [TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_A(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_B(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_C()]
-    var route:TTMapRoute?
+
     var source: MapFollowTheChevronSource?
-
     private var chevron: TTChevronObject?
-
+    
+    override func setupCenterOnWillHappen() {
+        mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
+    }
+    
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Start tracking", "Stop tracking"], selectedID: -1)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        routePlanner.delegate = self
+        mapView.contentInset = TTCamera.MAP_DEFAULT_INSETS();
+        progress.show()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        source?.deactivate()
+        super.viewWillDisappear(animated)
     }
 
     override func onMapReady() {
         super.onMapReady()
-        self.createRoute()
+        createRoute()
     }
 
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
-        case 0:
-            start()
-        default:
+        case 1:
             stop()
+        default:
+            start()
         }
     }
 
@@ -48,58 +63,56 @@ class MapFollowTheChevronController: MapBaseViewController {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.LODZ_SREBRZYNSKA_STOP(), andOrig: TTCoordinate.LODZ_SREBRZYNSKA_START())
             .withWayPoints(&waypoints, count: UInt(waypoints.count))
             .build()
-        routePlanner.plan(with: query) { (routeResult, responseError) in
-            let plannedRoute = routeResult?.routes.first
-            if (plannedRoute != nil) {
-                self.displayPlannedRoute(plannedRoute: plannedRoute!)
-                self.createChevron()
-                self.mapView.trackingManager.add(self.chevron!)
-                self.source = MapFollowTheChevronSource(trackingManager: self.mapView.trackingManager, trackingObject: self.chevron!, route: self.route!)
-                self.source?.activate()
-            }
-        }
-    }
-
-    func displayPlannedRoute(plannedRoute: TTFullRoute) {
-        self.route = TTMapRoute(coordinatesData: plannedRoute,
-                                with: TTMapRouteStyle.defaultActive(),
-                                imageStart: TTMapRoute.defaultImageDeparture(),
-                                imageEnd: TTMapRoute.defaultImageDestination())
-        OperationQueue.main.addOperation({
-            self.mapView.routeManager.add(self.route!)
-            self.mapView.routeManager.showRouteOverview(self.route!)
-            self.mapView.routeManager.bring(toFrontRoute: self.route!)
-            self.showRoute()
-        })
+        routePlanner.plan(with: query)
     }
 
     func createChevron() {
         self.mapView.isShowsUserLocation = false
-        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withNormalImageName: "active", withDimmedImage: TTChevronObject.defaultDimmedImage(), withDimmedImageName: "inactive");
+        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage());
     }
 
     func start() {
-        let camera = TTCameraPosition(camerPosition: TTCoordinate.LODZ_SREBRZYNSKA_START(),
-                                      withAnimationDuration: TTCamera.ANIMATION_TIME(),
-                                      withBearing: TTCamera.BEARING_START(),
-                                      withPitch: TTCamera.DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING(),
-                                      withZoom: TTCamera.DEFAULT_MAP_ZOOM_LEVEL_FOR_DRIVING())
+        let camera = TTCameraPositionBuilder.create(withCameraPosition:TTCoordinate.LODZ_SREBRZYNSKA_START())
+            .withAnimationDuration(TTCamera.ANIMATION_TIME())
+            .withBearing(TTCamera.BEARING_START())
+            .withPitch(TTCamera.DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING())
+            .withZoom(Double(TTCamera.DEFAULT_MAP_ZOOM_LEVEL_FOR_DRIVING()))
+            .build()
         mapView.setCameraPosition(camera)
 
-        if chevron != nil {
-        mapView.trackingManager.start(chevron!)
-        }
+        guard let chevron = self.chevron else {return}
+        mapView.trackingManager.start(chevron)
     }
 
     func stop() {
         mapView.trackingManager.stop(chevron!)
-        showRoute()
+        displayRouteOverview()
+    }
+    
+    //MARK: TTRouteResponseDelegate
+    
+    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+        guard let plannedRoute = result.routes.first else {
+            return
+        }
+        let mapRoute = TTMapRoute(coordinatesData: plannedRoute,
+                                  with: TTMapRouteStyle.defaultActive(),
+                                  imageStart: TTMapRoute.defaultImageDeparture(),
+                                  imageEnd: TTMapRoute.defaultImageDestination())
+        mapView.routeManager.add(mapRoute)
+        mapView.routeManager.bring(toFrontRoute: mapRoute)
+        etaView.show(summary: plannedRoute.summary, style: .plain)
+        displayRouteOverview()
+        progress.hide()
+
+        createChevron()
+        mapView.trackingManager.add(self.chevron!)
+        source = MapFollowTheChevronSource(trackingManager: self.mapView.trackingManager, trackingObject: self.chevron!, route: mapRoute)
+        source?.activate()
+    }
+    
+    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+        handleError(responseError)
     }
 
-    func showRoute() {
-        if (route != nil) {
-            mapView.contentInset = TTCamera.MAP_DEFAULT_INSETS();
-            mapView.routeManager.showRouteOverview(self.route!)
-        }
-    }
 }

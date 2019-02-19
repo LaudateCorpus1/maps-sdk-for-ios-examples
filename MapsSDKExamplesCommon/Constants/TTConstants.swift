@@ -54,6 +54,10 @@ struct TTCollectionViewCell {
     
 }
 
+public class TTLocationDistance: NSObject {
+    @objc public static func AMSTERDAM_CIRCLE_CENTER_RADIUS() -> CLLocationDistance { return CLLocationDistance(1300) }
+}
+
 public class TTCoordinate: NSObject {
 
     @objc public static func PASSENGER_ONE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.379958,4.856268) }
@@ -110,7 +114,11 @@ public class TTCoordinate: NSObject {
     @objc public static func ARAD_BOTTOM_RIGHT_NEIGHBORHOOD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(45.861624, 21.506465) }
     @objc public static func ARAD_BOTTOM_LEFT_NEIGHBORHOOD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(45.861624, 21.012896) }
     @objc public static func ARAD_TOP_RIGHT_NEIGHBORHOOD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(46.241223, 21.506465) }
-    
+    @objc public static func AMSTERDAM_POLYGON_A() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.366650,4.906364) }
+    @objc public static func AMSTERDAM_POLYGON_B() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.371166,4.913136) }
+    @objc public static func AMSTERDAM_POLYGON_C() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.367172,4.926724) }
+    @objc public static func AMSTERDAM_POLYGON_D() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.363494,4.916473) }
+    @objc public static func AMSTERDAM_CIRCLE_CENTER() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.372144, 4.899115) }
 }
 
 public class TTCamera: NSObject {
@@ -140,5 +148,14 @@ public class TTCamera: NSObject {
     }
     @objc public static func MAP_DEFAULT_INSETS() -> UIEdgeInsets {
         return UIEdgeInsetsMake(TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale);
+    }
+}
+
+public class TTMapZoom: NSObject {
+    @objc public static func MIN() -> Double {
+        return 16
+    }
+    @objc public static func MAX() -> Double {
+        return 17
     }
 }

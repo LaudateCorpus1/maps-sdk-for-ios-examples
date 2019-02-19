@@ -17,7 +17,6 @@ FOUNDATION_EXPORT double MapsSDKExamplesVCVersionNumber;
 //! Project version string for MapsSDKExamplesVC.
 FOUNDATION_EXPORT const unsigned char MapsSDKExamplesVCVersionString[];
 
-
 #import <MapsSDKExamplesVC/BaseViewController.h>
 #import <MapsSDKExamplesVC/ButtonsBaseViewController.h>
 #import <MapsSDKExamplesVC/MapBaseViewController.h>
@@ -26,3 +25,4 @@ FOUNDATION_EXPORT const unsigned char MapsSDKExamplesVCVersionString[];
 #import <MapsSDKExamplesVC/TrafficBaseViewController.h>
 #import <MapsSDKExamplesVC/SearchBaseViewController.h>
 #import <MapsSDKExamplesVC/RoutingBaseViewController.h>
+#import <MapsSDKExamplesVC/GeofencingBaseViewController.h>

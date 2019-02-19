@@ -21,7 +21,11 @@
 
 @end
 
-@implementation MapMatchingViewController 
+@implementation MapMatchingViewController
+
+- (void)setupCenterOnWillHappen {
+    [self.mapView centerOnCoordinate:TTCoordinate.LODZ withZoom:10];
+}
 
 - (void)onMapReady {
     self.mapView.annotationManager.delegate = self;
@@ -34,6 +38,8 @@
             self.startSending = true;
         }];
     }
+    self.mapView.maxZoom = TTMapZoom.MAX;
+    self.mapView.minZoom = TTMapZoom.MIN;
 }
 
 - (void)viewDidLoad {
@@ -45,15 +51,17 @@
 
 - (void)createChevron {
     [self.mapView setShowsUserLocation:false];
-    self.chevron = [[TTChevronObject alloc] initNormalImage:[TTChevronObject defaultNormalImage] withNormalImageName:@"active" withDimmedImage:[TTChevronObject defaultDimmedImage] withDimmedImageName:@"inactive"];
+    self.chevron = [[TTChevronObject alloc] initWithNormalImage:[TTChevronObject defaultNormalImage] withDimmedImage:[TTChevronObject defaultDimmedImage]];
 }
 
 - (void)start {
-    TTCameraPosition *camera = [[TTCameraPosition alloc] initWithCamerPosition:[TTCoordinate LODZ_SREBRZYNSKA_START]
-                                                         withAnimationDuration:[TTCamera ANIMATION_TIME]
-                                                                   withBearing:[TTCamera BEARING_START]
-                                                                     withPitch:[TTCamera DEFAULT_MAP_PITCH_FLAT]
-                                                                      withZoom:18];
+    TTCameraPosition *camera = [[[[[[TTCameraPositionBuilder createWithCameraPosition:[TTCoordinate LODZ_SREBRZYNSKA_START]]
+                                    withAnimationDuration:[TTCamera ANIMATION_TIME]]
+                                   withBearing:[TTCamera BEARING_START]]
+                                  withPitch:[TTCamera DEFAULT_MAP_PITCH_FLAT]]
+                                 withZoom:18]
+                                build];
+    
     [self.mapView setCameraPosition:camera];
     [self.mapView.trackingManager addTrackingObject:self.chevron];
     self.source = [[DrivingSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron];
@@ -70,6 +78,7 @@
     [self drawRedCircle:original.coordinate];
     TTLocation *location = [[TTLocation alloc] initWithCoordinate:matched.coordinate withRadius:matched.radius withBearing:matched.bearing withAccuracy:0.0 isDimmed:!isMatched];
     [self.source updateLocationWithLocation: location];
+    [self.chevron setHidden:NO];
 }
 
 - (void)sendingLocation {
@@ -93,11 +102,9 @@
 }
 
 - (void)drawRedCircle:(CLLocationCoordinate2D)coordinate {
-    [NSOperationQueue.mainQueue addOperationWithBlock:^{
-        [self.mapView.annotationManager removeAllOverlays];
-        TTCircle *circle = [TTCircle circleWithCenterCoordinate:coordinate radius:2 width:1 color:[UIColor redColor] fill:YES colorOutlet:[UIColor redColor]];
-        [self.mapView.annotationManager addOverlay:circle];
-    }];
+    [self.mapView.annotationManager removeAllOverlays];
+    TTCircle *circle = [TTCircle circleWithCenterCoordinate:coordinate radius:2 width:1 color:[UIColor redColor] fill:YES colorOutlet:[UIColor redColor]];
+    [self.mapView.annotationManager addOverlay:circle];
 }
 
 @end

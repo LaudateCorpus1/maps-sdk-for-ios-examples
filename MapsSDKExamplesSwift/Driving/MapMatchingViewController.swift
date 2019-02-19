@@ -20,7 +20,11 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
     var source: DrivingSource?
     private var chevron: TTChevronObject?
     var startSending = false
-    var matcher: TTMatcher?
+    var matcher: TTMatcher!
+    
+    override func setupCenterOnWillHappen() {
+        mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
+    }
 
     func onMapReady(_ mapView: TTMapView) {
         mapView.annotationManager.delegate = self
@@ -33,56 +37,61 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
                 self.startSending = true
             }
         }
+        mapView.maxZoom = TTMapZoom.MAX()
+        mapView.minZoom = TTMapZoom.MIN()
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         matcher = TTMatcher(matchDataSet: mapView)
-        matcher?.delegate = self
+        matcher.delegate = self
     }
 
     func createChevron() {
         mapView.isShowsUserLocation = false
-        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withNormalImageName: "active", withDimmedImage: TTChevronObject.defaultDimmedImage(), withDimmedImageName: "inactive")
+        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage())
     }
 
     func start() {
-        let camera = TTCameraPosition(camerPosition: TTCoordinate.LODZ_SREBRZYNSKA_START(),
-                                      withAnimationDuration: TTCamera.ANIMATION_TIME(),
-                                      withBearing: TTCamera.BEARING_START(),
-                                      withPitch: TTCamera.DEFAULT_MAP_PITCH_FLAT(),
-                                      withZoom: 18)
+        let camera = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.LODZ_SREBRZYNSKA_START())
+            .withAnimationDuration(TTCamera.ANIMATION_TIME())
+            .withBearing(TTCamera.BEARING_START())
+            .withPitch(TTCamera.DEFAULT_MAP_PITCH_FLAT())
+            .withZoom(18)
+            .build()
+        
         mapView.setCameraPosition(camera)
-        mapView.trackingManager.add(self.chevron!)
+        mapView.trackingManager.add(chevron!)
         source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!)
         mapView.trackingManager.start(chevron!)
-        self.source?.activate()
+        source?.activate()
     }
 
     func matcher(providerLocation: ProviderLocation) {
         let location = TTMatcherLocation(coordinate: providerLocation.coordinate, withBearing: providerLocation.bearing, withBearingValid: true, withEPE: 0.0, withSpeed: providerLocation.speed, withDuration: providerLocation.timestamp)
-        matcher?.setMatcherLocation(location)
+        matcher.setMatcherLocation(location)
     }
 
-    public func matcherResultMatchedLocation(_ matched: TTMatcherLocation!, withOriginalLocation original: TTMatcherLocation!, isMatched: Bool) {
+    public func matcherResultMatchedLocation(_ matched: TTMatcherLocation, withOriginalLocation original: TTMatcherLocation, isMatched: Bool) {
         drawRedCircle(coordinate: original.coordinate)
         source?.updateLocation(location:TTLocation(coordinate: matched.coordinate, withRadius: matched.radius, withBearing: matched.bearing, withAccuracy: 0.0, isDimmed: !isMatched))
+        chevron?.isHidden = false
      }
 
     func sendingLocation() {
-
         let locationProvider = LocationCSVProvider(csvFile: "simple_route")
-        for index in 1...locationProvider.locations!.count {
+        for index in 1...locationProvider.locations.count {
 
-            guard let prev = locationProvider.locations?[index - 1] else { return }
-            let next = locationProvider.locations![index]
+            let prev = locationProvider.locations[index - 1]
+            let next = locationProvider.locations[index]
 
             let providerLocation = ProviderLocation(coordinate: next.coordinate, withRadius: next.radius, withBearing: next.bearing, withAccuracy: next.accuracy)
             providerLocation.timestamp = next.timestamp
             providerLocation.speed = next.speed
 
-            self.matcher(providerLocation: providerLocation)
+            matcher(providerLocation: providerLocation)
 
             let time = next.timestamp - prev.timestamp
             sleep(UInt32(time/1000))
@@ -90,10 +99,8 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
     }
 
     func drawRedCircle(coordinate: CLLocationCoordinate2D) {
-        OperationQueue.main.addOperation {
-            self.mapView.annotationManager.removeAllOverlays();
-            let redCircle = TTCircle(center: coordinate, radius: 2, opacity: 1, width: 10, color: UIColor.red, fill: true, colorOutlet: UIColor.red)
-            self.mapView.annotationManager.add(redCircle)
-        }
+        mapView.annotationManager.removeAllOverlays();
+        let redCircle = TTCircle(center: coordinate, radius: 2, opacity: 1, width: 10, color: UIColor.red, fill: true, colorOutlet: UIColor.red)
+        mapView.annotationManager.add(redCircle)
     }
 }

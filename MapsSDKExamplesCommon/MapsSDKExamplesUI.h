@@ -11,10 +11,5 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for MapsSDKExamplesCommon.
 FOUNDATION_EXPORT double MapsSDKExamplesCommonVersionNumber;
-
-//! Project version string for MapsSDKExamplesCommon.
 FOUNDATION_EXPORT const unsigned char MapsSDKExamplesCommonVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <MapsSDKExamplesCommon/PublicHeader.h>

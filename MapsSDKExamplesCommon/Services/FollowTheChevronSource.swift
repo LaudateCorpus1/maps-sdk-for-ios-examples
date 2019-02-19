@@ -24,7 +24,10 @@ import CoreLocation
         manager = trackingManager
         object = trackingObject
         mapRoute = route
-        prevCoordinate = LocationUtils.coordinateForValue(value: self.mapRoute.coordinatesData()[0])
+        prevCoordinate = LocationUtils.coordinateForValue(value: mapRoute.coordinatesData()[0])
+        let location = TTLocation(coordinate: prevCoordinate!, withBearing: 0)
+        manager.update(object, with: location)
+        object.isHidden = false
     }
 
     public func activate() {
@@ -40,9 +43,9 @@ import CoreLocation
             let bearing = LocationUtils.bearingWithCoordinate(coordinate: coordiante, prevCoordianate: self.prevCoordinate!)
             let location = TTLocation(coordinate: coordiante, withBearing: bearing)
             self.manager.update(self.object, with: location)
-            
             self.prevCoordinate = coordiante
         })
+        
     }
 
     public func deactivate() {

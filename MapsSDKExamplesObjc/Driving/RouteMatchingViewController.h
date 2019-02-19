@@ -11,6 +11,6 @@
 
 #import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-@interface RouteMatchingViewController : MapBaseViewController
+@interface RouteMatchingViewController : RoutingBaseViewController
 
 @end

@@ -9,9 +9,15 @@
  * immediately return it to TomTom N.V.
  */
 
-#import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
 #import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapFollowTheChevronController : RoutingBaseViewController
+@interface GeofencingBaseViewController : MapBaseViewController
+@property (nonatomic, weak) ETAView *etaView;
+
+- (void)drawAmsterdamPolygon;
+- (void)drawAmsterdamCircle:(CLLocationCoordinate2D)coordinate withRadius:(double)radius;
+- (NSString *)createDescriptionWithInside:(NSArray<NSString *>*)inside withOutside:(NSArray<NSString *>*)outside;
+- (UILabel *)labelForText:(NSString *)text;
 
 @end

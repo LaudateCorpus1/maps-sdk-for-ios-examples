@@ -147,6 +147,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             default:
                 fatalError("This VC is not handled")
             }
+        } else if category == .Geofencing {
+            switch index {
+            case 0:
+                newViewController = GeofencingReportViewController()
+            default:
+                fatalError("This VC is not handled")
+            }
         }
         newViewController.name = MenuLabels.titleFor(index: category.rawValue, subindex: index)
         mainVC.displayExample(newViewController)

@@ -33,7 +33,11 @@ class MapUIExtensionsViewController: MapBaseViewController {
     }
     
     override func setupCenterOnWillHappen() {
-        let cameraPosition = TTCameraPosition(camerPosition: TTCoordinate.AMSTERDAM(), withAnimationDuration: 0, withBearing: 45, withPitch: 0, withZoom: 10)
+        let cameraPosition = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.AMSTERDAM())
+            .withBearing(45)
+            .withZoom(10)
+            .build()
+        
         mapView.setCameraPosition(cameraPosition)
     }
     

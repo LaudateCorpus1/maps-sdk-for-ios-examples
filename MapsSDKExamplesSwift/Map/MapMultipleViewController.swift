@@ -42,7 +42,7 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
         secoundMap.setStylePath(customStyle)
         super.mapView.addSubview(secoundMap)
         self.setupConstrains()
-        self.secoundMap.setCameraPosition(TTCameraPosition(camerPosition: TTCoordinate.AMSTERDAM(), withAnimationDuration: 0, withBearing: 0.0, withPitch: 0.0, withZoom: 8))
+        self.secoundMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.AMSTERDAM()).withZoom(8).build())
         drowShapes()
     }
     
@@ -68,7 +68,8 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
     func updateSecoundMap(coordinate: CLLocationCoordinate2D) {
         if(self.secoundMap != nil){
             drowShapes()
-            self.secoundMap.setCameraPosition(TTCameraPosition(camerPosition: coordinate, withAnimationDuration: 0))
+            self.secoundMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: coordinate).build())
+            
         }
     }
     

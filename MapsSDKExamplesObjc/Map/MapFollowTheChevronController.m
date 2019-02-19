@@ -12,32 +12,36 @@
 #import "MapFollowTheChevronController.h"
 #import <TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.h>
 
-@interface MapFollowTheChevronController ()
+@interface MapFollowTheChevronController () <TTRouteResponseDelegate>
 
 @property (nonatomic, strong) TTChevronObject *chevron;
-@property (nonatomic, strong) TTMapRoute *route;
 @property (nonatomic, strong) TTRoute *routePlanner;
 
 @property (nonatomic, strong) MapFollowTheChevronSource *source;
 @property (nonatomic) CLLocationCoordinate2D *waypoints;
 
-
 @end
 
 @implementation MapFollowTheChevronController
+
+- (void)setupCenterOnWillHappen {
+    [self.mapView centerOnCoordinate:TTCoordinate.LODZ withZoom:10];
+}
 
 - (OptionsView *)getOptionsView {
     return [[OptionsViewSingleSelect alloc] initWithLabels:@[@"Start tracking", @"Stop tracking"] selectedID:-1];
 }
 
-- (void)onMapReady {
-    [super onMapReady];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     _routePlanner = [[TTRoute alloc] init];
     self.waypoints = malloc(sizeof(CLLocationCoordinate2D) * 3);
     self.waypoints[0] = [TTCoordinate LODZ_SREBRZYNSKA_WAYPOINT_A];
     self.waypoints[1] = [TTCoordinate LODZ_SREBRZYNSKA_WAYPOINT_B];
     self.waypoints[2] = [TTCoordinate LODZ_SREBRZYNSKA_WAYPOINT_C];
-    [self createRoute];
+    self.routePlanner.delegate = self;
+    self.mapView.contentInset = TTCamera.MAP_DEFAULT_INSETS;
+    [self.progress show];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -46,77 +50,76 @@
     [super viewWillDisappear:animated];
 }
 
+- (void)onMapReady {
+    [super onMapReady];
+    [self createRoute];
+}
+
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
     [super displayExampleWithID:ID on:on];
     switch (ID) {
-        case 0:
+        case 1:
+            [self stop];
+            break;
+        default:
             [self start];
             break;
-
-        default:
-            [self stop];
     }
-}
-
-- (void)createChevron {
-    [self.mapView setShowsUserLocation:false];
-    self.chevron = [[TTChevronObject alloc] initNormalImage:[TTChevronObject defaultNormalImage] withNormalImageName:@"active" withDimmedImage:[TTChevronObject defaultDimmedImage] withDimmedImageName:@"inactive"];
 }
 
 - (void)createRoute {
     TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.LODZ_SREBRZYNSKA_STOP andOrig:TTCoordinate.LODZ_SREBRZYNSKA_START] withWayPoints:self.waypoints count:3] build];
-    __weak MapFollowTheChevronController *weakSelf = self;
-    [_routePlanner planRouteWithQuery:query completionHandler:^(TTRouteResult * _Nullable routeResult, TTResponseError * _Nullable error) {
-        TTFullRoute *plannedRoute = routeResult.routes.firstObject;
-        if (plannedRoute != nil) {
-            [weakSelf displayPlannedRoute:plannedRoute];
-            [weakSelf createChevron];
-            [weakSelf.mapView.trackingManager addTrackingObject:self.chevron];
-            weakSelf.source = [[MapFollowTheChevronSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron route:self.route];
-            [weakSelf.source activate];
-            
-        }
-    }];
+    [self.routePlanner planRouteWithQuery:query];
 }
 
-- (void)displayPlannedRoute:(TTFullRoute *)plannedRoute {
-    self.route = [TTMapRoute routeWithCoordinatesData:plannedRoute withRouteStyle:TTMapRouteStyle.defaultActiveStyle
-                                           imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
-    __weak MapFollowTheChevronController *weakSelf = self;
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [weakSelf.mapView.routeManager addRoute:self.route];
-        [weakSelf.mapView.routeManager showRouteOverview:self.route];
-        [weakSelf.mapView.routeManager bringToFrontRoute:self.route];
-        [weakSelf showRoute];
-    }];
+- (void)createChevron {
+    [self.mapView setShowsUserLocation:false];
+    self.chevron = [[TTChevronObject alloc] initWithNormalImage:[TTChevronObject defaultNormalImage] withDimmedImage:[TTChevronObject defaultDimmedImage]];
 }
 
 - (void)start {
-    TTCameraPosition *camera = [[TTCameraPosition alloc] initWithCamerPosition:[TTCoordinate LODZ_SREBRZYNSKA_START]
-                                                         withAnimationDuration:[TTCamera ANIMATION_TIME]
-                                                                   withBearing:[TTCamera BEARING_START]
-                                                                     withPitch:[TTCamera DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING]
-                                                                      withZoom:[TTCamera DEFAULT_MAP_ZOOM_LEVEL_FOR_DRIVING]];
+    TTCameraPosition *camera = [[[[[[TTCameraPositionBuilder createWithCameraPosition:[TTCoordinate LODZ_SREBRZYNSKA_START]]
+                                    withAnimationDuration:[TTCamera ANIMATION_TIME]]
+                                   withBearing:[TTCamera BEARING_START]]
+                                  withPitch:[TTCamera DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING]]
+                                 withZoom:[TTCamera DEFAULT_MAP_ZOOM_LEVEL_FOR_DRIVING]]
+                                build];
+    
+    
     [self.mapView setCameraPosition:camera];
     
-    
-    if (self.chevron != nil){
+    if (!self.chevron) {return;}
     [self.mapView.trackingManager startTrackingObject:self.chevron];
-    }
 }
 
 - (void)stop {
     [self.mapView.trackingManager stopTrackingObject:self.chevron];
-
-    [self showRoute];
+    [self displayRouteOverview];
 }
 
-- (void)showRoute {
-    if (self.route) {
-        self.mapView.contentInset = TTCamera.MAP_DEFAULT_INSETS;
-        [self.mapView.routeManager showRouteOverview:self.route];
+#pragma mark TTRouteResponseDelegate
+
+- (void)route:(TTRoute *)route completedWithResult:(TTRouteResult *)result {
+    TTFullRoute *plannedRoute = result.routes.firstObject;
+    if(!plannedRoute) {
+        return;
     }
+    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+                                                     imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
+    [self.mapView.routeManager addRoute:mapRoute];
+    [self.mapView.routeManager bringToFrontRoute:mapRoute];
+    [self.etaView showWithSummary:plannedRoute.summary style:ETAViewStylePlain];
+    [self displayRouteOverview];
+    [self.progress hide];
+    
+    [self createChevron];
+    [self.mapView.trackingManager addTrackingObject:self.chevron];
+    self.source = [[MapFollowTheChevronSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron route:mapRoute];
+    [self.source activate];
 }
 
+- (void)route:(TTRoute *)route completedWithResponseError:(TTResponseError *)responseError {
+    [self handleError:responseError];
+}
 
 @end

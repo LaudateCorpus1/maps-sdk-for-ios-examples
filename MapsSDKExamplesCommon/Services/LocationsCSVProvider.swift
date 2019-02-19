@@ -23,7 +23,7 @@ import CoreLocation
     let SPEED_COL_IDX: Int = 7
     let ALTITUDE_COL_IDX: Int = 9
 
-    @objc public var locations: [ProviderLocation]?
+    @objc public var locations: [ProviderLocation] = []
 
     @objc public init(csvFile filename: String?) {
 
@@ -60,7 +60,7 @@ import CoreLocation
             providerLocation.speed = speed
             providerLocation.altitude = altitude
 
-            locations?.append(providerLocation)
+            locations.append(providerLocation)
         }
     }
 }

@@ -33,7 +33,11 @@
 }
 
 - (void)setupCenterOnWillHappen {
-    TTCameraPosition *cameraPosition = [[TTCameraPosition alloc] initWithCamerPosition:[TTCoordinate AMSTERDAM] withAnimationDuration:0 withBearing:45 withPitch:0 withZoom:10];
+    TTCameraPosition *cameraPosition = [[[[TTCameraPositionBuilder createWithCameraPosition:[TTCoordinate AMSTERDAM]]
+                                          withBearing:45]
+                                         withZoom:10]
+                                        build];
+    
     [self.mapView setCameraPosition:cameraPosition];
 }
 

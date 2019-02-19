@@ -18,6 +18,7 @@ public class Options: SubOptions {
         case Traffic
         case Routing
         case Search
+        case Geofencing
     }
     
     let category: Category

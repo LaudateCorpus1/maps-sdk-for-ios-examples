@@ -16,7 +16,7 @@ import TomTomOnlineSDKMaps
 import TomTomOnlineSDKMapsDriving
 import TomTomOnlineSDKRouting
 
-class RouteMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTMatcherDelegate {
+class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTMatcherDelegate, TTRouteResponseDelegate {
 
     let routePlanner = TTRoute()
     var waypoints = [TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_A(),
@@ -28,16 +28,23 @@ class RouteMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTA
     var matcher: TTMatcher?
     var timer: Timer?
     var startSending = false
+    
+    override func setupCenterOnWillHappen() {
+        mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
+    }
 
     func onMapReady(_ mapView: TTMapView) {
         mapView.annotationManager.delegate = self
         createChevron()
         createRoute()
+        mapView.maxZoom = TTMapZoom.MAX()
+        mapView.minZoom = TTMapZoom.MIN()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        routePlanner.delegate = self
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,7 +54,15 @@ class RouteMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTA
 
     func createChevron() {
         mapView.isShowsUserLocation = false
-        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withNormalImageName: "active", withDimmedImage: TTChevronObject.defaultDimmedImage(), withDimmedImageName: "inactive");
+        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage());
+    }
+    
+    func createRoute() {
+        progress.show()
+        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.LODZ_SREBRZYNSKA_STOP(), andOrig: TTCoordinate.LODZ_SREBRZYNSKA_START())
+            .withWayPoints(&waypoints, count: UInt(waypoints.count))
+            .build()
+        routePlanner.plan(with: query)
     }
 
     func start() {
@@ -56,11 +71,13 @@ class RouteMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTA
         source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!);
         source?.activate()
 
-        let camera = TTCameraPosition(camerPosition: TTCoordinate.LODZ_SREBRZYNSKA_START(),
-                                      withAnimationDuration: TTCamera.ANIMATION_TIME(),
-                                      withBearing: TTCamera.BEARING_START(),
-                                      withPitch: TTCamera.DEFAULT_MAP_PITCH_FLAT(),
-                                      withZoom: 17)
+        let camera = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.LODZ_SREBRZYNSKA_START())
+            .withAnimationDuration(TTCamera.ANIMATION_TIME())
+            .withBearing(TTCamera.BEARING_START())
+            .withPitch(TTCamera.DEFAULT_MAP_PITCH_FLAT())
+            .withZoom(17)
+            .build()
+        
         mapView.setCameraPosition(camera)
     }
 
@@ -69,50 +86,21 @@ class RouteMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTA
         matcher?.setMatcherLocation(location)
     }
 
-    public func matcherResultMatchedLocation(_ matched: TTMatcherLocation!, withOriginalLocation original: TTMatcherLocation!, isMatched: Bool) {
+    public func matcherResultMatchedLocation(_ matched: TTMatcherLocation, withOriginalLocation original: TTMatcherLocation, isMatched: Bool) {
         drawRedCircle(coordinate: original.coordinate)
         source?.updateLocation(location: matched)
+        chevron?.isHidden = false
      }
 
     func drawRedCircle(coordinate: CLLocationCoordinate2D) {
-        OperationQueue.main.addOperation {
-            self.mapView.annotationManager.removeAllOverlays();
-            let redCircle = TTCircle(center: coordinate, radius: 2, opacity: 1, width: 10, color: UIColor.red, fill: true, colorOutlet: UIColor.red)
-            self.mapView.annotationManager.add(redCircle)
-        }
+        mapView.annotationManager.removeAllOverlays();
+        let redCircle = TTCircle(center: coordinate, radius: 2, opacity: 1, width: 10, color: UIColor.red, fill: true, colorOutlet: UIColor.red)
+        mapView.annotationManager.add(redCircle)
     }
-
-    func createRoute() {
-        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.LODZ_SREBRZYNSKA_STOP(), andOrig: TTCoordinate.LODZ_SREBRZYNSKA_START())
-            .withWayPoints(&waypoints, count: UInt(waypoints.count))
-            .build()
-        routePlanner.plan(with: query) { (routeResult, responseError) in
-            let plannedRoute = routeResult?.routes.first
-            if (plannedRoute != nil) {
-                self.displayPlannedRoute(plannedRoute: plannedRoute!)
-                self.matcher = TTMatcher(matchDataSet: plannedRoute)
-                self.matcher?.delegate = self
-                self.start()
-                self.sendingLocation(mapRoute: plannedRoute!)
-
-            }
-        }
-    }
-
-    func displayPlannedRoute(plannedRoute: TTFullRoute) {
-        self.route = TTMapRoute(coordinatesData: plannedRoute)
-        OperationQueue.main.addOperation({
-            self.mapView.routeManager.add(self.route!)
-            self.mapView.routeManager.update(self.route!, style: TTMapRouteStyle.defaultActive())
-            self.mapView.routeManager.bring(toFrontRoute: self.route!)
-        })
-    }
-
-    public func sendingLocation(mapRoute: TTFullRoute) {
-
+    
+    private func sendingLocation(mapRoute: TTFullRoute) {
         var index = 0;
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
-
             index = index + 1;
             if index == mapRoute.coordinatesData().count {
                 index = 0;
@@ -124,19 +112,37 @@ class RouteMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTA
 
             let prevCoordinate = LocationUtils.coordinateForValue(value: mapRoute.coordinatesData()[index - 1])
             var origCoordinate = LocationUtils.coordinateForValue(value: mapRoute.coordinatesData()[index])
-
             let bearing = LocationUtils.bearingWithCoordinate(coordinate: origCoordinate, prevCoordianate: prevCoordinate)
-
             origCoordinate = RandomizeCoordinate.interpolate(coordinate: origCoordinate)
-
             let randomCoordinate = TTLocation(coordinate: origCoordinate, withRadius: 0.0, withBearing: 0.0, withAccuracy: 0.0, isDimmed: true)
-
             let providerLocation = ProviderLocation(coordinate: randomCoordinate.coordinate, withRadius: 0.0, withBearing: bearing, withAccuracy: 0.0)
-
             providerLocation.timestamp = Date().timeIntervalSince1970
             providerLocation.speed = 5.0
-
             self.matching(providerLocation: providerLocation)
         })
+    }
+    
+    //MARK: TTRouteResponseDelegate
+    
+    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+        guard let plannedRoute = result.routes.first else {
+            return
+        }
+        let mapRoute = TTMapRoute(coordinatesData: plannedRoute,
+                                  with: TTMapRouteStyle.defaultActive(),
+                                  imageStart: TTMapRoute.defaultImageDeparture(),
+                                  imageEnd: TTMapRoute.defaultImageDestination())
+        mapView.routeManager.add(mapRoute)
+        mapView.routeManager.bring(toFrontRoute: mapRoute)
+        etaView.show(summary: plannedRoute.summary, style: .plain)
+        progress.hide()
+        matcher = TTMatcher(matchDataSet: plannedRoute)
+        matcher?.delegate = self
+        start()
+        sendingLocation(mapRoute: plannedRoute)
+    }
+    
+    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+        handleError(responseError)
     }
 }
