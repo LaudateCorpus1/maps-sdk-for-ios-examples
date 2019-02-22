@@ -22,27 +22,42 @@ class FenceAnnotation: TTAnnotation {
 }
 
 class GeofencingReportViewController: GeofencingBaseViewController, TTAnnotationDelegate {
-
+    
+    /**
+     * This project ID's are related to the API key that you are using.
+     * To make this example working, you must create a proper structure for your API Key by running
+     * TomTomGeofencingProjectGenerator.sh script which is located in the sampleapp/scripts folder.
+     * Script takes an API Key and Admin Key that you generated from
+     * https://developer.tomtom.com/geofencing-api-public-preview/geofencing-documentation-configuration-service/register-admin-key
+     *
+     * and creates two projects with fences like in this example. Use project ID's returned by the
+     * script and update this two fields.
+     */
+    
     var service: TTGeofencingReportService?
+    //tag::doc_geofencing_swift_project_id[]
     let projectId1 = "57287023-a968-492c-8473-7e049a606425"
     let projectId2 = "fcf6d609-550d-49ff-bcdf-02bba08baa28"
+    //end::doc_geofencing_swift_project_id[]
     var projectIdActive = ""
     var draggableAnnotation: TTAnnotation!
     var inside: [String] = []
     var outside: [String] = []
     let range = 5000.0
-
+    
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["One fence", "Two fences"], selectedID: -1)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //tag::doc_geofencing_swift_report_init[]
         service = TTGeofencingReportService()
+        //end::doc_geofencing_swift_report_init[]
         mapView.annotationManager.delegate = self
         etaView.update(text: "Drag a pin inside/outside of a fence", icon: UIImage(named: "info_small")!)
     }
-
+    
     //MARK: OptionsViewDelegate
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
@@ -60,59 +75,63 @@ class GeofencingReportViewController: GeofencingBaseViewController, TTAnnotation
         }
         requestGeofencingReport(coordinate: draggableAnnotation.coordinate, projectId: projectIdActive)
     }
-
+    
     //MARK: Examples
     func requestGeofencingReport(coordinate: CLLocationCoordinate2D, projectId: String) {
+        //tag::doc_geofencing_swift_report_query[]
         let reportQuery = TTGeofencingReportQueryBuilder(location: TTLocation(coordinate: coordinate))
             .withProject(projectId)
             .withRange(range).build()
-
+        //end::doc_geofencing_swift_report_query[]
+        
+        //tag::doc_geofencing_swift_report_callback[]
         service?.report(with: reportQuery) { (report, error) in
             self.responseGeofencing(report: report)
         }
+        //end::doc_geofencing_swift_report_callback[]
     }
-
+    
     func responseGeofencing(report: TTGeofencingReport?) {
         self.removeAnnotationFances()
         report?.inside.forEach({ (reportFenceDetails) in
             self.addMarker(coordinate: reportFenceDetails.closestPoint.coordinate, title: reportFenceDetails.entity.name)
             self.inside.append(reportFenceDetails.entity.name)
         })
-
+        
         report?.outside.forEach({ (reportFenceDetails) in
             self.addMarker(coordinate: reportFenceDetails.closestPoint.coordinate, title: reportFenceDetails.entity.name)
             self.outside.append(reportFenceDetails.entity.name)
         })
-
+        
         self.mapView.annotationManager.select(self.draggableAnnotation)
     }
-
+    
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.AMSTERDAM_CIRCLE_CENTER(), withZoom: 12)
     }
-
+    
     func addMarker(coordinate: CLLocationCoordinate2D, title: String) {
         let annotation = FenceAnnotation(coordinate: coordinate,
-                                      annotationImage: TTAnnotationImage.createPNG(withName: "entry_point")!,
-                                      anchor: .bottom,
-                                      type: .focal)
+                                         annotationImage: TTAnnotationImage.createPNG(withName: "entry_point")!,
+                                         anchor: .bottom,
+                                         type: .focal)
         annotation.title = title
         mapView.annotationManager.add(annotation)
     }
-
+    
     func draggableAnnotationPin() {
         draggableAnnotation = TTAnnotation(coordinate: TTCoordinate.AMSTERDAM())
         draggableAnnotation.isDraggable = true
         mapView.annotationManager.add(draggableAnnotation)
     }
-
+    
     func annotationManager(_ manager: TTAnnotationManager, dragging annotation: TTAnnotation, stateDrag state: TTAnnotationDragState) {
         manager.deselectAnnotation()
         if state == .viewDragStateIdle && annotation == draggableAnnotation {
             self.requestGeofencingReport(coordinate: annotation.coordinate, projectId: projectIdActive)
         }
     }
-
+    
     func annotationManager(_ manager: TTAnnotationManager, viewForSelectedAnnotation selectedAnnotation: TTAnnotation) -> UIView & TTCalloutView {
         if ((selectedAnnotation as? FenceAnnotation) != nil) {
             let title = (selectedAnnotation as! FenceAnnotation).title!
@@ -120,7 +139,7 @@ class GeofencingReportViewController: GeofencingBaseViewController, TTAnnotation
         }
         return TTCalloutOutlineView(uiView: label(forText: createDescriptionWith(inside: inside, withOutside: outside)))
     }
-
+    
     func removeAnnotationFances() {
         var annotationsToRemove =  Set(mapView.annotationManager.annotations)
         annotationsToRemove.remove(draggableAnnotation)
