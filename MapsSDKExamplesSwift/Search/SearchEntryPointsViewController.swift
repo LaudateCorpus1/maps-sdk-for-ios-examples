@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -15,9 +15,15 @@ import MapsSDKExamplesVC
 import TomTomOnlineSDKSearch
 import TomTomOnlineSDKMaps
 
-class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate {
+class CustomAnnotation: TTAnnotation {
+    var title:String?
+    
+}
+
+class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate, TTAnnotationDelegate {
     
     let search = TTSearch()
+    var entryPointLabel:String?
     
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Airport", "Shopping Mall"], selectedID: -1)
@@ -26,6 +32,7 @@ class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         search.delegate = self
+        self.mapView.annotationManager.delegate = self
     }
     
     //MARK: OptionsViewDelegate
@@ -45,12 +52,14 @@ class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate {
     //MARK: Examples
     
     func displayEntryPointsForAirport() {
+        entryPointLabel = "Amsterdam Airport Schiphol"
         let query = TTSearchQueryBuilder.create(withTerm: "Amsterdam Airport Schiphol")
             .build()
         search.search(with: query)
     }
     
     func displayEntryPointsForShoppingMall() {
+        entryPointLabel = "Kalvertoren"
         let query = TTSearchQueryBuilder.create(withTerm: "Kalvertoren Singel 451").withIdxSet(TTSearchIndex.pointOfInterest)
             .build()
         search.search(with: query)
@@ -70,10 +79,13 @@ class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate {
         let annotation = TTAnnotation(coordinate: result.position)
         mapView.annotationManager.add(annotation)
         for entryPoint in entryPoints {
-            let annotation = TTAnnotation(coordinate: entryPoint.position,
-                                          annotationImage: TTAnnotationImage.createPNG(withName: "entry_point")!,
-                                          anchor: .bottom,
-                                          type: .focal)
+            
+            let annotation = CustomAnnotation(coordinate: entryPoint.position,
+                                                annotationImage: TTAnnotationImage.createPNG(withName: "entry_point")!,
+                                                anchor: TTAnnotationAnchor.bottom,
+                                                type: TTAnnotationType.focal)
+            annotation.title =  "Entry point type: \(entryPoint.type!)"
+            
             mapView.annotationManager.add(annotation)
         }
         mapView.zoomToAllAnnotations()
@@ -83,4 +95,14 @@ class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate {
         handleError(error)
     }
 
+    func annotationManager(_ manager: TTAnnotationManager, viewForSelectedAnnotation selectedAnnotation: TTAnnotation) -> UIView & TTCalloutView {
+        
+        guard let annotation = selectedAnnotation as? CustomAnnotation else {
+            return TTCalloutOutlineView(text: entryPointLabel!)
+        }
+        return TTCalloutOutlineView(text: annotation.title!)
+        
+    }
+    
 }
+

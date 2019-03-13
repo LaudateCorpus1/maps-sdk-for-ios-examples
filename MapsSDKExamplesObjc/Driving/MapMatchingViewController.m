@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -47,11 +47,14 @@
     self.mapView.delegate = self;
     self.matcher = [[TTMatcher alloc] initWithMatchDataSet:self.mapView];
     self.matcher.delegate = self;
+    [self setupEtaView];
+    [self.etaView updateWithText:@"Red circle shows raw GPS position" icon:[UIImage imageNamed:@"info_small"]];
 }
 
 - (void)createChevron {
     [self.mapView setShowsUserLocation:false];
-    self.chevron = [[TTChevronObject alloc] initWithNormalImage:[TTChevronObject defaultNormalImage] withDimmedImage:[TTChevronObject defaultDimmedImage]];
+    TTChevronAnimationOptions *animation = [[TTChevronAnimationOptionsBuilder createWithAnimatedCornerRounding:true] build];
+    self.chevron = [[TTChevronObject alloc] initWithNormalImage:[TTChevronObject defaultNormalImage] withDimmedImage:[TTChevronObject defaultDimmedImage] withChevronAnimationOptions:animation];
 }
 
 - (void)start {
@@ -65,6 +68,7 @@
     [self.mapView setCameraPosition:camera];
     [self.mapView.trackingManager addTrackingObject:self.chevron];
     self.source = [[DrivingSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron];
+    [self.mapView.trackingManager setBearingSmoothingFilter:[TTTrackingManagerDefault bearingSmoothFactor]];
     [self.mapView.trackingManager startTrackingObject:self.chevron];
     [self.source activate];
 }

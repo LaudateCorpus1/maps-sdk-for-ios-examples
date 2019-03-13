@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -15,7 +15,9 @@
 
 @interface MapBaseViewController : ButtonsBaseViewController
 
+@property (nonatomic, weak) ETAView *etaView;
 @property (nonatomic, weak) TTMapView *mapView;
+- (void)setupEtaView;
 - (void)setupMap;
 - (void)setupCenterOnWillHappen;
 - (void)onMapReady;

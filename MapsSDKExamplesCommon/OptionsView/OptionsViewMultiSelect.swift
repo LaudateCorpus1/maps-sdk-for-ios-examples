@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -14,38 +14,13 @@ import UIKit
 public class OptionsViewMultiSelect: OptionsView {
     
     @objc override func buttonTouchUpInside(button: UIButton) {
-        guard let last = buttons.last else {
-            return
-        }
         
-        if button == last {
-            if last.isSelected {
-                return
-            } else {
-                deselectAll()
-                selectAndTriggerDelegateFor(last, selected: true)
-            }
-        }
-        
-        if button != last {
-            last.isSelected = false
-            selectAndTriggerDelegateFor(button, selected: !button.isSelected)
-        }
-        
-        if !isAnySelected {
-            selectAndTriggerDelegateFor(last, selected: true)
+        if button.isSelected {
+            button.isSelected = false
+            selectAndTriggerDelegateFor(button, selected: false)
+        } else {
+            button.isSelected = true
+            selectAndTriggerDelegateFor(button, selected: true)
         }
     }
-    
-    var isAnySelected: Bool {
-        get {
-            for button in buttons {
-                if button.isSelected {
-                    return true
-                }
-            }
-            return false
-        }
-    }
-
 }

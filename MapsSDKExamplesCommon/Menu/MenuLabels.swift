@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -40,6 +40,9 @@ public class MenuLabels: NSObject {
                                                         SubOptions(iconImage: "custom_style_image",
                                                                    titleLabel: "Custom style",
                                                                    subtitleLabel: "Give custom look and fell to your map with a map style"),
+                                                        SubOptions(iconImage: "switch_layers_image",
+                                                                   titleLabel: "Switch map layers",
+                                                                   subtitleLabel: "Customize time which map layers are shown in the map in real time"),
                                                         SubOptions(iconImage: "static_map_image",
                                                                    titleLabel: "Static map image",
                                                                    subtitleLabel: "Download static map image"),
@@ -70,21 +73,13 @@ public class MenuLabels: NSObject {
                                                         SubOptions(iconImage: "marker_clustering_image",
                                                                    titleLabel: "Marker clustering",
                                                                    subtitleLabel: "Collect multiple markers in a customizable cluster."),
-                                                        SubOptions(iconImage: "map_follow_chevron_image",
-                                                                   titleLabel: "Follow the chevron",
-                                                                   subtitleLabel: "Camera follows the chevron."),
                                                         SubOptions(iconImage: "multiple_maps",
                                                                    titleLabel: "Multiple maps",
                                                                    subtitleLabel: "Display more then one map on controller."),
                                                         SubOptions(iconImage: "custom_route",
                                                                    titleLabel: "Custom route style",
-                                                                   subtitleLabel: "Defines custom style for route."),
-                                                        SubOptions(iconImage: "map_matching_image",
-                                                                   titleLabel: "Map matching",
-                                                                   subtitleLabel: "GPS matched to road network."),
-                                                        SubOptions(iconImage: "route_matching_image",
-                                                                   titleLabel: "Route matching",
-                                                                   subtitleLabel: "GPS matched to the given route.")
+                                                                   subtitleLabel: "Defines custom style for route.")
+                                                
         ]),
                                     Options(category: .Traffic,
                                             mainImage: "traffic_image",
@@ -143,6 +138,21 @@ public class MenuLabels: NSObject {
                                                                    titleLabel: "Avoid vignettes and areas",
                                                                    subtitleLabel: "Allow your users to avoid specific region and/or routes which includes requirement for vignettes.")
                                         ]),
+                                    Options(category: .Driving,
+                                            mainImage: "driving_image",
+                                            iconImage: "driving_icon",
+                                            titleLabel: "Driving",
+                                            subtitleLabel:"Display moving chevron on the map in diving mode along a planned route or in free-driving scenarios.",
+                                            subOptions:[SubOptions(iconImage: "map_follow_chevron_image",
+                                                                   titleLabel: "Follow the chevron",
+                                                                   subtitleLabel: "Camera follows the chevron."),
+                                                        SubOptions(iconImage: "map_matching_image",
+                                                                   titleLabel: "Map matching",
+                                                                   subtitleLabel: "GPS matched to road network."),
+                                                        SubOptions(iconImage: "route_matching_image",
+                                                                   titleLabel: "Route matching",
+                                                                   subtitleLabel: "GPS matched to the given route.")
+                                        ]),
                                     Options(category: .Search,
                                             mainImage: "search_image",
                                             iconImage: "map_icon",
@@ -180,7 +190,10 @@ public class MenuLabels: NSObject {
                                                                    subtitleLabel: "Polygons for geographies."),
                                                         SubOptions(iconImage: "batch_search_image",
                                                                    titleLabel: "Batch search",
-                                                                   subtitleLabel: "Allows to bundle multiple search requests.")
+                                                                   subtitleLabel: "Allows to bundle multiple search requests."),
+                                                        SubOptions(iconImage: "polygonsForRevGeo",
+                                                                   titleLabel: "Polygons for rev geo",
+                                                                   subtitleLabel: "Drop a pin to get a polygon")
                                         ]),
                                     Options(category: .Geofencing,
                                             mainImage: "geofencing_image",

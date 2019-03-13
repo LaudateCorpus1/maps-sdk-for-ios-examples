@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -47,11 +47,14 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
         mapView.delegate = self
         matcher = TTMatcher(matchDataSet: mapView)
         matcher.delegate = self
+        setupEtaView()
+        etaView.update(text: "Red circle shows raw GPS position", icon: UIImage(named: "info_small")!)
     }
 
     func createChevron() {
         mapView.isShowsUserLocation = false
-        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage())
+        let animation = TTChevronAnimationOptionsBuilder.create(withAnimatedCornerRounding: true).build()
+        chevron = TTChevronObject(normalImage: TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage(), with: animation)
     }
 
     func start() {
@@ -65,6 +68,7 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
         mapView.setCameraPosition(camera)
         mapView.trackingManager.add(chevron!)
         source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!)
+        mapView.trackingManager.setBearingSmoothingFilter(TTTrackingManagerDefault.bearingSmoothFactor())
         mapView.trackingManager.start(chevron!)
         source?.activate()
     }

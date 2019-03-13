@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -45,6 +45,8 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
         super.viewDidLoad()
         mapView.delegate = self
         routePlanner.delegate = self
+        setupEtaView()
+        etaView.update(text: "Red circle shows raw GPS position", icon: UIImage(named: "info_small")!)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,7 +56,8 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
 
     func createChevron() {
         mapView.isShowsUserLocation = false
-        chevron = TTChevronObject(normalImage:TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage());
+        let animation = TTChevronAnimationOptionsBuilder.create(withAnimatedCornerRounding: true).build()
+        chevron = TTChevronObject(normalImage: TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage(), with: animation)
     }
     
     func createRoute() {
@@ -67,6 +70,7 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
 
     func start() {
         mapView.trackingManager.add(chevron!)
+        mapView.trackingManager.setBearingSmoothingFilter(TTTrackingManagerDefault.bearingSmoothFactor())
         mapView.trackingManager.start(chevron!)
         source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!);
         source?.activate()
@@ -134,7 +138,6 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
                                   imageEnd: TTMapRoute.defaultImageDestination())
         mapView.routeManager.add(mapRoute)
         mapView.routeManager.bring(toFrontRoute: mapRoute)
-        etaView.show(summary: plannedRoute.summary, style: .plain)
         progress.hide()
         matcher = TTMatcher(matchDataSet: plannedRoute)
         matcher?.delegate = self

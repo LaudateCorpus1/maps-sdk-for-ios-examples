@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -50,18 +50,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //tag::doc_geofencing_obj_c_project_id[]
     _projectId1 = @"57287023-a968-492c-8473-7e049a606425";
     _projectId2 = @"fcf6d609-550d-49ff-bcdf-02bba08baa28";
-    //end::doc_geofencing_obj_c_project_id[]
     _inside = [NSMutableArray new];
     _outside = [NSMutableArray new];
     _range = 5000.0;
-    
-    //tag::doc_geofencing_objc_report_init[]
+
     _service = [[TTGeofencingReportService alloc] init];
-    //end::doc_geofencing_objc_report_init[]
-    
+
     self.mapView.annotationManager.delegate = self;
     [self.etaView updateWithText:@"Drag a pin inside/outside of a fence" icon:[UIImage imageNamed:@"info_small"]];
 }
@@ -93,15 +89,11 @@
 
 - (void)requestGeofencingReport:(CLLocationCoordinate2D)coorinate withProjectId:(NSString *)projectId {
     __weak GeofencingReportViewController* weakSelf = self;
-    //tag::doc_geofencing_objc_report_query[]
     TTGeofencingReportQuery *reportQuery = [[[[[TTGeofencingReportQueryBuilder alloc] initWithLocation:[[TTLocation alloc] initWithCoordinate:coorinate]] withProject:projectId] withRange:_range] build];
-    //end::doc_geofencing_objc_report_query[]
-    
-    //tag::doc_geofencing_objc_report_callback[]
+
     [_service reportWithQuery:reportQuery completionHandle:^(TTGeofencingReport * _Nullable report, TTResponseError * _Nullable error) {
         [weakSelf responseGeofencing:report];
     }];
-    //end::doc_geofencing_objc_report_callback[]
 }
 
 - (void)responseGeofencing:(TTGeofencingReport *)report {

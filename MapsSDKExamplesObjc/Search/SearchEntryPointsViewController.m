@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -12,8 +12,19 @@
 #import "SearchEntryPointsViewController.h"
 #import <TomTomOnlineSDKSearch/TomTomOnlineSDKSearch.h>
 
-@interface SearchEntryPointsViewController() <TTSearchDelegate>
+@interface CustomAnnotation : TTAnnotation
+
+@property (nonatomic) NSString *title;
+
+@end
+
+@implementation CustomAnnotation
+
+@end
+
+@interface SearchEntryPointsViewController() <TTSearchDelegate, TTAnnotationDelegate>
 @property (nonatomic, strong) TTSearch *search;
+@property (nonatomic) NSString *text;
 @end
 
 @implementation SearchEntryPointsViewController
@@ -26,6 +37,7 @@
     [super viewDidLoad];
     self.search = [TTSearch new];
     self.search.delegate = self;
+    self.mapView.annotationManager.delegate = self;
 }
 
 #pragma mark OptionsViewDelegate
@@ -47,12 +59,14 @@
 #pragma mark Examples
 
 - (void)displayEntryPointsForAirport {
+    self.text = @"Amsterdam Airport Schiphol";
     TTSearchQuery *query = [[TTSearchQueryBuilder createWithTerm:@"Amsterdam Airport Schiphol"]
                             build];
     [self.search searchWithQuery:query];
 }
 
 - (void)displayEntryPointsForShoppingMall {
+    self.text = @"Kalvertoren";
     TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:@"Kalvertoren Singel 451"] withIdxSet:TTSearchIndexPointOfInterest]
                             build];
     [self.search searchWithQuery:query];
@@ -74,7 +88,12 @@
     TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:result.position];
     [self.mapView.annotationManager addAnnotation:annotation];
     for (TTEntryPoint *entryPoint in entryPoints) {
-        TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:entryPoint.position annotationImage:[TTAnnotationImage createPNGWithName:@"entry_point"] anchor:TTAnnotationAnchorBottom type:TTAnnotationTypeFocal];
+        CustomAnnotation *annotation = [[CustomAnnotation alloc] initWithCoordinate:entryPoint.position
+                                                                    annotationImage:[TTAnnotationImage createPNGWithName:@"entry_point"]
+                                                                             anchor:TTAnnotationAnchorBottom
+                                                                               type:TTAnnotationTypeFocal];
+        
+        annotation.title = [NSString stringWithFormat:@"Entry point type %@", entryPoint.type];
         [self.mapView.annotationManager addAnnotation:annotation];
     }
     [self.mapView zoomToAllAnnotations];
@@ -82,6 +101,15 @@
 
 - (void)search:(TTSearch *)search failedWithError:(TTResponseError *)error {
     [self handleError:error];
+}
+
+- (UIView<TTCalloutView> *)annotationManager:(id<TTAnnotationManager>)manager viewForSelectedAnnotation:(TTAnnotation *)selectedAnnotation {
+    if ([selectedAnnotation isKindOfClass:[CustomAnnotation class]]) {
+        NSString *title = ((CustomAnnotation *)selectedAnnotation).title;
+        return [[TTCalloutOutlineView alloc] initWithText:title];
+    }
+    return [[TTCalloutOutlineView alloc] initWithText: self.text];
+    
 }
 
 @end

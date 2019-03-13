@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -30,6 +30,7 @@
 #import "MapFollowTheChevronController.h"
 #import "MapRouteCustomisationViewController.h"
 #import "MapMatchingViewController.h"
+#import "MapSwitchingLayersViewController.h"
 #import "RouteMatchingViewController.h"
 #import "TrafficIncidentsViewController.h"
 #import "SearchAddressViewController.h"
@@ -43,6 +44,7 @@
 #import "SearchEntryPointsViewController.h"
 #import "SearchAdditionalDataViewController.h"
 #import "SearchBatchViewController.h"
+#import "SearchPolygonsForRevGeoViewController.h"
 #import "RoutingTravelModesViewController.h"
 #import "RoutingRouteTypesViewController.h"
 #import "RoutingRouteAvoidsViewController.h"
@@ -104,49 +106,43 @@
                 newViewController = [MapCustomStyleViewController new];
                 break;
             case 6:
-                newViewController = [MapStaticImageViewController new];
+                newViewController = [MapSwitchingLayersViewController new];
                 break;
             case 7:
-                newViewController = [MapCenteringViewController new];
+                newViewController = [MapStaticImageViewController new];
                 break;
             case 8:
-                newViewController = [MapPerspectiveViewController new];
+                newViewController = [MapCenteringViewController new];
                 break;
             case 9:
-                newViewController = [MapEventsViewController new];
+                newViewController = [MapPerspectiveViewController new];
                 break;
             case 10:
-                newViewController = [MapUIExtensionsViewController new];
+                newViewController = [MapEventsViewController new];
                 break;
             case 11:
-                newViewController = [MapMarkersViewController new];
+                newViewController = [MapUIExtensionsViewController new];
                 break;
             case 12:
-                newViewController = [MapAdvancedMarkersViewController new];
+                newViewController = [MapMarkersViewController new];
                 break;
             case 13:
-                newViewController = [MapBallonsViewController new];
+                newViewController = [MapAdvancedMarkersViewController new];
                 break;
             case 14:
-                newViewController = [MapShapesViewController new];
+                newViewController = [MapBallonsViewController new];
                 break;
             case 15:
-                newViewController = [MapMarkersClusteringViewController new];
+                newViewController = [MapShapesViewController new];
                 break;
             case 16:
-                newViewController = [MapFollowTheChevronController new];
+                newViewController = [MapMarkersClusteringViewController new];
                 break;
             case 17:
                 newViewController = [MapMultipleViewController new];
                 break;
             case 18:
                 newViewController = [MapRouteCustomisationViewController new];
-                break;
-            case 19:
-                newViewController = [MapMatchingViewController new];
-                break;
-            case 20:
-                newViewController = [RouteMatchingViewController new];
                 break;
             default:
                 [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];
@@ -212,6 +208,21 @@
     } else if (category == 3) {
         switch (index) {
             case 0:
+                newViewController = [MapFollowTheChevronController new];
+                break;
+            case 1:
+                newViewController = [MapMatchingViewController new];
+                break;
+            case 2:
+                newViewController = [RouteMatchingViewController new];
+                break;
+            default:
+                [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];
+                break;
+        }
+    } else if (category == 4) {
+        switch (index) {
+            case 0:
                 newViewController = [SearchAddressViewController new];
                 break;
             case 1:
@@ -244,11 +255,14 @@
             case 10:
                 newViewController = [SearchBatchViewController new];
                 break;
+            case 11:
+                newViewController = [SearchPolygonsForRevGeoViewController new];
+                break;
             default:
                 [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];
                 break;
         }
-    } else if (category == 4) {
+    } else if (category == 5) {
         switch (index) {
             case 0:
                 newViewController = [GeofencingReportViewController new];

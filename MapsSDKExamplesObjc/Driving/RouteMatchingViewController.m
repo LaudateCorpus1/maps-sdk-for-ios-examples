@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -51,6 +51,8 @@
     self.waypoints[1] = [TTCoordinate LODZ_SREBRZYNSKA_WAYPOINT_B];
     self.waypoints[2] = [TTCoordinate LODZ_SREBRZYNSKA_WAYPOINT_C];
     self.mapView.delegate = self;
+    [self setupEtaView];
+    [self.etaView updateWithText:@"Red circle shows raw GPS position"icon:[UIImage imageNamed:@"info_small"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -61,7 +63,8 @@
 
 - (void)createChevron {
     [self.mapView setShowsUserLocation:false];
-    self.chevron = [[TTChevronObject alloc] initWithNormalImage:[TTChevronObject defaultNormalImage] withDimmedImage:[TTChevronObject defaultDimmedImage]];
+    TTChevronAnimationOptions *animation = [[TTChevronAnimationOptionsBuilder createWithAnimatedCornerRounding:true] build];
+    self.chevron = [[TTChevronObject alloc] initWithNormalImage:[TTChevronObject defaultNormalImage] withDimmedImage:[TTChevronObject defaultDimmedImage] withChevronAnimationOptions:animation];
 }
 
 - (void)createRoute {
@@ -72,6 +75,7 @@
 
 - (void)start {
     [self.mapView.trackingManager addTrackingObject:self.chevron];
+    [self.mapView.trackingManager setBearingSmoothingFilter:[TTTrackingManagerDefault bearingSmoothFactor]];
     [self.mapView.trackingManager startTrackingObject:self.chevron];
     self.source = [[DrivingSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron];
     [self.source activate];
@@ -139,7 +143,6 @@
                                                      imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     [self.mapView.routeManager addRoute:mapRoute];
     [self.mapView.routeManager bringToFrontRoute:mapRoute];
-    [self.etaView showWithSummary:plannedRoute.summary style:ETAViewStylePlain];
     [self.progress hide];
     
     self.matcher = [[TTMatcher alloc] initWithMatchDataSet:plannedRoute];

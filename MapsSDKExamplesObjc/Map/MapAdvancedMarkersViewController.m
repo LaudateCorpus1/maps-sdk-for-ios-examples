@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -39,6 +39,7 @@
         CLLocationCoordinate2D coordinate = [CLLocation makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
         TTAnnotationImage *customIcon = [TTAnnotationImage createGIFWithName:@"gif_annotation"];
         TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:coordinate annotationImage:customIcon anchor:TTAnnotationAnchorBottom type:TTAnnotationTypeDecal];
+        annotation.selectable = NO;
         [self.mapView.annotationManager addAnnotation:annotation];
     }
 }
@@ -49,6 +50,7 @@
     for(int i = 0; i < 4; i++) {
         CLLocationCoordinate2D coordinate = [CLLocation makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
         TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:coordinate];
+        annotation.selectable = NO;
         annotation.isDraggable = YES;
         [self.mapView.annotationManager addAnnotation:annotation];
     }

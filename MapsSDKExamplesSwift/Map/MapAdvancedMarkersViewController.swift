@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -42,6 +42,7 @@ class MapAdvancedMarkersViewController: MapBaseViewController {
             let cooridnate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.AMSTERDAM())
             let customIcon = TTAnnotationImage.createGIF(withName: "gif_annotation")!
             let annotation = TTAnnotation(coordinate: cooridnate, annotationImage: customIcon, anchor: .bottom, type: .decal)
+            annotation.selectable = false
             mapView.annotationManager.add(annotation)
         }
     }
@@ -51,6 +52,7 @@ class MapAdvancedMarkersViewController: MapBaseViewController {
         for _ in 0...4 {
             let cooridnate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.AMSTERDAM())
             let annotation = TTAnnotation(coordinate: cooridnate)
+            annotation.selectable = false
             annotation.isDraggable = true
             mapView.annotationManager.add(annotation)
         }

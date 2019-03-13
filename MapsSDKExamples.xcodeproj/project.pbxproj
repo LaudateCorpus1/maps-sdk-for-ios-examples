@@ -34,6 +34,12 @@
 		6E4F76AF215273990084946F /* MapMarkersClusteringViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F76AE215273990084946F /* MapMarkersClusteringViewControllerTests.swift */; };
 		6E769330219D858200D8717A /* MapMultipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76932F219D858200D8717A /* MapMultipleViewController.swift */; };
 		6E8E940721CCC15200A9788F /* RoutingAvoidVignettesAndAreasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E940621CCC15200A9788F /* RoutingAvoidVignettesAndAreasViewController.m */; };
+		6E9BF266221FD4290033BD98 /* MapSwitchingLayersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF265221FD4290033BD98 /* MapSwitchingLayersViewControllerTests.swift */; };
+		6E9BF268221FD5D90033BD98 /* MapSwitchingLayersViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF267221FD5D90033BD98 /* MapSwitchingLayersViewControllerTests.m */; };
+		6E9BF26A22201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF26922201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift */; };
+		6E9BF26C22201B300033BD98 /* SearchPolygonsForRevGeoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF26B22201B300033BD98 /* SearchPolygonsForRevGeoViewControllerTests.swift */; };
+		6E9BF26F22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF26E22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m */; };
+		6E9BF27122201B650033BD98 /* SearchPolygonsForRevGeoViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF27022201B650033BD98 /* SearchPolygonsForRevGeoViewControllerTests.m */; };
 		6EAEC65D21CCD99D00BEACD2 /* RoutingAvoidVignettesAndAreasViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAEC65C21CCD99D00BEACD2 /* RoutingAvoidVignettesAndAreasViewControllerTests.m */; };
 		6EAEC65F21CCDC6C00BEACD2 /* RoutingAvoidVignettesAndAreasViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAEC65E21CCDC6C00BEACD2 /* RoutingAvoidVignettesAndAreasViewControllerTests.swift */; };
 		6EB3C4B3215A05BD00AC580C /* MapPerspectiveViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4B2215A05BD00AC580C /* MapPerspectiveViewControllerTests.m */; };
@@ -67,6 +73,9 @@
 		6EB3C4EE215A342100AC580C /* SearchEntryPointsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4ED215A342100AC580C /* SearchEntryPointsViewControllerTests.m */; };
 		6EB3C4F0215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4EF215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m */; };
 		6EB3C4F2215A351400AC580C /* SearchBatchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4F1215A351400AC580C /* SearchBatchViewControllerTests.m */; };
+		6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */; };
+		6EDCC21F221EB23B006EC951 /* MapSwitchingLayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */; };
+		6EDCC222221EB321006EC951 /* MapSwitchingLayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */; };
 		6EE8F36721B14882006B8149 /* MapMultipleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F36621B14882006B8149 /* MapMultipleViewControllerTests.m */; };
 		6EE8F36921B14984006B8149 /* MapMultipleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F36821B14984006B8149 /* MapMultipleViewControllerTests.swift */; };
 		72006913213E4BCF005B20D1 /* MapsSDKExamplesVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 72006903213E4BCF005B20D1 /* MapsSDKExamplesVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -284,8 +293,14 @@
 		72D76832215EC28500641880 /* RoutingReachableRangeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D76831215EC28500641880 /* RoutingReachableRangeViewControllerTests.m */; };
 		72E285C32133E4B600D260CB /* TrafficCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C22133E4B600D260CB /* TrafficCell.xib */; };
 		72E285C92134136500D260CB /* TrafficHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C82134136500D260CB /* TrafficHeader.xib */; };
-		9C10102C2181E9260064B7D5 /* MapFollowTheChevronController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C10102A2181E9250064B7D5 /* MapFollowTheChevronController.swift */; };
-		9C40F4EB218741580086C13B /* MapFollowTheChevronController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C40F4EA218741580086C13B /* MapFollowTheChevronController.m */; };
+		9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */; };
+		9C6535BD222E5DBD0050EE60 /* MapFollowTheChevronController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BB222E5DBD0050EE60 /* MapFollowTheChevronController.m */; };
+		9C6535C0222E617C0050EE60 /* MapFollowTheChevronControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BF222E617C0050EE60 /* MapFollowTheChevronControllerTests.swift */; };
+		9C6535C3222E633E0050EE60 /* RouteMatchingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535C1222E633E0050EE60 /* RouteMatchingViewControllerTests.swift */; };
+		9C6535C4222E633E0050EE60 /* MapMatchingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535C2222E633E0050EE60 /* MapMatchingViewControllerTests.swift */; };
+		9C6535C7222E65320050EE60 /* MapFollowTheChevronControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535C6222E65320050EE60 /* MapFollowTheChevronControllerTests.m */; };
+		9C6535CA222E69FA0050EE60 /* MapMatchingViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535C8222E69FA0050EE60 /* MapMatchingViewControllerTests.m */; };
+		9C6535CB222E69FA0050EE60 /* RouteMatchingViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535C9222E69FA0050EE60 /* RouteMatchingViewControllerTests.m */; };
 		9C7076762202EC5100B3FF19 /* MapMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7076752202EC5100B3FF19 /* MapMatchingViewController.swift */; };
 		9C7076782202F1F100B3FF19 /* DrivingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7076772202F1F100B3FF19 /* DrivingSource.swift */; };
 		9C70767A2202F39300B3FF19 /* ProviderLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7076792202F39300B3FF19 /* ProviderLocation.swift */; };
@@ -306,8 +321,6 @@
 		9C78AB60220D7B5200EAC9FA /* GeofencingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C78AB5E220D7B5200EAC9FA /* GeofencingBaseViewController.m */; };
 		9C81FE2121AED86400D9C2C4 /* MapsSDKExamplesCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7220273D2139607500296ACF /* MapsSDKExamplesCommon.framework */; };
 		9CCB057421885E55006BA780 /* FollowTheChevronSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057321885E54006BA780 /* FollowTheChevronSource.swift */; };
-		9CCB057621887A49006BA780 /* MapFollowTheChevronControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057521887A49006BA780 /* MapFollowTheChevronControllerTests.swift */; };
-		9CCB057821887BAB006BA780 /* MapFollowTheChevronControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB057721887BAB006BA780 /* MapFollowTheChevronControllerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -435,6 +448,13 @@
 		6E76932F219D858200D8717A /* MapMultipleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMultipleViewController.swift; sourceTree = "<group>"; };
 		6E8E940521CCC15200A9788F /* RoutingAvoidVignettesAndAreasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutingAvoidVignettesAndAreasViewController.h; sourceTree = "<group>"; };
 		6E8E940621CCC15200A9788F /* RoutingAvoidVignettesAndAreasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingAvoidVignettesAndAreasViewController.m; sourceTree = "<group>"; };
+		6E9BF265221FD4290033BD98 /* MapSwitchingLayersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSwitchingLayersViewControllerTests.swift; sourceTree = "<group>"; };
+		6E9BF267221FD5D90033BD98 /* MapSwitchingLayersViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSwitchingLayersViewControllerTests.m; sourceTree = "<group>"; };
+		6E9BF26922201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPolygonsForRevGeoViewController.swift; sourceTree = "<group>"; };
+		6E9BF26B22201B300033BD98 /* SearchPolygonsForRevGeoViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPolygonsForRevGeoViewControllerTests.swift; sourceTree = "<group>"; };
+		6E9BF26D22201B530033BD98 /* SearchPolygonsForRevGeoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPolygonsForRevGeoViewController.h; sourceTree = "<group>"; };
+		6E9BF26E22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPolygonsForRevGeoViewController.m; sourceTree = "<group>"; };
+		6E9BF27022201B650033BD98 /* SearchPolygonsForRevGeoViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPolygonsForRevGeoViewControllerTests.m; sourceTree = "<group>"; };
 		6EAEC65C21CCD99D00BEACD2 /* RoutingAvoidVignettesAndAreasViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingAvoidVignettesAndAreasViewControllerTests.m; sourceTree = "<group>"; };
 		6EAEC65E21CCDC6C00BEACD2 /* RoutingAvoidVignettesAndAreasViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingAvoidVignettesAndAreasViewControllerTests.swift; sourceTree = "<group>"; };
 		6EB3C4B2215A05BD00AC580C /* MapPerspectiveViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPerspectiveViewControllerTests.m; sourceTree = "<group>"; };
@@ -468,6 +488,10 @@
 		6EB3C4ED215A342100AC580C /* SearchEntryPointsViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchEntryPointsViewControllerTests.m; sourceTree = "<group>"; };
 		6EB3C4EF215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchAdditionalDataViewControllerTests.m; sourceTree = "<group>"; };
 		6EB3C4F1215A351400AC580C /* SearchBatchViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBatchViewControllerTests.m; sourceTree = "<group>"; };
+		6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewMultiSelectWithReset.swift; sourceTree = "<group>"; };
+		6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSwitchingLayersViewController.swift; sourceTree = "<group>"; };
+		6EDCC220221EB321006EC951 /* MapSwitchingLayersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSwitchingLayersViewController.h; sourceTree = "<group>"; };
+		6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSwitchingLayersViewController.m; sourceTree = "<group>"; };
 		6EE13A88210AFC7000B7507A /* SubOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptions.swift; sourceTree = "<group>"; };
 		6EE13A8A210B136800B7507A /* SubOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsViewController.swift; sourceTree = "<group>"; };
 		6EE13A8C210B2F8100B7507A /* SubOptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -709,12 +733,18 @@
 		72E285C82134136500D260CB /* TrafficHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrafficHeader.xib; sourceTree = "<group>"; };
 		72E285CC213418A600D260CB /* ManeuverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverCell.swift; sourceTree = "<group>"; };
 		72E285CE21341BC900D260CB /* ManeuverIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverIconGenerator.swift; sourceTree = "<group>"; };
-		9C10102A2181E9250064B7D5 /* MapFollowTheChevronController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFollowTheChevronController.swift; sourceTree = "<group>"; };
 		9C17CB902109E8750085A51B /* OptionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C17CB922109E8750085A51B /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		9C17CB932109E8750085A51B /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		9C40F4E9218741580086C13B /* MapFollowTheChevronController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapFollowTheChevronController.h; sourceTree = "<group>"; };
-		9C40F4EA218741580086C13B /* MapFollowTheChevronController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapFollowTheChevronController.m; sourceTree = "<group>"; };
+		9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFollowTheChevronController.swift; sourceTree = "<group>"; };
+		9C6535BB222E5DBD0050EE60 /* MapFollowTheChevronController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFollowTheChevronController.m; sourceTree = "<group>"; };
+		9C6535BC222E5DBD0050EE60 /* MapFollowTheChevronController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFollowTheChevronController.h; sourceTree = "<group>"; };
+		9C6535BF222E617C0050EE60 /* MapFollowTheChevronControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFollowTheChevronControllerTests.swift; sourceTree = "<group>"; };
+		9C6535C1222E633E0050EE60 /* RouteMatchingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteMatchingViewControllerTests.swift; sourceTree = "<group>"; };
+		9C6535C2222E633E0050EE60 /* MapMatchingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMatchingViewControllerTests.swift; sourceTree = "<group>"; };
+		9C6535C6222E65320050EE60 /* MapFollowTheChevronControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFollowTheChevronControllerTests.m; sourceTree = "<group>"; };
+		9C6535C8222E69FA0050EE60 /* MapMatchingViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapMatchingViewControllerTests.m; sourceTree = "<group>"; };
+		9C6535C9222E69FA0050EE60 /* RouteMatchingViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMatchingViewControllerTests.m; sourceTree = "<group>"; };
 		9C7076752202EC5100B3FF19 /* MapMatchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMatchingViewController.swift; sourceTree = "<group>"; };
 		9C7076772202F1F100B3FF19 /* DrivingSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingSource.swift; sourceTree = "<group>"; };
 		9C7076792202F39300B3FF19 /* ProviderLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderLocation.swift; sourceTree = "<group>"; };
@@ -738,8 +768,6 @@
 		9C78AB5D220D7B5200EAC9FA /* GeofencingBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeofencingBaseViewController.h; sourceTree = "<group>"; };
 		9C78AB5E220D7B5200EAC9FA /* GeofencingBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeofencingBaseViewController.m; sourceTree = "<group>"; };
 		9CCB057321885E54006BA780 /* FollowTheChevronSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowTheChevronSource.swift; sourceTree = "<group>"; };
-		9CCB057521887A49006BA780 /* MapFollowTheChevronControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFollowTheChevronControllerTests.swift; sourceTree = "<group>"; };
-		9CCB057721887BAB006BA780 /* MapFollowTheChevronControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapFollowTheChevronControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -919,12 +947,12 @@
 				72AB7399213FDAB100D72DF1 /* MapShapesViewController.m */,
 				72AB739B213FDABD00D72DF1 /* MapMarkersClusteringViewController.h */,
 				72AB739C213FDABD00D72DF1 /* MapMarkersClusteringViewController.m */,
-				9C40F4E9218741580086C13B /* MapFollowTheChevronController.h */,
-				9C40F4EA218741580086C13B /* MapFollowTheChevronController.m */,
 				6E241CF821AEDD2500818A53 /* MapMultipleViewController.h */,
 				6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */,
 				724CF8F421BA92E400CF5C83 /* MapRouteCustomisationViewController.h */,
 				724CF8F321BA92E400CF5C83 /* MapRouteCustomisationViewController.m */,
+				6EDCC220221EB321006EC951 /* MapSwitchingLayersViewController.h */,
+				6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -963,6 +991,8 @@
 				7280A2452144F35F0078B943 /* SearchAdditionalDataViewController.m */,
 				7280A2472144F3750078B943 /* SearchBatchViewController.h */,
 				7280A2482144F3750078B943 /* SearchBatchViewController.m */,
+				6E9BF26D22201B530033BD98 /* SearchPolygonsForRevGeoViewController.h */,
+				6E9BF26E22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1030,9 +1060,9 @@
 				7266CFB3211AFFF500162D91 /* MapBallonsViewController.swift */,
 				7266CFB5211B001800162D91 /* MapShapesViewController.swift */,
 				7266CFB7211B007F00162D91 /* MapMarkersClusteringViewController.swift */,
-				9C10102A2181E9250064B7D5 /* MapFollowTheChevronController.swift */,
 				6E76932F219D858200D8717A /* MapMultipleViewController.swift */,
 				724CF8F021BA80A700CF5C83 /* MapRouteCustomisationViewController.swift */,
+				6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1044,6 +1074,7 @@
 				724F2C6B2119B0D900412634 /* OptionsView.swift */,
 				7266CF9B211ADB7500162D91 /* OptionsViewSingleSelect.swift */,
 				7266CF9D211AE02900162D91 /* OptionsViewMultiSelect.swift */,
+				6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */,
 			);
 			path = OptionsView;
 			sourceTree = "<group>";
@@ -1103,6 +1134,7 @@
 				7253A660212D8E9300C469FF /* SearchEntryPointsViewController.swift */,
 				7253A662212D8EA200C469FF /* SearchAdditionalDataViewController.swift */,
 				7253A664212D8EB800C469FF /* SearchBatchViewController.swift */,
+				6E9BF26922201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1192,6 +1224,7 @@
 			isa = PBXGroup;
 			children = (
 				9C7076802203193300B3FF19 /* simple_route.csv */,
+				9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */,
 				9C78AB3922041ED600EAC9FA /* RouteMatchingViewController.swift */,
 				9C7076752202EC5100B3FF19 /* MapMatchingViewController.swift */,
 			);
@@ -1248,6 +1281,8 @@
 		9C78AB3F220735D300EAC9FA /* Driving */ = {
 			isa = PBXGroup;
 			children = (
+				9C6535BC222E5DBD0050EE60 /* MapFollowTheChevronController.h */,
+				9C6535BB222E5DBD0050EE60 /* MapFollowTheChevronController.m */,
 				9C78AB40220735F500EAC9FA /* MapMatchingViewController.h */,
 				9C78AB41220735F500EAC9FA /* MapMatchingViewController.m */,
 				9C78AB442207471A00EAC9FA /* RouteMatchingViewController.h */,
@@ -1552,7 +1587,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C6535BD222E5DBD0050EE60 /* MapFollowTheChevronController.m in Sources */,
 				7280A255214596DD0078B943 /* RoutingRouteWithWaypointsViewController.m in Sources */,
+				6E9BF26F22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m in Sources */,
 				9C78AB462207471A00EAC9FA /* RouteMatchingViewController.m in Sources */,
 				7200694D213E83F4005B20D1 /* TrafficIncidentsViewController.m in Sources */,
 				72AB7397213FDAA500D72DF1 /* MapBallonsViewController.m in Sources */,
@@ -1570,6 +1607,7 @@
 				7238475421A7FE43007F775D /* RoutingMatrixViewController.m in Sources */,
 				7280A258214596F30078B943 /* RoutingDepartureArrivalTimeViewController.m in Sources */,
 				7280A25E214597180078B943 /* RoutingManeuverListViewController.m in Sources */,
+				6EDCC222221EB321006EC951 /* MapSwitchingLayersViewController.m in Sources */,
 				7280A2462144F35F0078B943 /* SearchAdditionalDataViewController.m in Sources */,
 				7280A24C2145968D0078B943 /* RoutingTravelModesViewController.m in Sources */,
 				724CF8F521BA92E400CF5C83 /* MapRouteCustomisationViewController.m in Sources */,
@@ -1600,7 +1638,6 @@
 				7280A2342144F2D20078B943 /* SearchTypeaheadParameterViewController.m in Sources */,
 				7280A22E2144F2A80078B943 /* SearchCategoryViewController.m in Sources */,
 				9C78AB5C220D7ABF00EAC9FA /* GeofencingReportViewController.m in Sources */,
-				9C40F4EB218741580086C13B /* MapFollowTheChevronController.m in Sources */,
 				7280A23D2144F3220078B943 /* SearchAlongTheRouteViewController.m in Sources */,
 				7280A2312144F2BF0078B943 /* SearchLanguageSelectorViewController.m in Sources */,
 			);
@@ -1635,6 +1672,7 @@
 				7220276C21396FC000296ACF /* FormatUtils.swift in Sources */,
 				72202783213D01B600296ACF /* SubOptions.swift in Sources */,
 				7220276F21396FC000296ACF /* UIColor.swift in Sources */,
+				6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */,
 				7220278F213D024B00296ACF /* ETAView.swift in Sources */,
 				7220278D213D024200296ACF /* SubOptionsViewController.swift in Sources */,
 				7220277021396FC000296ACF /* Date.swift in Sources */,
@@ -1662,6 +1700,7 @@
 				72006962213FA5D6005B20D1 /* SearchMaxFuzzinessLevelViewController.swift in Sources */,
 				9C78AB4C2209A9D800EAC9FA /* GeofencingReportViewController.swift in Sources */,
 				72006968213FA5D6005B20D1 /* SearchBatchViewController.swift in Sources */,
+				6EDCC21F221EB23B006EC951 /* MapSwitchingLayersViewController.swift in Sources */,
 				7200695E213FA5D0005B20D1 /* SearchAddressViewController.swift in Sources */,
 				72006939213E68C2005B20D1 /* MapLanguageViewController.swift in Sources */,
 				72006941213E68D3005B20D1 /* MapMarkersViewController.swift in Sources */,
@@ -1672,7 +1711,6 @@
 				72006967213FA5D6005B20D1 /* SearchAdditionalDataViewController.swift in Sources */,
 				72006937213E68BC005B20D1 /* MapVectorTrafficViewController.swift in Sources */,
 				72006966213FA5D6005B20D1 /* SearchEntryPointsViewController.swift in Sources */,
-				9C10102C2181E9260064B7D5 /* MapFollowTheChevronController.swift in Sources */,
 				72006942213E68D6005B20D1 /* MapAdvancedMarkersViewController.swift in Sources */,
 				9C78AB3A22041ED600EAC9FA /* RouteMatchingViewController.swift in Sources */,
 				724F2C6621198D1C00412634 /* MapTilesViewController.swift in Sources */,
@@ -1682,6 +1720,7 @@
 				723F7BD421ECC6FE006AC52F /* RoutingBatchReachableRouteViewController.swift in Sources */,
 				72006961213FA5D6005B20D1 /* SearchTypeaheadParameterViewController.swift in Sources */,
 				7200695C213EB224005B20D1 /* TrafficIncidentsViewController.swift in Sources */,
+				9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */,
 				72AB7367213FD32200D72DF1 /* RoutingTravelModesViewController.swift in Sources */,
 				9C7076762202EC5100B3FF19 /* MapMatchingViewController.swift in Sources */,
 				7281DB1B21A427A7002422D8 /* RoutingMatrixViewController.swift in Sources */,
@@ -1693,6 +1732,7 @@
 				72006944213E68DA005B20D1 /* MapShapesViewController.swift in Sources */,
 				72006960213FA5D6005B20D1 /* SearchLanguageSelectorViewController.swift in Sources */,
 				9C77CF3D2106F7B600A3179B /* AppDelegate.swift in Sources */,
+				6E9BF26A22201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift in Sources */,
 				72006945213E68DC005B20D1 /* MapMarkersClusteringViewController.swift in Sources */,
 				7200693F213E68CF005B20D1 /* MapEventsViewController.swift in Sources */,
 				72AB736A213FD32200D72DF1 /* RoutingRouteWithWaypointsViewController.swift in Sources */,

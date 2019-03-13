@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -27,7 +27,7 @@ class MapVectorTrafficViewController: MapBaseViewController {
     }
     
     override func getOptionsView() -> OptionsView {
-        return OptionsViewMultiSelect(labels: ["Incidents", "Flow", "No traffic"], selectedID: 2)
+        return OptionsViewMultiSelectWithReset(labels: ["Incidents", "Flow", "No traffic"], selectedID: 2)
     }
     
     //MARK: OptionsViewDelegate

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 TomTom N.V. All rights reserved.
+ * Copyright (c) 2019 TomTom N.V. All rights reserved.
  *
  * This software is the proprietary copyright of TomTom N.V. and its subsidiaries and may be used
  * for internal evaluation purposes or commercial use strictly subject to separate licensee
@@ -48,35 +48,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 5:
                 newViewController = MapCustomStyleViewController()
             case 6:
-                newViewController = MapStaticImageViewController()
+                newViewController = MapSwitchingLayersViewController()
             case 7:
-                newViewController = MapCenteringViewController()
+                newViewController = MapStaticImageViewController()
             case 8:
-                newViewController = MapPerspectiveViewController()
+                newViewController = MapCenteringViewController()
             case 9:
-                newViewController = MapEventsViewController()
+                newViewController = MapPerspectiveViewController()
             case 10:
-                newViewController = MapUIExtensionsViewController()
+                newViewController = MapEventsViewController()
             case 11:
-                newViewController = MapMarkersViewController()
+                newViewController = MapUIExtensionsViewController()
             case 12:
-                newViewController = MapAdvancedMarkersViewController()
+                newViewController = MapMarkersViewController()
             case 13:
-                newViewController = MapBallonsViewController()
+                newViewController = MapAdvancedMarkersViewController()
             case 14:
-                newViewController = MapShapesViewController()
+                newViewController = MapBallonsViewController()
             case 15:
-                newViewController = MapMarkersClusteringViewController()
+                newViewController = MapShapesViewController()
             case 16:
-                newViewController = MapFollowTheChevronController()
+                newViewController = MapMarkersClusteringViewController()
             case 17:
                 newViewController = MapMultipleViewController()
             case 18:
                 newViewController = MapRouteCustomisationViewController()
-            case 19:
-                newViewController = MapMatchingViewController()
-            case 20:
-                newViewController = RouteMatchingViewController()
             default:
                 fatalError("This VC is not handled")
             }
@@ -120,6 +116,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             default:
                 fatalError("This VC is not handled")
             }
+        } else if category == .Driving {
+            switch index {
+            case 0:
+                newViewController = MapFollowTheChevronController()
+            case 1:
+                newViewController = MapMatchingViewController()
+            case 2:
+                newViewController = RouteMatchingViewController()
+            default:
+                fatalError("This VC is not handled")
+            }
         } else if category == .Search {
             switch index {
             case 0:
@@ -144,6 +151,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = SearchAdditionalDataViewController()
             case 10:
                 newViewController = SearchBatchViewController()
+            case 11:
+                newViewController = SearchPolygonsForRevGeoViewController()
             default:
                 fatalError("This VC is not handled")
             }
