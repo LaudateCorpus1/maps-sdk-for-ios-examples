@@ -97,7 +97,7 @@ class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegat
             return
         }
         let visitor = PolygonAdditionalDataVisitior()
-        result.visit(visitor)
+        result.visitGeoJSONResult(visitor)
         var mapPolygons: [TTPolygon] = []
         for lineString in visitor.lineStrings {
             let mapPolygon = TTPolygon(coordinatesData: lineString, opacity: 0.7, color: TTColor.Red(), colorOutline: TTColor.Red())
@@ -113,21 +113,21 @@ class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegat
 
 }
 
-class PolygonAdditionalDataVisitior: NSObject, TTADPGeoJsonObjectVisitor, TTADPGeoJsonGeoVisitor {
+class PolygonAdditionalDataVisitior: NSObject, TTGeoJSONObjectVisitor, TTGeoJSONGeoVisitor {
     
-    var lineStrings: [TTADPLineString] = []
+    var lineStrings: [TTGeoJSONLineString] = []
     
-    func visit(_ featureCollection: TTADPFeatureCollection) {
+    func visit(_ featureCollection: TTGeoJSONFeatureCollection) {
         for feature in featureCollection.features {
             feature.visitResult(self)
         }
     }
     
-    func visit(_ polygon: TTADPPolygon) {
+    func visit(_ polygon: TTGeoJSONPolygon) {
         lineStrings.append(polygon.exteriorRing)
     }
     
-    func visit(_ multiPolygon: TTADPMultiPolygon) {
+    func visit(_ multiPolygon: TTGeoJSONMultiPolygon) {
         for polygon in multiPolygon.polygons {
             lineStrings.append(polygon.exteriorRing)
         }

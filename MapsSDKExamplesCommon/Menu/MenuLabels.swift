@@ -77,8 +77,8 @@ public class MenuLabels: NSObject {
                                                                    titleLabel: "Multiple maps",
                                                                    subtitleLabel: "Display more then one map on controller."),
                                                         SubOptions(iconImage: "custom_route",
-                                                                   titleLabel: "Custom route style",
-                                                                   subtitleLabel: "Defines custom style for route.")
+                                                                   titleLabel: "Route customisations",
+                                                                   subtitleLabel: "Define the look and feel of your route with custom style, segments and other options.")
                                                 
         ]),
                                     Options(category: .Traffic,

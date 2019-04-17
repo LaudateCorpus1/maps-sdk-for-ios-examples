@@ -12,8 +12,8 @@
 #import "SearchAdditionalDataViewController.h"
 #import <TomTomOnlineSDKSearch/TomTomOnlineSDKSearch.h>
 
-@interface PolygonAdditionalDataVisitior : NSObject <TTADPGeoJsonObjectVisitor, TTADPGeoJsonGeoVisitor>
-@property (nonatomic, strong) NSMutableArray<TTADPLineString *> *lineStrings;
+@interface PolygonAdditionalDataVisitior : NSObject <TTGeoJSONObjectVisitor, TTGeoJSONGeoVisitor>
+@property (nonatomic, strong) NSMutableArray<TTGeoJSONLineString *> *lineStrings;
 @end
 
 @implementation PolygonAdditionalDataVisitior
@@ -26,18 +26,18 @@
     return self;
 }
 
-- (void)visitFeatureCollection:(TTADPFeatureCollection *)featureCollection {
-    for (TTADPFeature *feature in featureCollection.features) {
+- (void)visitFeatureCollection:(TTGeoJSONFeatureCollection *)featureCollection {
+    for (TTGeoJSONFeature *feature in featureCollection.features) {
         [feature visitResult:self];
     }
 }
 
-- (void)visitPolygon:(TTADPPolygon *)polygon {
+- (void)visitPolygon:(TTGeoJSONPolygon *)polygon {
     [self.lineStrings addObject:polygon.exteriorRing];
 }
 
-- (void)visitMultiPolygon:(TTADPMultiPolygon *)multiPolygon {
-    for (TTADPPolygon *polygon in multiPolygon.polygons) {
+- (void)visitMultiPolygon:(TTGeoJSONMultiPolygon *)multiPolygon {
+    for (TTGeoJSONPolygon *polygon in multiPolygon.polygons) {
         [self.lineStrings addObject:polygon.exteriorRing];
     }
 }
@@ -136,9 +136,9 @@
         return;
     }
     PolygonAdditionalDataVisitior *visitor = [PolygonAdditionalDataVisitior new];
-    [result visitResult:visitor];
+    [result visitGeoJSONResult:visitor];
     NSMutableArray<TTPolygon *>* mapPolygons = [NSMutableArray new];
-    for (TTADPLineString *lineString in visitor.lineStrings) {
+    for (TTGeoJSONLineString *lineString in visitor.lineStrings) {
         TTPolygon *mapPolygon = [TTPolygon polygonWithCoordinatesData:lineString opacity:0.7 color:[TTColor Red] colorOutline:[TTColor Red]];
         [mapPolygons addObject:mapPolygon];
         [self.mapView.annotationManager addOverlay:mapPolygon];

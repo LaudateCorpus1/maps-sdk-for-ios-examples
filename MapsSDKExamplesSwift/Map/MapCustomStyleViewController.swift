@@ -35,11 +35,13 @@ class MapCustomStyleViewController: MapBaseViewController {
     
     func displayStyleBasic() {
         mapView.setStylePath(nil)
+        mapView.applyDefaultLogo()
     }
     
     func displayStyleCustom() {
         let customStyle = Bundle.main.path(forResource: "style", ofType: "json")
         mapView.setStylePath(customStyle)
+        mapView.applyInvertedLogo()
     }
 
 }

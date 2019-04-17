@@ -26,6 +26,7 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
                     "TomTomOnlineSDKSearch",
                     "TomTomOnlineSDKTraffic",
                     "TomTomOnlineSDKGeofencing",
+                    "TomTomOnlineSDKMapsDriving",
                     "TomTomOnlineUtils"]
     
     private func version() -> String? {

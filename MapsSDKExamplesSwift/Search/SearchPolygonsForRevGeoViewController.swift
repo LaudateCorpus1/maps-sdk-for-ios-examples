@@ -116,7 +116,7 @@ class SearchPolygonsForRevGeoViewController: MapBaseViewController, TTMapViewDel
             return
         }
         let visitor = PolygonAdditionalDataVisitior()
-        result.visit(visitor)
+        result.visitGeoJSONResult(visitor)
         var mapPolygons: [TTPolygon] = []
         for lineString in visitor.lineStrings {
             let mapPolygon = TTPolygon(coordinatesData: lineString, opacity: 0.7, color: TTColor.Red(), colorOutline: TTColor.Red())

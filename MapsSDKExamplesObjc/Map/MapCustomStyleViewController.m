@@ -35,11 +35,13 @@
 
 - (void)displayStyleBasic {
     [self.mapView setStylePath:nil];
+    [self.mapView applyDefaultLogo];
 }
 
 - (void)displayStyleCustom {
     NSString *customStyle = [NSBundle.mainBundle pathForResource:@"style" ofType:@"json"];
     [self.mapView setStylePath:customStyle];
+    [self.mapView applyInvertedLogo];
 }
 
 @end

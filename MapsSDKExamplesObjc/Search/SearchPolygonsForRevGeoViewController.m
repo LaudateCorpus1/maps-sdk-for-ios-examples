@@ -13,8 +13,8 @@
 #import <TomTomOnlineSDKSearch/TomTomOnlineSDKSearch.h>
 #import <TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.h>
 
-@interface PolygonAdditionalDataVisitior : NSObject <TTADPGeoJsonObjectVisitor, TTADPGeoJsonGeoVisitor>
-@property (nonatomic, strong) NSMutableArray<TTADPLineString *> *lineStrings;
+@interface PolygonAdditionalDataVisitior : NSObject <TTGeoJSONObjectVisitor, TTGeoJSONGeoVisitor>
+@property (nonatomic, strong) NSMutableArray<TTGeoJSONLineString *> *lineStrings;
 @end
 
 @interface SearchPolygonsForRevGeoViewController() <TTMapViewDelegate, TTAnnotationDelegate, TTReverseGeocoderDelegate, TTAdditionalDataSearchDelegate>
@@ -142,9 +142,9 @@
         return;
     }
     PolygonAdditionalDataVisitior *visitor = [PolygonAdditionalDataVisitior new];
-    [result visitResult:visitor];
+    [result visitGeoJSONResult:visitor];
     NSMutableArray<TTPolygon *>* mapPolygons = [NSMutableArray new];
-    for (TTADPLineString *lineString in visitor.lineStrings) {
+    for (TTGeoJSONLineString *lineString in visitor.lineStrings) {
         TTPolygon *mapPolygon = [TTPolygon polygonWithCoordinatesData:lineString opacity:0.7 color:[TTColor Red] colorOutline:[TTColor Red]];
         [mapPolygons addObject:mapPolygon];
         [self.mapView.annotationManager addOverlay:mapPolygon];
