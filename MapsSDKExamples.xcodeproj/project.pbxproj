@@ -73,6 +73,10 @@
 		6EB3C4EE215A342100AC580C /* SearchEntryPointsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4ED215A342100AC580C /* SearchEntryPointsViewControllerTests.m */; };
 		6EB3C4F0215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4EF215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m */; };
 		6EB3C4F2215A351400AC580C /* SearchBatchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4F1215A351400AC580C /* SearchBatchViewControllerTests.m */; };
+		6EC23FC02281AD7C000BE076 /* MapDynamicMapSourcesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC23FBF2281AD7C000BE076 /* MapDynamicMapSourcesViewControllerTests.swift */; };
+		6EC23FC22281ADF6000BE076 /* MapDynamicLayerOrderingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC23FC12281ADF6000BE076 /* MapDynamicLayerOrderingViewControllerTests.swift */; };
+		6EC23FC42281B083000BE076 /* MapDynamicMapSourcesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC23FC32281B082000BE076 /* MapDynamicMapSourcesViewControllerTests.m */; };
+		6EC23FC62281B0BD000BE076 /* MapDynamicLayerOrderingViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC23FC52281B0BD000BE076 /* MapDynamicLayerOrderingViewControllerTests.m */; };
 		6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */; };
 		6EDCC21F221EB23B006EC951 /* MapSwitchingLayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */; };
 		6EDCC222221EB321006EC951 /* MapSwitchingLayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */; };
@@ -165,6 +169,14 @@
 		7216F298215269DB00DB2159 /* SearchBatchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F297215269DB00DB2159 /* SearchBatchViewControllerTests.swift */; };
 		7216F29C2154BA4600DB2159 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F29B2154BA4600DB2159 /* XCUIElement.swift */; };
 		7216F29E2155023F00DB2159 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F29D2155023F00DB2159 /* XCTestCase.swift */; };
+		721A70472272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721A70462272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m */; };
+		721A704B2272F5F8009D9F0D /* layer_fill.json in Resources */ = {isa = PBXBuildFile; fileRef = 721A70492272F5F8009D9F0D /* layer_fill.json */; };
+		721A704C2272F5F8009D9F0D /* layer_fill.json in Resources */ = {isa = PBXBuildFile; fileRef = 721A70492272F5F8009D9F0D /* layer_fill.json */; };
+		721A704D2272F5F8009D9F0D /* layer_fill.json in Resources */ = {isa = PBXBuildFile; fileRef = 721A70492272F5F8009D9F0D /* layer_fill.json */; };
+		721A704E2272F5F8009D9F0D /* geojson_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 721A704A2272F5F8009D9F0D /* geojson_source.json */; };
+		721A704F2272F5F8009D9F0D /* geojson_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 721A704A2272F5F8009D9F0D /* geojson_source.json */; };
+		721A70502272F5F8009D9F0D /* geojson_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 721A704A2272F5F8009D9F0D /* geojson_source.json */; };
+		721A705222730597009D9F0D /* MapDynamicMapSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721A705122730597009D9F0D /* MapDynamicMapSourcesViewController.swift */; };
 		7220268321392EBD00296ACF /* gif_annotation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7220268221392EBD00296ACF /* gif_annotation.gif */; };
 		7220270A2139605300296ACF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 722027092139605300296ACF /* AppDelegate.m */; };
 		722027122139605300296ACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722027112139605300296ACF /* Assets.xcassets */; };
@@ -213,6 +225,11 @@
 		724CF8F521BA92E400CF5C83 /* MapRouteCustomisationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 724CF8F321BA92E400CF5C83 /* MapRouteCustomisationViewController.m */; };
 		724CF8F721BA999300CF5C83 /* MapRouteCustomisationViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 724CF8F621BA999300CF5C83 /* MapRouteCustomisationViewControllerTests.m */; };
 		724F2C6621198D1C00412634 /* MapTilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F2C6521198D1C00412634 /* MapTilesViewController.swift */; };
+		725FCDD1227FF9FE007EE921 /* MapDynamicLayerOrderingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725FCDD0227FF9FE007EE921 /* MapDynamicLayerOrderingViewController.swift */; };
+		725FCDD3228065C8007EE921 /* layer_road.json in Resources */ = {isa = PBXBuildFile; fileRef = 725FCDD2228065C7007EE921 /* layer_road.json */; };
+		725FCDD4228065CC007EE921 /* layer_road.json in Resources */ = {isa = PBXBuildFile; fileRef = 725FCDD2228065C7007EE921 /* layer_road.json */; };
+		725FCDD5228065D3007EE921 /* layer_road.json in Resources */ = {isa = PBXBuildFile; fileRef = 725FCDD2228065C7007EE921 /* layer_road.json */; };
+		725FCDDA2281770F007EE921 /* MapDynamicLayerOrderingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FCDD92281770F007EE921 /* MapDynamicLayerOrderingViewController.m */; };
 		7266CFBA211B0B6A00162D91 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 7266CFB9211B0B6A00162D91 /* style.json */; };
 		7280A22B2144F2900078B943 /* SearchAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280A22A2144F2900078B943 /* SearchAddressViewController.m */; };
 		7280A22E2144F2A80078B943 /* SearchCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280A22D2144F2A80078B943 /* SearchCategoryViewController.m */; };
@@ -243,6 +260,9 @@
 		7280A2712147A66C0078B943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722027A2213D33CE00296ACF /* Assets.xcassets */; };
 		7280A2722147A6760078B943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722027A2213D33CE00296ACF /* Assets.xcassets */; };
 		7281DB1B21A427A7002422D8 /* RoutingMatrixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7281DB1A21A427A7002422D8 /* RoutingMatrixViewController.swift */; };
+		728E31B62277113800A49B20 /* layer_raster.json in Resources */ = {isa = PBXBuildFile; fileRef = 728E31B52277113700A49B20 /* layer_raster.json */; };
+		728E31B72277114200A49B20 /* layer_raster.json in Resources */ = {isa = PBXBuildFile; fileRef = 728E31B52277113700A49B20 /* layer_raster.json */; };
+		728E31B82277114200A49B20 /* layer_raster.json in Resources */ = {isa = PBXBuildFile; fileRef = 728E31B52277113700A49B20 /* layer_raster.json */; };
 		729FFC802134234600467D60 /* Maneuver.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729FFC7F2134234600467D60 /* Maneuver.xcassets */; };
 		729FFC82213426DF00467D60 /* ManeuverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729FFC81213426DF00467D60 /* ManeuverCell.xib */; };
 		72AA4697211D8F4F0019EC72 /* CustomCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AA4696211D8F4F0019EC72 /* CustomCallout.xib */; };
@@ -488,6 +508,10 @@
 		6EB3C4ED215A342100AC580C /* SearchEntryPointsViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchEntryPointsViewControllerTests.m; sourceTree = "<group>"; };
 		6EB3C4EF215A348E00AC580C /* SearchAdditionalDataViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchAdditionalDataViewControllerTests.m; sourceTree = "<group>"; };
 		6EB3C4F1215A351400AC580C /* SearchBatchViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBatchViewControllerTests.m; sourceTree = "<group>"; };
+		6EC23FBF2281AD7C000BE076 /* MapDynamicMapSourcesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDynamicMapSourcesViewControllerTests.swift; sourceTree = "<group>"; };
+		6EC23FC12281ADF6000BE076 /* MapDynamicLayerOrderingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDynamicLayerOrderingViewControllerTests.swift; sourceTree = "<group>"; };
+		6EC23FC32281B082000BE076 /* MapDynamicMapSourcesViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDynamicMapSourcesViewControllerTests.m; sourceTree = "<group>"; };
+		6EC23FC52281B0BD000BE076 /* MapDynamicLayerOrderingViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDynamicLayerOrderingViewControllerTests.m; sourceTree = "<group>"; };
 		6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewMultiSelectWithReset.swift; sourceTree = "<group>"; };
 		6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSwitchingLayersViewController.swift; sourceTree = "<group>"; };
 		6EDCC220221EB321006EC951 /* MapSwitchingLayersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSwitchingLayersViewController.h; sourceTree = "<group>"; };
@@ -544,6 +568,11 @@
 		7216F297215269DB00DB2159 /* SearchBatchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBatchViewControllerTests.swift; sourceTree = "<group>"; };
 		7216F29B2154BA4600DB2159 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		7216F29D2155023F00DB2159 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		721A70462272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDynamicMapSourcesViewController.m; sourceTree = "<group>"; };
+		721A70482272EE8E009D9F0D /* MapDynamicMapSourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDynamicMapSourcesViewController.h; sourceTree = "<group>"; };
+		721A70492272F5F8009D9F0D /* layer_fill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = layer_fill.json; sourceTree = "<group>"; };
+		721A704A2272F5F8009D9F0D /* geojson_source.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geojson_source.json; sourceTree = "<group>"; };
+		721A705122730597009D9F0D /* MapDynamicMapSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDynamicMapSourcesViewController.swift; sourceTree = "<group>"; };
 		7220263C21358FF500296ACF /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		722026402136C22E00296ACF /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		722026422138098500296ACF /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
@@ -594,6 +623,10 @@
 		7253A660212D8E9300C469FF /* SearchEntryPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEntryPointsViewController.swift; sourceTree = "<group>"; };
 		7253A662212D8EA200C469FF /* SearchAdditionalDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAdditionalDataViewController.swift; sourceTree = "<group>"; };
 		7253A664212D8EB800C469FF /* SearchBatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBatchViewController.swift; sourceTree = "<group>"; };
+		725FCDD0227FF9FE007EE921 /* MapDynamicLayerOrderingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDynamicLayerOrderingViewController.swift; sourceTree = "<group>"; };
+		725FCDD2228065C7007EE921 /* layer_road.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = layer_road.json; sourceTree = "<group>"; };
+		725FCDD82281770F007EE921 /* MapDynamicLayerOrderingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapDynamicLayerOrderingViewController.h; sourceTree = "<group>"; };
+		725FCDD92281770F007EE921 /* MapDynamicLayerOrderingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDynamicLayerOrderingViewController.m; sourceTree = "<group>"; };
 		7266CF9B211ADB7500162D91 /* OptionsViewSingleSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewSingleSelect.swift; sourceTree = "<group>"; };
 		7266CF9D211AE02900162D91 /* OptionsViewMultiSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewMultiSelect.swift; sourceTree = "<group>"; };
 		7266CF9F211AFE7700162D91 /* MapLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLanguageViewController.swift; sourceTree = "<group>"; };
@@ -661,6 +694,7 @@
 		728325EB212BD98700088FE6 /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
 		728325ED212C1FC300088FE6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		728325EF212C3DD700088FE6 /* SearchLanguageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLanguageSelectorViewController.swift; sourceTree = "<group>"; };
+		728E31B52277113700A49B20 /* layer_raster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = layer_raster.json; sourceTree = "<group>"; };
 		729FFC7F2134234600467D60 /* Maneuver.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Maneuver.xcassets; sourceTree = "<group>"; };
 		729FFC81213426DF00467D60 /* ManeuverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManeuverCell.xib; sourceTree = "<group>"; };
 		72AA4693211D8E140019EC72 /* CustomCallout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallout.swift; sourceTree = "<group>"; };
@@ -907,6 +941,10 @@
 				72E285C62133F3D700D260CB /* FormatUtils.swift */,
 				7220273F2139607500296ACF /* MapsSDKExamplesUI.h */,
 				722027402139607500296ACF /* Info.plist */,
+				725FCDD2228065C7007EE921 /* layer_road.json */,
+				721A704A2272F5F8009D9F0D /* geojson_source.json */,
+				721A70492272F5F8009D9F0D /* layer_fill.json */,
+				728E31B52277113700A49B20 /* layer_raster.json */,
 				722027A2213D33CE00296ACF /* Assets.xcassets */,
 			);
 			path = MapsSDKExamplesCommon;
@@ -953,6 +991,10 @@
 				724CF8F321BA92E400CF5C83 /* MapRouteCustomisationViewController.m */,
 				6EDCC220221EB321006EC951 /* MapSwitchingLayersViewController.h */,
 				6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */,
+				721A70482272EE8E009D9F0D /* MapDynamicMapSourcesViewController.h */,
+				721A70462272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m */,
+				725FCDD82281770F007EE921 /* MapDynamicLayerOrderingViewController.h */,
+				725FCDD92281770F007EE921 /* MapDynamicLayerOrderingViewController.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1063,6 +1105,8 @@
 				6E76932F219D858200D8717A /* MapMultipleViewController.swift */,
 				724CF8F021BA80A700CF5C83 /* MapRouteCustomisationViewController.swift */,
 				6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */,
+				721A705122730597009D9F0D /* MapDynamicMapSourcesViewController.swift */,
+				725FCDD0227FF9FE007EE921 /* MapDynamicLayerOrderingViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1272,8 +1316,8 @@
 				729FFC7F2134234600467D60 /* Maneuver.xcassets */,
 				7220268221392EBD00296ACF /* gif_annotation.gif */,
 				7266CFB9211B0B6A00162D91 /* style.json */,
-				9C77CF452106F7B800A3179B /* LaunchScreen.storyboard */,
 				9C77CF482106F7B800A3179B /* Info.plist */,
+				9C77CF452106F7B800A3179B /* LaunchScreen.storyboard */,
 			);
 			path = MapsSDKExamplesSwift;
 			sourceTree = "<group>";
@@ -1512,6 +1556,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721A704F2272F5F8009D9F0D /* geojson_source.json in Resources */,
+				725FCDD5228065D3007EE921 /* layer_road.json in Resources */,
+				721A704C2272F5F8009D9F0D /* layer_fill.json in Resources */,
 				7280A2722147A6760078B943 /* Assets.xcassets in Resources */,
 				7280A27021479E100078B943 /* CustomCallout.xib in Resources */,
 				7280A26F21479E0C0078B943 /* ETAView.xib in Resources */,
@@ -1523,6 +1570,7 @@
 				722027122139605300296ACF /* Assets.xcassets in Resources */,
 				6EB3C4D5215A233700AC580C /* Maneuver.xcassets in Resources */,
 				9C78AB43220735FC00EAC9FA /* simple_route.csv in Resources */,
+				728E31B72277114200A49B20 /* layer_raster.json in Resources */,
 				7200695B213EAF6C005B20D1 /* LaunchScreen.storyboard in Resources */,
 				7215017421A6B25B0016C396 /* MatrixRow.xib in Resources */,
 				72AB73A1213FE89200D72DF1 /* style.json in Resources */,
@@ -1535,11 +1583,15 @@
 			files = (
 				722027A3213D33CE00296ACF /* Assets.xcassets in Resources */,
 				72006932213E52BD005B20D1 /* CustomCallout.xib in Resources */,
+				721A70502272F5F8009D9F0D /* geojson_source.json in Resources */,
 				7200692E213E52B6005B20D1 /* ManeuverCell.xib in Resources */,
 				7200692F213E52B6005B20D1 /* TrafficCell.xib in Resources */,
 				7215017121A6A50B0016C396 /* MatrixRow.xib in Resources */,
+				728E31B62277113800A49B20 /* layer_raster.json in Resources */,
 				72006930213E52B6005B20D1 /* TrafficHeader.xib in Resources */,
+				725FCDD3228065C8007EE921 /* layer_road.json in Resources */,
 				72006931213E52B9005B20D1 /* ETAView.xib in Resources */,
+				721A704D2272F5F8009D9F0D /* layer_fill.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1599,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721A704E2272F5F8009D9F0D /* geojson_source.json in Resources */,
+				725FCDD4228065CC007EE921 /* layer_road.json in Resources */,
+				721A704B2272F5F8009D9F0D /* layer_fill.json in Resources */,
 				9C7076812203193300B3FF19 /* simple_route.csv in Resources */,
 				7280A2712147A66C0078B943 /* Assets.xcassets in Resources */,
 				72AA46B42126BEAF0019EC72 /* ETAView.xib in Resources */,
@@ -1558,6 +1613,7 @@
 				72AA4697211D8F4F0019EC72 /* CustomCallout.xib in Resources */,
 				9C77CF472106F7B800A3179B /* LaunchScreen.storyboard in Resources */,
 				729FFC82213426DF00467D60 /* ManeuverCell.xib in Resources */,
+				728E31B82277114200A49B20 /* layer_raster.json in Resources */,
 				7220268321392EBD00296ACF /* gif_annotation.gif in Resources */,
 				7215017521A6B25C0016C396 /* MatrixRow.xib in Resources */,
 				9C77CF442106F7B800A3179B /* Assets.xcassets in Resources */,
@@ -1590,6 +1646,7 @@
 				9C6535BD222E5DBD0050EE60 /* MapFollowTheChevronController.m in Sources */,
 				7280A255214596DD0078B943 /* RoutingRouteWithWaypointsViewController.m in Sources */,
 				6E9BF26F22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m in Sources */,
+				725FCDDA2281770F007EE921 /* MapDynamicLayerOrderingViewController.m in Sources */,
 				9C78AB462207471A00EAC9FA /* RouteMatchingViewController.m in Sources */,
 				7200694D213E83F4005B20D1 /* TrafficIncidentsViewController.m in Sources */,
 				72AB7397213FDAA500D72DF1 /* MapBallonsViewController.m in Sources */,
@@ -1606,6 +1663,7 @@
 				72AB7388213FDA6000D72DF1 /* MapPerspectiveViewController.m in Sources */,
 				7238475421A7FE43007F775D /* RoutingMatrixViewController.m in Sources */,
 				7280A258214596F30078B943 /* RoutingDepartureArrivalTimeViewController.m in Sources */,
+				721A70472272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m in Sources */,
 				7280A25E214597180078B943 /* RoutingManeuverListViewController.m in Sources */,
 				6EDCC222221EB321006EC951 /* MapSwitchingLayersViewController.m in Sources */,
 				7280A2462144F35F0078B943 /* SearchAdditionalDataViewController.m in Sources */,
@@ -1723,6 +1781,7 @@
 				9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */,
 				72AB7367213FD32200D72DF1 /* RoutingTravelModesViewController.swift in Sources */,
 				9C7076762202EC5100B3FF19 /* MapMatchingViewController.swift in Sources */,
+				721A705222730597009D9F0D /* MapDynamicMapSourcesViewController.swift in Sources */,
 				7281DB1B21A427A7002422D8 /* RoutingMatrixViewController.swift in Sources */,
 				72AB7368213FD32200D72DF1 /* RoutingRouteTypesViewController.swift in Sources */,
 				72006963213FA5D6005B20D1 /* SearchReverseGeocodingViewController.swift in Sources */,
@@ -1731,6 +1790,7 @@
 				6E14CCFC2148F7D10060C405 /* RoutingBatchRouteViewController.swift in Sources */,
 				72006944213E68DA005B20D1 /* MapShapesViewController.swift in Sources */,
 				72006960213FA5D6005B20D1 /* SearchLanguageSelectorViewController.swift in Sources */,
+				725FCDD1227FF9FE007EE921 /* MapDynamicLayerOrderingViewController.swift in Sources */,
 				9C77CF3D2106F7B600A3179B /* AppDelegate.swift in Sources */,
 				6E9BF26A22201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift in Sources */,
 				72006945213E68DC005B20D1 /* MapMarkersClusteringViewController.swift in Sources */,

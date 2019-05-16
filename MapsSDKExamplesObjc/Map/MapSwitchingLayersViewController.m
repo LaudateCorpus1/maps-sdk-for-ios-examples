@@ -13,12 +13,13 @@
 #import <TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.h>
 
 @interface MapSwitchingLayersViewController ()
-
+@property TTMapStyle* currentStyle;
 @end
 
 @implementation MapSwitchingLayersViewController
 
 - (void)onMapReady {
+    self.currentStyle = self.mapView.styleManager.currentStyle;
     [self turnOffLayers];
 }
 
@@ -30,39 +31,38 @@
     return [[OptionsViewMultiSelect alloc] initWithLabels:@[@"Road network", @"Woodland", @"Build-up"] selectedID:-1];
 }
 
-
-
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
     [super displayExampleWithID:ID on:on];
+    TTMapLayerVisibility visibility = on ? TTMapLayerVisibilityVisible : TTMapLayerVisibilityNone;
+    NSArray<TTMapLayer*>* layers;
     switch (ID) {
         case 2:
-            [self.mapView setVisible:on ofSourceLayers:@"Built-up area"];
+            layers = [self.currentStyle getLayersBySourceLayerRegex:@"Built-up area"];
             break;
         case 1:
-            [self.mapView setVisible:on ofSourceLayers:@"Woodland.*"];
+            layers = [self.currentStyle getLayersBySourceLayerRegex:@"Woodland.*"];
             break;
         default:
-            [self.mapView setVisible:on ofSourceLayers:@".*road.*"];
-            [self.mapView setVisible:on ofSourceLayers:@".*Road.*"];
-            [self.mapView setVisible:on ofSourceLayers:@".*Motorway.*"];
-            [self.mapView setVisible:on ofSourceLayers:@".*motorway.*"];
+            layers = [self.currentStyle getLayersBySourceLayerRegexs:@[@".*[rR]oad.*", @".*[mM]otorway.*"]];
             break;
     }
+    [self changeLayers:layers visibility:visibility];
 }
 
-
+- (void)changeLayers:(NSArray<TTMapLayer*>*)layers visibility:(TTMapLayerVisibility)visibility {
+    for(TTMapLayer* layer in layers) {
+        layer.visibility = visibility;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
 
 - (void)turnOffLayers {
-    [self.mapView setVisible:NO ofSourceLayers:@"Built-up area"];
-    [self.mapView setVisible:NO ofSourceLayers:@"Woodland.*"];
-    [self.mapView setVisible:NO ofSourceLayers:@".*road.*"];
-    [self.mapView setVisible:NO ofSourceLayers:@".*Road.*"];
-    [self.mapView setVisible:NO ofSourceLayers:@".*Motorway.*"];
-    [self.mapView setVisible:NO ofSourceLayers:@".*motorway.*"];
+    NSArray<NSString*>* regexs = @[@"Built-up area", @"Woodland.*", @".*[rR]oad.*", @".*[mM]otorway.*"];
+    NSArray<TTMapLayer*>* layers = [self.currentStyle getLayersBySourceLayerRegexs:regexs];
+    [self changeLayers:layers visibility:TTMapLayerVisibilityNone];
 }
 
 

@@ -119,6 +119,18 @@ public class TTCoordinate: NSObject {
     @objc public static func AMSTERDAM_POLYGON_C() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.367172,4.926724) }
     @objc public static func AMSTERDAM_POLYGON_D() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.363494,4.916473) }
     @objc public static func AMSTERDAM_CIRCLE_CENTER() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.372144, 4.899115) }
+    @objc public static func BUCKINGHAM_PALACE_CENETER() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.5008, -0.142523) }
+    @objc public static func BUCKINGHAM_PALACE_TOP_LETF() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.502088,-0.142457) }
+    @objc public static func BUCKINGHAM_PALACE_TOP_RIGHT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.500520,-0.140731) }
+    @objc public static func BUCKINGHAM_PALACE_BOTTOM_RIGHT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.499731,-0.142518) }
+    @objc public static func BUCKINGHAM_PALACE_BOTTOM_LEFT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.501392,-0.144229) }
+    @objc public static func SAN_JOSE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.3361905, -121.8905833) }
+    @objc public static func SAN_JOSE_9RD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.176238, -122.139924) }
+    @objc public static func SANTA_CRUZ() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(36.9749416, -122.0285259) }
+    @objc public static func SAN_FRANCISCO() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.7793, -122.419) }
+    @objc public static func SAN_JOSE_IMG1() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.76028, -122.454246) }
+    @objc public static func SAN_JOSE_IMG2() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(36.926304, -121.967966) }
+    @objc public static func SAN_JOSE_IMG3() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.455662, -122.492698) }
 }
 
 public class TTCamera: NSObject {

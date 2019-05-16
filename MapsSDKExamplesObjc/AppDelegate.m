@@ -31,6 +31,8 @@
 #import "MapRouteCustomisationViewController.h"
 #import "MapMatchingViewController.h"
 #import "MapSwitchingLayersViewController.h"
+#import "MapDynamicMapSourcesViewController.h"
+#import "MapDynamicLayerOrderingViewController.h"
 #import "RouteMatchingViewController.h"
 #import "TrafficIncidentsViewController.h"
 #import "SearchAddressViewController.h"
@@ -109,39 +111,45 @@
                 newViewController = [MapSwitchingLayersViewController new];
                 break;
             case 7:
-                newViewController = [MapStaticImageViewController new];
+                newViewController = [MapDynamicMapSourcesViewController new];
                 break;
             case 8:
-                newViewController = [MapCenteringViewController new];
+                newViewController = [MapDynamicLayerOrderingViewController new];
                 break;
             case 9:
-                newViewController = [MapPerspectiveViewController new];
+                newViewController = [MapStaticImageViewController new];
                 break;
             case 10:
-                newViewController = [MapEventsViewController new];
+                newViewController = [MapCenteringViewController new];
                 break;
             case 11:
-                newViewController = [MapUIExtensionsViewController new];
+                newViewController = [MapPerspectiveViewController new];
                 break;
             case 12:
-                newViewController = [MapMarkersViewController new];
+                newViewController = [MapEventsViewController new];
                 break;
             case 13:
-                newViewController = [MapAdvancedMarkersViewController new];
+                newViewController = [MapUIExtensionsViewController new];
                 break;
             case 14:
-                newViewController = [MapBallonsViewController new];
+                newViewController = [MapMarkersViewController new];
                 break;
             case 15:
-                newViewController = [MapShapesViewController new];
+                newViewController = [MapAdvancedMarkersViewController new];
                 break;
             case 16:
-                newViewController = [MapMarkersClusteringViewController new];
+                newViewController = [MapBallonsViewController new];
                 break;
             case 17:
-                newViewController = [MapMultipleViewController new];
+                newViewController = [MapShapesViewController new];
                 break;
             case 18:
+                newViewController = [MapMarkersClusteringViewController new];
+                break;
+            case 19:
+                newViewController = [MapMultipleViewController new];
+                break;
+            case 20:
                 newViewController = [MapRouteCustomisationViewController new];
                 break;
             default:

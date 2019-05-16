@@ -50,28 +50,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 6:
                 newViewController = MapSwitchingLayersViewController()
             case 7:
-                newViewController = MapStaticImageViewController()
+                newViewController = MapDynamicMapSourcesViewController()
             case 8:
-                newViewController = MapCenteringViewController()
+                newViewController = MapDynamicLayerOrderingViewController()
             case 9:
-                newViewController = MapPerspectiveViewController()
+                newViewController = MapStaticImageViewController()
             case 10:
-                newViewController = MapEventsViewController()
+                newViewController = MapCenteringViewController()
             case 11:
-                newViewController = MapUIExtensionsViewController()
+                newViewController = MapPerspectiveViewController()
             case 12:
-                newViewController = MapMarkersViewController()
+                newViewController = MapEventsViewController()
             case 13:
-                newViewController = MapAdvancedMarkersViewController()
+                newViewController = MapUIExtensionsViewController()
             case 14:
-                newViewController = MapBallonsViewController()
+                newViewController = MapMarkersViewController()
             case 15:
-                newViewController = MapShapesViewController()
+                newViewController = MapAdvancedMarkersViewController()
             case 16:
-                newViewController = MapMarkersClusteringViewController()
+                newViewController = MapBallonsViewController()
             case 17:
-                newViewController = MapMultipleViewController()
+                newViewController = MapShapesViewController()
             case 18:
+                newViewController = MapMarkersClusteringViewController()
+            case 19:
+                newViewController = MapMultipleViewController()
+            case 20:
                 newViewController = MapRouteCustomisationViewController()
             default:
                 fatalError("This VC is not handled")

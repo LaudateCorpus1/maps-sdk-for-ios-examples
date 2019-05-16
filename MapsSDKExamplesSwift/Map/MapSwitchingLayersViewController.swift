@@ -16,7 +16,10 @@ import TomTomOnlineSDKMaps
 
 class MapSwitchingLayersViewController: MapBaseViewController {
     
+    var currentStyle: TTMapStyle!
+    
     override func onMapReady() {
+        currentStyle = mapView.styleManager.currentStyle
         turnOffLayers()
     }
     
@@ -28,31 +31,32 @@ class MapSwitchingLayersViewController: MapBaseViewController {
         return OptionsViewMultiSelect(labels: ["Road network", "Woodland", "Build-up"], selectedID: -1)
     }
     
+    //MARK: OptionsViewDelegate
+    
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
+        let visibility:TTMapLayerVisibility = on ? .visible : .none
+        var layers:[TTMapLayer] = []
         switch ID {
         case 2:
-            self.mapView.setVisible(on, ofSourceLayers: "Built-up area")
-            break;
+            layers = currentStyle.getLayersBySourceLayerRegex("Built-up area")
         case 1:
-            self.mapView.setVisible(on, ofSourceLayers: "Woodland.*")
-            break;
+            layers = currentStyle.getLayersBySourceLayerRegex("Woodland.*")
         default:
-            self.mapView.setVisible(on, ofSourceLayers: ".*road.*")
-            self.mapView.setVisible(on, ofSourceLayers: ".*Road.*")
-            self.mapView.setVisible(on, ofSourceLayers: ".*Motorway.*")
-            self.mapView.setVisible(on, ofSourceLayers: ".*motorway.*")
-            break;
+            layers = currentStyle.getLayersBySourceLayerRegexs([".*[rR]oad.*", ".*[mM]otorway.*"])
+        }
+        changeLayers(layers, withVisibility: visibility)
+    }
+    
+    func changeLayers(_ layers: [TTMapLayer], withVisibility visibility:TTMapLayerVisibility) {
+        layers.forEach { layer in
+            layer.visibility = visibility
         }
     }
     
     func turnOffLayers() {
-        self.mapView.setVisible(false, ofSourceLayers: "Built-up area")
-        self.mapView.setVisible(false, ofSourceLayers: "Woodland.*")
-        self.mapView.setVisible(false, ofSourceLayers: ".*road.*")
-        self.mapView.setVisible(false, ofSourceLayers: ".*Road.*")
-        self.mapView.setVisible(false, ofSourceLayers: ".*Motorway.*")
-        self.mapView.setVisible(false, ofSourceLayers: ".*motorway.*")
+        let layers = currentStyle.getLayersBySourceLayerRegexs(["Built-up area", "Woodland.*", ".*[rR]oad.*", ".*[mM]otorway.*"])
+        changeLayers(layers, withVisibility: .none)
     }
 
 }

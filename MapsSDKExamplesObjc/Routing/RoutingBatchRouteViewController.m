@@ -169,7 +169,7 @@ typedef NS_ENUM(NSInteger, BatchRouteType) {
 #pragma mark TTBatchRouteVisistor
 
 - (void)visitRoute:(TTRouteResult *)response {
-    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:response.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:response.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultInactiveStyle
                                                      imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     mapRoute.extraData = response.routes.firstObject.summary;
     [self.mapView.routeManager addRoute:mapRoute];

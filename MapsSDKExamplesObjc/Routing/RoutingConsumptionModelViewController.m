@@ -108,17 +108,20 @@
 
 - (void)route:(TTRoute *)route completedWithResult:(TTRouteResult *)result {
     BOOL isActive = YES;
+    TTMapRoute *activeRoute;
     for (TTFullRoute *plannedRoute in result.routes) {
-        TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:plannedRoute withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+        TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:plannedRoute
+                                                     withRouteStyle:isActive ? TTMapRouteStyle.defaultActiveStyle : TTMapRouteStyle.defaultInactiveStyle
                                                          imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
         [self.mapView.routeManager addRoute:mapRoute];
-        [self.mapView.routeManager bringToFrontRoute:mapRoute];
         mapRoute.extraData = plannedRoute.summary;
         if(isActive){
+            activeRoute = mapRoute;
             [self.etaView showWithSummary:plannedRoute.summary style:ETAViewStylePlain];
         }
         isActive = NO;
     }
+    [self.mapView.routeManager bringToFrontRoute:activeRoute];
     [self displayRouteOverview];
     [self.progress hide];
 }
