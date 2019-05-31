@@ -41,7 +41,6 @@
     NSString* geojsonJSON = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     TTMapSource* sourceMap = [TTMapSource createWithSourceJSON:geojsonJSON];
     [self.currentStyle addSource:sourceMap];
-    
     path = [[NSBundle mainBundle] pathForResource:@"layer_fill" ofType:@"json"];
     NSString* layerJSON = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     TTMapLayer* layerMap = [TTMapLayer createWithStyleJSON:layerJSON withMap:self.mapView];

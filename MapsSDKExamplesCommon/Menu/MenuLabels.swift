@@ -41,7 +41,7 @@ public class MenuLabels: NSObject {
                                                                    titleLabel: "Custom style",
                                                                    subtitleLabel: "Give custom look and fell to your map with a map style"),
                                                         SubOptions(iconImage: "switch_layers_image",
-                                                                   titleLabel: "Switch map layers",
+                                                                   titleLabel: "Map layers visibility",
                                                                    subtitleLabel: "Customize time which map layers are shown in the map in real time"),
                                                         SubOptions(iconImage: "DynamicMapSources",
                                                                    titleLabel: "Dynamic map sources",

@@ -30,7 +30,7 @@
 #import "MapFollowTheChevronController.h"
 #import "MapRouteCustomisationViewController.h"
 #import "MapMatchingViewController.h"
-#import "MapSwitchingLayersViewController.h"
+#import "MapLayersVisibilityViewController.h"
 #import "MapDynamicMapSourcesViewController.h"
 #import "MapDynamicLayerOrderingViewController.h"
 #import "RouteMatchingViewController.h"
@@ -108,7 +108,7 @@
                 newViewController = [MapCustomStyleViewController new];
                 break;
             case 6:
-                newViewController = [MapSwitchingLayersViewController new];
+                newViewController = [MapLayersVisibilityViewController new];
                 break;
             case 7:
                 newViewController = [MapDynamicMapSourcesViewController new];

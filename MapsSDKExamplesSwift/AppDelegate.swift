@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 5:
                 newViewController = MapCustomStyleViewController()
             case 6:
-                newViewController = MapSwitchingLayersViewController()
+                newViewController = MapLayersVisibilityViewController()
             case 7:
                 newViewController = MapDynamicMapSourcesViewController()
             case 8:

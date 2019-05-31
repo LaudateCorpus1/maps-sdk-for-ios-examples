@@ -41,7 +41,6 @@ class MapDynamicMapSourcesViewController: MapBaseViewController {
         let geojsonJSON = try! String(contentsOfFile: path!, encoding: .utf8)
         let sourceMap = TTMapSource.create(withSourceJSON: geojsonJSON)
         currentStyle.add(sourceMap!)
-
         path = Bundle.main.path(forResource: "layer_fill", ofType: "json")
         let layerJSON = try! String(contentsOfFile: path!, encoding: .utf8)
         let layerMap = TTMapLayer.create(withStyleJSON: layerJSON, withMap: mapView)

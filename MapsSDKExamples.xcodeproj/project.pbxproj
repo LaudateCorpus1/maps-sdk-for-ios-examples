@@ -78,8 +78,8 @@
 		6EC23FC42281B083000BE076 /* MapDynamicMapSourcesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC23FC32281B082000BE076 /* MapDynamicMapSourcesViewControllerTests.m */; };
 		6EC23FC62281B0BD000BE076 /* MapDynamicLayerOrderingViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC23FC52281B0BD000BE076 /* MapDynamicLayerOrderingViewControllerTests.m */; };
 		6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */; };
-		6EDCC21F221EB23B006EC951 /* MapSwitchingLayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */; };
-		6EDCC222221EB321006EC951 /* MapSwitchingLayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */; };
+		6EDCC21F221EB23B006EC951 /* MapLayersVisibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */; };
+		6EDCC222221EB321006EC951 /* MapLayersVisibilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC221221EB321006EC951 /* MapLayersVisibilityViewController.m */; };
 		6EE8F36721B14882006B8149 /* MapMultipleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F36621B14882006B8149 /* MapMultipleViewControllerTests.m */; };
 		6EE8F36921B14984006B8149 /* MapMultipleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F36821B14984006B8149 /* MapMultipleViewControllerTests.swift */; };
 		72006913213E4BCF005B20D1 /* MapsSDKExamplesVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 72006903213E4BCF005B20D1 /* MapsSDKExamplesVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -513,9 +513,9 @@
 		6EC23FC32281B082000BE076 /* MapDynamicMapSourcesViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDynamicMapSourcesViewControllerTests.m; sourceTree = "<group>"; };
 		6EC23FC52281B0BD000BE076 /* MapDynamicLayerOrderingViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDynamicLayerOrderingViewControllerTests.m; sourceTree = "<group>"; };
 		6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewMultiSelectWithReset.swift; sourceTree = "<group>"; };
-		6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSwitchingLayersViewController.swift; sourceTree = "<group>"; };
-		6EDCC220221EB321006EC951 /* MapSwitchingLayersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSwitchingLayersViewController.h; sourceTree = "<group>"; };
-		6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSwitchingLayersViewController.m; sourceTree = "<group>"; };
+		6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayersVisibilityViewController.swift; sourceTree = "<group>"; };
+		6EDCC220221EB321006EC951 /* MapLayersVisibilityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLayersVisibilityViewController.h; sourceTree = "<group>"; };
+		6EDCC221221EB321006EC951 /* MapLayersVisibilityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapLayersVisibilityViewController.m; sourceTree = "<group>"; };
 		6EE13A88210AFC7000B7507A /* SubOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptions.swift; sourceTree = "<group>"; };
 		6EE13A8A210B136800B7507A /* SubOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsViewController.swift; sourceTree = "<group>"; };
 		6EE13A8C210B2F8100B7507A /* SubOptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -989,8 +989,8 @@
 				6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */,
 				724CF8F421BA92E400CF5C83 /* MapRouteCustomisationViewController.h */,
 				724CF8F321BA92E400CF5C83 /* MapRouteCustomisationViewController.m */,
-				6EDCC220221EB321006EC951 /* MapSwitchingLayersViewController.h */,
-				6EDCC221221EB321006EC951 /* MapSwitchingLayersViewController.m */,
+				6EDCC220221EB321006EC951 /* MapLayersVisibilityViewController.h */,
+				6EDCC221221EB321006EC951 /* MapLayersVisibilityViewController.m */,
 				721A70482272EE8E009D9F0D /* MapDynamicMapSourcesViewController.h */,
 				721A70462272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m */,
 				725FCDD82281770F007EE921 /* MapDynamicLayerOrderingViewController.h */,
@@ -1104,7 +1104,7 @@
 				7266CFB7211B007F00162D91 /* MapMarkersClusteringViewController.swift */,
 				6E76932F219D858200D8717A /* MapMultipleViewController.swift */,
 				724CF8F021BA80A700CF5C83 /* MapRouteCustomisationViewController.swift */,
-				6EDCC21E221EB23B006EC951 /* MapSwitchingLayersViewController.swift */,
+				6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */,
 				721A705122730597009D9F0D /* MapDynamicMapSourcesViewController.swift */,
 				725FCDD0227FF9FE007EE921 /* MapDynamicLayerOrderingViewController.swift */,
 			);
@@ -1665,7 +1665,7 @@
 				7280A258214596F30078B943 /* RoutingDepartureArrivalTimeViewController.m in Sources */,
 				721A70472272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m in Sources */,
 				7280A25E214597180078B943 /* RoutingManeuverListViewController.m in Sources */,
-				6EDCC222221EB321006EC951 /* MapSwitchingLayersViewController.m in Sources */,
+				6EDCC222221EB321006EC951 /* MapLayersVisibilityViewController.m in Sources */,
 				7280A2462144F35F0078B943 /* SearchAdditionalDataViewController.m in Sources */,
 				7280A24C2145968D0078B943 /* RoutingTravelModesViewController.m in Sources */,
 				724CF8F521BA92E400CF5C83 /* MapRouteCustomisationViewController.m in Sources */,
@@ -1758,7 +1758,7 @@
 				72006962213FA5D6005B20D1 /* SearchMaxFuzzinessLevelViewController.swift in Sources */,
 				9C78AB4C2209A9D800EAC9FA /* GeofencingReportViewController.swift in Sources */,
 				72006968213FA5D6005B20D1 /* SearchBatchViewController.swift in Sources */,
-				6EDCC21F221EB23B006EC951 /* MapSwitchingLayersViewController.swift in Sources */,
+				6EDCC21F221EB23B006EC951 /* MapLayersVisibilityViewController.swift in Sources */,
 				7200695E213FA5D0005B20D1 /* SearchAddressViewController.swift in Sources */,
 				72006939213E68C2005B20D1 /* MapLanguageViewController.swift in Sources */,
 				72006941213E68D3005B20D1 /* MapMarkersViewController.swift in Sources */,
