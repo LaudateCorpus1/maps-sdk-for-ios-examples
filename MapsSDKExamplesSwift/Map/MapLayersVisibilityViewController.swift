@@ -17,9 +17,13 @@ import TomTomOnlineSDKMaps
 class MapLayersVisibilityViewController: MapBaseViewController {
     
     var currentStyle: TTMapStyle!
+
+    override func setupMap() {
+        super.setupMap()
+        currentStyle = mapView.styleManager.currentStyle
+    }
     
     override func onMapReady() {
-        currentStyle = mapView.styleManager.currentStyle
         turnOffLayers()
     }
     

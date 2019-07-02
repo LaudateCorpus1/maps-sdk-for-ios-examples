@@ -83,6 +83,8 @@ public class TTCoordinate: NSObject {
     @objc public static func AMSTERDAM_CIRCLE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.3639871,4.7953232) }
     @objc public static func AMSTERDAM_A10() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.3691851,4.8505632) }
     @objc public static func HAARLEM() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.381222, 4.637558) }
+    @objc public static func HAARLEMDC() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.384713, 4.625929) }
+    @objc public static func HAARLEMZW() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.392282, 4.634233) }
     @objc public static func AMSTERDAM_POLYGON_1() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.388658, 4.859119) }
     @objc public static func AMSTERDAM_POLYGON_2() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.346523, 4.858432) }
     @objc public static func AMSTERDAM_POLYGON_3() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.352185, 4.908557) }

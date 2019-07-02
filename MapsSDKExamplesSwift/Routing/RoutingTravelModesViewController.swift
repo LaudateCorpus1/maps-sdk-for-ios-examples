@@ -18,6 +18,7 @@ import TomTomOnlineSDKMaps
 class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteResponseDelegate {
     
     let routePlanner = TTRoute()
+    var routeStyle = TTMapRouteStyle.defaultActive()
 
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Car", "Truck", "Pedestrian"], selectedID: -1)
@@ -48,6 +49,7 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
     //MARK: Examples
     
     func displayCarRoute() {
+        self.routeStyle = TTMapRouteStyle.defaultActive()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withTravelMode(.car)
             .build()
@@ -55,6 +57,7 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
     }
     
     func displayTruckRoute() {
+        self.routeStyle = TTMapRouteStyle.defaultActive()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withTravelMode(.truck)
             .build()
@@ -62,7 +65,17 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
     }
     
     func displayPedestrianRoute() {
-        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
+        
+        routeStyle = TTMapRouteStyleBuilder()
+            .withLineCapType(TTLineCapType.round)
+            .withWidth(0.3)
+            .withFill(TTColor.BlueLight())
+            .withOutlineColor(TTColor.BlackLight())
+            .withDashArray([0.01,2])
+            .build();
+        
+        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.HAARLEMDC(),
+                                               andOrig: TTCoordinate.HAARLEMZW())
             .withTravelMode(.pedestrian)
             .build()
         routePlanner.plan(with: query)
@@ -75,7 +88,7 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
             return
         }
         let mapRoute = TTMapRoute(coordinatesData: plannedRoute,
-                                  with: TTMapRouteStyle.defaultActive(),
+                                  with: self.routeStyle,
                                   imageStart: TTMapRoute.defaultImageDeparture(),
                                   imageEnd: TTMapRoute.defaultImageDestination())
         mapView.routeManager.add(mapRoute)

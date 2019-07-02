@@ -66,8 +66,8 @@ class MapDynamicMapSourcesViewController: MapBaseViewController {
     
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
-        let geoLayer = currentStyle.getLayerByID(GEO_LAYER_ID)
-        let imgLayer = currentStyle.getLayerByID(IMG_LAYER_ID)
+        let geoLayer = currentStyle?.getLayerByID(GEO_LAYER_ID)
+        let imgLayer = currentStyle?.getLayerByID(IMG_LAYER_ID)
         switch ID {
         case 1:
             geoLayer?.visibility = on ? .visible : .none

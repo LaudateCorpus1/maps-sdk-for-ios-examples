@@ -52,7 +52,6 @@
     CLLocationCoordinate2D *coordinates = [self convertCoordinates:[CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM] pointsCount:pointsCount]];
     TTPolygon *polygon = [TTPolygon polygonWithCoordinates:coordinates count:pointsCount opacity:1 color:color colorOutline:color];
     [self.mapView.annotationManager addOverlay:polygon];
-    free(coordinates);
 }
 
 - (void)displayPolyline {

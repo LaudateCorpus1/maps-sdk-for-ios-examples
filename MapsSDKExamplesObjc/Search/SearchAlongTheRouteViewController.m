@@ -34,17 +34,20 @@
     return [[OptionsViewSingleSelect alloc] initWithLabels:@[@"Car repair", @"Gas stations", @"EV stations"] selectedID:-1];
 }
 
+- (void)onMapReady {
+    [super onMapReady];
+    TTRouteQuery *query = [[TTRouteQueryBuilder createWithDest:[TTCoordinate HAARLEM] andOrig:[TTCoordinate AMSTERDAM]]
+                           build];
+    [self.routePlanner planRouteWithQuery:query];
+    [self.progress show];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.routePlanner = [TTRoute new];
     self.alongRouteSearch = [TTAlongRouteSearch new];
     self.routePlanner.delegate = self;
     self.alongRouteSearch.delegate = self;
-    
-    TTRouteQuery *query = [[TTRouteQueryBuilder createWithDest:[TTCoordinate HAARLEM] andOrig:[TTCoordinate AMSTERDAM]]
-                           build];
-    [self.routePlanner planRouteWithQuery:query];
-    [self.progress show];
 }
 
 #pragma mark OptionsViewDelegate

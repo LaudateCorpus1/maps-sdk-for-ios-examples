@@ -15,6 +15,7 @@
 
 @interface RoutingTravelModesViewController() <TTRouteResponseDelegate>
 @property (nonatomic, strong) TTRoute *routePlanner;
+@property (nonatomic, strong) TTMapRouteStyle *routeStyle;
 @end
 
 @implementation RoutingTravelModesViewController
@@ -51,6 +52,7 @@
 #pragma mark Examples
 
 - (void)displayCarRoute {
+    self.routeStyle = TTMapRouteStyle.defaultActiveStyle;
     TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate AMSTERDAM] andOrig:[TTCoordinate ROTTERDAM]]
                             withTravelMode:TTOptionTravelModeCar]
                            build];
@@ -58,6 +60,7 @@
 }
 
 - (void)displayTruckRoute {
+    self.routeStyle = TTMapRouteStyle.defaultActiveStyle;
     TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate AMSTERDAM] andOrig:[TTCoordinate ROTTERDAM]]
                             withTravelMode:TTOptionTravelModeTruck]
                            build];
@@ -65,7 +68,18 @@
 }
 
 - (void)displayPedestrianRoute {
-    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate AMSTERDAM] andOrig:[TTCoordinate ROTTERDAM]]
+    NSMutableArray *dashArray = [[NSMutableArray alloc] init];
+    [dashArray  addObject:[NSNumber numberWithDouble:0.01]];
+    [dashArray  addObject:[NSNumber numberWithDouble:2.0]];
+    self.routeStyle = [[[[[[TTMapRouteStyleBuilder new]
+                           withLineCapType:TTLineCapTypeRound]
+                          withWidth:0.3]
+                         withFillColor:[TTColor BlueLight]]
+                        withDashArray:dashArray]
+                       build];
+    
+    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate HAARLEMDC]
+                                                        andOrig:[TTCoordinate HAARLEMZW]]
                             withTravelMode:TTOptionTravelModePedestrian]
                            build];
     [self.routePlanner planRouteWithQuery:query];
@@ -77,7 +91,7 @@
     if(!plannedRoute) {
         return;
     }
-    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle
+    TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject withRouteStyle:self.routeStyle
                                                      imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     [self.mapView.routeManager addRoute:mapRoute];
     [self.mapView.routeManager bringToFrontRoute:mapRoute];
