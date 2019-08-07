@@ -49,17 +49,21 @@
 - (void)displayPolygon {
     UIColor *color = [UIColor random];
     NSInteger pointsCount = 24;
-    CLLocationCoordinate2D *coordinates = [self convertCoordinates:[CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM] pointsCount:pointsCount]];
+    NSArray<NSValue *> *values = [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM] pointsCount:pointsCount];
+    CLLocationCoordinate2D *coordinates = [self convertCoordinates: values];
     TTPolygon *polygon = [TTPolygon polygonWithCoordinates:coordinates count:pointsCount opacity:1 color:color colorOutline:color];
     [self.mapView.annotationManager addOverlay:polygon];
+    free(coordinates);
 }
 
 - (void)displayPolyline {
     UIColor *color = [UIColor random];
     NSInteger pointsCount = 24;
-    CLLocationCoordinate2D *coordinates = [self convertCoordinates:[CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM] pointsCount:pointsCount]];
+    NSArray<NSValue *> *values = [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM] pointsCount:pointsCount];
+    CLLocationCoordinate2D *coordinates = [self convertCoordinates:values];
     TTPolyline *polyline = [TTPolyline polylineWithCoordinates:coordinates count:pointsCount opacity:1 width:8 color:color];
     [self.mapView.annotationManager addOverlay:polyline];
+    free(coordinates);
 }
 
 - (void)displayCircle {
