@@ -12,7 +12,6 @@
 import Foundation
 
 public class FormatUtils: NSObject {
-    
     @objc public static func formatTimeDelay(seconds: Int) -> String {
         if seconds >= 3600 {
             let hours = seconds / 3600
@@ -28,19 +27,17 @@ public class FormatUtils: NSObject {
             }
         }
     }
-    
-    @objc public static func formatDistance(meters: UInt) -> String {
 
-        var fValue:Float = 0.0
-        var iValue:Int = 0
-        var unit:String?
-        var value:String = ""
-        var combined:String = ""
-    
-        if Locale.current.usesMetricSystem == false { //MILES
-            
+    @objc public static func formatDistance(meters: UInt) -> String {
+        var fValue: Float = 0.0
+        var iValue: Int = 0
+        var unit: String?
+        var value: String = ""
+        var combined: String = ""
+
+        if Locale.current.usesMetricSystem == false { // MILES
             let meters = Measurement(value: Double(meters), unit: UnitLength.meters)
-            
+
             if meters.converted(to: UnitLength.feet).value <= 500 {
                 iValue = Int(meters.converted(to: UnitLength.feet).value)
                 unit = "ft"
@@ -57,11 +54,10 @@ public class FormatUtils: NSObject {
                 unit = "km"
             }
         }
-        
-        
+
         if fValue != 0.0 {
-            var formatter:NumberFormatter? = nil
-            if (formatter == nil) {
+            var formatter: NumberFormatter?
+            if formatter == nil {
                 formatter = NumberFormatter()
                 formatter?.maximumFractionDigits = 1
                 formatter?.minimumIntegerDigits = 1
@@ -72,10 +68,9 @@ public class FormatUtils: NSObject {
         } else {
             value = "\(iValue)"
         }
-        
+
         combined = "\(value) " + unit!
-        
+
         return combined
     }
-
 }

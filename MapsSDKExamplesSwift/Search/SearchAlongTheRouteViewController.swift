@@ -9,21 +9,20 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
 import TomTomOnlineSDKRouting
 import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTAlongRouteSearchDelegate {
-    
     let routePlanner = TTRoute()
     let alongRouteSearch = TTAlongRouteSearch()
     var mapRoute: TTMapRoute!
-    
+
     override func setupCenterOnWillHappen() {
-        if mapView.routeManager.routes.count == 0 {
+        if mapView.routeManager.routes.isEmpty {
             super.setupCenterOnWillHappen()
         } else {
             displayRouteOverview()
@@ -33,20 +32,20 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Car repair", "Gas stations", "EV stations"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
         alongRouteSearch.delegate = self
-        
+
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.HAARLEM(), andOrig: TTCoordinate.AMSTERDAM())
-                                       .build()
+            .build()
         routePlanner.plan(with: query)
         progress.show()
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         progress.show()
@@ -59,33 +58,33 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
             searchForCarRepair()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func searchForCarRepair() {
-        let query = TTAlongRouteSearchQueryBuilder.init(term: "REPAIR_FACILITY", withRoute: mapRoute, withMaxDetourTime: 900)
+        let query = TTAlongRouteSearchQueryBuilder(term: "REPAIR_FACILITY", withRoute: mapRoute, withMaxDetourTime: 900)
             .withLimit(10)
             .build()
         alongRouteSearch.search(with: query)
     }
-    
+
     func searchForGasStations() {
-        let query = TTAlongRouteSearchQueryBuilder.init(term: "PETROL_STATION", withRoute: mapRoute, withMaxDetourTime: 900)
+        let query = TTAlongRouteSearchQueryBuilder(term: "PETROL_STATION", withRoute: mapRoute, withMaxDetourTime: 900)
             .withLimit(10)
             .build()
         alongRouteSearch.search(with: query)
     }
-    
+
     func searchForEVStations() {
-        let query = TTAlongRouteSearchQueryBuilder.init(term: "ELECTRIC_VEHICLE_STATION", withRoute: mapRoute, withMaxDetourTime: 900)
+        let query = TTAlongRouteSearchQueryBuilder(term: "ELECTRIC_VEHICLE_STATION", withRoute: mapRoute, withMaxDetourTime: 900)
             .withLimit(10)
             .build()
         alongRouteSearch.search(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -98,14 +97,14 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-    
-    //MARK: TTAlongRouteSearchDelegate
-    
-    func search(_ search: TTAlongRouteSearch, completedWith response: TTAlongRouteSearchResponse) {
+
+    // MARK: TTAlongRouteSearchDelegate
+
+    func search(_: TTAlongRouteSearch, completedWith response: TTAlongRouteSearchResponse) {
         progress.hide()
         mapView.annotationManager.removeAllAnnotations()
         for result in response.results {
@@ -114,9 +113,8 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
             mapView.annotationManager.add(annotation)
         }
     }
-    
-    func search(_ search: TTAlongRouteSearch, failedWithError error: TTResponseError) {
+
+    func search(_: TTAlongRouteSearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-    
 }

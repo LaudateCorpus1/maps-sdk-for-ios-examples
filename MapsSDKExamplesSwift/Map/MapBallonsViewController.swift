@@ -9,26 +9,25 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapBallonsViewController: MapBaseViewController, TTAnnotationDelegate {
-    
     var customAnnotation: TTAnnotation?
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Simple", "Custom"], selectedID: -1)
     }
-    
+
     override func setupMap() {
         super.setupMap()
         mapView.annotationManager.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -38,34 +37,35 @@ class MapBallonsViewController: MapBaseViewController, TTAnnotationDelegate {
             displaySimpleBallon()
         }
     }
-    
-    //MARK: TTAnnotationDelegate
-    
-    func annotationManager(_ manager: TTAnnotationManager, viewForSelectedAnnotation selectedAnnotation: TTAnnotation) -> UIView & TTCalloutView {
+
+    // MARK: TTAnnotationDelegate
+
+    func annotationManager(_: TTAnnotationManager, viewForSelectedAnnotation selectedAnnotation: TTAnnotation) -> UIView & TTCalloutView {
         if let customAnnotation = self.customAnnotation, customAnnotation == selectedAnnotation {
             return CustomCallout(frame: CGRect.zero)
         } else {
             return TTCalloutOutlineView(text: "\(selectedAnnotation.coordinate.latitude),\(selectedAnnotation.coordinate.longitude)")
         }
     }
-    
-    func annotationManager(_ manager: TTAnnotationManager, annotationSelected annotation: TTAnnotation) {
-        //handle annotation selected event
+
+
+    func annotationManager(_: TTAnnotationManager, annotationSelected _: TTAnnotation) {
+        // handle annotation selected event
     }
-    
-    //MARK: Examples
-    
+
+
+    // MARK: Examples
+
     func displaySimpleBallon() {
         let annotation = TTAnnotation(coordinate: TTCoordinate.AMSTERDAM())
         mapView.annotationManager.add(annotation)
         mapView.annotationManager.select(annotation)
     }
-    
+
     func displayCustomBallon() {
         let annotation = TTAnnotation(coordinate: TTCoordinate.AMSTERDAM())
         customAnnotation = annotation
         mapView.annotationManager.add(annotation)
         mapView.annotationManager.select(annotation)
     }
-
 }

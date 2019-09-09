@@ -9,32 +9,31 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
+import CoreLocation
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import CoreLocation
 import TomTomOnlineSDKMaps
 import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchGeometryViewController: MapBaseViewController, TTGeometrySearchDelegate {
-    
     let geometrySearch = TTGeometrySearch()
     var geometryShape: [TTSearchShape] = []
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Parking", "ATM", "Grocery"], selectedID: -1)
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.AMSTERDAM_A10(), withZoom: 10)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createShapesForSearch()
         geometrySearch.delegate = self
     }
-    
+
     private func createShapesForSearch() {
         var coordinates = [CLLocationCoordinate2DMake(52.37874, 4.90482),
                            CLLocationCoordinate2DMake(52.37664, 4.92559),
@@ -52,14 +51,14 @@ class SearchGeometryViewController: MapBaseViewController, TTGeometrySearchDeleg
         let mapPolygon = TTPolygon(coordinates: &coordinates, count: UInt(coordinates.count), opacity: 1, color: TTColor.RedSemiTransparent(), colorOutline: TTColor.RedSemiTransparent())
         mapView.annotationManager.add(mapPolygon)
         geometryShape.append(TTSearchPolygon(coordinates: &coordinates, count: UInt(coordinates.count)))
-        
+
         let mapCircle = TTCircle(center: TTCoordinate.AMSTERDAM_CIRCLE(), radius: 2000, width: 2, color: TTColor.RedSemiTransparent(), fill: true, colorOutlet: TTColor.RedSemiTransparent())
         mapView.annotationManager.add(mapCircle)
         geometryShape.append(TTSearchCircle(center: TTCoordinate.AMSTERDAM_CIRCLE(), radius: 2000))
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         progress.show()
@@ -73,42 +72,41 @@ class SearchGeometryViewController: MapBaseViewController, TTGeometrySearchDeleg
             searchForParking()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func searchForParking() {
         let query = TTGeometrySearchQueryBuilder.create(withTerm: "Parking", searchShapes: geometryShape)
             .withLimit(30)
             .build()
         geometrySearch.search(with: query)
     }
-    
+
     func searchForATM() {
         let query = TTGeometrySearchQueryBuilder.create(withTerm: "ATM", searchShapes: geometryShape)
             .withLimit(30)
             .build()
         geometrySearch.search(with: query)
     }
-    
+
     func searchForGrocery() {
         let query = TTGeometrySearchQueryBuilder.create(withTerm: "Grocery", searchShapes: geometryShape)
             .withLimit(30)
             .build()
         geometrySearch.search(with: query)
     }
-    
-    //MARK: TTGeometrySearchDelegate
-    
-    func search(_ search: TTGeometrySearch, completedWith response: TTGeometrySearchResponse) {
+
+    // MARK: TTGeometrySearchDelegate
+
+    func search(_: TTGeometrySearch, completedWith response: TTGeometrySearchResponse) {
         progress.hide()
         for result in response.results {
             let annotation = TTAnnotation(coordinate: result.position)
             mapView.annotationManager.add(annotation)
         }
     }
-    
-    func search(_ search: TTGeometrySearch, failedWithError error: TTResponseError) {
+
+    func search(_: TTGeometrySearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-
 }

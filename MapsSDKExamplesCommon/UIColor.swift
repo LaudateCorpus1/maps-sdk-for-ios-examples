@@ -12,14 +12,10 @@
 import UIKit
 
 public extension (UIColor) {
-
-    @objc public static var random: UIColor {
-        get {
-            return UIColor(red: CGFloat(Math.randomRatio()),
-                         green: CGFloat(Math.randomRatio()),
-                          blue: CGFloat(Math.randomRatio()),
-                         alpha: CGFloat(Math.randomRatio() * 0.5 + 0.5))
-        }
+    @objc static var random: UIColor {
+        return UIColor(red: CGFloat(Math.randomRatio()),
+                       green: CGFloat(Math.randomRatio()),
+                       blue: CGFloat(Math.randomRatio()),
+                       alpha: CGFloat(Math.randomRatio() * 0.5 + 0.5))
     }
-
 }

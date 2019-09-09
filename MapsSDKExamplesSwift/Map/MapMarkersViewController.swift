@@ -9,19 +9,18 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapMarkersViewController: MapBaseViewController {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Simple", "Decal"], selectedID: -1)
     }
 
-    //MARK: OptionsViewDelegate
-    
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -31,28 +30,27 @@ class MapMarkersViewController: MapBaseViewController {
             displaySimpleMarkers()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displaySimpleMarkers() {
         mapView.bearing = 0
         mapView.annotationManager.removeAllAnnotations()
-        for _ in 0...4 {
+        for _ in 0 ... 4 {
             let cooridnate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.AMSTERDAM())
             let annotation = TTAnnotation(coordinate: cooridnate)
             mapView.annotationManager.add(annotation)
         }
     }
-    
+
     func displayDecalMarkers() {
         mapView.bearing = 180
         mapView.annotationManager.removeAllAnnotations()
-        for _ in 0...4 {
+        for _ in 0 ... 4 {
             let cooridnate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.AMSTERDAM())
             let customIcon = TTAnnotationImage.createPNG(withName: "Favourite")!
             let annotation = TTAnnotation(coordinate: cooridnate, annotationImage: customIcon, anchor: .bottom, type: .decal)
             mapView.annotationManager.add(annotation)
         }
     }
-
 }

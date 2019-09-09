@@ -9,19 +9,18 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
 import TomTomOnlineSDKMapsDriving
+import UIKit
 
 class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTMatcherDelegate {
-
     var source: DrivingSource?
     private var chevron: TTChevronObject?
     var startSending = false
     var matcher: TTMatcher!
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
     }
@@ -39,7 +38,6 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
         }
         mapView.maxZoom = TTMapZoom.MAX()
         mapView.minZoom = TTMapZoom.MIN()
-        
     }
 
     override func viewDidLoad() {
@@ -64,7 +62,7 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
             .withPitch(TTCamera.DEFAULT_MAP_PITCH_FLAT())
             .withZoom(18)
             .build()
-        
+
         mapView.setCameraPosition(camera)
         mapView.trackingManager.add(chevron!)
         source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!)
@@ -80,14 +78,13 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
 
     public func matcherResultMatchedLocation(_ matched: TTMatcherLocation, withOriginalLocation original: TTMatcherLocation, isMatched: Bool) {
         drawRedCircle(coordinate: original.coordinate)
-        source?.updateLocation(location:TTLocation(coordinate: matched.coordinate, withRadius: matched.radius, withBearing: matched.bearing, withAccuracy: 0.0, isDimmed: !isMatched))
+        source?.updateLocation(location: TTLocation(coordinate: matched.coordinate, withRadius: matched.radius, withBearing: matched.bearing, withAccuracy: 0.0, isDimmed: !isMatched))
         chevron?.isHidden = false
-     }
+    }
 
     func sendingLocation() {
         let locationProvider = LocationCSVProvider(csvFile: "simple_route")
-        for index in 1...locationProvider.locations.count {
-
+        for index in 1 ... locationProvider.locations.count {
             let prev = locationProvider.locations[index - 1]
             let next = locationProvider.locations[index]
 
@@ -98,12 +95,12 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
             matcher(providerLocation: providerLocation)
 
             let time = next.timestamp - prev.timestamp
-            sleep(UInt32(time/1000))
+            sleep(UInt32(time / 1000))
         }
     }
 
     func drawRedCircle(coordinate: CLLocationCoordinate2D) {
-        mapView.annotationManager.removeAllOverlays();
+        mapView.annotationManager.removeAllOverlays()
         let redCircle = TTCircle(center: coordinate, radius: 2, opacity: 1, width: 10, color: UIColor.red, fill: true, colorOutlet: UIColor.red)
         mapView.annotationManager.add(redCircle)
     }

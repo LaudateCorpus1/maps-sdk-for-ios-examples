@@ -9,13 +9,12 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingManeuverListViewController: TableBaseViewController, TTRouteResponseDelegate {
-    
     var locationManager: LocationManager!
     var etaView: ETAWithSegmentsView!
     let routePlanner = TTRoute()
@@ -33,7 +32,7 @@ class RoutingManeuverListViewController: TableBaseViewController, TTRouteRespons
         etaView.addTarget(self, action: #selector(languageChanged(sender:)))
         displayManeuverList(language: "en-GB")
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         locationManager.stop()
@@ -51,7 +50,7 @@ class RoutingManeuverListViewController: TableBaseViewController, TTRouteRespons
             displayManeuverList(language: "en-GB")
         }
     }
-    
+
     func displayManeuverList(language: String) {
         progress.show()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
@@ -60,10 +59,10 @@ class RoutingManeuverListViewController: TableBaseViewController, TTRouteRespons
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -71,8 +70,8 @@ class RoutingManeuverListViewController: TableBaseViewController, TTRouteRespons
         displayResults(plannedRoute.guidance.instructions)
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
 }

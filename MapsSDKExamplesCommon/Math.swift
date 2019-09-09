@@ -12,19 +12,17 @@
 import Foundation
 
 class Math: NSObject {
-    
-    private static let ARC4RANDOM_MAX: Double = 0x100000000
+    private static let ARC4RANDOM_MAX: Double = 0x1_0000_0000
 
     static func randBetween(low: Double, high: Double) -> Double {
         return (Double(arc4random()) / Math.ARC4RANDOM_MAX * (high - low)) + low
     }
-    
+
     static func randomRatio() -> Double {
         return Double(arc4random() & 0xFFFF) / Double(0xFFFF)
     }
-    
+
     static func deg2rad(_ degrees: Double) -> Double {
         return degrees * (Double.pi / 180.0)
     }
-
 }

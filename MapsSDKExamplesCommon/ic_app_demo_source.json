@@ -1,0 +1,23 @@
+"IC-app-test-source": {
+    "type": "geojson",
+    "cluster": true,
+    "clusterRadius": 70,
+    "data": {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.710759,
+                        52.340415
+                    ]
+                },
+                "properties": {
+                    "icon": "jet_airplane_landing"
+                }
+            }
+        ]
+    }
+}

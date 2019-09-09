@@ -1,0 +1,114 @@
+"IC-app-test-source": {
+    "type": "geojson",
+    "cluster": true,
+    "clusterRadius": 70,
+    "data": {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.710759,
+                        52.340415
+                    ]
+                },
+                "properties": {
+                    "icon": "jet_airplane_landing"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.911038,
+                        52.379749
+                    ]
+                },
+                "properties": {
+                    "icon": "tunnel"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.902259,
+                        52.376433
+                    ]
+                },
+                "properties": {
+                    "icon": "amsterdam_netherlands"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.892744,
+                        52.369375
+                    ]
+                },
+                "properties": {
+                    "icon": "amsterdam2"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.982211,
+                        52.342163
+                    ]
+                },
+                "properties": {
+                    "icon": "road_with_traffic"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.85564,
+                        52.44256
+                    ]
+                },
+                "properties": {
+                    "icon": "gas_station"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        5.011129,
+                        52.3475
+                    ]
+                },
+                "properties": {
+                    "icon": "photo4"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        4.79466,
+                        52.459127
+                    ]
+                },
+                "properties": {
+                    "icon": "traffic_light"
+                }
+            }
+        ]
+    }
+}

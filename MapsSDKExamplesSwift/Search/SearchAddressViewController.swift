@@ -9,30 +9,29 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import CoreLocation
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchAddressViewController: SearchBaseViewController, TTSearchDelegate {
-    
     var location: CLLocation?
     let search = TTSearch()
-    
+
     override func segmentsForControllSelected() -> Int {
         return 0
     }
-    
-    override func segmentsForControll() -> [String]  {
+
+    override func segmentsForControll() -> [String] {
         return ["GLOBAL", "NEAR ME"]
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         search.delegate = self
     }
-    
+
     override func searchBarFinishedEditting(with term: String) {
         progress.show()
         if segmentedControl!.selectedSegmentIndex == 0 {
@@ -47,7 +46,7 @@ class SearchAddressViewController: SearchBaseViewController, TTSearchDelegate {
             searchForTerm(term, at: location.coordinate)
         }
     }
-    
+
     override func segmentChanged(_ sender: UISegmentedControl) {
         searchBar?.resignFirstResponder()
         if sender.selectedSegmentIndex == 1 {
@@ -60,14 +59,14 @@ class SearchAddressViewController: SearchBaseViewController, TTSearchDelegate {
         }
     }
 
-    //MARK: Examples
-    
+    // MARK: Examples
+
     func searchForTerm(_ term: String) {
         let query = TTSearchQueryBuilder.create(withTerm: term)
             .build()
         search.search(with: query)
     }
-    
+
     func searchForTerm(_ term: String, at coordinate: CLLocationCoordinate2D) {
         let query = TTSearchQueryBuilder.create(withTerm: term)
             .withPosition(coordinate)
@@ -75,15 +74,16 @@ class SearchAddressViewController: SearchBaseViewController, TTSearchDelegate {
         search.search(with: query)
     }
 
-    //MARK: TTSearchDelegate
-    
-    func search(_ search: TTSearch, completedWith response: TTSearchResponse) {
+    // MARK: TTSearchDelegate
+
+    func search(_: TTSearch, completedWith response: TTSearchResponse) {
         progress.hide()
         displayResults(response.results)
     }
-    
-    func search(_ search: TTSearch, failedWithError error: TTResponseError) {
+
+
+    func search(_: TTSearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-    
+
 }

@@ -9,14 +9,13 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKSearch
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchReverseGeocodingViewController: MapBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTReverseGeocoderDelegate {
-    
     let reverseGeocoder = TTReverseGeocoder()
     var geocoderResult = "Loading..."
     var annotation: TTAnnotation!
@@ -24,40 +23,40 @@ class SearchReverseGeocodingViewController: MapBaseViewController, TTMapViewDele
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: [], selectedID: -1)
     }
-    
+
     override func setupMap() {
         super.setupMap()
         mapView.delegate = self
         reverseGeocoder.delegate = self
         mapView.annotationManager.delegate = self
     }
-    
-    //MARK: Example
-    
+
+    // MARK: Example
+
     func resolveAddressForCoordinates(_ coordinate: CLLocationCoordinate2D) {
         let query = TTReverseGeocoderQueryBuilder.create(with: coordinate)
             .build()
         reverseGeocoder.reverseGeocoder(with: query)
     }
-    
-    //MARK: TTMapViewDelegate
-    
+
+    // MARK: TTMapViewDelegate
+
     func mapView(_ mapView: TTMapView, didLongPress coordinate: CLLocationCoordinate2D) {
         mapView.annotationManager.removeAllAnnotations()
         annotation = TTAnnotation(coordinate: coordinate)
         mapView.annotationManager.add(annotation)
         resolveAddressForCoordinates(coordinate)
     }
-    
-    //MARK: TTAnnotationDelegate
-    
-    func annotationManager(_ manager: TTAnnotationManager, viewForSelectedAnnotation selectedAnnotation: TTAnnotation) -> UIView & TTCalloutView {
+
+    // MARK: TTAnnotationDelegate
+
+    func annotationManager(_: TTAnnotationManager, viewForSelectedAnnotation _: TTAnnotation) -> UIView & TTCalloutView {
         return TTCalloutOutlineView(text: geocoderResult)
     }
-    
-    //MARK: TTReverseGeocoderDelegate
-    
-    func reverseGeocoder(_ reverseGeocoder: TTReverseGeocoder, completedWith response: TTReverseGeocoderResponse) {
+
+    // MARK: TTReverseGeocoderDelegate
+
+    func reverseGeocoder(_: TTReverseGeocoder, completedWith response: TTReverseGeocoderResponse) {
         if let reverseGeocoderAddress = response.result.addresses.first {
             if let freeFormAddress = reverseGeocoderAddress.address.freeformAddress {
                 geocoderResult = freeFormAddress
@@ -67,8 +66,8 @@ class SearchReverseGeocodingViewController: MapBaseViewController, TTMapViewDele
             mapView.annotationManager.select(annotation)
         }
     }
-    
-    func reverseGeocoder(_ reverseGeocoder: TTReverseGeocoder, failedWithError error: TTResponseError) {
+
+    func reverseGeocoder(_: TTReverseGeocoder, failedWithError error: TTResponseError) {
         handleError(error)
     }
 }

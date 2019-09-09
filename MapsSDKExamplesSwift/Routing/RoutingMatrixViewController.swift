@@ -9,32 +9,31 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteResponseDelegate {
-    
     let matrixRouting = TTMatrixRoute()
     var oneToManySelected = true
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.AMSTERDAM_CENTER_LOCATION(), withZoom: 12)
     }
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["One to Many", "Many to Many"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         matrixRouting.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         hideMatrixEta()
@@ -50,12 +49,12 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
             displayOneToMany()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayOneToMany() {
         let query = TTMatrixRouteQueryBuilder.create(withOrigin: TTCoordinate.AMSTERDAM_CENTER_LOCATION(),
-                                                withDestination: TTCoordinate.AMSTERDAM_RESTAURANT_BRIDGES())
+                                                     withDestination: TTCoordinate.AMSTERDAM_RESTAURANT_BRIDGES())
             .addDestination(TTCoordinate.AMSTERDAM_RESTAURANT_GREETJE())
             .addDestination(TTCoordinate.AMSTERDAM_RESTAURANT_LA_RIVE())
             .addDestination(TTCoordinate.AMSTERDAM_RESTAURANT_WAGAMAMA())
@@ -63,7 +62,7 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
             .build()
         matrixRouting.matrixRoute(with: query)
     }
-    
+
     func displayManyToMany() {
         let query = TTMatrixRouteQueryBuilder.create(withOrigin: TTCoordinate.PASSENGER_ONE(),
                                                      withDestination: TTCoordinate.TAXI_ONE())
@@ -72,27 +71,30 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
             .build()
         matrixRouting.matrixRoute(with: query)
     }
-    
-    //MARK: TTMatrixRouteResponseDelegate
-    func matrix(_ matrix: TTMatrixRoute, completedWith response: TTMatrixRouteResponse) {
-        if(oneToManySelected) {
+
+    // MARK: TTMatrixRouteResponseDelegate
+
+    func matrix(_: TTMatrixRoute, completedWith response: TTMatrixRouteResponse) {
+        if oneToManySelected {
             presentOneToMany(response: response)
         } else {
             presentManyToMany(response: response)
         }
     }
-    
-    func matrix(_ matrix: TTMatrixRoute, completedWith responseError: TTResponseError) {
+
+
+    func matrix(_: TTMatrixRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-    
+
+
     func presentOneToMany(response: TTMatrixRouteResponse) {
         let annotationOrigin = TTAnnotation(coordinate: TTCoordinate.AMSTERDAM_CENTER_LOCATION(), annotationImage: TTAnnotationImage.createPNG(withName: "Car")!, anchor: .bottom, type: .focal)
         mapView.annotationManager.add(annotationOrigin)
         for result in response.results {
             let annotation = TTAnnotation(coordinate: result.key.destination)
             mapView.annotationManager.add(annotation)
-            
+
             var coordinates = [result.key.origin, result.key.destination]
             let polyline = TTPolyline(coordinates: &coordinates, count: UInt(coordinates.count), opacity: 1, width: 4, color: determineColor(matrixRoutingResultKey: result.key, response: response))
             mapView.annotationManager.add(polyline)
@@ -101,7 +103,7 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
         showMatrixEta(oneToManySelected, withMatrixResponse: response)
         zoomToAllMarkers()
     }
-    
+
     func presentManyToMany(response: TTMatrixRouteResponse) {
         for result in response.results {
             let annotationOrigin = TTAnnotation(coordinate: result.key.origin, annotationImage: TTAnnotationImage.createPNG(withName: "Walk")!, anchor: .bottom, type: .focal)
@@ -117,7 +119,7 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
         showMatrixEta(oneToManySelected, withMatrixResponse: response)
         zoomToAllMarkers()
     }
-    
+
     private func determineColor(matrixRoutingResultKey: TTMatrixRoutingResultKey, response: TTMatrixRouteResponse) -> UIColor {
         guard let result = response.results[matrixRoutingResultKey], let matrixSummary = result.summary else {
             return TTColor.GreenDark()
@@ -125,9 +127,9 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
         let currentEta = matrixSummary.arrivalTime
         var minEta = currentEta
         for result in response.results.values {
-            if(CLLocation.locationsEquals(first: result.origin, second: matrixRoutingResultKey.origin)) {
+            if CLLocation.locationsEquals(first: result.origin, second: matrixRoutingResultKey.origin) {
                 if let summary = result.summary {
-                    if(summary.arrivalTime < minEta) {
+                    if summary.arrivalTime < minEta {
                         minEta = summary.arrivalTime
                     }
                 }
@@ -135,5 +137,4 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
         }
         return currentEta == minEta ? TTColor.GreenDark() : TTColor.Gray()
     }
-
 }

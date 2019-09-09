@@ -12,27 +12,26 @@
 import UIKit
 
 public class ActionSheet: NSObject {
-    
     let toast: Toast
     let viewController: UIViewController
-    
+
     @objc public init(toast: Toast, viewController: UIViewController) {
         self.toast = toast
         self.viewController = viewController
         super.init()
     }
-    
+
     @objc public func show(result: @escaping (Date?) -> Void) {
         let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-        let timeInternal: TimeInterval = 5 * 60 * 60 //+5h
+        let timeInternal: TimeInterval = 5 * 60 * 60 // +5h
         let pickerInitialDate = Date().addingTimeInterval(timeInternal)
         let picker = UIDatePicker()
         picker.datePickerMode = .dateAndTime
         alertController.view.addSubview(picker)
         picker.date = pickerInitialDate
         picker.minuteInterval = 5
-        
-        let actionOk = UIAlertAction(title: "OK", style: .default) { (_) in
+
+        let actionOk = UIAlertAction(title: "OK", style: .default) { _ in
             if picker.date < Date() {
                 self.toast.toast(message: "The departure and arrival can not be in the past")
                 result(nil)
@@ -41,13 +40,12 @@ public class ActionSheet: NSObject {
             }
         }
         alertController.addAction(actionOk)
-        
-        let actionCancel = UIAlertAction(title: "No, thanks", style: .default) { (_) in
+
+        let actionCancel = UIAlertAction(title: "No, thanks", style: .default) { _ in
             result(nil)
         }
         alertController.addAction(actionCancel)
-        
+
         viewController.present(alertController, animated: true, completion: nil)
     }
-
 }

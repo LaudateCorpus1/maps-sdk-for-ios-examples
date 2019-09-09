@@ -9,27 +9,26 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKSearch
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchBatchViewController: MapBaseViewController, TTBatchSearchDelegate, TTBatchVisistor {
-    
     let batchSearch = TTBatchSearch()
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Parking", "Gas", "Bar"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         batchSearch.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.annotationManager.clustering = true
@@ -45,9 +44,9 @@ class SearchBatchViewController: MapBaseViewController, TTBatchSearchDelegate, T
             batchSearch(term: "Parking")
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func batchSearch(term: String) {
         let query1 = TTSearchQueryBuilder.create(withTerm: term)
             .withCategory(true)
@@ -68,37 +67,36 @@ class SearchBatchViewController: MapBaseViewController, TTBatchSearchDelegate, T
             .build()
         batchSearch.batchSearch(with: batchQuery)
     }
-    
-    //MARK: TTBatchSearchDelegate
-    
-    func batch(_ batch: TTBatchSearch, completedWith response: TTBatchResponse) {
+
+    // MARK: TTBatchSearchDelegate
+
+    func batch(_: TTBatchSearch, completedWith response: TTBatchResponse) {
         progress.hide()
         response.visit(self)
     }
-    
-    func batch(_ batch: TTBatchSearch, failedWithError error: TTResponseError) {
+
+    func batch(_: TTBatchSearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-    
-    //MARK: TTBatchVisistor
-    
+
+    // MARK: TTBatchVisistor
+
     func visitSearch(_ response: TTSearchResponse) {
         for result in response.results {
             let annotation = TTAnnotation(coordinate: result.position)
             mapView.annotationManager.add(annotation)
         }
     }
-    
+
     func visitGeometrySearch(_ response: TTGeometrySearchResponse) {
         for result in response.results {
             let annotation = TTAnnotation(coordinate: result.position)
             mapView.annotationManager.add(annotation)
         }
-        
+
         let circle = TTCircle(center: TTCoordinate.HOOFDDORP(), radius: 4000, width: 2, color: TTColor.RedSemiTransparent(), fill: true, colorOutlet: TTColor.RedSemiTransparent())
         mapView.annotationManager.add(circle)
-        
+
         mapView.zoomToAllAnnotations()
     }
-
 }

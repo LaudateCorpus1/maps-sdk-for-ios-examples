@@ -9,29 +9,28 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-    
     let routePlanner = TTRoute()
     var routeStyle = TTMapRouteStyle.defaultActive()
 
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Car", "Truck", "Pedestrian"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
     }
-    
-    
-    //MARK: OptionsViewDelegate
-    
+
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -45,9 +44,9 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
             displayCarRoute()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayCarRoute() {
         self.routeStyle = TTMapRouteStyle.defaultActive()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
@@ -55,7 +54,7 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayTruckRoute() {
         self.routeStyle = TTMapRouteStyle.defaultActive()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
@@ -63,27 +62,26 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayPedestrianRoute() {
-        
         routeStyle = TTMapRouteStyleBuilder()
             .withLineCapType(TTLineCapType.round)
             .withWidth(0.3)
             .withFill(TTColor.BlueLight())
             .withOutlineColor(TTColor.BlackLight())
-            .withDashArray([0.01,2])
-            .build();
-        
+            .withDashArray([0.01, 2])
+            .build()
+
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.HAARLEMDC(),
                                                andOrig: TTCoordinate.HAARLEMZW())
             .withTravelMode(.pedestrian)
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -97,8 +95,9 @@ class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteRespon
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
 

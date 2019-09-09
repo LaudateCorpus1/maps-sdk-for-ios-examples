@@ -12,10 +12,8 @@
 import UIKit
 
 public class OptionsViewSingleSelect: OptionsView {
-    
     @objc override func buttonTouchUpInside(button: UIButton) {
         deselectAll()
         selectAndTriggerDelegateFor(button, selected: true)
     }
-
 }

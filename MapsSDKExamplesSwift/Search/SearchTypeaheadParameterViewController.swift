@@ -9,48 +9,48 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchTypeaheadParameterViewController: SearchBaseViewController, TTSearchDelegate {
-
     let search = TTSearch()
-    
+
     override func shouldDisplaySegmentedControll() -> Bool {
         return false
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         search.delegate = self
     }
-    
+
     override func searchBarIsEditting(with term: String) {
         searchForTermWithTypeahead(term)
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func searchForTermWithTypeahead(_ term: String) {
         let query = TTSearchQueryBuilder.create(withTerm: term)
             .withTypeAhead(true)
             .build()
         search.search(with: query)
     }
-    
-    //MARK: TTSearchDelegate
-    
-    func search(_ search: TTSearch, completedWith response: TTSearchResponse) {
+
+    // MARK: TTSearchDelegate
+
+    func search(_: TTSearch, completedWith response: TTSearchResponse) {
         displayResults(response.results)
     }
-    
-    func search(_ search: TTSearch, failedWithError error: TTResponseError) {
+
+    func search(_: TTSearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-    
+
     func cancelSearch() {
         self.search.cancel()
     }
+
 }

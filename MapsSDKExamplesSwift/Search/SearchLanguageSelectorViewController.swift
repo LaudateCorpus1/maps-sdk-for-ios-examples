@@ -9,20 +9,19 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchLanguageSelectorViewController: SearchBaseViewController, TTSearchDelegate {
-    
     let search = TTSearch()
-    
+
     override func segmentsForControllSelected() -> Int {
         return 0
     }
-    
-    override func segmentsForControll() -> [String]  {
+
+    override func segmentsForControll() -> [String] {
         return ["🇬🇧 EN", "🇩🇪 DE", "🇪🇸 ES", "🇫🇷 FR"]
     }
 
@@ -30,20 +29,20 @@ class SearchLanguageSelectorViewController: SearchBaseViewController, TTSearchDe
         super.viewDidLoad()
         search.delegate = self
     }
-    
-    override func segmentChanged(_ sender: UISegmentedControl) {
+
+    override func segmentChanged(_: UISegmentedControl) {
         searchBar?.resignFirstResponder()
         if let term = searchBar!.text {
             progress.show()
             searchForTerm(term, with: languageForIndex(index: segmentedControl!.selectedSegmentIndex))
         }
     }
-    
+
     override func searchBarFinishedEditting(with term: String) {
         progress.show()
         searchForTerm(term, with: languageForIndex(index: segmentedControl!.selectedSegmentIndex))
     }
-    
+
     func languageForIndex(index: Int) -> String {
         switch index {
         case 3:
@@ -56,25 +55,24 @@ class SearchLanguageSelectorViewController: SearchBaseViewController, TTSearchDe
             return "en-GB"
         }
     }
-    
-    //MARK: Example
-    
+
+    // MARK: Example
+
     func searchForTerm(_ term: String, with language: String) {
         let query = TTSearchQueryBuilder.create(withTerm: term)
             .withLang(language)
             .build()
         search.search(with: query)
     }
-    
-    //MARK: TTSearchDelegate
-    
-    func search(_ search: TTSearch, completedWith response: TTSearchResponse) {
+
+    // MARK: TTSearchDelegate
+
+    func search(_: TTSearch, completedWith response: TTSearchResponse) {
         progress.hide()
         displayResults(response.results)
     }
-    
-    func search(_ search: TTSearch, failedWithError error: TTResponseError) {
+
+    func search(_: TTSearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-
 }

@@ -9,19 +9,18 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapTilesViewController: MapBaseViewController {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Vector", "Raster"], selectedID: 0)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -31,15 +30,14 @@ class MapTilesViewController: MapBaseViewController {
             displayVectors()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayVectors() {
         mapView.setTilesType(.vector)
     }
-    
+
     func displayRaster() {
         mapView.setTilesType(.raster)
     }
-
 }

@@ -12,35 +12,33 @@
 import UIKit
 
 class MatrixRow: UITableViewCell {
-    
-    @IBOutlet weak var label_1: UILabel!
-    @IBOutlet weak var label_2: UILabel!
-    @IBOutlet weak var label_3: UILabel!
-    @IBOutlet weak var label_4: UILabel!
-    @IBOutlet weak var label_5: UILabel!
-    
+    @IBOutlet var label_1: UILabel!
+    @IBOutlet var label_2: UILabel!
+    @IBOutlet var label_3: UILabel!
+    @IBOutlet var label_4: UILabel!
+    @IBOutlet var label_5: UILabel!
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let content = Bundle.main.loadNibNamed("MatrixRow", owner: self, options: nil)?.first as! UIView
         addSubview(content)
         content.frame = self.bounds
     }
-    
-    @objc public func update(columns:[String]) {
+
+    @objc public func update(columns: [String]) {
         label_1.text = columns[0]
         label_2.text = columns[1]
         label_3.text = columns[2]
         label_4.text = columns[3]
         label_5.text = columns[4]
     }
-    
 }

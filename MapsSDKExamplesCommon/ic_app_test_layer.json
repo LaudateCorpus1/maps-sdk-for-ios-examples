@@ -1,0 +1,13 @@
+{
+    "id": "IC-app-test-layer",
+    "filter": [
+        "!has",
+        "point_count"
+    ],
+    "type": "symbol",
+    "layout": {
+        "icon-image": "{icon}",
+        "icon-allow-overlap": true
+    },
+    "source": "IC-app-test-source"
+}

@@ -9,30 +9,29 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import TomTomOnlineSDKMaps
+import UIKit
 
 public class CustomCallout: UIView, TTCalloutView {
-    
     public var annotation: TTAnnotation?
     public var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
-    
+
     public init(frame: CGRect, cooridnate: CLLocationCoordinate2D) {
         self.coordinate = cooridnate
         super.init(frame: frame)
         setup()
     }
 
-    override public init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
+
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let contentView = Bundle.main.loadNibNamed("CustomCallout", owner: self, options: nil)?.first as! UIView
         self.bounds = contentView.bounds
@@ -42,5 +41,4 @@ public class CustomCallout: UIView, TTCalloutView {
         layer.shadowOffset = CGSize(width: 2, height: 2)
         layer.shadowOpacity = 1
     }
-    
 }

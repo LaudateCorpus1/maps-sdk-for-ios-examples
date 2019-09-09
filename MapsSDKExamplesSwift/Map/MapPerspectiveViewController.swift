@@ -9,18 +9,17 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
+import UIKit
 
 class MapPerspectiveViewController: MapBaseViewController {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["2D mode", "3D mode"], selectedID: 0)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -30,15 +29,14 @@ class MapPerspectiveViewController: MapBaseViewController {
             set2DMode()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func set2DMode() {
         mapView.setPerspective3D(false)
     }
-    
+
     func set3DMode() {
         mapView.setPerspective3D(true)
     }
-
 }

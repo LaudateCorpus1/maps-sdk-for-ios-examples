@@ -1,0 +1,28 @@
+{
+  "id": "IL-test-layer-outline",
+  "type": "line",
+  "layout": {
+    "line-cap": "round",
+    "line-join": "round"
+  },
+  "paint": {
+    "line-color": "#0D6567",
+    "line-width": {
+      "stops": [
+        [
+          1,
+          9
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          22,
+          28
+        ]
+      ]
+    }
+  },
+  "source": "IL-test-source"
+}

@@ -9,32 +9,31 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingSupportingPointsViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTRouteDelegate {
-
     let routePlanner = TTRoute()
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["0 m", "10 km"], selectedID: -1)
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.PORTUGAL_NOVA(), withZoom: 10)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
         mapView.routeManager.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -46,9 +45,9 @@ class RoutingSupportingPointsViewController: RoutingBaseViewController, TTRouteR
             displayDeviation0mRoute()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayDeviation0mRoute() {
         var supprotingPoints = getSupprotingPoints()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.PORTUGAL_COIMBRA(), andOrig: TTCoordinate.PORTUGAL_NOVA())
@@ -59,7 +58,7 @@ class RoutingSupportingPointsViewController: RoutingBaseViewController, TTRouteR
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayDeviation10kmRoute() {
         var supprotingPoints = getSupprotingPoints()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.PORTUGAL_COIMBRA(), andOrig: TTCoordinate.PORTUGAL_NOVA())
@@ -70,20 +69,20 @@ class RoutingSupportingPointsViewController: RoutingBaseViewController, TTRouteR
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     private func getSupprotingPoints() -> [CLLocationCoordinate2D] {
         return [
             CLLocationCoordinate2DMake(40.10995732392718, -8.501433134078981),
             CLLocationCoordinate2DMake(40.11115121590874, -8.500000834465029),
             CLLocationCoordinate2DMake(40.11089684892725, -8.497683405876161),
             CLLocationCoordinate2DMake(40.11192251642396, -8.498423695564272),
-            CLLocationCoordinate2DMake(40.209408, -8.423741)
+            CLLocationCoordinate2DMake(40.209408, -8.423741),
         ]
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         var isActive = true
         var activeRoute: TTMapRoute?
         for plannedRoute in result.routes {
@@ -103,13 +102,13 @@ class RoutingSupportingPointsViewController: RoutingBaseViewController, TTRouteR
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-    
-    //MARK: TTRouteDelegate
-    
+
+    // MARK: TTRouteDelegate
+
     func routeClicked(_ route: TTMapRoute) {
         for mapRoute in self.mapView.routeManager.routes {
             mapView.routeManager.update(mapRoute, style: TTMapRouteStyle.defaultInactive())
@@ -118,5 +117,4 @@ class RoutingSupportingPointsViewController: RoutingBaseViewController, TTRouteR
         mapView.routeManager.bring(toFrontRoute: route)
         etaView.show(summary: route.extraData as! TTSummary, style: .plain)
     }
-
 }

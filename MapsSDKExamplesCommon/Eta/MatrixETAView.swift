@@ -9,11 +9,10 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import TomTomOnlineSDKRouting
+import UIKit
 
 public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDelegate {
-    
     private static let ROW_HEIGHT: CGFloat = 24
     private static let REUSABLE_ID = "REUSABLE_ID"
     private static let ONE_TO_MANY_COLUMN_NAMES = ["Route", "Origin", "Destination", "Distance", "ETA"]
@@ -22,20 +21,20 @@ public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDeleg
     private static let ONE_DESTINATIONS = ["LaRive", "Wagamama", "Greetje", "Envy", "Bridges"]
     private static let MANY_PASSENGER = ["One", "Two", "Two", "One"]
     private static let TAXI = ["A", "B", "A", "B"]
-    private var currentSecondColumn = Array<String>()
-    private var currentThirdColumn = Array<String>()
-    private var results: Dictionary<TTMatrixRoutingResultKey, TTMatrixRouteResult>?
-    
+    private var currentSecondColumn = [String]()
+    private var currentThirdColumn = [String]()
+    private var results: [TTMatrixRoutingResultKey: TTMatrixRouteResult]?
+
     public override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
         setup()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         backgroundColor = UIColor.clear
         isScrollEnabled = false
@@ -51,7 +50,7 @@ public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDeleg
         insertHeaderView(columns: MatrixETAView.ONE_TO_MANY_COLUMN_NAMES)
         reloadData()
     }
-    
+
     @objc public func displayETAManyToMany(matrix: TTMatrixRouteResponse) {
         results = matrix.results
         currentSecondColumn = MatrixETAView.MANY_PASSENGER
@@ -59,8 +58,8 @@ public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDeleg
         insertHeaderView(columns: MatrixETAView.MANY_TO_MANY_COLUMN_NAMES)
         reloadData()
     }
-    
-    private func insertHeaderView(columns:[String]) {
+
+    private func insertHeaderView(columns: [String]) {
         let matrixHeaderView = MatrixRow(style: .default, reuseIdentifier: nil)
         matrixHeaderView.backgroundColor = TTColor.GreenDark()
         matrixHeaderView.update(columns: columns)
@@ -68,15 +67,15 @@ public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDeleg
         tableHeaderView?.frame = CGRect(x: 0, y: 0, width: 0, height: MatrixETAView.ROW_HEIGHT)
         separatorStyle = .none
     }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         guard let results = self.results else {
             return 0
         }
         return results.count
     }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    public func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let matrixRow = MatrixRow(style: .default, reuseIdentifier: MatrixETAView.REUSABLE_ID)
         guard let results = self.results else {
             return matrixRow
@@ -86,16 +85,15 @@ public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDeleg
         let eta = matrixResults[indexPath.row].summary!.arrivalTime
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm"
-        matrixRow.label_1.text = "\(indexPath.row+1)"
+        matrixRow.label_1.text = "\(indexPath.row + 1)"
         matrixRow.label_2.text = currentSecondColumn[indexPath.row]
         matrixRow.label_3.text = currentThirdColumn[indexPath.row]
         matrixRow.label_4.text = FormatUtils.formatDistance(meters: UInt(length))
         matrixRow.label_5.text = dateFormatter.string(from: eta)
         return matrixRow
     }
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    public func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         deselectRow(at: indexPath, animated: false)
     }
-    
 }

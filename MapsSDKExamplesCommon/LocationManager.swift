@@ -12,18 +12,17 @@
 import CoreLocation
 
 public class LocationManager: NSObject, CLLocationManagerDelegate {
-    
     @objc public static let shared = LocationManager()
-    
+
     let osManager: CLLocationManager
     @objc public var lastLocation: CLLocation?
-    
+
     override init() {
         osManager = CLLocationManager()
         super.init()
         osManager.delegate = self
     }
-    
+
     @objc public func start() {
         let status = CLLocationManager.authorizationStatus()
         if status == .notDetermined {
@@ -32,24 +31,23 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
             osManager.startUpdatingLocation()
         }
     }
-    
+
     @objc public func stop() {
         osManager.stopUpdatingLocation()
     }
-    
-    //MARK: CLLocationManagerDelegate
-    
-    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+
+    // MARK: CLLocationManagerDelegate
+
+    public func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             osManager.startUpdatingLocation()
         }
     }
-    
-    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+    public func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             return
         }
         lastLocation = location
     }
-    
 }

@@ -12,10 +12,9 @@
 import UIKit
 
 public class Progress: NSObject {
-    
     weak var window: UIWindow!
     weak var layer: UIView!
-    
+
     public override init() {
         window = UIApplication.shared.windows.last!
     }
@@ -30,7 +29,7 @@ public class Progress: NSObject {
         let superView = layer.superview!
         superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[v0]-0-|", options: [], metrics: nil, views: ["v0": layer]))
         superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-0-|", options: [], metrics: nil, views: ["v0": layer]))
-        
+
         let activitiIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         activitiIndicator.color = TTColor.White()
         layer.addSubview(activitiIndicator)
@@ -39,11 +38,10 @@ public class Progress: NSObject {
         activitiIndicator.centerXAnchor.constraint(equalTo: layer.centerXAnchor).isActive = true
         activitiIndicator.centerYAnchor.constraint(equalTo: layer.centerYAnchor).isActive = true
     }
-    
+
     @objc public func hide() {
         if let layer = self.layer {
             layer.removeFromSuperview()
         }
     }
-
 }

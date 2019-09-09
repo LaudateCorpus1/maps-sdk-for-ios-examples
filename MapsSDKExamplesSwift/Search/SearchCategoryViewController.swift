@@ -9,32 +9,31 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchCategoryViewController: SearchBaseViewController, TTSearchDelegate {
-    
     let search = TTSearch()
-    
+
     override func shouldDisplaySearchBar() -> Bool {
         return false
     }
-    
+
     override func segmentsForControllSelected() -> Int {
         return -1
     }
-    
-    override func segmentsForControll() -> [String]  {
+
+    override func segmentsForControll() -> [String] {
         return ["PARKING", "GAS", "ATM"]
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         search.delegate = self
     }
-    
+
     override func segmentChanged(_ sender: UISegmentedControl) {
         guard locationManager.lastLocation != nil else {
             toast.toast(message: "Location not determined")
@@ -51,9 +50,9 @@ class SearchCategoryViewController: SearchBaseViewController, TTSearchDelegate {
             searchCategoryParking()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func searchCategoryParking() {
         let query = TTSearchQueryBuilder.create(withTerm: "parking")
             .withCategory(true)
@@ -61,7 +60,7 @@ class SearchCategoryViewController: SearchBaseViewController, TTSearchDelegate {
             .build()
         search.search(with: query)
     }
-    
+
     func searchCategoryGas() {
         let query = TTSearchQueryBuilder.create(withTerm: "gas")
             .withCategory(true)
@@ -69,7 +68,7 @@ class SearchCategoryViewController: SearchBaseViewController, TTSearchDelegate {
             .build()
         search.search(with: query)
     }
-    
+
     func searchCategoryATM() {
         let query = TTSearchQueryBuilder.create(withTerm: "atm")
             .withCategory(true)
@@ -77,16 +76,15 @@ class SearchCategoryViewController: SearchBaseViewController, TTSearchDelegate {
             .build()
         search.search(with: query)
     }
-    
-    //MARK: TTSearchDelegate
-    
-    func search(_ search: TTSearch, completedWith response: TTSearchResponse) {
+
+    // MARK: TTSearchDelegate
+
+    func search(_: TTSearch, completedWith response: TTSearchResponse) {
         progress.hide()
         displayResults(response.results)
     }
-    
-    func search(_ search: TTSearch, failedWithError error: TTResponseError) {
+
+    func search(_: TTSearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-    
 }

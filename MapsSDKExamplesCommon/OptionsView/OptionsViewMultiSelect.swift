@@ -12,9 +12,7 @@
 import UIKit
 
 public class OptionsViewMultiSelect: OptionsView {
-    
     @objc override func buttonTouchUpInside(button: UIButton) {
-        
         if button.isSelected {
             button.isSelected = false
             selectAndTriggerDelegateFor(button, selected: false)

@@ -9,17 +9,16 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
-
     var window: UIWindow?
     weak var mainVC: OptionsViewController!
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
@@ -30,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         return true
     }
-    
+
     func requestExample(index: Int, category: Options.Category) {
         var newViewController: BaseViewController!
         if category == .Map {
@@ -54,28 +53,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 8:
                 newViewController = MapDynamicLayerOrderingViewController()
             case 9:
-                newViewController = MapStaticImageViewController()
+                newViewController = MapInteractiveLayersViewController()
             case 10:
-                newViewController = MapCenteringViewController()
+                newViewController = MapImageClusteringViewController()
             case 11:
-                newViewController = MapPerspectiveViewController()
+                newViewController = MapStaticImageViewController()
             case 12:
-                newViewController = MapEventsViewController()
+                newViewController = MapCenteringViewController()
             case 13:
-                newViewController = MapUIExtensionsViewController()
+                newViewController = MapPerspectiveViewController()
             case 14:
-                newViewController = MapMarkersViewController()
+                newViewController = MapEventsViewController()
             case 15:
-                newViewController = MapAdvancedMarkersViewController()
+                newViewController = MapUIExtensionsViewController()
             case 16:
-                newViewController = MapBallonsViewController()
+                newViewController = MapMarkersViewController()
             case 17:
-                newViewController = MapShapesViewController()
+                newViewController = MapAdvancedMarkersViewController()
             case 18:
-                newViewController = MapMarkersClusteringViewController()
+                newViewController = MapBallonsViewController()
             case 19:
-                newViewController = MapMultipleViewController()
+                newViewController = MapShapesViewController()
             case 20:
+                newViewController = MapMarkersClusteringViewController()
+            case 21:
+                newViewController = MapMultipleViewController()
+            case 22:
                 newViewController = MapRouteCustomisationViewController()
             default:
                 fatalError("This VC is not handled")
@@ -171,5 +174,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
         newViewController.name = MenuLabels.titleFor(index: category.rawValue, subindex: index)
         mainVC.displayExample(newViewController)
     }
-
 }

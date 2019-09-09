@@ -9,27 +9,26 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
+import UIKit
 
 class MapLanguageViewController: MapBaseViewController {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["English", "Russian", "Dutch"], selectedID: 0)
     }
-    
+
     override func setupMap() {
         super.setupMap()
         mapView.setLanguage("en-GB")
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.LODZ(), withZoom: 3.2)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -41,19 +40,18 @@ class MapLanguageViewController: MapBaseViewController {
             setLanguageEnglish()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func setLanguageEnglish() {
         mapView.setLanguage("en-GB")
     }
-    
+
     func setLanguageRussian() {
         mapView.setLanguage("ru-RU")
     }
-    
+
     func setLanguageDutch() {
         mapView.setLanguage("nl-NL")
     }
-
 }

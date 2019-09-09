@@ -9,18 +9,17 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
+import UIKit
 
 class MapCustomStyleViewController: MapBaseViewController {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Basic", "Custom"], selectedID: 0)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -30,18 +29,17 @@ class MapCustomStyleViewController: MapBaseViewController {
             displayStyleBasic()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayStyleBasic() {
         mapView.setStylePath(nil)
         mapView.applyDefaultLogo()
     }
-    
+
     func displayStyleCustom() {
         let customStyle = Bundle.main.path(forResource: "style", ofType: "json")
         mapView.setStylePath(customStyle)
         mapView.applyInvertedLogo()
     }
-
 }

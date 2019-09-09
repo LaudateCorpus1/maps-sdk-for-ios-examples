@@ -13,7 +13,6 @@ import Foundation
 import TomTomOnlineSDKMaps
 
 @objc public class ProviderLocation: TTLocation {
-
     @objc public var timestamp: Double = 0
     @objc public var provider: String?
     @objc public var speed: Double = 0

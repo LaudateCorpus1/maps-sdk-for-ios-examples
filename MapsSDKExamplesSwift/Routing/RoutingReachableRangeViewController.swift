@@ -9,32 +9,31 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingReachableRangeViewController: RoutingBaseViewController, TTReachableRangeDelegate {
-
     let reachabeRange = TTReachableRange()
     let queryFactory = ReachableRangeQueryFactory()
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Combustion", "Electric", "Time - 2h"], selectedID: -1)
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 10)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         reachabeRange.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.annotationManager.removeAllOverlays()
@@ -48,36 +47,37 @@ class RoutingReachableRangeViewController: RoutingBaseViewController, TTReachabl
             displayReachableRangeForCombustion()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayReachableRangeForCombustion() {
         reachabeRange.find(with: queryFactory.createReachableRangeQueryForCombustion())
     }
-    
+
     func displayReachableRangeForElectric() {
         reachabeRange.find(with: queryFactory.createReachableRangeQueryForElectric())
     }
-    
+
     func displayReachableRangeIn2hTime() {
         reachabeRange.find(with: queryFactory.createReachableRangeQueryForElectricLimitTo2Hours())
     }
-    
-    //MARK: TTReachableRangeDelegate
-    
-    func reachableRange(_ range: TTReachableRange, completedWithResult response: TTReachableRangeResponse) {
+
+    // MARK: TTReachableRangeDelegate
+
+    func reachableRange(_: TTReachableRange, completedWithResult response: TTReachableRangeResponse) {
         progress.hide()
         var coordinates: [CLLocationCoordinate2D] = []
-        for i in 0..<response.result.boundriesCount {
+        for i in 0 ..< response.result.boundriesCount {
             coordinates.append(response.result.boundry(at: i))
         }
-        
+
         let polygon = TTPolygon(coordinates: &coordinates, count: UInt(coordinates.count), opacity: 1, color: TTColor.RedSemiTransparent(), colorOutline: TTColor.RedSemiTransparent())
         mapView.annotationManager.add(polygon)
         mapView.zoom(to: polygon)
     }
-    
-    func reachableRange(_ range: TTReachableRange, completedWith responseError: TTResponseError) {
+
+
+    func reachableRange(_: TTReachableRange, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
 

@@ -9,27 +9,26 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingRouteTypesViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-
     let routePlanner = TTRoute()
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Fastest", "Shortest", "Eco"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -43,33 +42,33 @@ class RoutingRouteTypesViewController: RoutingBaseViewController, TTRouteRespons
             displayFastestRoute()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayFastestRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withRouteType(.fastest)
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayShortestRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withRouteType(.shortest)
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayEcoRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withRouteType(.eco)
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -83,9 +82,8 @@ class RoutingRouteTypesViewController: RoutingBaseViewController, TTRouteRespons
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-
 }

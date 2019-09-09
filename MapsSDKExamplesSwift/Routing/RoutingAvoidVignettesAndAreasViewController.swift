@@ -11,29 +11,28 @@
 
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
 
 class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTRouteDelegate, TTAnnotationDelegate {
-    
     let routePlannerBasic = TTRoute()
     let routePlannerAvoid = TTRoute()
     var dispatchGroup = DispatchGroup()
-    
+
     override func getOptionsView() -> OptionsView {
-        return OptionsViewSingleSelect(labels: ["No avoids", "Avoid Vignettes","Avoid area"], selectedID: -1)
+        return OptionsViewSingleSelect(labels: ["No avoids", "Avoid Vignettes", "Avoid area"], selectedID: -1)
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.BUDAPEST_LOCATION(), withZoom: 4)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.annotationManager.delegate = self
         mapView.routeManager.delegate = self
     }
-    
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -47,60 +46,61 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
             startRoutingNoAvoids()
         }
     }
-    
-    //MARK: No avoids
+
+    // MARK: No avoids
+
     func startRoutingNoAvoids() {
         mapView.annotationManager.removeAllOverlays()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
             .withTraffic(true)
             .build()
-        
-        routePlannerBasic.plan(with: query) { (result, error) in
+
+        routePlannerBasic.plan(with: query) { result, error in
             if error != nil {
                 self.handleError(error)
                 self.routePlannerAvoid.cancel()
-            }else {
+            } else {
                 guard let result = result else { return }
                 guard let plannedRoute = result.routes.first else { return }
                 self.displayRoute(etaValue: "No avoids", plannedRoute: plannedRoute, routeStyle: TTMapRouteStyle.defaultActive())
                 self.progress.hide()
-                
             }
         }
     }
-    
-    //MARK: Avoid Vignettes
+
+    // MARK: Avoid Vignettes
+
     func startRoutingAvoidsVignettes() {
         dispatchGroup = DispatchGroup()
         mapView.annotationManager.removeAllOverlays()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
             .withTraffic(true)
             .build()
-        
+
         dispatchGroup.enter()
-        routePlannerBasic.plan(with: query) { (result, error) in
+        routePlannerBasic.plan(with: query) { result, error in
             if error != nil {
                 self.handleError(error)
                 self.routePlannerAvoid.cancel()
-            }else {
+            } else {
                 guard let result = result else { return }
                 guard let plannedRoute = result.routes.first else { return }
                 self.displayRoute(etaValue: "Avoids Vignettes", plannedRoute: plannedRoute, routeStyle: TTMapRouteStyle.defaultActive())
             }
             self.dispatchGroup.leave()
         }
-        
-        let vignettesArray = ["HUN","CZE","SVK"]
+
+        let vignettesArray = ["HUN", "CZE", "SVK"]
         dispatchGroup.enter()
         let query2 = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
             .withTraffic(false)
             .withAvoidVignettesArray(vignettesArray)
             .build()
-        routePlannerAvoid.plan(with: query2) { (result, error) in
+        routePlannerAvoid.plan(with: query2) { result, error in
             if error != nil {
                 self.handleError(error)
                 self.routePlannerBasic.cancel()
-            }else {
+            } else {
                 guard let result = result else { return }
                 guard let plannedRoute = result.routes.first else { return }
                 self.displayRoute(etaValue: "Avoids Vignettes", plannedRoute: plannedRoute, routeStyle: self.setRouteStyle(fillColor: TTColor.Pink(), outlineColor: TTColor.Purple()))
@@ -111,9 +111,9 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
             self.progress.hide()
         }
     }
-    
-    
-    //MARK: Avoid Area
+
+    // MARK: Avoid Area
+
     func startRoutingAvoidArea() {
         mapView.annotationManager.removeAllOverlays()
         dispatchGroup = DispatchGroup()
@@ -125,24 +125,23 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
                                TTCoordinate.ARAD_TOP_LEFT_NEIGHBORHOOD()]
         let polyline = TTPolyline(coordinates: &coordinateArray, count: UInt(pointsCount), opacity: 1, width: 4, color: TTColor.Blue())
         mapView.annotationManager.add(polyline)
-        
+
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
             .withTraffic(true)
             .build()
         dispatchGroup.enter()
-        routePlannerBasic.plan(with: query) { (result, error) in
+        routePlannerBasic.plan(with: query) { result, error in
             if error != nil {
                 self.handleError(error)
                 self.routePlannerAvoid.cancel()
-            }else {
+            } else {
                 guard let result = result else { return }
                 guard let plannedRoute = result.routes.first else { return }
                 self.displayRoute(etaValue: "Avoid area", plannedRoute: plannedRoute, routeStyle: self.setRouteStyle(fillColor: TTColor.BlueLight(), outlineColor: TTColor.BlueLight()))
             }
             self.dispatchGroup.leave()
         }
-        
-        
+
         let boundingBox = TTLatLngBounds(seBounds: TTCoordinate.ARAD_TOP_LEFT_NEIGHBORHOOD(), nwBounds: TTCoordinate.ARAD_BOTTOM_RIGHT_NEIGHBORHOOD())
         var boundingBoxArray = [boundingBox]
         let query2 = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
@@ -150,11 +149,11 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
             .withTraffic(true)
             .build()
         dispatchGroup.enter()
-        routePlannerAvoid.plan(with: query2) { (result, error) in
+        routePlannerAvoid.plan(with: query2) { result, error in
             if error != nil {
                 self.handleError(error)
                 self.routePlannerBasic.cancel()
-            }else {
+            } else {
                 guard let result = result else { return }
                 guard let plannedRoute = result.routes.first else { return }
                 self.displayRoute(etaValue: "Avoid area", plannedRoute: plannedRoute, routeStyle: self.setRouteStyle(fillColor: TTColor.GreenBright(), outlineColor: TTColor.GreenBright()))
@@ -166,9 +165,9 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
         }
     }
 
-    //MARK: Drow route
-    func displayRoute(etaValue: String, plannedRoute: TTFullRoute, routeStyle: TTMapRouteStyle){
-        
+    // MARK: Drow route
+
+    func displayRoute(etaValue: String, plannedRoute: TTFullRoute, routeStyle: TTMapRouteStyle) {
         let mapRoute = TTMapRoute(coordinatesData: plannedRoute,
                                   with: routeStyle,
                                   imageStart: TTMapRoute.defaultImageDeparture(),
@@ -178,15 +177,16 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
         etaView.update(eta: etaValue, metersDistance: UInt(plannedRoute.summary.lengthInMetersValue))
         displayRouteOverview()
     }
-    
-    //MARK: Route Style
-    func setRouteStyle(fillColor: UIColor, outlineColor: UIColor) -> TTMapRouteStyle{
+
+    // MARK: Route Style
+
+    func setRouteStyle(fillColor: UIColor, outlineColor: UIColor) -> TTMapRouteStyle {
         let routeStyle = TTMapRouteStyleBuilder()
             .withWidth(1.0)
             .withFill(fillColor)
             .withOutlineColor(outlineColor)
             .build()
-        
+
         return routeStyle
     }
 }

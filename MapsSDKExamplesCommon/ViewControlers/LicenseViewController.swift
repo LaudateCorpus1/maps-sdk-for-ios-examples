@@ -10,28 +10,27 @@
  */
 
 import UIKit
+import WebKit
 
 class LicenseViewController: UIViewController {
-
     var resourceName: String!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "Open Source License"
-        
-        let webView = UIWebView()
+
+        let webView = WKWebView()
         view.addSubview(webView)
         webView.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[webView]|", options: [], metrics: nil, views: ["webView": webView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[webView]|", options: [], metrics: nil, views: ["webView": webView]))
         var htmlString = "Cant display license"
         do {
-            htmlString = try String.init(contentsOf: URL(fileURLWithPath: resourceName))
+            htmlString = try String(contentsOf: URL(fileURLWithPath: resourceName))
         } catch let ex as NSError {
             print(ex)
         }
         webView.loadHTMLString(htmlString, baseURL: nil)
-        webView.scalesPageToFit = true
     }
 }

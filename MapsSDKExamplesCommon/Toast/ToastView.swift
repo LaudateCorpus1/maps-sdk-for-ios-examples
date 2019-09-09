@@ -12,7 +12,6 @@
 import UIKit
 
 class ToastView: UILabel {
-
     let verticalPadding: CGFloat = 0
     let horizontalPadding: CGFloat = 10
 
@@ -20,14 +19,15 @@ class ToastView: UILabel {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
-        font = UIFont(name:"Menlo", size: 14)
+        numberOfLines = 0
+        font = UIFont(name: "Menlo", size: 14)
         textAlignment = .center
         backgroundColor = TTColor.White()
         textColor = TTColor.Black()
@@ -36,5 +36,4 @@ class ToastView: UILabel {
         layer.shadowOffset = CGSize.zero
         layer.shadowColor = TTColor.Black().cgColor
     }
-
 }

@@ -9,33 +9,32 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTRouteDelegate {
-
     let routePlanner = TTRoute()
     var style = ETAView.ETAViewStyle.consumptionKWh
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Combustion", "Electric"], selectedID: -1)
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 10)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
         mapView.routeManager.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -47,9 +46,9 @@ class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteR
             displayCombustionRoute()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayCombustionRoute() {
         style = ETAView.ETAViewStyle.consumptionLiters
         var speedConsumptionInLiters: [TTSpeedConsumption] = [TTSpeedConsumptionMake(10, 6.5),
@@ -74,7 +73,7 @@ class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteR
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayElectricRoute() {
         style = ETAView.ETAViewStyle.consumptionKWh
         var speedConsumptionInkWh: [TTSpeedConsumption] = [TTSpeedConsumptionMake(10, 5.0),
@@ -98,10 +97,10 @@ class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteR
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         var isActive = true
         var activeRoute: TTMapRoute?
         for plannedRoute in result.routes {
@@ -121,13 +120,13 @@ class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteR
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-    
-    //MARK: TTRouteDelegate
-    
+
+    // MARK: TTRouteDelegate
+
     func routeClicked(_ route: TTMapRoute) {
         for mapRoute in self.mapView.routeManager.routes {
             mapView.routeManager.update(mapRoute, style: TTMapRouteStyle.defaultInactive())
@@ -136,5 +135,4 @@ class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteR
         mapView.routeManager.bring(toFrontRoute: route)
         etaView.show(summary: route.extraData as! TTSummary, style: style)
     }
-
 }

@@ -9,14 +9,13 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingBatchReachableRouteViewController: RoutingBaseViewController, TTBatchRouteVisistor, TTBatchRouteResponseDelegate, TTAnnotationDelegate {
-    
     let batchRoute = TTBatchRoute()
     let queryFactory = ReachableRangeQueryFactory()
     var polylines: [TTPolyline] = []
@@ -25,7 +24,7 @@ class RoutingBatchReachableRouteViewController: RoutingBaseViewController, TTBat
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: [], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.annotationManager.delegate = self
@@ -33,7 +32,7 @@ class RoutingBatchReachableRouteViewController: RoutingBaseViewController, TTBat
         requestForBatch()
         etaView.update(text: "Touch polyline to see the description...", icon: UIImage(named: "info_small")!)
     }
-    
+
     private func requestForBatch() {
         let batchQuery = TTBatchRouteQueryBuilder.createReachableRangeQuery(queryFactory.createReachableRangeQueryForElectric())
             .add(queryFactory.createReachableRangeQueryForCombustion())
@@ -42,46 +41,46 @@ class RoutingBatchReachableRouteViewController: RoutingBaseViewController, TTBat
         batchRoute.batchRoute(with: batchQuery)
         progress.show()
     }
-    
-    //MARK: TTBatchRouteResponseDelegate
-    
-    func batch(_ route: TTBatchRoute, completedWith response: TTBatchRouteResponse) {
+
+    // MARK: TTBatchRouteResponseDelegate
+
+    func batch(_: TTBatchRoute, completedWith response: TTBatchRouteResponse) {
         progress.hide()
         response.visit(self)
         mapView.zoom(toCoordinatesDataCollection: polylines)
     }
 
-    func batch(_ route: TTBatchRoute, failedWithError responseError: TTResponseError) {
+    func batch(_: TTBatchRoute, failedWithError responseError: TTResponseError) {
         handleError(responseError)
     }
 
-    //MARK: TTBatchRouteVisistor
+    // MARK: TTBatchRouteVisistor
 
     func visitReachableRange(_ response: TTReachableRangeResponse) {
         var coordinates: [CLLocationCoordinate2D] = []
-        for i in 0..<response.result.boundriesCount {
+        for i in 0 ..< response.result.boundriesCount {
             coordinates.append(response.result.boundry(at: i))
         }
         coordinates.append(response.result.boundry(at: 0))
-        
+
         let polyline = TTPolyline(coordinates: &coordinates, count: UInt(coordinates.count), opacity: 1, width: 3, color: determinePolylineColor(index))
         polyline.tag = determinePolylineDescription(index) as NSObject
         mapView.annotationManager.add(polyline)
-        index+=1
+        index += 1
         polylines.append(polyline)
     }
-    
-    //MARK: TTAnnotationDelegate
-    
-    func annotationManager(_ manager: TTAnnotationManager, touchUp polyline: TTPolyline) {
+
+    // MARK: TTAnnotationDelegate
+
+    func annotationManager(_: TTAnnotationManager, touchUp polyline: TTPolyline) {
         guard let description = polyline.tag as? String else {
             return
         }
         etaView.update(text: description, icon: UIImage(named: "info_small")!)
     }
-    
+
     private func determinePolylineColor(_ index: Int) -> UIColor {
-        switch (index) {
+        switch index {
         case 2:
             return TTColor.Black()
         case 1:
@@ -90,9 +89,9 @@ class RoutingBatchReachableRouteViewController: RoutingBaseViewController, TTBat
             return TTColor.GreenLight()
         }
     }
-    
+
     private func determinePolylineDescription(_ index: Int) -> String {
-        switch (index) {
+        switch index {
         case 2:
             return "Electric with power for 2 h"
         case 1:
@@ -101,5 +100,4 @@ class RoutingBatchReachableRouteViewController: RoutingBaseViewController, TTBat
             return "Electric"
         }
     }
-
 }

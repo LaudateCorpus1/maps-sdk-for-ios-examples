@@ -9,15 +9,14 @@
  * immediately return it to TomTom N.V.
  */
 
-import Foundation
 import CoreLocation
+import Foundation
 
-@objc public class LocationUtils : NSObject {
-
+@objc public class LocationUtils: NSObject {
     @objc public static func coordinateForValue(value: NSValue) -> CLLocationCoordinate2D {
         var coordiante = CLLocationCoordinate2DMake(0, 0)
         value.getValue(&coordiante)
-        return coordiante;
+        return coordiante
     }
 
     @objc public static func bearingWithCoordinate(coordinate: CLLocationCoordinate2D, prevCoordianate: CLLocationCoordinate2D) -> Double {
@@ -26,13 +25,13 @@ import CoreLocation
         let latitude = degreesToRadians(coordinate.latitude)
         let longitude = degreesToRadians(coordinate.longitude)
 
-        let degree = radiansToDegress(atan2(sin(longitude-prevLongitude)*cos(latitude),
-                                            cos(prevLatitude)*sin(latitude)-sin(prevLatitude)*cos(latitude)*cos(longitude-prevLongitude)))
+        let degree = radiansToDegress(atan2(sin(longitude - prevLongitude) * cos(latitude),
+                                            cos(prevLatitude) * sin(latitude) - sin(prevLatitude) * cos(latitude) * cos(longitude - prevLongitude)))
 
         if degree >= 0 {
-            return degree;
+            return degree
         } else {
-            return 360.0 + degree;
+            return 360.0 + degree
         }
     }
 

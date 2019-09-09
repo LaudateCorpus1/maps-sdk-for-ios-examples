@@ -9,31 +9,30 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingRouteAvoidsViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-
     let routePlanner = TTRoute()
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.NORTH_SEA(), withZoom: 4)
     }
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Motorways", "Toll roads", "Ferries"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -47,33 +46,33 @@ class RoutingRouteAvoidsViewController: RoutingBaseViewController, TTRouteRespon
             displayAvoidMotorwaysRoute()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayAvoidMotorwaysRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.OSLO(), andOrig: TTCoordinate.AMSTERDAM())
             .withAvoidType(.motorways)
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayAvoidTollRoadsRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.OSLO(), andOrig: TTCoordinate.AMSTERDAM())
             .withAvoidType(.tollRoads)
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayAvoidFerriesRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.OSLO(), andOrig: TTCoordinate.AMSTERDAM())
             .withAvoidType(.ferries)
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -87,9 +86,8 @@ class RoutingRouteAvoidsViewController: RoutingBaseViewController, TTRouteRespon
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-
 }

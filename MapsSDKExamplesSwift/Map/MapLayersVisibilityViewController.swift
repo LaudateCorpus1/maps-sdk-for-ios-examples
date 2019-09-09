@@ -9,38 +9,37 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapLayersVisibilityViewController: MapBaseViewController {
-    
     var currentStyle: TTMapStyle!
 
     override func setupMap() {
         super.setupMap()
         currentStyle = mapView.styleManager.currentStyle
     }
-    
+
     override func onMapReady() {
         turnOffLayers()
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.BERLIN(), withZoom: 8)
     }
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewMultiSelect(labels: ["Road network", "Woodland", "Build-up"], selectedID: -1)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
-        let visibility:TTMapLayerVisibility = on ? .visible : .none
-        var layers:[TTMapLayer] = []
+        let visibility: TTMapLayerVisibility = on ? .visible : .none
+        var layers: [TTMapLayer] = []
         switch ID {
         case 2:
             layers = currentStyle.getLayersBySourceLayerRegex("Built-up area")
@@ -51,16 +50,15 @@ class MapLayersVisibilityViewController: MapBaseViewController {
         }
         changeLayers(layers, withVisibility: visibility)
     }
-    
-    func changeLayers(_ layers: [TTMapLayer], withVisibility visibility:TTMapLayerVisibility) {
+
+    func changeLayers(_ layers: [TTMapLayer], withVisibility visibility: TTMapLayerVisibility) {
         layers.forEach { layer in
             layer.visibility = visibility
         }
     }
-    
+
     func turnOffLayers() {
         let layers = currentStyle.getLayersBySourceLayerRegexs(["Built-up area", "Woodland.*", ".*[rR]oad.*", ".*[mM]otorway.*"])
         changeLayers(layers, withVisibility: .none)
     }
-
 }

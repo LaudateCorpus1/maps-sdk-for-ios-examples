@@ -9,39 +9,37 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapMarkersClusteringViewController: MapBaseViewController {
-    
     override func setupCenterOnWillHappen() {}
-    
+
     override func onMapReady() {
         super.onMapReady()
         mapView.zoomToAllAnnotations()
     }
-    
+
     override func setupMap() {
         super.setupMap()
         mapView.annotationManager.clustering = true
         addRandomMarkers()
     }
-    
+
     private func addRandomMarkers() {
-        for _ in 0..<90 {
+        for _ in 0 ..< 90 {
             let coordinate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.AMSTERDAM())
             let annotation = TTAnnotation(coordinate: coordinate)
             annotation.shouldCluster = true
             mapView.annotationManager.add(annotation)
         }
-        for _ in 0..<150 {
+        for _ in 0 ..< 150 {
             let coordinate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.ROTTERDAM())
             let annotation = TTAnnotation(coordinate: coordinate)
             annotation.shouldCluster = true
             mapView.annotationManager.add(annotation)
         }
     }
-
 }

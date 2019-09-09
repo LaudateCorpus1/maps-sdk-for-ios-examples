@@ -9,14 +9,13 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-    
     var actionSheet: ActionSheet!
     var etaStyle = ETAView.ETAViewStyle.plain
     let routePlanner = TTRoute()
@@ -24,15 +23,15 @@ class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRo
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Departure at", "Arrival at"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
         actionSheet = ActionSheet(toast: toast, viewController: self)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -42,12 +41,12 @@ class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRo
             displayRouteWithDeparture()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayRouteWithDeparture() {
         etaStyle = .plain
-        actionSheet.show { (date) in
+        actionSheet.show { date in
             if let date = date {
                 self.progress.show()
                 let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROTTERDAM(), andOrig: TTCoordinate.AMSTERDAM())
@@ -59,10 +58,10 @@ class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRo
             }
         }
     }
-    
+
     func displayRouteWithArrival() {
         etaStyle = .arrival
-        actionSheet.show { (date) in
+        actionSheet.show { date in
             if let date = date {
                 self.progress.show()
                 let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROTTERDAM(), andOrig: TTCoordinate.AMSTERDAM())
@@ -74,10 +73,10 @@ class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRo
             }
         }
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -91,9 +90,8 @@ class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRo
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-
 }

@@ -12,12 +12,8 @@
 import Foundation
 
 extension (Date) {
-
     var components: (hour: Int, minute: Int) {
-        get {
-            let components = Calendar.current.dateComponents([.minute, .hour], from: self)
-            return (components.hour!, components.minute!)
-        }
+        let components = Calendar.current.dateComponents([.minute, .hour], from: self)
+        return (components.hour!, components.minute!)
     }
-
 }

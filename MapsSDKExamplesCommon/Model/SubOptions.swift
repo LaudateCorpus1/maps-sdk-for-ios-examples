@@ -12,19 +12,13 @@
 import UIKit
 
 public class SubOptions {
-    
     let iconImage: String
     let titleLabel: String
     let subtitleLabel: String
-    
+
     init(iconImage: String, titleLabel: String, subtitleLabel: String) {
         self.iconImage = iconImage
         self.titleLabel = titleLabel
         self.subtitleLabel = subtitleLabel
     }
-    
 }
-
-
-
-

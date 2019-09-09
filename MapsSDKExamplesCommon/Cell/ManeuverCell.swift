@@ -12,25 +12,23 @@
 import UIKit
 
 public class ManeuverCell: UITableViewCell {
+    @IBOutlet public var maneuverImageView: UIImageView!
+    @IBOutlet public var maneuverDistance: UILabel!
+    @IBOutlet public var maneuverDescription: UILabel!
 
-    @IBOutlet public weak var maneuverImageView: UIImageView!
-    @IBOutlet public weak var maneuverDistance: UILabel!
-    @IBOutlet public weak var maneuverDescription: UILabel!
-    
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let content = Bundle(for: type(of: self)).loadNibNamed("ManeuverCell", owner: self, options: nil)?.first as! UIView
         addSubview(content)
         content.frame = bounds
     }
-    
 }

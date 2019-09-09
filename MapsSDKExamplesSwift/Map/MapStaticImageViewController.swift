@@ -9,13 +9,12 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMapsStaticImage
+import UIKit
 
 class MapStaticImageViewController: CollectionBaseViewController {
-    
     override func getImageView(for index: Int) -> UIImageView {
         switch index {
         case 5:
@@ -35,55 +34,55 @@ class MapStaticImageViewController: CollectionBaseViewController {
 
     func getAmsterdamCustomImage() -> UIImageView {
         let query = TTStaticImageQueryBuilder.withCenter(TTCoordinate.AMSTERDAM())
-                                             .withLayer(.basic)
-                                             .withStyle(.main)
-                                             .withExt(.PNG)
-                                             .withHeight(512)
-                                             .withWidth(512)
-                                             .build()
+            .withLayer(.basic)
+            .withStyle(.main)
+            .withExt(.PNG)
+            .withHeight(512)
+            .withWidth(512)
+            .build()
         return performQuery(query)
     }
-    
+
     func getAmsterdamNightImage() -> UIImageView {
         let query = TTStaticImageQueryBuilder.withCenter(TTCoordinate.AMSTERDAM())
-                                             .withStyle(.night)
-                                             .build()
+            .withStyle(.night)
+            .build()
         return performQuery(query)
     }
-    
+
     func getAmsterdamWithZoomLevel15Image() -> UIImageView {
         let query = TTStaticImageQueryBuilder.withCenter(TTCoordinate.AMSTERDAM())
-                                             .withZoomLevel(15)
-                                             .build()
+            .withZoomLevel(15)
+            .build()
         return performQuery(query)
     }
-    
+
     func getAmsterdamWithHybrydImage() -> UIImageView {
         let query = TTStaticImageQueryBuilder.withCenter(TTCoordinate.AMSTERDAM())
-                                             .withLayer(.hybrid)
-                                             .build()
+            .withLayer(.hybrid)
+            .build()
         return performQuery(query)
     }
-    
+
     func getAmsterdamWithAzureStyleImage() -> UIImageView {
         let query = TTStaticImageQueryBuilder.withCenter(TTCoordinate.AMSTERDAM())
-                                             .withCustomStyle("main-azure")
-                                             .build()
+            .withCustomStyle("main-azure")
+            .build()
         return performQuery(query)
     }
-    
+
     func getAmsterdamNightWithZoomLevel8Image() -> UIImageView {
         let query = TTStaticImageQueryBuilder.withCenter(TTCoordinate.AMSTERDAM())
-                                             .withStyle(.night)
-                                             .withZoomLevel(8)
-                                             .build()
+            .withStyle(.night)
+            .withZoomLevel(8)
+            .build()
         return performQuery(query)
     }
-    
+
     private func performQuery(_ query: TTStaticImageQuery) -> UIImageView {
         let imageView = ProgressImageView(frame: CGRect.zero)
         let staticImage = TTStaticImage()
-        staticImage.image(for: query) { (image, response) in
+        staticImage.image(for: query) { image, _ in
             guard let image = image else {
                 return
             }
@@ -91,5 +90,4 @@ class MapStaticImageViewController: CollectionBaseViewController {
         }
         return imageView
     }
-
 }

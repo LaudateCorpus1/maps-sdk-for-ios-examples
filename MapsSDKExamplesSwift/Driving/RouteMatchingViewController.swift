@@ -9,26 +9,25 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
 import TomTomOnlineSDKMapsDriving
 import TomTomOnlineSDKRouting
+import UIKit
 
 class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTMatcherDelegate, TTRouteResponseDelegate {
-
     let routePlanner = TTRoute()
     var waypoints = [TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_A(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_B(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_C()]
-    var route:TTMapRoute?
+    var route: TTMapRoute?
     var source: DrivingSource?
     var chevron: TTChevronObject?
     var matcher: TTMatcher?
     var timer: Timer?
     var startSending = false
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
     }
@@ -59,7 +58,7 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
         let animation = TTChevronAnimationOptionsBuilder.create(withAnimatedCornerRounding: true).build()
         chevron = TTChevronObject(normalImage: TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage(), with: animation)
     }
-    
+
     func createRoute() {
         progress.show()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.LODZ_SREBRZYNSKA_STOP(), andOrig: TTCoordinate.LODZ_SREBRZYNSKA_START())
@@ -72,7 +71,7 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
         mapView.trackingManager.add(chevron!)
         mapView.trackingManager.setBearingSmoothingFilter(TTTrackingManagerDefault.bearingSmoothFactor())
         mapView.trackingManager.start(chevron!)
-        source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!);
+        source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!)
         source?.activate()
 
         let camera = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.LODZ_SREBRZYNSKA_START())
@@ -81,7 +80,7 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
             .withPitch(TTCamera.DEFAULT_MAP_PITCH_FLAT())
             .withZoom(17)
             .build()
-        
+
         mapView.setCameraPosition(camera)
     }
 
@@ -90,24 +89,24 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
         matcher?.setMatcherLocation(location)
     }
 
-    public func matcherResultMatchedLocation(_ matched: TTMatcherLocation, withOriginalLocation original: TTMatcherLocation, isMatched: Bool) {
+    public func matcherResultMatchedLocation(_ matched: TTMatcherLocation, withOriginalLocation original: TTMatcherLocation, isMatched _: Bool) {
         drawRedCircle(coordinate: original.coordinate)
         source?.updateLocation(location: matched)
         chevron?.isHidden = false
-     }
+    }
 
     func drawRedCircle(coordinate: CLLocationCoordinate2D) {
-        mapView.annotationManager.removeAllOverlays();
+        mapView.annotationManager.removeAllOverlays()
         let redCircle = TTCircle(center: coordinate, radius: 2, opacity: 1, width: 10, color: UIColor.red, fill: true, colorOutlet: UIColor.red)
         mapView.annotationManager.add(redCircle)
     }
-    
+
     private func sendingLocation(mapRoute: TTFullRoute) {
-        var index = 0;
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
-            index = index + 1;
+        var index = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+            index = index + 1
             if index == mapRoute.coordinatesData().count {
-                index = 0;
+                index = 0
             }
 
             if index - 1 < 0 {
@@ -125,10 +124,10 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
             self.matching(providerLocation: providerLocation)
         })
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -144,8 +143,8 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
         start()
         sendingLocation(mapRoute: plannedRoute)
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
 }

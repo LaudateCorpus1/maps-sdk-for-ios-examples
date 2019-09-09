@@ -9,13 +9,12 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseDelegate {
-
     let routePlanner = TTRoute()
     var waypoints = [TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_A(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_B(),
@@ -23,22 +22,22 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
 
     var source: MapFollowTheChevronSource?
     private var chevron: TTChevronObject?
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
     }
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Start tracking", "Stop tracking"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
-        mapView.contentInset = TTCamera.MAP_DEFAULT_INSETS();
+        mapView.contentInset = TTCamera.MAP_DEFAULT_INSETS()
         progress.show()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         source?.deactivate()
         super.viewWillDisappear(animated)
@@ -73,7 +72,7 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
     }
 
     func start() {
-        let camera = TTCameraPositionBuilder.create(withCameraPosition:TTCoordinate.LODZ_SREBRZYNSKA_START())
+        let camera = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.LODZ_SREBRZYNSKA_START())
             .withAnimationDuration(TTCamera.ANIMATION_TIME())
             .withBearing(TTCamera.BEARING_START())
             .withPitch(TTCamera.DEFAULT_MAP_PITCH_LEVEL_FOR_DRIVING())
@@ -81,7 +80,7 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
             .build()
         mapView.setCameraPosition(camera)
 
-        guard let chevron = self.chevron else {return}
+        guard let chevron = self.chevron else { return }
         mapView.trackingManager.setBearingSmoothingFilter(TTTrackingManagerDefault.bearingSmoothFactor())
         mapView.trackingManager.start(chevron)
     }
@@ -90,10 +89,10 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
         mapView.trackingManager.stop(chevron!)
         displayRouteOverview()
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -112,9 +111,8 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
         source = MapFollowTheChevronSource(trackingManager: self.mapView.trackingManager, trackingObject: self.chevron!, route: mapRoute)
         source?.activate()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-
 }

@@ -9,12 +9,11 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
+import UIKit
 
 class MapCenteringViewController: MapBaseViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         centerOnAmsterdam()
@@ -23,11 +22,11 @@ class MapCenteringViewController: MapBaseViewController {
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Amsterdam", "Berlin", "London"], selectedID: 0)
     }
-    
+
     override func setupCenterOnWillHappen() {}
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -39,19 +38,18 @@ class MapCenteringViewController: MapBaseViewController {
             centerOnAmsterdam()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func centerOnAmsterdam() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 10)
     }
-    
+
     func centerOnBerlin() {
         mapView.center(on: TTCoordinate.BERLIN(), withZoom: 10)
     }
-    
+
     func centerOnLondon() {
         mapView.center(on: TTCoordinate.LONDON(), withZoom: 10)
     }
-
 }

@@ -9,29 +9,28 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
-    
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 12)
     }
-    
-    weak var secoundMap:TTMapView!
-    
+
+    weak var secoundMap: TTMapView!
+
     override func setupMap() {
         super.setupMap()
         mapView.delegate = self
     }
-    
+
     override func onMapReady() {
         super.onMapReady()
         self.setupSecoundMap()
     }
-    
+
     func setupSecoundMap() {
         let map = TTMapView(frame: CGRect.zero)
         self.secoundMap = map
@@ -45,9 +44,10 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
         self.secoundMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.AMSTERDAM()).withZoom(8).build())
         drowShapes()
     }
-    
-    //MARK: TTMapViewDelegate
-    func mapView(_ mapView: TTMapView, didChangedCameraPosition cameraPosition: TTCameraPosition) {
+
+    // MARK: TTMapViewDelegate
+
+    func mapView(_: TTMapView, didChangedCameraPosition cameraPosition: TTCameraPosition) {
         updateSecoundMap(coordinate: cameraPosition.cameraPosition)
     }
 
@@ -61,18 +61,17 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
         coordinates.append(self.mapView.currentBounds().nwBounds)
         let color = UIColor.yellow
         let pointsCount = 5
-        let polyLine = TTPolyline(coordinates: &coordinates, count: (UInt(pointsCount)), opacity: 1, width: 1.0, color: color)
+        let polyLine = TTPolyline(coordinates: &coordinates, count: UInt(pointsCount), opacity: 1, width: 1.0, color: color)
         self.secoundMap.annotationManager.add(polyLine)
     }
-    
+
     func updateSecoundMap(coordinate: CLLocationCoordinate2D) {
-        if(self.secoundMap != nil){
+        if self.secoundMap != nil {
             drowShapes()
             self.secoundMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: coordinate).build())
-            
         }
     }
-    
+
     func setupConstrains() {
         let mapSize = super.mapView.bounds.width / 2
         self.secoundMap.translatesAutoresizingMaskIntoConstraints = false

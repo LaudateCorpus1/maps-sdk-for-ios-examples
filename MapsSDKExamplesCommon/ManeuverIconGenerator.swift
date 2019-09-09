@@ -9,8 +9,8 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import TomTomOnlineSDKRouting
+import UIKit
 
 /**
  This is not accurate implementation of maneuver icon geenration.
@@ -18,12 +18,11 @@ import TomTomOnlineSDKRouting
  Many of edge cases are not covered here.
  */
 public class ManeuverIconGenerator: NSObject {
-
     @objc public static func imageForInstruction(_ instruction: TTInstruction) -> UIImage {
         var direction: String = ""
         let maneuver = instruction.maneuver
         if maneuver.contains("TURN") || maneuver.contains("SHARP") {
-            let myArray = maneuver.components(separatedBy: CharacterSet.init(charactersIn: "_"))
+            let myArray = maneuver.components(separatedBy: CharacterSet(charactersIn: "_"))
             direction = String(format: "maneuver_%@_%ld", myArray.last!.lowercased(), labs(instruction.turnAngleInDecimalDegreesValue))
         } else if maneuver.contains("ROUNDABOUT") {
             direction = "maneuver_roundabout_right_\(labs(instruction.turnAngleInDecimalDegreesValue))"
@@ -41,5 +40,4 @@ public class ManeuverIconGenerator: NSObject {
         }
         return UIImage(named: "maneuver_straight")!
     }
-    
 }

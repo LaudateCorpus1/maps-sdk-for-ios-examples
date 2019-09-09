@@ -9,11 +9,10 @@
  * immediately return it to TomTom N.V.
  */
 
-import TomTomOnlineSDKRouting
 import MapsSDKExamplesCommon
+import TomTomOnlineSDKRouting
 
 class ReachableRangeQueryFactory: NSObject {
-
     func createReachableRangeQueryForElectric() -> TTReachableRangeQuery {
         var speedConsumption = [TTSpeedConsumptionMake(50, 6.3)]
         let query = TTReachableRangeQueryBuilder.create(withCenterLocation: TTCoordinate.AMSTERDAM())
@@ -31,7 +30,7 @@ class ReachableRangeQueryFactory: NSObject {
             .build()
         return query
     }
-    
+
     func createReachableRangeQueryForElectricLimitTo2Hours() -> TTReachableRangeQuery {
         var speedConsumption = [TTSpeedConsumptionMake(50, 6.3)]
         let query = TTReachableRangeQueryBuilder.create(withCenterLocation: TTCoordinate.AMSTERDAM())
@@ -49,7 +48,7 @@ class ReachableRangeQueryFactory: NSObject {
             .build()
         return query
     }
-    
+
     func createReachableRangeQueryForCombustion() -> TTReachableRangeQuery {
         var speedConsumption = [TTSpeedConsumptionMake(50, 6.3)]
         let query = TTReachableRangeQueryBuilder.create(withCenterLocation: TTCoordinate.AMSTERDAM())

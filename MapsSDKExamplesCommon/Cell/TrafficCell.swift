@@ -12,26 +12,24 @@
 import UIKit
 
 public class TrafficCell: UITableViewCell {
+    @IBOutlet public var trafficImageView: UIImageView!
+    @IBOutlet public var trafficDescription: UILabel!
+    @IBOutlet public var trafficDelay: UILabel!
+    @IBOutlet public var trafficLength: UILabel!
 
-    @IBOutlet public weak var trafficImageView: UIImageView!
-    @IBOutlet public weak var trafficDescription: UILabel!
-    @IBOutlet public weak var trafficDelay: UILabel!
-    @IBOutlet public weak var trafficLength: UILabel!
-    
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
+
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let content = Bundle(for: type(of: self)).loadNibNamed("TrafficCell", owner: self, options: nil)?.first as! UIView
         addSubview(content)
         content.frame = bounds
     }
-    
 }

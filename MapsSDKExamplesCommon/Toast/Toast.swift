@@ -12,7 +12,7 @@
 import UIKit
 
 public class Toast: NSObject {
-    
+    @objc public let delayTime: TimeInterval = 0.5
     weak var window: UIWindow!
     weak var toastView: ToastView!
     var timer: Timer!
@@ -28,22 +28,21 @@ public class Toast: NSObject {
             self.toastView = toastView
             let superView = toastView.superview!
             toastView.translatesAutoresizingMaskIntoConstraints = false
-            toastView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-            toastView.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -40).isActive = true
+            toastView.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
+            toastView.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -60).isActive = true
             toastView.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
-            toastView.widthAnchor.constraint(equalToConstant: 280).isActive = true
+            toastView.widthAnchor.constraint(equalTo: superView.widthAnchor, constant: -10).isActive = true
         }
         toastView.text = message
 
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
             self.dismiss()
         })
     }
-    
+
     @objc public func dismiss() {
         toastView?.removeFromSuperview()
         timer.invalidate()
     }
-
 }

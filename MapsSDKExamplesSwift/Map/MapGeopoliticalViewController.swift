@@ -9,22 +9,21 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
+import UIKit
 
 class MapGeopoliticalViewController: MapBaseViewController {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Unified", "Local"], selectedID: 0)
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.ISRAEL(), withZoom: 7)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -34,15 +33,14 @@ class MapGeopoliticalViewController: MapBaseViewController {
             displayGeopoliticalViewInternational()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayGeopoliticalViewInternational() {
         mapView.setGeopolitical(.none)
     }
-    
+
     func displayGeopoliticalViewLocal() {
         mapView.setGeopolitical(.IL)
     }
-
 }

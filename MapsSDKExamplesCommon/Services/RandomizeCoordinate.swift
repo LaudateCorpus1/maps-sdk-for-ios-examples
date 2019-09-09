@@ -9,14 +9,12 @@
  * immediately return it to TomTom N.V.
  */
 
-import Foundation
 import CoreLocation
+import Foundation
 import TomTomOnlineUtils
 
 @objc public class RandomizeCoordinate: NSObject {
-
     @objc public class func interpolate(coordinate: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
-
         let precision: Double = 0.00010
         let beginningOfTheRange = Float(-precision)
         let endOfTheRange = Float(precision)
@@ -26,6 +24,5 @@ import TomTomOnlineUtils
         let foundLongitude = Float(coordinate.longitude) + ((Float(UInt(arc4random()) % (UInt(RAND_MAX) + 1)) / Float(RAND_MAX)) * diff) + beginningOfTheRange
 
         return CLLocationCoordinate2DMake(CLLocationDegrees(foundLatitude), CLLocationDegrees(foundLongitude))
-
     }
 }

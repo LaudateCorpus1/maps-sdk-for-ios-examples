@@ -9,39 +9,38 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import TomTomOnlineSDKRouting
+import UIKit
 
 public class ETAView: UIView {
-    
     @objc public enum ETAViewStyle: Int {
         case plain
         case arrival
         case consumptionKWh
         case consumptionLiters
     }
-    
-    @IBOutlet weak var leftIcon: UIImageView!
-    @IBOutlet weak var distance: UILabel!
-    @IBOutlet weak var time: UILabel!
-    
+
+    @IBOutlet var leftIcon: UIImageView!
+    @IBOutlet var distance: UILabel!
+    @IBOutlet var time: UILabel!
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
+
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let contentView = Bundle.main.loadNibNamed("ETAView", owner: self, options: nil)?.first as! UIView
         self.bounds = contentView.bounds
         addSubview(contentView)
         isHidden = true
     }
-    
+
     @objc public func show(summary: TTSummary, style: ETAView.ETAViewStyle) {
         let components = summary.arrivalTime.components
         switch style {
@@ -65,14 +64,14 @@ public class ETAView: UIView {
         distance.text = "\(FormatUtils.formatDistance(meters: UInt(summary.lengthInMetersValue)))"
         isHidden = false
     }
-    
-    @objc public func update(eta: String, metersDistance: UInt){
+
+    @objc public func update(eta: String, metersDistance: UInt) {
         time.text = eta
         distance.text = "\(FormatUtils.formatDistance(meters: metersDistance))"
         isHidden = false
     }
-    
-    @objc public func update(text: String, icon: UIImage){
+
+    @objc public func update(text: String, icon: UIImage) {
         time.text = text
         time.font = UIFont(name: time.font.fontName, size: 12)
         leftIcon.image = icon
@@ -82,9 +81,8 @@ public class ETAView: UIView {
         }
         isHidden = false
     }
-    
+
     @objc public func hide() {
         isHidden = true
     }
-    
 }

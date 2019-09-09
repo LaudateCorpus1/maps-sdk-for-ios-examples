@@ -9,44 +9,41 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapRasterTrafficViewController: MapBaseViewController {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewMultiSelectWithReset(labels: ["Incidents", "Flow", "No traffic"], selectedID: 2)
     }
-    
+
     override func setupMap() {
         super.setupMap()
         mapView.setTilesType(.raster)
         mapView.trafficTileStyle = TTRasterTileType.setStyle(.relative)
         mapView.trafficIncidentsStyle = .raster
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.LONDON(), withZoom: 12)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
         case 2:
             hideIncidents()
             hideFlow()
-            break;
         case 1:
             if on {
                 displayFlow()
             } else {
                 hideFlow()
             }
-            break;
         default:
             if on {
                 displayIncidents()
@@ -55,9 +52,9 @@ class MapRasterTrafficViewController: MapBaseViewController {
             }
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayIncidents() {
         mapView.trafficIncidentsOn = true
     }
@@ -65,7 +62,7 @@ class MapRasterTrafficViewController: MapBaseViewController {
     func hideIncidents() {
         mapView.trafficIncidentsOn = false
     }
-    
+
     func displayFlow() {
         mapView.trafficFlowOn = true
     }
@@ -73,5 +70,4 @@ class MapRasterTrafficViewController: MapBaseViewController {
     func hideFlow() {
         mapView.trafficFlowOn = false
     }
-
 }

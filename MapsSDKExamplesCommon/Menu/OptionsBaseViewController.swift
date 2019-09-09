@@ -12,32 +12,30 @@
 import UIKit
 
 public class OptionsBaseViewController: UICollectionViewController {
-    
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationController?.navigationBar.barTintColor = TTColor.BlackLight()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = TTColor.White()
-        
+
         setupRightButton()
     }
 
-    func setupRightButton(){
+    func setupRightButton() {
         let customNavView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        let copyrightButton = UIButton(frame: CGRect(x:0,y:0, width:20, height:20))
+        let copyrightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         copyrightButton.setImage(UIImage(named: "info_icon"), for: UIControlState.normal)
-        
+
         copyrightButton.addTarget(self, action: #selector(self.pressCopyrightButton), for: UIControlEvents.touchUpInside)
         customNavView.addSubview(copyrightButton)
         let rightBarButton = UIBarButtonItem(customView: customNavView)
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
-    
-    @objc func pressCopyrightButton(_ button: UIButton) {
+
+    @objc func pressCopyrightButton(_: UIButton) {
         let aboutViewController = AboutViewController()
         navigationController?.pushViewController(aboutViewController, animated: true)
     }
-
 }

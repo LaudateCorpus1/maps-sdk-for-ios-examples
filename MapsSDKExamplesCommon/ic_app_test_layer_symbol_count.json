@@ -1,0 +1,23 @@
+{
+    "filter": [
+        "has",
+        "point_count"
+    ],
+    "id": "IC-app-test-layer-symbol-count",
+    "source": "IC-app-test-source",
+    "type": "symbol",
+    "layout": {
+        "text-field": "{point_count}",
+        "text-font": [
+            "Noto-Bold"
+        ],
+        "text-size": 14,
+        "text-offset": [
+            0.0,
+            0.0
+        ]
+    },
+    "paint": {
+        "text-color": "#FFFFFF"
+    }
+}

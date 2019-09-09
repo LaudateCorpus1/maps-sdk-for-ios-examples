@@ -9,29 +9,28 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-
     let routePlanner = TTRoute()
     var routeStyle = TTMapRouteStyleBuilder().build()
     var iconStart = TTMapRoute.defaultImageDeparture()
     var iconEnd = TTMapRoute.defaultImageDestination()
     var isSegmeneted = false
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Basic", "Custom", "Segmented"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
     }
-    
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -47,16 +46,16 @@ class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteRes
             displayBasicRoute()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayBasicRoute() {
         routeStyle = TTMapRouteStyle.defaultActive()
         iconStart = TTMapRoute.defaultImageDeparture()
         iconEnd = TTMapRoute.defaultImageDestination()
         planRoute()
     }
-    
+
     func displayCustomRoute() {
         routeStyle = TTMapRouteStyleBuilder()
             .withWidth(2.0)
@@ -71,7 +70,7 @@ class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteRes
     func displaySegmentedRoute() {
         planSegmentedRoute()
     }
-    
+
     private func planRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withTravelMode(.car)
@@ -86,10 +85,10 @@ class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteRes
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
 
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -101,7 +100,7 @@ class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteRes
     }
 
     func arrayOfCoordiantes(plannedRoute: TTFullRoute, start: Int, end: Int) -> [CLLocationCoordinate2D] {
-        let section = plannedRoute.coordinatesData()[start..<end]
+        let section = plannedRoute.coordinatesData()[start ..< end]
 
         var coordinateArray: [CLLocationCoordinate2D] = []
         for valueCoordiantes in section {
@@ -113,7 +112,7 @@ class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteRes
             }
             coordinateArray.append(locationCoord)
         }
-        return coordinateArray;
+        return coordinateArray
     }
 
     func routeSegmetedPlanned(plannedRoute: TTFullRoute) {
@@ -129,7 +128,7 @@ class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteRes
         let endPoint1 = plannedRoute.sections[0].endPointIndexValue
 
         var coordinatesSection1 = arrayOfCoordiantes(plannedRoute: plannedRoute, start: startPoint1, end: endPoint1)
-        let mapRoute = TTMapRoute(coordinates: &coordinatesSection1, count: UInt(coordinatesSection1.count) , with: routeStyle1,
+        let mapRoute = TTMapRoute(coordinates: &coordinatesSection1, count: UInt(coordinatesSection1.count), with: routeStyle1,
                                   imageStart: iconStart, imageEnd: iconEnd)
 
         // Section 2
@@ -172,9 +171,8 @@ class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteRes
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-    
 }

@@ -9,28 +9,27 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKSearch
+import UIKit
 
 class SearchMaxFuzzinessLevelViewController: SearchBaseViewController, TTSearchDelegate {
-    
     let search = TTSearch()
-    
+
     override func segmentsForControllSelected() -> Int {
         return 0
     }
-    
-    override func segmentsForControll() -> [String]  {
+
+    override func segmentsForControll() -> [String] {
         return ["Max 1", "Max 2", "Max 3"]
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         search.delegate = self
     }
-    
+
     override func segmentChanged(_ sender: UISegmentedControl) {
         guard locationManager.lastLocation != nil else {
             toast.toast(message: "Location not determined")
@@ -43,7 +42,7 @@ class SearchMaxFuzzinessLevelViewController: SearchBaseViewController, TTSearchD
             searchForTerm(term, maxFuzzyLevel: UInt(sender.selectedSegmentIndex + 1))
         }
     }
-    
+
     override func searchBarFinishedEditting(with term: String) {
         guard locationManager.lastLocation != nil else {
             toast.toast(message: "Location not determined")
@@ -53,9 +52,9 @@ class SearchMaxFuzzinessLevelViewController: SearchBaseViewController, TTSearchD
         progress.show()
         searchForTerm(term, maxFuzzyLevel: UInt(segmentedControl!.selectedSegmentIndex + 1))
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func searchForTerm(_ term: String, maxFuzzyLevel: UInt) {
         let query = TTSearchQueryBuilder.create(withTerm: term)
             .withMinFuzzyLevel(1)
@@ -64,17 +63,15 @@ class SearchMaxFuzzinessLevelViewController: SearchBaseViewController, TTSearchD
             .build()
         search.search(with: query)
     }
-    
-    //MARK: TTSearchDelegate
-    
-    func search(_ search: TTSearch, completedWith response: TTSearchResponse) {
+
+    // MARK: TTSearchDelegate
+
+    func search(_: TTSearch, completedWith response: TTSearchResponse) {
         progress.hide()
         displayResults(response.results)
     }
-    
-    func search(_ search: TTSearch, failedWithError error: TTResponseError) {
+
+    func search(_: TTSearch, failedWithError error: TTResponseError) {
         handleError(error)
     }
-    
 }
-

@@ -9,23 +9,22 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKTraffic
+import UIKit
 
 class TrafficIncidentsViewController: TrafficBaseViewController, TTTrafficIncidentsDelegate {
-    
     let traffic = TTTrafficIncidents()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         traffic.delegate = self
         displayIncidents()
     }
 
-    //MARK: Example
-    
+    // MARK: Example
+
     func displayIncidents() {
         progress.show()
         let bounds = TTLatLngBoundsMake(TTCoordinate.LONDON_TOP_LEFT(), TTCoordinate.LONDON_BOTTOM_RIGHT())
@@ -33,16 +32,16 @@ class TrafficIncidentsViewController: TrafficBaseViewController, TTTrafficIncide
             .build()
         traffic.incidentDetails(with: query)
     }
-    
-    //MARK: TTTrafficIncidentsDelegate
-    
-    func incidentDetails(_ trafficIncidents: TTTrafficIncidents, completedWith response: TTIncidentDetailsResponse) {
+
+    // MARK: TTTrafficIncidentsDelegate
+
+    func incidentDetails(_: TTTrafficIncidents, completedWith response: TTIncidentDetailsResponse) {
         progress.hide()
         displayResults(response.incidents)
     }
-    
-    func incidentDetails(_ trafficIncidents: TTTrafficIncidents, failedWithError error: TTResponseError) {
+
+
+    func incidentDetails(_: TTTrafficIncidents, failedWithError error: TTResponseError) {
         handleError(error)
     }
-    
 }

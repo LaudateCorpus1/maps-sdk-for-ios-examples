@@ -9,24 +9,23 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
+import UIKit
 
 class MapShapesViewController: MapBaseViewController, TTAnnotationDelegate {
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Polygon", "Polyline", "Circle"], selectedID: -1)
     }
-    
+
     override func setupMap() {
         super.setupMap()
         mapView.annotationManager.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.annotationManager.removeAllOverlays()
@@ -39,9 +38,9 @@ class MapShapesViewController: MapBaseViewController, TTAnnotationDelegate {
             displayPolygon()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayPolygon() {
         let color = UIColor.random
         let pointsCount = 24
@@ -49,7 +48,7 @@ class MapShapesViewController: MapBaseViewController, TTAnnotationDelegate {
         let polygon = TTPolygon(coordinates: &coordinates, count: UInt(pointsCount), opacity: 1, color: color, colorOutline: color)
         mapView.annotationManager.add(polygon)
     }
-    
+
     func displayPolyline() {
         let color = UIColor.random
         let pointsCount = 24
@@ -57,25 +56,27 @@ class MapShapesViewController: MapBaseViewController, TTAnnotationDelegate {
         let polyline = TTPolyline(coordinates: &coordinates, count: UInt(pointsCount), opacity: 1, width: 8, color: color)
         mapView.annotationManager.add(polyline)
     }
-    
+
     func displayCircle() {
         let color = UIColor.random
         let circle = TTCircle(center: TTCoordinate.AMSTERDAM(), radius: 5000, opacity: 1, width: 10, color: color, fill: true, colorOutlet: color)
         mapView.annotationManager.add(circle)
     }
-    
-    //MARK: TTAnnotationDelegate
-    
-    func annotationManager(_ manager: TTAnnotationManager, touchUp polygon: TTPolygon) {
-        //called when polygon clicked
+
+    // MARK: TTAnnotationDelegate
+
+    func annotationManager(_: TTAnnotationManager, touchUp _: TTPolygon) {
+        // called when polygon clicked
     }
-    
-    func annotationManager(_ manager: TTAnnotationManager, touchUp circle: TTCircle) {
-        //called when circle clicked
+
+
+    func annotationManager(_: TTAnnotationManager, touchUp _: TTCircle) {
+        // called when circle clicked
     }
-    
-    func annotationManager(_ manager: TTAnnotationManager, touchUp polyline: TTPolyline) {
-        //called when polyline clicked
+
+
+    func annotationManager(_: TTAnnotationManager, touchUp _: TTPolyline) {
+        // called when polyline clicked
     }
 
 }

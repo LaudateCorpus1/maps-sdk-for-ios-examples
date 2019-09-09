@@ -12,22 +12,22 @@
 import UIKit
 
 class SubOptionsCollectionViewCell: UICollectionViewCell {
-
-    override init(frame: CGRect){
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has been implement")
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.preservesSuperviewLayoutMargins = false
         self.layoutMargins = .zero
     }
-    
-    func setup(){
+
+    func setup() {
         self.backgroundColor = TTColor.White()
         addSubview(iconImage)
         setupLayoutForImg()
@@ -37,9 +37,8 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
         self.setupLabelLayout()
         self.addSubview(subtitleLabel)
         self.setupLayoutSubTitle()
-        
     }
-    
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Map tiles"
@@ -47,19 +46,20 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .left
         label.numberOfLines = 2
+        label.minimumScaleFactor = 0.6
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
-    
-    func setupLabelLayout(){
+
+    func setupLabelLayout() {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-7-[v1]-2-[v2]-10-|", options: [], metrics: nil, views: ["v0": iconImage,
-                                                                                                                                  "v1": titleLabel,
-                                                                                                                                  "v2": goIntoButton]))
+                                                                                                                                         "v1": titleLabel,
+                                                                                                                                         "v2": goIntoButton]))
         titleLabel.topAnchor.constraint(equalTo: self.iconImage.topAnchor, constant: 10).isActive = true
     }
-    
-    
+
     let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Show map visualization in your app using vector tiles, raster tiles, traffic"
@@ -67,52 +67,53 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
         label.numberOfLines = 4
+        label.minimumScaleFactor = 0.6
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
-    
-    func setupLayoutSubTitle(){
+
+    func setupLayoutSubTitle() {
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 10).isActive = true
-        
+
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v1]-7-[v0]-15-|", options: [], metrics: nil, views: ["v0": subtitleLabel,
-                                                                                                                                   "v1": iconImage]))
+                                                                                                                                  "v1": iconImage]))
     }
-    
-    let iconImage:UIImageView = {
+
+    let iconImage: UIImageView = {
         let iv = UIImageView()
 
         iv.contentMode = .scaleToFill
         iv.contentMode = .scaleAspectFill
         iv.layer.masksToBounds = true
-        
+
         return iv
     }()
-    
-    func setupLayoutForImg(){
+
+    func setupLayoutForImg() {
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-0-|", options: [], metrics: nil, views: ["v0": iconImage]))
-        iconImage.bottomAnchor.constraint(equalTo:self.bottomAnchor, constant: 0).isActive = true
+        iconImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         iconImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
-    
-    let goIntoButton:UIButton = {
+
+    let goIntoButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "Combined-Shape-Hilight"), for: UIControlState.normal)
         button.setImage(UIImage(named: "Combined-Shape"), for: UIControlState.highlighted)
         button.addTarget(self, action: #selector(pressButton(_:)), for: .touchUpInside)
-        
+
         return button
     }()
-    
-    func setUpLayoutButton(){
+
+    func setUpLayoutButton() {
         goIntoButton.translatesAutoresizingMaskIntoConstraints = false
         goIntoButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 15).isActive = true
         goIntoButton.heightAnchor.constraint(equalToConstant: 15).isActive = true
         goIntoButton.widthAnchor.constraint(equalToConstant: 10).isActive = true
     }
-    
+
     @objc func pressButton(_ button: UIButton) {
         print("Button with tag: \(button.tag) clicked!")
     }
-    
 }

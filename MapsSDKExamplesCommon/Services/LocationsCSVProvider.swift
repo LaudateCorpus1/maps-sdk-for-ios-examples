@@ -9,14 +9,13 @@
  * immediately return it to TomTom N.V.
  */
 
-import Foundation
 import CoreLocation
+import Foundation
 
 @objc public class LocationCSVProvider: NSObject {
-
     let TIME_COL_IDX: Int = 0
     let PROVIDER_COL_IDX: Int = 1
-    let LATITUDE_COL_IDX: Int =  2
+    let LATITUDE_COL_IDX: Int = 2
     let LONGITUDE_COL_IDX: Int = 3
     let ACCURACY_COL_IDX: Int = 4
     let BEARING_COL_IDX: Int = 5
@@ -26,7 +25,6 @@ import CoreLocation
     @objc public var locations: [ProviderLocation] = []
 
     @objc public init(csvFile filename: String?) {
-
         let strPath = Bundle.main.path(forResource: filename, ofType: "csv")
         let strFile = try? String(contentsOfFile: strPath ?? "", encoding: .utf8)
 

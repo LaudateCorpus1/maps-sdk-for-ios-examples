@@ -11,13 +11,11 @@
 
 import UIKit
 
-
 public class OptionsViewController: OptionsBaseViewController, UICollectionViewDelegateFlowLayout {
-    
     @objc public weak var exampleDelegate: ExampleDisplayRequest?
     private let reuseIdentifier = "cellID"
 
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView?.backgroundColor = TTColor.BlackLight()
@@ -26,15 +24,15 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
         collectionView?.register(OptionsCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
-    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        collectionView?.collectionViewLayout.invalidateLayout();
+    public override func viewWillTransition(to _: CGSize, with _: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
 
-    override public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return MenuLabels.valueArray.count
     }
 
-    override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! OptionsCollectionViewCell
 
         let option = MenuLabels.valueArray[indexPath.row]
@@ -42,30 +40,29 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
         cell.mainImage.image = UIImage(named: option.mainImage, in: Bundle(for: OptionsViewController.self), compatibleWith: nil)
         cell.titleLabel.text = option.titleLabel
         cell.subtitleLabel.text = option.subtitleLabel
-        
+
         return cell
     }
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
+    public func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         let orientation = UIApplication.shared.statusBarOrientation
         let spaceLeftAndRight = TTCollectionViewCell.UIEdgeInsetRight + TTCollectionViewCell.UIEdgeInsetLeft
 
-        if (UIInterfaceOrientationIsPortrait(orientation)) {
-            return CGSize(width:(self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.OptionHeightPortrait);
+        if UIInterfaceOrientationIsPortrait(orientation) {
+            return CGSize(width: (self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.OptionHeightPortrait)
         } else {
-            return CGSize(width:(self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.OptionHeightLandscape);
+            return CGSize(width: (self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.OptionHeightLandscape)
         }
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    public func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: TTCollectionViewCell.UIEdgeInsetTop,
                             left: TTCollectionViewCell.UIEdgeInsetLeft,
                             bottom: TTCollectionViewCell.UIEdgeInsetBottom,
                             right: TTCollectionViewCell.UIEdgeInsetRight)
     }
-    
-    override public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    public override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
         let nextVC = SubOptionsViewController(collectionViewLayout: layout)
         nextVC.exampleDelegate = exampleDelegate
@@ -73,9 +70,8 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
         nextVC.category = MenuLabels.valueArray[indexPath.row].category
         navigationController?.pushViewController(nextVC, animated: true)
     }
-    
+
     @objc public func displayExample(_ example: UIViewController) {
         navigationController?.pushViewController(example, animated: true)
     }
-
 }

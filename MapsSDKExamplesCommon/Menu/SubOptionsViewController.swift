@@ -16,7 +16,6 @@ import UIKit
 }
 
 class SubOptionsViewController: OptionsBaseViewController, UICollectionViewDelegateFlowLayout {
-
     let reuseIdentifier = "cell"
     var subOptionsArray: [SubOptions] = []
     var category: Options.Category!
@@ -24,18 +23,18 @@ class SubOptionsViewController: OptionsBaseViewController, UICollectionViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.collectionView?.backgroundColor = TTColor.Black()
         navigationItem.title = "TomTom Maps SDK"
-        
+
         collectionView?.register(SubOptionsCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        collectionView?.collectionViewLayout.invalidateLayout();
+    override func viewWillTransition(to _: CGSize, with _: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return subOptionsArray.count
     }
 
@@ -47,28 +46,26 @@ class SubOptionsViewController: OptionsBaseViewController, UICollectionViewDeleg
         cell.subtitleLabel.text = subOption.subtitleLabel
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         let orientation = UIApplication.shared.statusBarOrientation
         let spaceLeftAndRight = TTCollectionViewCell.UIEdgeInsetRight + TTCollectionViewCell.UIEdgeInsetLeft
 
-        if (UIInterfaceOrientationIsPortrait(orientation)) {
-            return CGSize(width:(self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.HeightPortrait);
+        if UIInterfaceOrientationIsPortrait(orientation) {
+            return CGSize(width: (self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.HeightPortrait)
         } else {
-            return CGSize(width:(self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.HeightLandscape);
+            return CGSize(width: (self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.HeightLandscape)
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: TTCollectionViewCell.UIEdgeInsetTop,
                             left: TTCollectionViewCell.UIEdgeInsetLeft,
                             bottom: TTCollectionViewCell.UIEdgeInsetBottom,
                             right: TTCollectionViewCell.UIEdgeInsetRight)
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         exampleDelegate?.requestExample(index: indexPath.row, category: category)
     }
-
 }

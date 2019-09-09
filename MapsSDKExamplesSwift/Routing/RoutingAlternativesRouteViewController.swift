@@ -9,28 +9,27 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingAlternativesRouteViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTRouteDelegate {
-
     let routePlanner = TTRoute()
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["1", "3", "5"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
         mapView.routeManager.delegate = self
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -44,33 +43,33 @@ class RoutingAlternativesRouteViewController: RoutingBaseViewController, TTRoute
             displayRouteWith1Alternative()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayRouteWith1Alternative() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withMaxAlternatives(1)
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayRouteWith3Alternative() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withMaxAlternatives(3)
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayRouteWith5Alternative() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.AMSTERDAM(), andOrig: TTCoordinate.ROTTERDAM())
             .withMaxAlternatives(5)
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         var activeRoute: TTMapRoute?
         for planedRoute in result.routes {
             if activeRoute == nil {
@@ -95,13 +94,13 @@ class RoutingAlternativesRouteViewController: RoutingBaseViewController, TTRoute
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-    
-    //MARK: TTRouteDelegate
-    
+
+    // MARK: TTRouteDelegate
+
     func routeClicked(_ route: TTMapRoute) {
         for mapRoute in self.mapView.routeManager.routes {
             mapView.routeManager.update(mapRoute, style: TTMapRouteStyle.defaultInactive())
@@ -110,5 +109,4 @@ class RoutingAlternativesRouteViewController: RoutingBaseViewController, TTRoute
         mapView.routeManager.bring(toFrontRoute: route)
         etaView.show(summary: route.extraData as! TTSummary, style: .plain)
     }
-
 }

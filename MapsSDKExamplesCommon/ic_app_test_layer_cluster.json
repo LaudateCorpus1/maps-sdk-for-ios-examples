@@ -1,0 +1,14 @@
+{
+    "id": "IC-app-test-layer-cluster",
+    "filter": [
+        "has",
+        "point_count"
+    ],
+    "type": "symbol",
+    "layout": {
+        "icon-image": "ic_cluster",
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+    },
+    "source": "IC-app-test-source"
+}

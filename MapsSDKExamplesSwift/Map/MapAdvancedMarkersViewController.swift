@@ -9,21 +9,19 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import CoreLocation
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
-
+import UIKit
 
 class MapAdvancedMarkersViewController: MapBaseViewController {
-    
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Animated", "Draggable"], selectedID: -1)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -33,12 +31,12 @@ class MapAdvancedMarkersViewController: MapBaseViewController {
             displayAnimatedMarkers()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayAnimatedMarkers() {
         mapView.annotationManager.removeAllAnnotations()
-        for _ in 0...4 {
+        for _ in 0 ... 4 {
             let cooridnate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.AMSTERDAM())
             let customIcon = TTAnnotationImage.createGIF(withName: "gif_annotation")!
             let annotation = TTAnnotation(coordinate: cooridnate, annotationImage: customIcon, anchor: .bottom, type: .decal)
@@ -46,10 +44,10 @@ class MapAdvancedMarkersViewController: MapBaseViewController {
             mapView.annotationManager.add(annotation)
         }
     }
-    
+
     func displayDraggableMarker() {
         mapView.annotationManager.removeAllAnnotations()
-        for _ in 0...4 {
+        for _ in 0 ... 4 {
             let cooridnate = CLLocation.makeRandomCoordinateForCenteroid(center: TTCoordinate.AMSTERDAM())
             let annotation = TTAnnotation(coordinate: cooridnate)
             annotation.selectable = false
@@ -57,6 +55,4 @@ class MapAdvancedMarkersViewController: MapBaseViewController {
             mapView.annotationManager.add(annotation)
         }
     }
-    
 }
-

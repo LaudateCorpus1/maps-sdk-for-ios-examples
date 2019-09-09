@@ -9,9 +9,9 @@
  * immediately return it to TomTom N.V.
  */
 
+import CoreLocation
 import Foundation
 import TomTomOnlineSDKMaps
-import CoreLocation
 
 @objc open class MapFollowTheChevronSource: NSObject, TTLocationSource {
     let manager: TTTrackingManager
@@ -32,12 +32,12 @@ import CoreLocation
 
     public func activate() {
         // Start Service
-        var index = 0;
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
+        var index = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
 
-            index = index + 1;
+            index = index + 1
             if index == self.mapRoute.coordinatesData().count {
-                index = 0;
+                index = 0
             }
             let coordiante = LocationUtils.coordinateForValue(value: self.mapRoute.coordinatesData()[index])
             let bearing = LocationUtils.bearingWithCoordinate(coordinate: coordiante, prevCoordianate: self.prevCoordinate!)
@@ -45,7 +45,6 @@ import CoreLocation
             self.manager.update(self.object, with: location)
             self.prevCoordinate = coordiante
         })
-        
     }
 
     public func deactivate() {

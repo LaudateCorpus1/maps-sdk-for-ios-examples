@@ -12,19 +12,18 @@
 import UIKit
 
 public class ProgressImageView: UIImageView {
-    
     weak var activityIndicator: UIActivityIndicatorView!
 
-    override public init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
+
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.isHidden = false
@@ -39,7 +38,7 @@ public class ProgressImageView: UIImageView {
         activityIndicator.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
 
-    override public var image: UIImage? {
+    public override var image: UIImage? {
         didSet {
             activityIndicator.removeFromSuperview()
         }

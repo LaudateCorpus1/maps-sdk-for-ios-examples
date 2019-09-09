@@ -9,21 +9,20 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
-import TomTomOnlineSDKRouting
 import TomTomOnlineSDKMaps
+import TomTomOnlineSDKRouting
+import UIKit
 
 class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-
     let routePlanner = TTRoute()
     var waypoints = [TTCoordinate.HAMBURG(), TTCoordinate.ZURICH(), TTCoordinate.BRUSSELS()]
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Initial order", "Best order", "No waypoints"], selectedID: -1)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         routePlanner.delegate = self
@@ -31,9 +30,9 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
             mapView.annotationManager.add(TTAnnotation(coordinate: coordinate))
         }
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         mapView.routeManager.removeAllRoutes()
@@ -47,16 +46,16 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
             displayInitialOrderRoute()
         }
     }
-    
-    //MARK: Examples
-    
+
+    // MARK: Examples
+
     func displayInitialOrderRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
             .withWayPoints(&waypoints, count: UInt(waypoints.count))
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayBestOrderRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
             .withWayPoints(&waypoints, count: UInt(waypoints.count))
@@ -64,16 +63,16 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
             .build()
         routePlanner.plan(with: query)
     }
-    
+
     func displayNoWaypointsRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
             .build()
         routePlanner.plan(with: query)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
-    func route(_ route: TTRoute, completedWith result: TTRouteResult) {
+
+    // MARK: TTRouteResponseDelegate
+
+    func route(_: TTRoute, completedWith result: TTRouteResult) {
         guard let plannedRoute = result.routes.first else {
             return
         }
@@ -87,9 +86,8 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
         displayRouteOverview()
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-
 }

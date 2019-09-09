@@ -12,7 +12,6 @@
 import UIKit
 
 public class Options: SubOptions {
-    
     @objc public enum Category: Int {
         case Map
         case Traffic
@@ -21,7 +20,7 @@ public class Options: SubOptions {
         case Search
         case Geofencing
     }
-    
+
     let category: Category
     let mainImage: String
     let subOptions: [SubOptions]
@@ -32,6 +31,4 @@ public class Options: SubOptions {
         self.subOptions = subOptions
         super.init(iconImage: iconImage, titleLabel: titleLabel, subtitleLabel: subtitleLabel)
     }
-    
-    
 }

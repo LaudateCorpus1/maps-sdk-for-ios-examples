@@ -12,12 +12,11 @@
 import UIKit
 
 public class OptionsViewMultiSelectWithReset: OptionsView {
-    
     @objc override func buttonTouchUpInside(button: UIButton) {
         guard let last = buttons.last else {
             return
         }
-        
+
         if button == last {
             if last.isSelected {
                 return
@@ -26,26 +25,23 @@ public class OptionsViewMultiSelectWithReset: OptionsView {
                 selectAndTriggerDelegateFor(last, selected: true)
             }
         }
-        
+
         if button != last {
             last.isSelected = false
             selectAndTriggerDelegateFor(button, selected: !button.isSelected)
         }
-        
+
         if !isAnySelected {
             selectAndTriggerDelegateFor(last, selected: true)
         }
     }
-    
+
     var isAnySelected: Bool {
-        get {
-            for button in buttons {
-                if button.isSelected {
-                    return true
-                }
+        for button in buttons {
+            if button.isSelected {
+                return true
             }
-            return false
         }
+        return false
     }
-    
 }

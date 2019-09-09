@@ -16,33 +16,32 @@ import UIKit
 }
 
 public class OptionsView: UIStackView {
-    
     @objc public weak var delegate: OptionsViewDelegate?
-    
+
     @objc public init(labels: [String], selectedID: Int) {
         super.init(frame: CGRect.zero)
         setup(labels: labels, selectedID: selectedID)
     }
 
-    override public init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setup(labels: ["default"], selectedID: -1)
     }
-    
-    required public init(coder: NSCoder) {
+
+    public required init(coder: NSCoder) {
         super.init(coder: coder)
         setup(labels: ["default"], selectedID: -1)
     }
-    
+
     private func setup(labels: [String], selectedID: Int) {
         distribution = .fillEqually
         spacing = 10
-        for i in 0..<labels.count {
+        for i in 0 ..< labels.count {
             let label = labels[i]
             addButton(ID: i, title: label, isSelected: i == selectedID)
         }
     }
-    
+
     private func addButton(ID: Int, title: String, isSelected: Bool) {
         let button = OptionButton()
         button.layer.cornerRadius = 20
@@ -54,32 +53,29 @@ public class OptionsView: UIStackView {
         button.tag = ID
         button.addTarget(self, action: #selector(buttonTouchUpInside(button:)), for: .touchUpInside)
     }
-    
+
     @objc public func deselectAll() {
         for button in buttons {
             button.isSelected = false
         }
     }
-    
+
     var buttons: [OptionButton] {
-        get {
-            var buttons: [OptionButton] = []
-            for view in subviews {
-                if let button = view as? OptionButton {
-                    buttons.append(button)
-                }
+        var buttons: [OptionButton] = []
+        for view in subviews {
+            if let button = view as? OptionButton {
+                buttons.append(button)
             }
-            return buttons
         }
+        return buttons
     }
-    
+
     func selectAndTriggerDelegateFor(_ button: UIButton, selected: Bool) {
         button.isSelected = selected
         if let delegate = self.delegate {
             delegate.displayExample(ID: button.tag, on: selected)
         }
     }
-    
-    @objc func buttonTouchUpInside(button: UIButton) {}
 
+    @objc func buttonTouchUpInside(button _: UIButton) {}
 }

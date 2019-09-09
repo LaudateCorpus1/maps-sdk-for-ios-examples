@@ -9,68 +9,67 @@
  * immediately return it to TomTom N.V.
  */
 
-import UIKit
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import TomTomOnlineSDKMaps
 import TomTomOnlineSDKRouting
+import UIKit
 
 class MapDynamicLayerOrderingViewController: MapBaseViewController, TTRouteResponseDelegate {
-    
     let GEOJSON_SOURCE = "geojson-source"
 
     var currentStyle: TTMapStyle!
     let routePlanner = TTRoute()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         progress.show()
     }
-    
+
     override func setupCenterOnWillHappen() {
         mapView.center(on: TTCoordinate.SAN_JOSE_9RD(), withZoom: 7.5)
     }
-    
+
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Images", "GeoJSON", "Roads"], selectedID: 0)
     }
-    
+
     override func onMapReady() {
         routePlanner.delegate = self
         planRoute()
         currentStyle = mapView.styleManager.currentStyle
-        
+
         let path = Bundle.main.path(forResource: "layer_road", ofType: "json")
         let layerJSON = try! String(contentsOfFile: path!, encoding: .utf8)
         let layerMap = TTMapLayer.create(withStyleJSON: layerJSON, withMap: mapView)
         layerMap?.visibility = .visible
         currentStyle.add(layerMap!)
-        
+
         addImagesSource()
     }
-    
+
     private func planRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.SANTA_CRUZ(), andOrig: TTCoordinate.SAN_FRANCISCO()).build()
         routePlanner.plan(with: query)
     }
-    
+
     private func addImagesSource() {
         addImage(index: 1, coordinates: TTCoordinate.SAN_JOSE_IMG1(), uiImage: UIImage(named: "img1")!)
         addImage(index: 2, coordinates: TTCoordinate.SAN_JOSE_IMG2(), uiImage: UIImage(named: "img2")!)
         addImage(index: 3, coordinates: TTCoordinate.SAN_JOSE_IMG3(), uiImage: UIImage(named: "img3")!)
     }
-    
+
     private func addImage(index: Int, coordinates: CLLocationCoordinate2D, uiImage: UIImage) {
         let quad = quadWithDelta(coordinate: coordinates, delta: 0.25)
         let sourceMap = TTMapImageSource.create(withID: "img-source-\(index)", image: uiImage, coordinates: quad)
         currentStyle.add(sourceMap)
-        
+
         let layerMap = TTMapLayer.createRaster(withID: "img-id-\(index)", withSourceID: "img-source-\(index)", withMap: mapView)
         currentStyle.add(layerMap!)
     }
-    
-    //MARK: TTRouteResponseDelegate
-    
+
+    // MARK: TTRouteResponseDelegate
+
     func route(_ route: TTRoute, completedWith result: TTRouteResult) {
         let route = result.routes[0]
         let geoJsonLine = TTGeoJSONLineString(coordinatesData: route.coordinatesData(), with: nil)
@@ -79,13 +78,13 @@ class MapDynamicLayerOrderingViewController: MapBaseViewController, TTRouteRespo
         currentStyle.add(geoJsonSource)
         progress.hide()
     }
-    
-    func route(_ route: TTRoute, completedWith responseError: TTResponseError) {
+
+    func route(_: TTRoute, completedWith responseError: TTResponseError) {
         handleError(responseError)
     }
-    
-    //MARK: OptionsViewDelegate
-    
+
+    // MARK: OptionsViewDelegate
+
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
         switch ID {
@@ -100,14 +99,13 @@ class MapDynamicLayerOrderingViewController: MapBaseViewController, TTRouteRespo
             layersImages.forEach { currentStyle.moveLayer(toFront: $0) }
         }
     }
-    
-    //MARK: private
-    
+
+    // MARK: private
+
     private func quadWithDelta(coordinate: CLLocationCoordinate2D, delta: Double) -> TTLatLngQuad {
         return TTLatLngQuad(topLeft: CLLocationCoordinate2D(latitude: coordinate.latitude + delta / 2, longitude: coordinate.longitude - delta),
                             withTopRight: CLLocationCoordinate2D(latitude: coordinate.latitude + delta / 2, longitude: coordinate.longitude + delta),
                             withBottomRight: CLLocationCoordinate2D(latitude: coordinate.latitude - delta / 2, longitude: coordinate.longitude - delta),
                             withBottomLeft: CLLocationCoordinate2D(latitude: coordinate.latitude - delta / 2, longitude: coordinate.longitude + delta))
     }
-    
 }
