@@ -27,6 +27,7 @@
 #import "MapBallonsViewController.h"
 #import "MapShapesViewController.h"
 #import "MapMarkersClusteringViewController.h"
+#import "MapWithBuildingHeightsViewController.h"
 #import "MapMultipleViewController.h"
 #import "MapFollowTheChevronController.h"
 #import "MapRouteCustomisationViewController.h"
@@ -161,6 +162,9 @@
       newViewController = [MapMultipleViewController new];
       break;
     case 22:
+      newViewController = [MapWithBuildingHeightsViewController new];
+      break;
+    case 23:
       newViewController = [MapRouteCustomisationViewController new];
       break;
     default:

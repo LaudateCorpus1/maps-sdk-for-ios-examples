@@ -79,6 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 21:
                 newViewController = MapMultipleViewController()
             case 22:
+                newViewController = MapWithBuildingHeightsViewController()
+            case 23:
                 newViewController = MapRouteCustomisationViewController()
             default:
                 fatalError("This VC is not handled")

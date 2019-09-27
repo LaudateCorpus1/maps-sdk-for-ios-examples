@@ -35,6 +35,8 @@
 		6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */; };
 		6EDCC21F221EB23B006EC951 /* MapLayersVisibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */; };
 		6EDCC222221EB321006EC951 /* MapLayersVisibilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC221221EB321006EC951 /* MapLayersVisibilityViewController.m */; };
+		6EFEB0BE233A1ED600A3415B /* MapWithBuildingHeightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFEB0BD233A1ED600A3415B /* MapWithBuildingHeightsViewController.swift */; };
+		6EFEB0C1233A1EF000A3415B /* MapWithBuildingHeightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFEB0C0233A1EF000A3415B /* MapWithBuildingHeightsViewController.m */; };
 		72006913213E4BCF005B20D1 /* MapsSDKExamplesVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 72006903213E4BCF005B20D1 /* MapsSDKExamplesVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72006917213E4BCF005B20D1 /* MapsSDKExamplesVC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72006901213E4BCF005B20D1 /* MapsSDKExamplesVC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7200691E213E4BEB005B20D1 /* MapBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7220279A213D135C00296ACF /* MapBaseViewController.m */; };
@@ -405,6 +407,9 @@
 		6EE13A88210AFC7000B7507A /* SubOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptions.swift; sourceTree = "<group>"; };
 		6EE13A8A210B136800B7507A /* SubOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsViewController.swift; sourceTree = "<group>"; };
 		6EE13A8C210B2F8100B7507A /* SubOptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOptionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		6EFEB0BD233A1ED600A3415B /* MapWithBuildingHeightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithBuildingHeightsViewController.swift; sourceTree = "<group>"; };
+		6EFEB0BF233A1EF000A3415B /* MapWithBuildingHeightsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapWithBuildingHeightsViewController.h; sourceTree = "<group>"; };
+		6EFEB0C0233A1EF000A3415B /* MapWithBuildingHeightsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapWithBuildingHeightsViewController.m; sourceTree = "<group>"; };
 		72006901213E4BCF005B20D1 /* MapsSDKExamplesVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapsSDKExamplesVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72006903213E4BCF005B20D1 /* MapsSDKExamplesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsSDKExamplesVC.h; sourceTree = "<group>"; };
 		72006904213E4BCF005B20D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -712,6 +717,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6CBAAB968C218EA2894BB058 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6E377D7121105E9B0060DB9E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,6 +869,8 @@
 				72AB739C213FDABD00D72DF1 /* MapMarkersClusteringViewController.m */,
 				6E241CF821AEDD2500818A53 /* MapMultipleViewController.h */,
 				6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */,
+				6EFEB0BF233A1EF000A3415B /* MapWithBuildingHeightsViewController.h */,
+				6EFEB0C0233A1EF000A3415B /* MapWithBuildingHeightsViewController.m */,
 				724CF8F421BA92E400CF5C83 /* MapRouteCustomisationViewController.h */,
 				724CF8F321BA92E400CF5C83 /* MapRouteCustomisationViewController.m */,
 				6EDCC220221EB321006EC951 /* MapLayersVisibilityViewController.h */,
@@ -976,6 +990,7 @@
 				7266CFB5211B001800162D91 /* MapShapesViewController.swift */,
 				7266CFB7211B007F00162D91 /* MapMarkersClusteringViewController.swift */,
 				6E76932F219D858200D8717A /* MapMultipleViewController.swift */,
+				6EFEB0BD233A1ED600A3415B /* MapWithBuildingHeightsViewController.swift */,
 				724CF8F021BA80A700CF5C83 /* MapRouteCustomisationViewController.swift */,
 				6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */,
 				721A705122730597009D9F0D /* MapDynamicMapSourcesViewController.swift */,
@@ -1159,6 +1174,7 @@
 				72006902213E4BCF005B20D1 /* MapsSDKExamplesVC */,
 				9C77CF3A2106F7B600A3179B /* Products */,
 				4677BD7948620868BFCB13D1 /* Frameworks */,
+				6CBAAB968C218EA2894BB058 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1559,6 +1575,7 @@
 				7280A2372144F2F20078B943 /* SearchMaxFuzzinessLevelViewController.m in Sources */,
 				72AB7388213FDA6000D72DF1 /* MapPerspectiveViewController.m in Sources */,
 				7238475421A7FE43007F775D /* RoutingMatrixViewController.m in Sources */,
+				6EFEB0C1233A1EF000A3415B /* MapWithBuildingHeightsViewController.m in Sources */,
 				7280A258214596F30078B943 /* RoutingDepartureArrivalTimeViewController.m in Sources */,
 				721A70472272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m in Sources */,
 				7280A25E214597180078B943 /* RoutingManeuverListViewController.m in Sources */,
@@ -1684,6 +1701,7 @@
 				7281DB1B21A427A7002422D8 /* RoutingMatrixViewController.swift in Sources */,
 				72AB7368213FD32200D72DF1 /* RoutingRouteTypesViewController.swift in Sources */,
 				72006963213FA5D6005B20D1 /* SearchReverseGeocodingViewController.swift in Sources */,
+				6EFEB0BE233A1ED600A3415B /* MapWithBuildingHeightsViewController.swift in Sources */,
 				7200693B213E68C6005B20D1 /* MapCustomStyleViewController.swift in Sources */,
 				723F7BD721EDB4C6006AC52F /* ReachableRangeQueryFactory.swift in Sources */,
 				6E14CCFC2148F7D10060C405 /* RoutingBatchRouteViewController.swift in Sources */,

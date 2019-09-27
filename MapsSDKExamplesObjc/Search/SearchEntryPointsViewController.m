@@ -71,9 +71,8 @@
 
 - (void)displayEntryPointsForShoppingMall {
   self.text = @"Kalvertoren";
-  TTSearchQuery *query =
-      [[[TTSearchQueryBuilder createWithTerm:@"Kalvertoren Singel 451"]
-          withIdxSet:TTSearchIndexPointOfInterest] build];
+  TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:@"Kalvertoren"]
+      withIdxSet:TTSearchIndexPointOfInterest] build];
   [self.search searchWithQuery:query];
 }
 

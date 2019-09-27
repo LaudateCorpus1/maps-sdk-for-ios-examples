@@ -36,9 +36,9 @@
 }
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewMultiSelect alloc]
-      initWithLabels:@[ @"Image source", @"GeoJson source" ]
-          selectedID:-1];
+  return
+      [[OptionsViewMultiSelect alloc] initWithLabels:@[ @"GeoJson", @"Image" ]
+                                          selectedID:-1];
 }
 
 - (void)addGeoJSONSource {
@@ -87,11 +87,11 @@
   TTMapLayer *imgLayer = [self.currentStyle getLayerByID:IMG_LAYER_ID];
   switch (ID) {
   case 1:
-    geoLayer.visibility =
+    imgLayer.visibility =
         on ? TTMapLayerVisibilityVisible : TTMapLayerVisibilityNone;
     break;
   default:
-    imgLayer.visibility =
+    geoLayer.visibility =
         on ? TTMapLayerVisibilityVisible : TTMapLayerVisibilityNone;
     break;
   }
