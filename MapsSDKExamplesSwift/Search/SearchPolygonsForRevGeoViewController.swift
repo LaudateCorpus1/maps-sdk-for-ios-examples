@@ -30,7 +30,7 @@ class SearchPolygonsForRevGeoViewController: MapBaseViewController, TTMapViewDel
         return OptionsViewSingleSelect(labels: ["Country", "Municipality"], selectedID: 0)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.LODZ(), withZoom: 3.2)
     }
 

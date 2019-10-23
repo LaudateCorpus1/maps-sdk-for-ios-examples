@@ -25,7 +25,7 @@
           selectedID:0];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
 }
 
 #pragma mark OptionsViewDelegate

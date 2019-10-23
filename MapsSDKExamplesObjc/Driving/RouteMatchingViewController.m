@@ -33,8 +33,9 @@
 
 @implementation RouteMatchingViewController
 
-- (void)setupCenterOnWillHappen {
-  [self.mapView centerOnCoordinate:TTCoordinate.LODZ withZoom:10];
+- (void)setupInitialCameraPosition {
+  [self.mapView centerOnCoordinate:TTCoordinate.LODZ_SREBRZYNSKA_START
+                          withZoom:18];
 }
 
 - (void)onMapReady {
@@ -87,21 +88,17 @@
 
 - (void)start {
   [self.mapView.trackingManager addTrackingObject:self.chevron];
-  [self.mapView.trackingManager
-      setBearingSmoothingFilter:[TTTrackingManagerDefault bearingSmoothFactor]];
-  [self.mapView.trackingManager startTrackingObject:self.chevron];
   self.source = [[DrivingSource alloc]
       initWithTrackingManager:self.mapView.trackingManager
                trackingObject:self.chevron];
+  TTLocation *startLocation = [[TTLocation alloc]
+      initWithCoordinate:TTCoordinate.LODZ_SREBRZYNSKA_START];
+  [self.source updateLocationWithLocation:startLocation];
+  [self.mapView.trackingManager
+      setBearingSmoothingFilter:[TTTrackingManagerDefault bearingSmoothFactor]];
+  [self.mapView.trackingManager startTrackingObject:self.chevron];
+
   [self.source activate];
-
-  TTCameraPosition *camera = [[[[[[TTCameraPositionBuilder
-      createWithCameraPosition:[TTCoordinate LODZ_SREBRZYNSKA_START]]
-      withAnimationDuration:[TTCamera ANIMATION_TIME]]
-      withBearing:[TTCamera BEARING_START]]
-      withPitch:[TTCamera DEFAULT_MAP_PITCH_FLAT]] withZoom:17] build];
-
-  [self.mapView setCameraPosition:camera];
 }
 
 - (void)matcher:(ProviderLocation *)providerLocation {

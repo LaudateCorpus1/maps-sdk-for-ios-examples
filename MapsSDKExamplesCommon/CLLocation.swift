@@ -17,20 +17,20 @@ public extension CLLocation {
         self.init(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
 
-    @objc static func makeCoordinatesInCenterArea(center: CLLocationCoordinate2D, pointsCount: Int) -> [CLLocationCoordinate2D] {
+    @objc static func makeCoordinatesInCenterArea(center: CLLocationCoordinate2D, pointsCount: Int) -> [CLLocation] {
         let map_zoom = 10
         let radius = 128.0 / Double(1 << map_zoom)
         let degreesPerPoint = 360.0 / Double(pointsCount)
         let centerSpaceRation = 0.8
-        var coordinates: [CLLocationCoordinate2D] = []
+        var locations: [CLLocation] = []
         for i in 0 ..< pointsCount {
             let dist = radius * centerSpaceRation + radius * (1.0 - centerSpaceRation) * Math.randomRatio()
             let angle = Double(i) * degreesPerPoint + Math.randomRatio() * degreesPerPoint
             let y = sin(Math.deg2rad(angle)) * dist
             let x = cos(Math.deg2rad(angle)) * dist
-            coordinates.append(CLLocationCoordinate2D(latitude: center.latitude + y, longitude: center.longitude + x))
+            locations.append(CLLocation(CLLocationCoordinate2D(latitude: center.latitude + y, longitude: center.longitude + x)))
         }
-        return coordinates
+        return locations
     }
 
     @objc static func makeRandomCoordinateForCenteroid(center: CLLocationCoordinate2D) -> CLLocationCoordinate2D {

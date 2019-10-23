@@ -18,7 +18,7 @@ import UIKit
 class RoutingRouteAvoidsViewController: RoutingBaseViewController, TTRouteResponseDelegate {
     let routePlanner = TTRoute()
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.NORTH_SEA(), withZoom: 4)
     }
 

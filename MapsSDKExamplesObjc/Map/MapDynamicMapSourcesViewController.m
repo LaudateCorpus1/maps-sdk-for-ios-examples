@@ -30,7 +30,7 @@
   self.mapView.delegate = self;
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate BUCKINGHAM_PALACE_CENTER]
                           withZoom:16];
 }

@@ -15,7 +15,7 @@ import TomTomOnlineSDKMaps
 import UIKit
 
 class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 12)
     }
 

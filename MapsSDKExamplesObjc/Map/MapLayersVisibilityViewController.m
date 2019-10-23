@@ -24,7 +24,7 @@
   [self turnOffLayers];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate BERLIN] withZoom:8];
 }
 

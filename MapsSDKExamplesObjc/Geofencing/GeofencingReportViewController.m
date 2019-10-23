@@ -131,7 +131,7 @@
   [self.mapView.annotationManager selectAnnotation:self.draggableAnnotation];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:TTCoordinate.AMSTERDAM_CIRCLE_CENTER
                           withZoom:12];
 }

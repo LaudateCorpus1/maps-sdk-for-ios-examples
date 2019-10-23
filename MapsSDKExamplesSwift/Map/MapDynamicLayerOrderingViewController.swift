@@ -26,7 +26,7 @@ class MapDynamicLayerOrderingViewController: MapBaseViewController, TTRouteRespo
         progress.show()
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.SAN_JOSE_9RD(), withZoom: 7.5)
     }
 

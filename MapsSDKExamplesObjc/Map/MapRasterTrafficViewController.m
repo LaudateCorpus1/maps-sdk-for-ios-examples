@@ -15,7 +15,7 @@
 
 @implementation MapRasterTrafficViewController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate LONDON] withZoom:12];
 }
 

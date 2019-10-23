@@ -28,7 +28,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
                      BatchRouteType.BatchRouteTypeRoute: ["Fastest route", "Shortest route", "Eco route"],
                      BatchRouteType.BatchRouteTypeAvoids: ["Avoid motorways", "Avoid ferries", "Avoid toll roads"]]
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 10)
     }
 

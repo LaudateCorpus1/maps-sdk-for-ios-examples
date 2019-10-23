@@ -20,7 +20,7 @@
 @property(nonatomic, weak) TTMapView *mapView;
 - (void)setupEtaView;
 - (void)setupMap;
-- (void)setupCenterOnWillHappen;
+- (void)setupInitialCameraPosition;
 - (void)onMapReady;
 
 @end

@@ -26,7 +26,7 @@ class MapRasterTrafficViewController: MapBaseViewController {
         mapView.trafficIncidentsStyle = .raster
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.LONDON(), withZoom: 12)
     }
 

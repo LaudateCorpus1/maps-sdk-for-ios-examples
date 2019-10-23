@@ -14,6 +14,8 @@
 
 @interface MapShapesViewController () <TTAnnotationDelegate>
 
+@property(nonatomic) NSArray<CLLocation *> *values;
+
 @end
 
 @implementation MapShapesViewController
@@ -52,10 +54,10 @@
 - (void)displayPolygon {
   UIColor *color = [UIColor random];
   NSInteger pointsCount = 24;
-  NSArray<NSValue *> *values =
+  self.values =
       [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM]
                                             pointsCount:pointsCount];
-  CLLocationCoordinate2D *coordinates = [self convertCoordinates:values];
+  CLLocationCoordinate2D *coordinates = [self convertCoordinates:_values];
   TTPolygon *polygon = [TTPolygon polygonWithCoordinates:coordinates
                                                    count:pointsCount
                                                  opacity:1
@@ -68,10 +70,10 @@
 - (void)displayPolyline {
   UIColor *color = [UIColor random];
   NSInteger pointsCount = 24;
-  NSArray<NSValue *> *values =
+  self.values =
       [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM]
                                             pointsCount:pointsCount];
-  CLLocationCoordinate2D *coordinates = [self convertCoordinates:values];
+  CLLocationCoordinate2D *coordinates = [self convertCoordinates:_values];
   TTPolyline *polyline = [TTPolyline polylineWithCoordinates:coordinates
                                                        count:pointsCount
                                                      opacity:1
@@ -111,13 +113,11 @@
 }
 
 - (CLLocationCoordinate2D *)convertCoordinates:
-    (NSArray<NSValue *> *)coordinatesValues {
+    (NSArray<CLLocation *> *)coordinatesValues {
   CLLocationCoordinate2D *coordinates = (CLLocationCoordinate2D *)malloc(
       coordinatesValues.count * sizeof(CLLocationCoordinate2D));
   for (NSUInteger i = 0; i < coordinatesValues.count; i++) {
-    CLLocationCoordinate2D decoded;
-    [coordinatesValues[i] getValue:&decoded];
-    coordinates[i] = decoded;
+    coordinates[i] = coordinatesValues[i].coordinate;
   }
   return coordinates;
 }

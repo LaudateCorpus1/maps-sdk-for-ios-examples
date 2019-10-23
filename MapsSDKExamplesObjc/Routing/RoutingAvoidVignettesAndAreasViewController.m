@@ -20,7 +20,7 @@
 
 @implementation RoutingAvoidVignettesAndAreasViewController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate BUDAPEST_LOCATION] withZoom:4];
 }
 

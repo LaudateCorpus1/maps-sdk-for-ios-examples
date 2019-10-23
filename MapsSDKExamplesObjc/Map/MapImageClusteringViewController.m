@@ -25,7 +25,7 @@
   [self setupClusterStyle];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM_CENTER_LOCATION]
                           withZoom:9];
 }

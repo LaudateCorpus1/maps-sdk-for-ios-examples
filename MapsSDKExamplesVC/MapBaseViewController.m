@@ -29,10 +29,10 @@
   self.view = mapView;
   self.mapView = mapView;
   self.mapView.accessibilityLabel = @"TTMapView";
-  [self setupCenterOnWillHappen];
+  [self setupInitialCameraPosition];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM] withZoom:10];
 }
 

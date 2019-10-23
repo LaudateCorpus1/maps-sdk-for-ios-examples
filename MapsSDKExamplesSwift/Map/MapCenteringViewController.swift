@@ -23,7 +23,7 @@ class MapCenteringViewController: MapBaseViewController {
         return OptionsViewSingleSelect(labels: ["Amsterdam", "Berlin", "London"], selectedID: 0)
     }
 
-    override func setupCenterOnWillHappen() {}
+    override func setupInitialCameraPosition() {}
 
     // MARK: OptionsViewDelegate
 

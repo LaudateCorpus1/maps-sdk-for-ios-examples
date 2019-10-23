@@ -24,7 +24,7 @@ class SearchGeometryViewController: MapBaseViewController, TTGeometrySearchDeleg
         return OptionsViewSingleSelect(labels: ["Parking", "ATM", "Grocery"], selectedID: -1)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.AMSTERDAM_A10(), withZoom: 10)
     }
 

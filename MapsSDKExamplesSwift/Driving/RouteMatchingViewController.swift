@@ -28,8 +28,8 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
     var timer: Timer?
     var startSending = false
 
-    override func setupCenterOnWillHappen() {
-        mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
+    override func setupInitialCameraPosition() {
+        mapView.center(on: TTCoordinate.LODZ_SREBRZYNSKA_START(), withZoom: 18)
     }
 
     func onMapReady(_ mapView: TTMapView) {
@@ -69,19 +69,11 @@ class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate,
 
     func start() {
         mapView.trackingManager.add(chevron!)
+        source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!)
+        source?.updateLocation(location: TTLocation(coordinate: TTCoordinate.LODZ_SREBRZYNSKA_START()))
         mapView.trackingManager.setBearingSmoothingFilter(TTTrackingManagerDefault.bearingSmoothFactor())
         mapView.trackingManager.start(chevron!)
-        source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!)
         source?.activate()
-
-        let camera = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.LODZ_SREBRZYNSKA_START())
-            .withAnimationDuration(TTCamera.ANIMATION_TIME())
-            .withBearing(TTCamera.BEARING_START())
-            .withPitch(TTCamera.DEFAULT_MAP_PITCH_FLAT())
-            .withZoom(17)
-            .build()
-
-        mapView.setCameraPosition(camera)
     }
 
     func matching(providerLocation: ProviderLocation) {

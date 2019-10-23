@@ -16,13 +16,12 @@ import UIKit
 class MapWithBuildingHeightsViewController: MapBaseViewController {
     var layers: [TTMapLayer]! = []
 
-    override func getOptionsView() -> OptionsView {
-        return OptionsViewSingleSelect(labels: ["Heights", "Footprints"], selectedID: 0)
+    override func setupInitialCameraPosition() {
+        mapView.center(on: TTCoordinate.LONDON(), withZoom: 17)
     }
 
-    override func setupMap() {
-        super.setupMap()
-        mapView.center(on: TTCoordinate.LONDON(), withZoom: 17)
+    override func getOptionsView() -> OptionsView {
+        return OptionsViewSingleSelect(labels: ["Heights", "Footprints"], selectedID: 0)
     }
 
     override func onMapReady() {

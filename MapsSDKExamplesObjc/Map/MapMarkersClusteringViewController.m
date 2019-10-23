@@ -14,7 +14,7 @@
 
 @implementation MapMarkersClusteringViewController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
 }
 
 - (void)onMapReady {

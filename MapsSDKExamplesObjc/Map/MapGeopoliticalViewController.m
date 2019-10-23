@@ -14,7 +14,7 @@
 
 @implementation MapGeopoliticalViewController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate ISRAEL] withZoom:7];
 }
 

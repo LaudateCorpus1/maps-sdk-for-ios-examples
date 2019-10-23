@@ -20,8 +20,7 @@
 
 @implementation MapWithBuildingHeightsViewController
 
-- (void)setupMap {
-  [super setupMap];
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:TTCoordinate.LONDON withZoom:17];
 }
 

@@ -19,7 +19,7 @@ class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteRespo
     let matrixRouting = TTMatrixRoute()
     var oneToManySelected = true
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.AMSTERDAM_CENTER_LOCATION(), withZoom: 12)
     }
 

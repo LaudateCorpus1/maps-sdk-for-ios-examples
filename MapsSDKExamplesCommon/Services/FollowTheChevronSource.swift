@@ -27,14 +27,14 @@ import TomTomOnlineSDKMaps
         prevCoordinate = LocationUtils.coordinateForValue(value: mapRoute.coordinatesData()[0])
         let location = TTLocation(coordinate: prevCoordinate!, withBearing: 0)
         manager.update(object, with: location)
-        object.isHidden = false
+        object.isHidden = true
     }
 
     public func activate() {
         // Start Service
         var index = 0
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-
+            self.object.isHidden = false
             index = index + 1
             if index == self.mapRoute.coordinatesData().count {
                 index = 0

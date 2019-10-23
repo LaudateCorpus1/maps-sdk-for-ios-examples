@@ -99,7 +99,7 @@ class GeofencingReportViewController: GeofencingBaseViewController, TTAnnotation
         self.mapView.annotationManager.select(self.draggableAnnotation)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.AMSTERDAM_CIRCLE_CENTER(), withZoom: 12)
     }
 

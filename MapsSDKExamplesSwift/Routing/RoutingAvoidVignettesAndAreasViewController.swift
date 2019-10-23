@@ -23,7 +23,7 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
         return OptionsViewSingleSelect(labels: ["No avoids", "Avoid Vignettes", "Avoid area"], selectedID: -1)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.BUDAPEST_LOCATION(), withZoom: 4)
     }
 

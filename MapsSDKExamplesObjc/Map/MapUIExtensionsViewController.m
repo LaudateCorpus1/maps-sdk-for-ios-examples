@@ -36,7 +36,7 @@
   [self controlsDefault];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   TTCameraPosition *cameraPosition = [[[[TTCameraPositionBuilder
       createWithCameraPosition:[TTCoordinate AMSTERDAM]] withBearing:45]
       withZoom:10] build];

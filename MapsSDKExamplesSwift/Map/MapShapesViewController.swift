@@ -44,16 +44,18 @@ class MapShapesViewController: MapBaseViewController, TTAnnotationDelegate {
     func displayPolygon() {
         let color = UIColor.random
         let pointsCount = 24
-        var coordinates = CLLocation.makeCoordinatesInCenterArea(center: TTCoordinate.AMSTERDAM(), pointsCount: pointsCount)
-        let polygon = TTPolygon(coordinates: &coordinates, count: UInt(pointsCount), opacity: 1, color: color, colorOutline: color)
+        var coordiantes = [CLLocationCoordinate2D]()
+        getCoordiantes(pointsCount: pointsCount, coordiantes: &coordiantes)
+        let polygon = TTPolygon(coordinates: &coordiantes, count: UInt(pointsCount), opacity: 1, color: color, colorOutline: color)
         mapView.annotationManager.add(polygon)
     }
 
     func displayPolyline() {
         let color = UIColor.random
         let pointsCount = 24
-        var coordinates = CLLocation.makeCoordinatesInCenterArea(center: TTCoordinate.AMSTERDAM(), pointsCount: pointsCount)
-        let polyline = TTPolyline(coordinates: &coordinates, count: UInt(pointsCount), opacity: 1, width: 8, color: color)
+        var coordiantes = [CLLocationCoordinate2D]()
+        getCoordiantes(pointsCount: pointsCount, coordiantes: &coordiantes)
+        let polyline = TTPolyline(coordinates: &coordiantes, count: UInt(pointsCount), opacity: 1, width: 8, color: color)
         mapView.annotationManager.add(polyline)
     }
 
@@ -61,6 +63,13 @@ class MapShapesViewController: MapBaseViewController, TTAnnotationDelegate {
         let color = UIColor.random
         let circle = TTCircle(center: TTCoordinate.AMSTERDAM(), radius: 5000, opacity: 1, width: 10, color: color, fill: true, colorOutlet: color)
         mapView.annotationManager.add(circle)
+    }
+
+    func getCoordiantes(pointsCount: Int, coordiantes: inout [CLLocationCoordinate2D]) {
+        let locations = CLLocation.makeCoordinatesInCenterArea(center: TTCoordinate.AMSTERDAM(), pointsCount: pointsCount)
+        for location in locations {
+            coordiantes.append(location.coordinate)
+        }
     }
 
     // MARK: TTAnnotationDelegate

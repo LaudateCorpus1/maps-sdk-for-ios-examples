@@ -15,7 +15,7 @@ import TomTomOnlineSDKMaps
 import UIKit
 
 class MapMarkersClusteringViewController: MapBaseViewController {
-    override func setupCenterOnWillHappen() {}
+    override func setupInitialCameraPosition() {}
 
     override func onMapReady() {
         super.onMapReady()

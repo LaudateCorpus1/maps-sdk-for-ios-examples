@@ -25,7 +25,7 @@
                                               selectedID:-1];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate PORTUGAL_NOVA] withZoom:10];
 }
 

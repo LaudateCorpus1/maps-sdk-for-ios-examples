@@ -20,7 +20,7 @@
   [self setupMatrixETAView];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate ALPHEN_AAN_DEN_RIJN]
                           withZoom:8.5];
 }

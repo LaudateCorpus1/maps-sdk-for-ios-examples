@@ -22,7 +22,7 @@ class RoutingSupportingPointsViewController: RoutingBaseViewController, TTRouteR
         return OptionsViewSingleSelect(labels: ["0 m", "10 km"], selectedID: -1)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.PORTUGAL_NOVA(), withZoom: 10)
     }
 

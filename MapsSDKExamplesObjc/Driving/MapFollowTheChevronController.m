@@ -25,7 +25,7 @@
 
 @implementation MapFollowTheChevronController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:TTCoordinate.LODZ withZoom:10];
 }
 

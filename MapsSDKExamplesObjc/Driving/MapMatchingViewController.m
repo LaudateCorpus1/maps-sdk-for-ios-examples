@@ -20,13 +20,17 @@
 @property(nonatomic, strong) TTMatcher *matcher;
 @property(nonatomic, strong) TTChevronObject *chevron;
 @property(nonatomic, assign) BOOL startSending;
+@property(nonatomic, strong) LocationCSVProvider *locationProvider;
 
 @end
 
 @implementation MapMatchingViewController
 
-- (void)setupCenterOnWillHappen {
-  [self.mapView centerOnCoordinate:TTCoordinate.LODZ withZoom:10];
+- (void)setupInitialCameraPosition {
+  self.locationProvider =
+      [[LocationCSVProvider alloc] initWithCsvFile:@"simple_route"];
+  [self.mapView centerOnCoordinate:_locationProvider.locations[0].coordinate
+                          withZoom:18];
 }
 
 - (void)onMapReady {
@@ -65,17 +69,11 @@
 }
 
 - (void)start {
-  TTCameraPosition *camera = [[[[[[TTCameraPositionBuilder
-      createWithCameraPosition:[TTCoordinate LODZ_SREBRZYNSKA_START]]
-      withAnimationDuration:[TTCamera ANIMATION_TIME]]
-      withBearing:[TTCamera BEARING_START]]
-      withPitch:[TTCamera DEFAULT_MAP_PITCH_FLAT]] withZoom:18] build];
-
-  [self.mapView setCameraPosition:camera];
   [self.mapView.trackingManager addTrackingObject:self.chevron];
   self.source = [[DrivingSource alloc]
       initWithTrackingManager:self.mapView.trackingManager
                trackingObject:self.chevron];
+  [self.source updateLocationWithLocation:self.locationProvider.locations[0]];
   [self.mapView.trackingManager
       setBearingSmoothingFilter:[TTTrackingManagerDefault bearingSmoothFactor]];
   [self.mapView.trackingManager startTrackingObject:self.chevron];
@@ -108,16 +106,14 @@
 }
 
 - (void)sendingLocation {
-  LocationCSVProvider *locationProvider =
-      [[LocationCSVProvider alloc] initWithCsvFile:@"simple_route"];
-
-  for (ProviderLocation *providerLocation in locationProvider.locations) {
+  for (ProviderLocation *providerLocation in self.locationProvider.locations) {
     int index =
-        (int)[locationProvider.locations indexOfObject:providerLocation];
+        (int)[self.locationProvider.locations indexOfObject:providerLocation];
     if ((index - 1) > 0) {
       ProviderLocation *prev =
-          [locationProvider.locations objectAtIndex:(index - 1)];
-      ProviderLocation *next = [locationProvider.locations objectAtIndex:index];
+          [self.locationProvider.locations objectAtIndex:(index - 1)];
+      ProviderLocation *next =
+          [self.locationProvider.locations objectAtIndex:index];
 
       ProviderLocation *location =
           [[ProviderLocation alloc] initWithCoordinate:next.coordinate

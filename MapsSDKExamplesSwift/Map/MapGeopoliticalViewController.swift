@@ -18,7 +18,7 @@ class MapGeopoliticalViewController: MapBaseViewController {
         return OptionsViewSingleSelect(labels: ["Unified", "Local"], selectedID: 0)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.ISRAEL(), withZoom: 7)
     }
 

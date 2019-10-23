@@ -18,7 +18,7 @@
 
 @implementation MapMultipleViewController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:TTCoordinate.AMSTERDAM withZoom:12];
 }
 

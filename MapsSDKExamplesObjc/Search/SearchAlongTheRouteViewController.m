@@ -24,9 +24,9 @@
 
 @implementation SearchAlongTheRouteViewController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   if (self.mapView.routeManager.routes.count == 0) {
-    [super setupCenterOnWillHappen];
+    [super setupInitialCameraPosition];
   } else {
     [self displayRouteOverview];
   }

@@ -33,7 +33,7 @@
 
 @implementation SearchPolygonsForRevGeoViewController
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate LODZ] withZoom:3.2];
 }
 

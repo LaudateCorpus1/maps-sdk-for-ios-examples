@@ -27,7 +27,7 @@
           selectedID:-1];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM] withZoom:10];
 }
 

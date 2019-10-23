@@ -29,7 +29,7 @@
   self.routePlanner = [[TTRoute alloc] init];
 }
 
-- (void)setupCenterOnWillHappen {
+- (void)setupInitialCameraPosition {
   [self.mapView centerOnCoordinate:TTCoordinate.SAN_JOSE withZoom:7.5];
 }
 

@@ -26,7 +26,7 @@ class MapLayersVisibilityViewController: MapBaseViewController {
         turnOffLayers()
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.BERLIN(), withZoom: 8)
     }
 

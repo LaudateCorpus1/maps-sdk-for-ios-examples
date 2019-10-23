@@ -18,11 +18,12 @@ import UIKit
 class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTMatcherDelegate {
     var source: DrivingSource?
     private var chevron: TTChevronObject?
+    private let locationProvider = LocationCSVProvider(csvFile: "simple_route")
     var startSending = false
     var matcher: TTMatcher!
 
-    override func setupCenterOnWillHappen() {
-        mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
+    override func setupInitialCameraPosition() {
+        mapView.center(on: locationProvider.locations[0].coordinate, withZoom: 18)
     }
 
     func onMapReady(_ mapView: TTMapView) {
@@ -56,16 +57,9 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
     }
 
     func start() {
-        let camera = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.LODZ_SREBRZYNSKA_START())
-            .withAnimationDuration(TTCamera.ANIMATION_TIME())
-            .withBearing(TTCamera.BEARING_START())
-            .withPitch(TTCamera.DEFAULT_MAP_PITCH_FLAT())
-            .withZoom(18)
-            .build()
-
-        mapView.setCameraPosition(camera)
         mapView.trackingManager.add(chevron!)
         source = DrivingSource(trackingManager: mapView.trackingManager, trackingObject: chevron!)
+        source?.updateLocation(location: locationProvider.locations[0])
         mapView.trackingManager.setBearingSmoothingFilter(TTTrackingManagerDefault.bearingSmoothFactor())
         mapView.trackingManager.start(chevron!)
         source?.activate()

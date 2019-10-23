@@ -23,7 +23,7 @@ class MapLanguageViewController: MapBaseViewController {
         mapView.setLanguage("en-GB")
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.LODZ(), withZoom: 3.2)
     }
 

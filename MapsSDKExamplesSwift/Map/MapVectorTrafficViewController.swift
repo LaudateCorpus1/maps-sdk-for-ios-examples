@@ -14,7 +14,7 @@ import MapsSDKExamplesVC
 import UIKit
 
 class MapVectorTrafficViewController: MapBaseViewController {
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.LONDON(), withZoom: 12)
     }
 

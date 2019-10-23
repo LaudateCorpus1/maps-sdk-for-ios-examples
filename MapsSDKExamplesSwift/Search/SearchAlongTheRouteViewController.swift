@@ -21,9 +21,9 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
     let alongRouteSearch = TTAlongRouteSearch()
     var mapRoute: TTMapRoute!
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         if mapView.routeManager.routes.isEmpty {
-            super.setupCenterOnWillHappen()
+            super.setupInitialCameraPosition()
         } else {
             displayRouteOverview()
         }

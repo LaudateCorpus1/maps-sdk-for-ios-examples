@@ -23,7 +23,7 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
     var source: MapFollowTheChevronSource?
     private var chevron: TTChevronObject?
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.LODZ(), withZoom: 10)
     }
 

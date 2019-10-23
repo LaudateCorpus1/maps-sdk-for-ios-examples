@@ -28,7 +28,7 @@ class MapDynamicMapSourcesViewController: MapBaseViewController, TTMapViewDelega
         addGeoJSONSource()
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.BUCKINGHAM_PALACE_CENTER(), withZoom: 16)
     }
 

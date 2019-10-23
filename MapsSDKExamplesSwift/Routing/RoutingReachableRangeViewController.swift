@@ -23,7 +23,7 @@ class RoutingReachableRangeViewController: RoutingBaseViewController, TTReachabl
         return OptionsViewSingleSelect(labels: ["Combustion", "Electric", "Time - 2h"], selectedID: -1)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 10)
     }
 

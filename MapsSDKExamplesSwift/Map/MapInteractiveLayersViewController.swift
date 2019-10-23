@@ -17,7 +17,7 @@ import UIKit
 class MapInteractiveLayersViewController: MapBaseViewController, TTMapViewDelegate, TTMapViewCameraDelegate {
     var currentStyle: TTMapStyle!
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.LONDON(), withZoom: 9)
     }
 

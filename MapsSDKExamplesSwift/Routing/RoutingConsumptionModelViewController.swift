@@ -23,7 +23,7 @@ class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteR
         return OptionsViewSingleSelect(labels: ["Combustion", "Electric"], selectedID: -1)
     }
 
-    override func setupCenterOnWillHappen() {
+    override func setupInitialCameraPosition() {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 10)
     }
 
