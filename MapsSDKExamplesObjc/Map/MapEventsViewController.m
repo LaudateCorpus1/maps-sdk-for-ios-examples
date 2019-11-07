@@ -49,8 +49,21 @@
 }
 
 - (void)mapView:(TTMapView *)mapView
-     didPanning:(CLLocationCoordinate2D)coordinate {
-  [self toast:@"Panning" coordinate:coordinate];
+     didPanning:(CLLocationCoordinate2D)coordinate
+        inState:(TTMapPanningState)state {
+  switch (state) {
+  case TTMapPanningBegin:
+    [self toast:@"Panning started" coordinate:coordinate];
+    break;
+  case TTMapPanningChanged:
+    [self toast:@"Panning" coordinate:coordinate];
+    break;
+  case TTMapPanningEnd:
+    [self toast:@"Panning finished" coordinate:coordinate];
+    break;
+  default:
+    break;
+  }
 }
 
 @end

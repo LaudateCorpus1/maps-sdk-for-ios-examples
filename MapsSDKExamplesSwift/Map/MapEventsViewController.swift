@@ -40,7 +40,14 @@ class MapEventsViewController: MapBaseViewController, TTMapViewDelegate {
         toast(message: "Long press", coordinate: coordinate)
     }
 
-    func mapView(_: TTMapView, didPanning coordinate: CLLocationCoordinate2D) {
-        toast(message: "Panning", coordinate: coordinate)
+    func mapView(_: TTMapView, didPanning coordinate: CLLocationCoordinate2D, in state: TTMapPanningState) {
+        switch state {
+        case .begin:
+            toast(message: "Panning started", coordinate: coordinate)
+        case .changed:
+            toast(message: "Panning", coordinate: coordinate)
+        case .end:
+            toast(message: "Panning finished", coordinate: coordinate)
+        }
     }
 }

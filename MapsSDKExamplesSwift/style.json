@@ -1,5 +1,5 @@
 {
-  "glyphs": "https://api.tomtom.com/map/1/glyph/20.0.0-8/{fontstack}/{range}.pbf?key=[OnlineMaps]",
+  "glyphs": "[GlyphsUrlPrefixToken]/map/1/glyph/20.0.2-7/{fontstack}/{range}.pbf?key=[OnlineMaps]",
   "id": "night",
   "layers": [
     {
@@ -42905,119 +42905,8 @@
         "name",
         " "
       ],
-      "id": "Sea label",
-      "layout": {
-        "symbol-placement": "point",
-        "text-field": "{name}",
-        "text-font": [
-          "Noto-Regular"
-        ],
-        "text-letter-spacing": 0.25,
-        "text-size": {
-          "stops": [
-            [
-              0,
-              8
-            ],
-            [
-              3,
-              9
-            ],
-            [
-              4,
-              11
-            ],
-            [
-              5,
-              15
-            ]
-          ]
-        }
-      },
-      "paint": {
-        "text-color": "rgb(73, 117, 140)",
-        "text-halo-color": "rgb(35, 40, 60)",
-        "text-halo-width": {
-          "stops": [
-            [
-              1,
-              1
-            ],
-            [
-              5,
-              2
-            ]
-          ]
-        }
-      },
-      "source": "vectorTiles",
-      "source-layer": "Sea label",
-      "type": "symbol"
-    },
-    {
-      "filter": [
-        "!=",
-        "name",
-        " "
-      ],
-      "id": "Ocean label",
-      "layout": {
-        "symbol-placement": "point",
-        "text-field": "{name}",
-        "text-font": [
-          "Noto-Regular"
-        ],
-        "text-letter-spacing": 0.25,
-        "text-size": {
-          "stops": [
-            [
-              0,
-              8
-            ],
-            [
-              3,
-              9
-            ],
-            [
-              4,
-              11
-            ],
-            [
-              5,
-              15
-            ]
-          ]
-        }
-      },
-      "paint": {
-        "text-color": "rgb(89, 131, 156)",
-        "text-halo-color": "rgb(35, 39, 45)",
-        "text-halo-width": {
-          "stops": [
-            [
-              1,
-              1
-            ],
-            [
-              5,
-              2
-            ]
-          ]
-        }
-      },
-      "source": "vectorTiles",
-      "source-layer": "Ocean label",
-      "type": "symbol"
-    },
-    {
-      "filter": [
-        "!=",
-        "name",
-        " "
-      ],
       "id": "National park name",
       "layout": {
-        "icon-image": "169",
         "symbol-avoid-edges": true,
         "symbol-placement": "point",
         "text-field": "{name}",
@@ -43036,10 +42925,6 @@
             ]
           ]
         },
-        "text-offset": [
-          0,
-          2.5
-        ],
         "text-size": {
           "stops": [
             [
@@ -43078,10 +42963,10 @@
       ],
       "id": "Railway station",
       "layout": {
-        "icon-allow-overlap": false,
         "icon-image": "{icon}",
         "icon-padding": 5,
-        "symbol-avoid-edges": false,
+        "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43089,7 +42974,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43107,7 +42992,7 @@
       "paint": {
         "text-color": "rgb(135, 160, 185)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Railway station",
@@ -43116,10 +43001,10 @@
     {
       "id": "POI",
       "layout": {
-        "icon-allow-overlap": false,
         "icon-image": "{icon}",
         "icon-padding": 5,
-        "symbol-avoid-edges": true,
+        "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}\n{subText}",
         "text-font": [
           "Noto-Regular"
@@ -43127,7 +43012,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43169,6 +43054,22 @@
             [
               "Reef",
               "rgb(89, 131, 156)"
+            ],
+            [
+              "Government office",
+              "rgb(152, 151, 142)"
+            ],
+            [
+              "Post office",
+              "rgb(155, 140, 161)"
+            ],
+            [
+              "Police station",
+              "rgb(145, 144, 137)"
+            ],
+            [
+              "Fire station",
+              "rgb(145, 144, 137)"
             ]
           ],
           "type": "categorical"
@@ -43199,11 +43100,27 @@
             [
               "Reef",
               "rgb(35, 39, 45)"
+            ],
+            [
+              "Government office",
+              "rgb(26, 26, 26)"
+            ],
+            [
+              "Post office",
+              "rgb(26, 26, 26)"
+            ],
+            [
+              "Police station",
+              "rgb(26, 26, 26)"
+            ],
+            [
+              "Fire station",
+              "rgb(26, 26, 26)"
             ]
           ],
           "type": "categorical"
         },
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "POI",
@@ -43237,6 +43154,7 @@
       "layout": {
         "icon-image": "141",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43244,7 +43162,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43262,7 +43180,7 @@
       "paint": {
         "text-color": "rgb(140, 147, 177)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Airport label",
@@ -43278,6 +43196,7 @@
       "layout": {
         "icon-image": "173",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43285,7 +43204,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43301,9 +43220,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(160, 150, 130)",
+        "text-color": "rgb(181, 154, 172)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Amusement area label",
@@ -43319,6 +43238,7 @@
       "layout": {
         "icon-image": "174",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43326,7 +43246,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43342,9 +43262,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(120, 160, 100)",
+        "text-color": "rgb(158, 148, 136)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Cemetery label",
@@ -43360,6 +43280,7 @@
       "layout": {
         "icon-image": "169",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43367,7 +43288,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43383,9 +43304,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(120, 160, 100)",
+        "text-color": "rgb(147, 184, 159)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Park/Garden label",
@@ -43401,6 +43322,7 @@
       "layout": {
         "icon-image": "169",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43408,7 +43330,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43426,7 +43348,7 @@
       "paint": {
         "text-color": "rgb(120, 160, 100)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Woodland label",
@@ -43442,6 +43364,7 @@
       "layout": {
         "icon-image": "172",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43449,7 +43372,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43467,7 +43390,7 @@
       "paint": {
         "text-color": "rgb(162, 172, 175)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Industrial area label",
@@ -43483,6 +43406,7 @@
       "layout": {
         "icon-image": "157",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43490,7 +43414,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43506,9 +43430,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(162, 142, 140)",
-        "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-color": "rgb(166, 134, 131)",
+        "text-halo-color": "rgba(26, 26, 26, 0.7)",
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Hospital label",
@@ -43524,6 +43448,7 @@
       "layout": {
         "icon-image": "156",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43531,7 +43456,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43547,9 +43472,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(152, 151, 142)",
+        "text-color": "rgb(171, 169, 157)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "University/School label",
@@ -43585,7 +43510,7 @@
       "paint": {
         "text-color": "rgb(73, 117, 140)",
         "text-halo-color": "rgb(35, 40, 60)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Other water body label",
@@ -43621,7 +43546,7 @@
       "paint": {
         "text-color": "rgb(73, 117, 140)",
         "text-halo-color": "rgb(35, 40, 60)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Lake label",
@@ -43668,7 +43593,7 @@
       "paint": {
         "text-color": "rgb(239, 228, 228)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Island label",
@@ -43684,6 +43609,7 @@
       "layout": {
         "icon-image": "163",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43691,7 +43617,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43709,7 +43635,7 @@
       "paint": {
         "text-color": "rgb(187, 158, 180)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Shopping centre label",
@@ -43725,6 +43651,7 @@
       "layout": {
         "icon-image": "176",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43732,7 +43659,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43748,9 +43675,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(148, 139, 128)",
+        "text-color": "rgb(181, 154, 172)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Museum label",
@@ -43766,6 +43693,7 @@
       "layout": {
         "icon-image": "167",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43773,7 +43701,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43791,7 +43719,7 @@
       "paint": {
         "text-color": "rgb(160, 150, 130)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Prison label",
@@ -43807,6 +43735,7 @@
       "layout": {
         "icon-image": "170",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43814,7 +43743,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43832,7 +43761,7 @@
       "paint": {
         "text-color": "rgb(160, 150, 130)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Military Territory label",
@@ -43920,6 +43849,7 @@
       "layout": {
         "icon-image": "175",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43927,7 +43857,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43943,9 +43873,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(183, 168, 147)",
+        "text-color": "rgb(147, 184, 159)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Landmark label",
@@ -43961,6 +43891,7 @@
       "layout": {
         "icon-image": "171",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -43968,7 +43899,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -43984,9 +43915,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(120, 160, 100)",
+        "text-color": "rgb(147, 184, 159)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Golf Course label",
@@ -44002,14 +43933,15 @@
       "layout": {
         "icon-image": "177",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
         ],
-        "text-letter-spacing": 0.1,
+        "text-letter-spacing": 0.05,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -44025,9 +43957,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(160, 150, 130)",
+        "text-color": "rgb(156, 128, 145)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Stadium label",
@@ -44043,6 +43975,7 @@
       "layout": {
         "icon-image": "168",
         "symbol-placement": "point",
+        "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
           "Noto-Regular"
@@ -44050,7 +43983,7 @@
         "text-letter-spacing": 0.1,
         "text-offset": [
           0,
-          2.5
+          1.5
         ],
         "text-size": {
           "stops": [
@@ -44066,9 +43999,9 @@
         }
       },
       "paint": {
-        "text-color": "rgb(179, 136, 87)",
+        "text-color": "rgb(181, 154, 172)",
         "text-halo-color": "rgb(26, 26, 26)",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       },
       "source": "vectorTiles",
       "source-layer": "Zoo label",
@@ -44086,10 +44019,6 @@
         ],
         "text-keep-upright": true,
         "text-letter-spacing": 0.1,
-        "text-offset": [
-          0,
-          0.1
-        ],
         "text-rotation-alignment": "map",
         "text-size": {
           "stops": [
@@ -44130,7 +44059,7 @@
         "text-font": [
           "Noto-Regular"
         ],
-        "text-letter-spacing": 0.1,
+        "text-letter-spacing": 0.05,
         "text-size": {
           "stops": [
             [
@@ -44167,7 +44096,7 @@
           "Noto-Regular"
         ],
         "text-letter-spacing": 0.05,
-        "text-padding": 8,
+        "text-padding": 2,
         "text-size": {
           "stops": [
             [
@@ -44293,7 +44222,7 @@
           "Noto-Regular"
         ],
         "text-letter-spacing": 0.05,
-        "text-padding": 10,
+        "text-padding": 8,
         "text-size": {
           "stops": [
             [
@@ -44434,7 +44363,7 @@
           "Noto-Bold"
         ],
         "text-letter-spacing": 0.1,
-        "text-padding": 5,
+        "text-padding": 3,
         "text-size": {
           "stops": [
             [
@@ -44745,6 +44674,116 @@
       "source": "vectorTiles",
       "source-layer": "Country name",
       "type": "symbol"
+    },
+    {
+      "filter": [
+        "!=",
+        "name",
+        " "
+      ],
+      "id": "Sea label",
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Noto-Regular"
+        ],
+        "text-letter-spacing": 0.25,
+        "text-size": {
+          "stops": [
+            [
+              0,
+              8
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              15
+            ]
+          ]
+        }
+      },
+      "paint": {
+        "text-color": "rgb(73, 117, 140)",
+        "text-halo-color": "rgb(35, 40, 60)",
+        "text-halo-width": {
+          "stops": [
+            [
+              1,
+              1
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        }
+      },
+      "source": "vectorTiles",
+      "source-layer": "Sea label",
+      "type": "symbol"
+    },
+    {
+      "filter": [
+        "!=",
+        "name",
+        " "
+      ],
+      "id": "Ocean label",
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Noto-Regular"
+        ],
+        "text-letter-spacing": 0.25,
+        "text-size": {
+          "stops": [
+            [
+              0,
+              8
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              15
+            ]
+          ]
+        }
+      },
+      "paint": {
+        "text-color": "rgb(89, 131, 156)",
+        "text-halo-color": "rgb(35, 39, 45)",
+        "text-halo-width": {
+          "stops": [
+            [
+              1,
+              1
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        }
+      },
+      "source": "vectorTiles",
+      "source-layer": "Ocean label",
+      "type": "symbol"
     }
   ],
   "metadata": {},
@@ -44753,10 +44792,7 @@
       "maxzoom": 22,
       "minzoom": 0,
       "tiles": [
-        "https://a.api.tomtom.com/map/1/tile/basic/main/{z}/{x}/{y}.pbf?key=[OnlineMaps]&language=[Language]&view=[GeoView]",
-        "https://b.api.tomtom.com/map/1/tile/basic/main/{z}/{x}/{y}.pbf?key=[OnlineMaps]&language=[Language]&view=[GeoView]",
-        "https://c.api.tomtom.com/map/1/tile/basic/main/{z}/{x}/{y}.pbf?key=[OnlineMaps]&language=[Language]&view=[GeoView]",
-        "https://d.api.tomtom.com/map/1/tile/basic/main/{z}/{x}/{y}.pbf?key=[OnlineMaps]&language=[Language]&view=[GeoView]"
+        "[VectorMapTilesUrlPrefix]/map/1/tile/basic/main/{z}/{x}/{y}.pbf?key=[OnlineMaps]&language=[Language]&view=[GeoView]"
       ],
       "type": "vector"
     }
