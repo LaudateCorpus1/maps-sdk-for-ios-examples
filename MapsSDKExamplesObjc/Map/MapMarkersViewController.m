@@ -15,54 +15,44 @@
 @implementation MapMarkersViewController
 
 - (OptionsView *)getOptionsView {
-  return
-      [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Simple", @"Decal" ]
-                                           selectedID:-1];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Simple", @"Decal" ] selectedID:-1];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 1:
-    [self displayDecalMarkers];
-    break;
-  default:
-    [self displaySimpleMarkers];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 1:
+        [self displayDecalMarkers];
+        break;
+    default:
+        [self displaySimpleMarkers];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)displaySimpleMarkers {
-  self.mapView.bearing = 0;
-  [self.mapView.annotationManager removeAllAnnotations];
-  for (int i = 0; i < 4; i++) {
-    CLLocationCoordinate2D coordinate = [CLLocation
-        makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
-    TTAnnotation *annotation =
-        [TTAnnotation annotationWithCoordinate:coordinate];
-    [self.mapView.annotationManager addAnnotation:annotation];
-  }
+    self.mapView.bearing = 0;
+    [self.mapView.annotationManager removeAllAnnotations];
+    for (int i = 0; i < 4; i++) {
+        CLLocationCoordinate2D coordinate = [CLLocation makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
+        TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:coordinate];
+        [self.mapView.annotationManager addAnnotation:annotation];
+    }
 }
 
 - (void)displayDecalMarkers {
-  self.mapView.bearing = 180;
-  [self.mapView.annotationManager removeAllAnnotations];
-  for (int i = 0; i < 4; i++) {
-    CLLocationCoordinate2D coordinate = [CLLocation
-        makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
-    TTAnnotationImage *customIcon =
-        [TTAnnotationImage createPNGWithName:@"Favourite"];
-    TTAnnotation *annotation =
-        [TTAnnotation annotationWithCoordinate:coordinate
-                               annotationImage:customIcon
-                                        anchor:TTAnnotationAnchorBottom
-                                          type:TTAnnotationTypeDecal];
-    [self.mapView.annotationManager addAnnotation:annotation];
-  }
+    self.mapView.bearing = 180;
+    [self.mapView.annotationManager removeAllAnnotations];
+    for (int i = 0; i < 4; i++) {
+        CLLocationCoordinate2D coordinate = [CLLocation makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
+        TTAnnotationImage *customIcon = [TTAnnotationImage createPNGWithName:@"Favourite"];
+        TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:coordinate annotationImage:customIcon anchor:TTAnnotationAnchorBottom type:TTAnnotationTypeDecal];
+        [self.mapView.annotationManager addAnnotation:annotation];
+    }
 }
 
 @end

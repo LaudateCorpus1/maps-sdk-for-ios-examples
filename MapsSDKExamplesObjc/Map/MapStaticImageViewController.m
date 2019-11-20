@@ -16,74 +16,63 @@
 @implementation MapStaticImageViewController
 
 - (UIImageView *)getImageViewForIndex:(NSInteger)index {
-  switch (index) {
-  case 5:
-    return [self getAmsterdamNightWithZoomLevel8Image];
-  case 4:
-    return [self getAmsterdamWithAzureStyleImage];
-  case 3:
-    return [self getAmsterdamWithHybrydImage];
-  case 2:
-    return [self getAmsterdamWithZoomLevel15Image];
-  case 1:
-    return [self getAmsterdamNightImage];
-  default:
-    return [self getAmsterdamCustomImage];
-  }
+    switch (index) {
+    case 5:
+        return [self getAmsterdamNightWithZoomLevel8Image];
+    case 4:
+        return [self getAmsterdamWithAzureStyleImage];
+    case 3:
+        return [self getAmsterdamWithHybrydImage];
+    case 2:
+        return [self getAmsterdamWithZoomLevel15Image];
+    case 1:
+        return [self getAmsterdamNightImage];
+    default:
+        return [self getAmsterdamCustomImage];
+    }
 }
 
 - (UIImageView *)getAmsterdamCustomImage {
-  TTStaticImageQuery *query =
-      [[[[[[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]]
-          withLayer:TTLayerTypeBasic] withStyle:TTStyleTypeMain]
-          withExt:TTExtTypePNG] withHeight:512] withWidth:512] build];
-  return [self performQuery:query];
+    TTStaticImageQuery *query = [[[[[[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]] withLayer:TTLayerTypeBasic] withStyle:TTStyleTypeMain] withExt:TTExtTypePNG] withHeight:512] withWidth:512] build];
+    return [self performQuery:query];
 }
 
 - (UIImageView *)getAmsterdamNightImage {
-  TTStaticImageQuery *query = [[[TTStaticImageQueryBuilder
-      withCenter:[TTCoordinate AMSTERDAM]] withStyle:TTStyleTypeMain] build];
-  return [self performQuery:query];
+    TTStaticImageQuery *query = [[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]] withStyle:TTStyleTypeMain] build];
+    return [self performQuery:query];
 }
 
 - (UIImageView *)getAmsterdamWithZoomLevel15Image {
-  TTStaticImageQuery *query = [[[TTStaticImageQueryBuilder
-      withCenter:[TTCoordinate AMSTERDAM]] withZoomLevel:15] build];
-  return [self performQuery:query];
+    TTStaticImageQuery *query = [[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]] withZoomLevel:15] build];
+    return [self performQuery:query];
 }
 
 - (UIImageView *)getAmsterdamWithHybrydImage {
-  TTStaticImageQuery *query = [[[TTStaticImageQueryBuilder
-      withCenter:[TTCoordinate AMSTERDAM]] withLayer:TTLayerTypeHybrid] build];
-  return [self performQuery:query];
+    TTStaticImageQuery *query = [[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]] withLayer:TTLayerTypeHybrid] build];
+    return [self performQuery:query];
 }
 
 - (UIImageView *)getAmsterdamWithAzureStyleImage {
-  TTStaticImageQuery *query =
-      [[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]]
-          withCustomStyle:@"main-azure"] build];
-  return [self performQuery:query];
+    TTStaticImageQuery *query = [[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]] withCustomStyle:@"main-azure"] build];
+    return [self performQuery:query];
 }
 
 - (UIImageView *)getAmsterdamNightWithZoomLevel8Image {
-  TTStaticImageQuery *query =
-      [[[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]]
-          withStyle:TTStyleTypeNight] withZoomLevel:8] build];
-  return [self performQuery:query];
+    TTStaticImageQuery *query = [[[[TTStaticImageQueryBuilder withCenter:[TTCoordinate AMSTERDAM]] withStyle:TTStyleTypeNight] withZoomLevel:8] build];
+    return [self performQuery:query];
 }
 
 - (UIImageView *)performQuery:(TTStaticImageQuery *)query {
-  UIImageView *imageView = [[ProgressImageView alloc] initWithFrame:CGRectZero];
-  TTStaticImage *staticImage = [TTStaticImage new];
-  [staticImage imageForQuery:query
-           completionHandler:^(UIImage *_Nullable image,
-                               TTResponseError *_Nullable error) {
-             if (error) {
-               return;
-             }
-             imageView.image = image;
-           }];
-  return imageView;
+    UIImageView *imageView = [[ProgressImageView alloc] initWithFrame:CGRectZero];
+    TTStaticImage *staticImage = [TTStaticImage new];
+    [staticImage imageForQuery:query
+             completionHandler:^(UIImage *_Nullable image, TTResponseError *_Nullable error) {
+               if (error) {
+                   return;
+               }
+               imageView.image = image;
+             }];
+    return imageView;
 }
 
 @end

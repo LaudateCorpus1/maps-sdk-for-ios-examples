@@ -3,14 +3,14 @@ platform :ios, '9.1'
 use_frameworks!
 
 def tomtom_pods
-  pod 'TomTomOnlineSDKSearch', '2.4.376'
-  pod 'TomTomOnlineSDKRouting', '2.4.376'
-  pod 'TomTomOnlineSDKMaps', '2.4.376'
-  pod 'TomTomOnlineSDKMapsUIExtensions', '2.4.376'
-  pod 'TomTomOnlineSDKMapsStaticImage', '2.4.376'
-  pod 'TomTomOnlineSDKTraffic', '2.4.376'
-  pod 'TomTomOnlineSDKMapsDriving', '2.4.376'
-  pod 'TomTomOnlineSDKGeofencing', '2.4.376'
+  pod 'TomTomOnlineSDKSearch', '2.4.402'
+  pod 'TomTomOnlineSDKRouting', '2.4.402'
+  pod 'TomTomOnlineSDKMaps', '2.4.402'
+  pod 'TomTomOnlineSDKMapsUIExtensions', '2.4.402'
+  pod 'TomTomOnlineSDKMapsStaticImage', '2.4.402'
+  pod 'TomTomOnlineSDKTraffic', '2.4.402'
+  pod 'TomTomOnlineSDKMapsDriving', '2.4.402'
+  pod 'TomTomOnlineSDKGeofencing', '2.4.402'
 end
 
 target 'MapsSDKExamplesSwift' do

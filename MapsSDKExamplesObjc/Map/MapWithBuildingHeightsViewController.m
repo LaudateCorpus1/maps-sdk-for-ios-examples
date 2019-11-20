@@ -21,61 +21,50 @@
 @implementation MapWithBuildingHeightsViewController
 
 - (void)setupInitialCameraPosition {
-  [self.mapView centerOnCoordinate:TTCoordinate.LONDON withZoom:17];
+    [self.mapView centerOnCoordinate:TTCoordinate.LONDON withZoom:17];
 }
 
 - (void)onMapReady {
-  [super onMapReady];
-  self.layers = [[self.mapView.styleManager currentStyle]
-      getLayersByRegexs:
-          [NSArray
-              arrayWithObjects:@"Subway Station 3D", @"Place of worship 3D",
-                               @"Railway Station 3D",
-                               @"Government Administration Office 3D",
-                               @"Other building 3D", @"School building 3D",
-                               @"Other town block 3D", @"Factory building 3D",
-                               @"Hospital building 3D", @"Hotel building 3D",
-                               @"Cultural Facility 3D", nil]];
-  [self buildingHeights];
+    [super onMapReady];
+    self.layers = [[self.mapView.styleManager currentStyle] getLayersByRegexs:[NSArray arrayWithObjects:@"Subway Station 3D", @"Place of worship 3D", @"Railway Station 3D", @"Government Administration Office 3D", @"Other building 3D", @"School building 3D", @"Other town block 3D",
+                                                                                                        @"Factory building 3D", @"Hospital building 3D", @"Hotel building 3D", @"Cultural Facility 3D", nil]];
+    [self buildingHeights];
 }
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewSingleSelect alloc]
-      initWithLabels:@[ @"Heights", @"Footprints" ]
-          selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Heights", @"Footprints" ] selectedID:0];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 1:
-    [self buildingFootprints];
-    break;
-  default:
-    [self buildingHeights];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 1:
+        [self buildingFootprints];
+        break;
+    default:
+        [self buildingHeights];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)buildingFootprints {
-  [self changeLayers:self.layers visibility:TTMapLayerVisibilityNone];
-  [self.mapView setPerspective3D:NO];
+    [self changeLayers:self.layers visibility:TTMapLayerVisibilityNone];
+    [self.mapView setPerspective3D:NO];
 }
 
 - (void)buildingHeights {
-  [self changeLayers:self.layers visibility:TTMapLayerVisibilityVisible];
-  [self.mapView setPerspective3D:YES];
+    [self changeLayers:self.layers visibility:TTMapLayerVisibilityVisible];
+    [self.mapView setPerspective3D:YES];
 }
 
-- (void)changeLayers:(NSArray<TTMapLayer *> *)layers
-          visibility:(TTMapLayerVisibility)visibility {
-  for (TTMapLayer *layer in layers) {
-    layer.visibility = visibility;
-  }
+- (void)changeLayers:(NSArray<TTMapLayer *> *)layers visibility:(TTMapLayerVisibility)visibility {
+    for (TTMapLayer *layer in layers) {
+        layer.visibility = visibility;
+    }
 }
 
 @end

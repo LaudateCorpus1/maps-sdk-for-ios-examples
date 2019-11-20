@@ -15,62 +15,45 @@
 @implementation RoutingBaseViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  [self setupEtaView];
+    [super viewDidLoad];
+    [self setupEtaView];
 }
 
 - (void)setupCenterOnWillHappen {
-  [self.mapView centerOnCoordinate:[TTCoordinate ALPHEN_AAN_DEN_RIJN]
-                          withZoom:8.5];
+    [self.mapView centerOnCoordinate:[TTCoordinate ALPHEN_AAN_DEN_RIJN] withZoom:8.5];
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:
-           (id<UIViewControllerTransitionCoordinator>)coordinator {
-  [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-  [coordinator
-      animateAlongsideTransition:^(
-          id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-      }
-      completion:^(
-          id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-        [self.mapView.routeManager showAllRoutesOverview];
-      }];
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [coordinator
+        animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
+        }
+        completion:^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
+          [self.mapView.routeManager showAllRoutesOverview];
+        }];
 }
 
 - (void)setupEtaView {
-  ETAView *etaView = [ETAView new];
-  [self.view addSubview:etaView];
-  self.etaView = etaView;
-  etaView.translatesAutoresizingMaskIntoConstraints = NO;
-  [self.view
-      addConstraints:[NSLayoutConstraint
-                         constraintsWithVisualFormat:@"H:|-0-[v0]-0-|"
-                                             options:0
-                                             metrics:nil
-                                               views:@{@"v0" : etaView}]];
-  [self.view
-      addConstraints:[NSLayoutConstraint
-                         constraintsWithVisualFormat:@"V:|-0-[v0(50)]"
-                                             options:0
-                                             metrics:nil
-                                               views:@{@"v0" : etaView}]];
+    ETAView *etaView = [ETAView new];
+    [self.view addSubview:etaView];
+    self.etaView = etaView;
+    etaView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[v0]-0-|" options:0 metrics:nil views:@{@"v0" : etaView}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[v0(50)]" options:0 metrics:nil views:@{@"v0" : etaView}]];
 }
 
 - (void)showETA:(TTSummary *)summary {
-  [self.etaView showWithSummary:summary style:ETAViewStylePlain];
+    [self.etaView showWithSummary:summary style:ETAViewStylePlain];
 }
 
 - (void)hideEta {
-  [self.etaView hide];
+    [self.etaView hide];
 }
 
 - (void)displayRouteOverview {
-  UIEdgeInsets insets = UIEdgeInsetsMake(
-      30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale,
-      30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale);
-  self.mapView.contentInset = insets;
-  [self.mapView.routeManager showAllRoutesOverview];
+    UIEdgeInsets insets = UIEdgeInsetsMake(30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale, 30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale);
+    self.mapView.contentInset = insets;
+    [self.mapView.routeManager showAllRoutesOverview];
 }
 
 @end

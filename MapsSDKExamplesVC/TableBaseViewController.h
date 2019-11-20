@@ -13,8 +13,7 @@
 #import <Foundation/Foundation.h>
 #import "ButtonsBaseViewController.h"
 
-@interface TableBaseViewController
-    : ButtonsBaseViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TableBaseViewController : ButtonsBaseViewController <UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) NSArray *_Nonnull results;
 @property(nonatomic, strong) UITableView *_Nonnull tableView;
 - (void)displayResults:(NSArray *_Nonnull)results;

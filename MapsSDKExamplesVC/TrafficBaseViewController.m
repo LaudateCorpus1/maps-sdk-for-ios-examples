@@ -15,23 +15,17 @@
 @implementation TrafficBaseViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.tableView.rowHeight = 70;
-  self.tableView.delegate = self;
+    [super viewDidLoad];
+    self.tableView.rowHeight = 70;
+    self.tableView.delegate = self;
 }
 
-- (UIView *)tableView:(UITableView *)tableView
-    viewForHeaderInSection:(NSInteger)section {
-  return [[NSBundle bundleForClass:[TrafficBaseViewController class]]
-             loadNibNamed:@"TrafficHeader"
-                    owner:self
-                  options:nil]
-      .firstObject;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [[NSBundle bundleForClass:[TrafficBaseViewController class]] loadNibNamed:@"TrafficHeader" owner:self options:nil].firstObject;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView
-    heightForHeaderInSection:(NSInteger)section {
-  return 40;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
 }
 
 @end

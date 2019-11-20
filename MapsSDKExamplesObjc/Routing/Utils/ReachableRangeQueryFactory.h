@@ -16,8 +16,7 @@
 @interface ReachableRangeQueryFactory : NSObject
 
 - (TTReachableRangeQuery *_Nonnull)createReachableRangeQueryForElectric;
-- (TTReachableRangeQuery *_Nonnull)
-    createReachableRangeQueryForElectricLimitTo2Hours;
+- (TTReachableRangeQuery *_Nonnull)createReachableRangeQueryForElectricLimitTo2Hours;
 - (TTReachableRangeQuery *_Nonnull)createReachableRangeQueryForCombustion;
 
 @end

@@ -20,37 +20,30 @@
 @implementation TrafficIncidentsViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.traffic = [TTTrafficIncidents new];
-  self.traffic.delegate = self;
-  [self displayIncidents];
+    [super viewDidLoad];
+    self.traffic = [TTTrafficIncidents new];
+    self.traffic.delegate = self;
+    [self displayIncidents];
 }
 
 #pragma mark Example
 
 - (void)displayIncidents {
-  [self.progress show];
-  TTLatLngBounds bounds = TTLatLngBoundsMake(
-      [TTCoordinate LONDON_TOP_LEFT], [TTCoordinate LONDON_BOTTOM_RIGHT]);
-  TTIncidentDetailsQuery *query = [[TTIncidentDetailsQueryBuilder
-         createWithStyle:TTTrafficIncidentStyleTypeS1
-         withBoundingBox:bounds
-                withZoom:12
-      withTrafficModelID:@"-1"] build];
-  [self.traffic incidentDetailsWithQuery:query];
+    [self.progress show];
+    TTLatLngBounds bounds = TTLatLngBoundsMake([TTCoordinate LONDON_TOP_LEFT], [TTCoordinate LONDON_BOTTOM_RIGHT]);
+    TTIncidentDetailsQuery *query = [[TTIncidentDetailsQueryBuilder createWithStyle:TTTrafficIncidentStyleTypeS1 withBoundingBox:bounds withZoom:12 withTrafficModelID:@"-1"] build];
+    [self.traffic incidentDetailsWithQuery:query];
 }
 
 #pragma mark TTTrafficIncidentsDelegate
 
-- (void)incidentDetails:(TTTrafficIncidents *)trafficIncidents
-    completedWithResponse:(TTIncidentDetailsResponse *)response {
-  [self.progress hide];
-  [self displayResults:response.incidents];
+- (void)incidentDetails:(TTTrafficIncidents *)trafficIncidents completedWithResponse:(TTIncidentDetailsResponse *)response {
+    [self.progress hide];
+    [self displayResults:response.incidents];
 }
 
-- (void)incidentDetails:(TTTrafficIncidents *)trafficIncidents
-        failedWithError:(TTResponseError *)error {
-  [self handleError:error];
+- (void)incidentDetails:(TTTrafficIncidents *)trafficIncidents failedWithError:(TTResponseError *)error {
+    [self handleError:error];
 }
 
 @end

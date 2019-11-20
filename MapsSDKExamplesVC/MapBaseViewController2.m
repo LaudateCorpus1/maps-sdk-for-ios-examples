@@ -15,21 +15,21 @@
 @implementation MapBaseViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  [self setupMap];
-  [self setupControls];
-  self.mapView.showsUserLocation = YES;
+    [super viewDidLoad];
+    [self setupMap];
+    [self setupControls];
+    self.mapView.showsUserLocation = YES;
 }
 
 - (void)setupMap {
-  TTMapView *mapView = [[TTMapView alloc] initWithFrame:CGRectZero];
-  self.view = mapView;
-  self.mapView = mapView;
-  [self setupCenterOnWillHappen];
+    TTMapView *mapView = [[TTMapView alloc] initWithFrame:CGRectZero];
+    self.view = mapView;
+    self.mapView = mapView;
+    [self setupCenterOnWillHappen];
 }
 
 - (void)setupCenterOnWillHappen {
-  [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM] withZoom:10];
+    [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM] withZoom:10];
 }
 
 @end

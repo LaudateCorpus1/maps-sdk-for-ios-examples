@@ -15,33 +15,31 @@
 @implementation MapPerspectiveViewController
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewSingleSelect alloc]
-      initWithLabels:@[ @"2D mode", @"3D mode" ]
-          selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"2D mode", @"3D mode" ] selectedID:0];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 1:
-    [self set3DMode];
-    break;
-  default:
-    [self set2DMode];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 1:
+        [self set3DMode];
+        break;
+    default:
+        [self set2DMode];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)set2DMode {
-  [self.mapView setPerspective3D:NO];
+    [self.mapView setPerspective3D:NO];
 }
 
 - (void)set3DMode {
-  [self.mapView setPerspective3D:YES];
+    [self.mapView setPerspective3D:YES];
 }
 
 @end

@@ -14,7 +14,6 @@
 #import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
 #import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-@interface RoutingAvoidVignettesAndAreasViewController
-    : RoutingBaseViewController
+@interface RoutingAvoidVignettesAndAreasViewController : RoutingBaseViewController
 
 @end

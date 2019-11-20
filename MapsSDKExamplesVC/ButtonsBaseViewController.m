@@ -15,35 +15,24 @@
 @implementation ButtonsBaseViewController
 
 - (void)setupControls {
-  OptionsView *optionsView = [self getOptionsView];
-  self.optionsView = optionsView;
-  optionsView.delegate = self;
-  [self.view addSubview:optionsView];
-  optionsView.translatesAutoresizingMaskIntoConstraints = NO;
-  [optionsView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor
-                                           constant:-20]
-      .active = YES;
-  [optionsView.heightAnchor constraintEqualToConstant:36].active = YES;
-  [self.view
-      addConstraints:[NSLayoutConstraint
-                         constraintsWithVisualFormat:@"H:|-20-[v0]-20-|"
-                                             options:0
-                                             metrics:nil
-                                               views:@{@"v0" : optionsView}]];
+    OptionsView *optionsView = [self getOptionsView];
+    self.optionsView = optionsView;
+    optionsView.delegate = self;
+    [self.view addSubview:optionsView];
+    optionsView.translatesAutoresizingMaskIntoConstraints = NO;
+    [optionsView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
+    [optionsView.heightAnchor constraintEqualToConstant:36].active = YES;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[v0]-20-|" options:0 metrics:nil views:@{@"v0" : optionsView}]];
 }
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsView alloc] initWithLabels:@[] selectedID:-1];
+    return [[OptionsView alloc] initWithLabels:@[] selectedID:-1];
 }
 
 - (void)handleError:(NSError *)responseError {
-  [self.toast
-      toastWithMessage:[NSString
-                           stringWithFormat:@"error %@",
-                                            responseError
-                                                .userInfo[@"description"]]];
-  [self.progress hide];
-  [self.optionsView deselectAll];
+    [self.toast toastWithMessage:[NSString stringWithFormat:@"error %@", responseError.userInfo[@"description"]]];
+    [self.progress hide];
+    [self.optionsView deselectAll];
 }
 
 #pragma mark OptionsViewDelegate

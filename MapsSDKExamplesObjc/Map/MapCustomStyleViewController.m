@@ -15,37 +15,34 @@
 @implementation MapCustomStyleViewController
 
 - (OptionsView *)getOptionsView {
-  return
-      [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Basic", @"Custom" ]
-                                           selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Basic", @"Custom" ] selectedID:0];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 1:
-    [self displayStyleCustom];
-    break;
-  default:
-    [self displayStyleBasic];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 1:
+        [self displayStyleCustom];
+        break;
+    default:
+        [self displayStyleBasic];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)displayStyleBasic {
-  [self.mapView setStylePath:nil];
-  [self.mapView applyDefaultLogo];
+    [self.mapView setStylePath:nil];
+    [self.mapView applyDefaultLogo];
 }
 
 - (void)displayStyleCustom {
-  NSString *customStyle = [NSBundle.mainBundle pathForResource:@"style"
-                                                        ofType:@"json"];
-  [self.mapView setStylePath:customStyle];
-  [self.mapView applyInvertedLogo];
+    NSString *customStyle = [NSBundle.mainBundle pathForResource:@"style" ofType:@"json"];
+    [self.mapView setStylePath:customStyle];
+    [self.mapView applyInvertedLogo];
 }
 
 @end

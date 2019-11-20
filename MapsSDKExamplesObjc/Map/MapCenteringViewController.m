@@ -15,14 +15,12 @@
 @implementation MapCenteringViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  [self centerOnAmsterdam];
+    [super viewDidLoad];
+    [self centerOnAmsterdam];
 }
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewSingleSelect alloc]
-      initWithLabels:@[ @"Amsterdam", @"Berlin", @"London" ]
-          selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Amsterdam", @"Berlin", @"London" ] selectedID:0];
 }
 
 - (void)setupInitialCameraPosition {
@@ -31,32 +29,32 @@
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 2:
-    [self centerOnLondon];
-    break;
-  case 1:
-    [self centerOnBerlin];
-    break;
-  default:
-    [self centerOnAmsterdam];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 2:
+        [self centerOnLondon];
+        break;
+    case 1:
+        [self centerOnBerlin];
+        break;
+    default:
+        [self centerOnAmsterdam];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)centerOnAmsterdam {
-  [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM] withZoom:10];
+    [self.mapView centerOnCoordinate:[TTCoordinate AMSTERDAM] withZoom:10];
 }
 
 - (void)centerOnBerlin {
-  [self.mapView centerOnCoordinate:[TTCoordinate BERLIN] withZoom:10];
+    [self.mapView centerOnCoordinate:[TTCoordinate BERLIN] withZoom:10];
 }
 
 - (void)centerOnLondon {
-  [self.mapView centerOnCoordinate:[TTCoordinate LONDON] withZoom:10];
+    [self.mapView centerOnCoordinate:[TTCoordinate LONDON] withZoom:10];
 }
 
 @end

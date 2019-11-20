@@ -15,49 +15,47 @@
 @implementation MapLanguageViewController
 
 - (void)setupInitialCameraPosition {
-  [self.mapView centerOnCoordinate:[TTCoordinate LODZ] withZoom:3.2];
+    [self.mapView centerOnCoordinate:[TTCoordinate LODZ] withZoom:3.2];
 }
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewSingleSelect alloc]
-      initWithLabels:@[ @"English", @"Russian", @"Dutch" ]
-          selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"English", @"Russian", @"Dutch" ] selectedID:0];
 }
 
 - (void)setupMap {
-  [super setupMap];
-  [self.mapView setLanguage:@"en-GB"];
+    [super setupMap];
+    [self.mapView setLanguage:@"en-GB"];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 2:
-    [self setLanguageDutch];
-    break;
-  case 1:
-    [self setLanguageRussian];
-    break;
-  default:
-    [self setLanguageEnglish];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 2:
+        [self setLanguageDutch];
+        break;
+    case 1:
+        [self setLanguageRussian];
+        break;
+    default:
+        [self setLanguageEnglish];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)setLanguageEnglish {
-  [self.mapView setLanguage:@"en-GB"];
+    [self.mapView setLanguage:@"en-GB"];
 }
 
 - (void)setLanguageRussian {
-  [self.mapView setLanguage:@"ru-RU"];
+    [self.mapView setLanguage:@"ru-RU"];
 }
 
 - (void)setLanguageDutch {
-  [self.mapView setLanguage:@"nl-NL"];
+    [self.mapView setLanguage:@"nl-NL"];
 }
 
 @end

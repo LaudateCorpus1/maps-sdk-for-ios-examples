@@ -22,7 +22,6 @@
 - (void)hideEta;
 - (void)displayRouteOverview;
 - (void)zoomToAllMarkers;
-- (void)showMatrixEta:(BOOL)oneToMany
-    withMatrixResponse:(TTMatrixRouteResponse *)response;
+- (void)showMatrixEta:(BOOL)oneToMany withMatrixResponse:(TTMatrixRouteResponse *)response;
 - (void)hideMatrixEta;
 @end

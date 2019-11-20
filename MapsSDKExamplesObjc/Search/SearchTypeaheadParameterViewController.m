@@ -20,39 +20,37 @@
 @implementation SearchTypeaheadParameterViewController
 
 - (BOOL)shouldDisplaySegmentedControll {
-  return NO;
+    return NO;
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.search = [TTSearch new];
-  self.search.delegate = self;
+    [super viewDidLoad];
+    self.search = [TTSearch new];
+    self.search.delegate = self;
 }
 
 - (void)searchBarIsEdittingWith:(NSString *)term {
-  [self searchForTermWithTypeahead:term];
+    [self searchForTermWithTypeahead:term];
 }
 
 #pragma mark Example
 
 - (void)searchForTermWithTypeahead:(NSString *)term {
-  TTSearchQuery *query =
-      [[[TTSearchQueryBuilder createWithTerm:term] withTypeAhead:YES] build];
-  [self.search searchWithQuery:query];
+    TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:term] withTypeAhead:YES] build];
+    [self.search searchWithQuery:query];
 }
 
 #pragma mark TTSearchDelegate
 
-- (void)search:(TTSearch *)search
-    completedWithResponse:(TTSearchResponse *)response {
-  [self.progress hide];
-  [self displayResults:response.results];
+- (void)search:(TTSearch *)search completedWithResponse:(TTSearchResponse *)response {
+    [self.progress hide];
+    [self displayResults:response.results];
 }
 
 - (void)search:(TTSearch *)search failedWithError:(TTResponseError *)error {
-  [self handleError:error];
+    [self handleError:error];
 }
 - (void)cancelSearch {
-  [self.search cancel];
+    [self.search cancel];
 }
 @end

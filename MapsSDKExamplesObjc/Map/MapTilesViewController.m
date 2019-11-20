@@ -15,33 +15,31 @@
 @implementation MapTilesViewController
 
 - (OptionsView *)getOptionsView {
-  return
-      [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Vector", @"Raster" ]
-                                           selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Vector", @"Raster" ] selectedID:0];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 1:
-    [self displayRaster];
-    break;
-  default:
-    [self displayVectors];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 1:
+        [self displayRaster];
+        break;
+    default:
+        [self displayVectors];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)displayVectors {
-  [self.mapView setTilesType:TTMapTilesVector];
+    [self.mapView setTilesType:TTMapTilesVector];
 }
 
 - (void)displayRaster {
-  [self.mapView setTilesType:TTMapTilesRaster];
+    [self.mapView setTilesType:TTMapTilesRaster];
 }
 
 @end

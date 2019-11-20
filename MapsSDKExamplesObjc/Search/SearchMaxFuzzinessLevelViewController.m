@@ -20,66 +20,60 @@
 @implementation SearchMaxFuzzinessLevelViewController
 
 - (NSInteger)segmentsForControllSelected {
-  return 0;
+    return 0;
 }
 
 - (NSArray<NSString *> *)segmentsForControll {
-  return @[ @"Max 1", @"Max 2", @"Max 3" ];
+    return @[ @"Max 1", @"Max 2", @"Max 3" ];
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.search = [TTSearch new];
-  self.search.delegate = self;
+    [super viewDidLoad];
+    self.search = [TTSearch new];
+    self.search.delegate = self;
 }
 
 - (void)segmentChanged:(UISegmentedControl *)sender {
-  if (!self.locationManager.lastLocation) {
-    [self.toast toastWithMessage:@"Location not determined"];
-    self.segmentedControl.selectedSegmentIndex = 0;
-    return;
-  }
+    if (!self.locationManager.lastLocation) {
+        [self.toast toastWithMessage:@"Location not determined"];
+        self.segmentedControl.selectedSegmentIndex = 0;
+        return;
+    }
 
-  [self.searchBar resignFirstResponder];
-  if (self.searchBar.text) {
-    [self.progress show];
-    [self searchForTerm:self.searchBar.text
-        withMaxFuzzyLevel:sender.selectedSegmentIndex + 1];
-  }
+    [self.searchBar resignFirstResponder];
+    if (self.searchBar.text) {
+        [self.progress show];
+        [self searchForTerm:self.searchBar.text withMaxFuzzyLevel:sender.selectedSegmentIndex + 1];
+    }
 }
 
 - (void)searchBarFinishedEdittingWith:(NSString *)term {
-  if (!self.locationManager.lastLocation) {
-    [self.toast toastWithMessage:@"Location not determined"];
-    self.segmentedControl.selectedSegmentIndex = 0;
-    return;
-  }
+    if (!self.locationManager.lastLocation) {
+        [self.toast toastWithMessage:@"Location not determined"];
+        self.segmentedControl.selectedSegmentIndex = 0;
+        return;
+    }
 
-  [self.progress show];
-  [self searchForTerm:term
-      withMaxFuzzyLevel:self.segmentedControl.selectedSegmentIndex + 1];
+    [self.progress show];
+    [self searchForTerm:term withMaxFuzzyLevel:self.segmentedControl.selectedSegmentIndex + 1];
 }
 
 #pragma mark Example
 
-- (void)searchForTerm:(NSString *)term
-    withMaxFuzzyLevel:(NSUInteger)maxFuzzyLevel {
-  TTSearchQuery *query = [[[[[TTSearchQueryBuilder createWithTerm:term]
-      withMinFuzzyLevel:1] withMaxFuzzyLevel:maxFuzzyLevel]
-      withPosition:self.locationManager.lastLocation.coordinate] build];
-  [self.search searchWithQuery:query];
+- (void)searchForTerm:(NSString *)term withMaxFuzzyLevel:(NSUInteger)maxFuzzyLevel {
+    TTSearchQuery *query = [[[[[TTSearchQueryBuilder createWithTerm:term] withMinFuzzyLevel:1] withMaxFuzzyLevel:maxFuzzyLevel] withPosition:self.locationManager.lastLocation.coordinate] build];
+    [self.search searchWithQuery:query];
 }
 
 #pragma mark TTSearchDelegate
 
-- (void)search:(TTSearch *)search
-    completedWithResponse:(TTSearchResponse *)response {
-  [self.progress hide];
-  [self displayResults:response.results];
+- (void)search:(TTSearch *)search completedWithResponse:(TTSearchResponse *)response {
+    [self.progress hide];
+    [self displayResults:response.results];
 }
 
 - (void)search:(TTSearch *)search failedWithError:(TTResponseError *)error {
-  [self handleError:error];
+    [self handleError:error];
 }
 
 @end

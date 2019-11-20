@@ -20,140 +20,110 @@
 @implementation MapUIExtensionsViewController
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewSingleSelect alloc]
-      initWithLabels:@[ @"Default", @"Custom", @"Hide" ]
-          selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Default", @"Custom", @"Hide" ] selectedID:0];
 }
 
 - (void)setupMap {
-  [super setupMap];
-  TTControlView *controlView = [TTControlView new];
-  controlView.autoresizingMask =
-      UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-  controlView.mapView = self.mapView;
-  [self.view addSubview:controlView];
-  self.controlView = controlView;
-  [self controlsDefault];
+    [super setupMap];
+    TTControlView *controlView = [TTControlView new];
+    controlView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    controlView.mapView = self.mapView;
+    [self.view addSubview:controlView];
+    self.controlView = controlView;
+    [self controlsDefault];
 }
 
 - (void)setupInitialCameraPosition {
-  TTCameraPosition *cameraPosition = [[[[TTCameraPositionBuilder
-      createWithCameraPosition:[TTCoordinate AMSTERDAM]] withBearing:45]
-      withZoom:10] build];
+    TTCameraPosition *cameraPosition = [[[[TTCameraPositionBuilder createWithCameraPosition:[TTCoordinate AMSTERDAM]] withBearing:45] withZoom:10] build];
 
-  [self.mapView setCameraPosition:cameraPosition];
+    [self.mapView setCameraPosition:cameraPosition];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 2:
-    [self controlsHidden];
-    break;
-  case 1:
-    [self controlsCustom];
-    break;
-  default:
-    [self controlsDefault];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 2:
+        [self controlsHidden];
+        break;
+    case 1:
+        [self controlsCustom];
+        break;
+    default:
+        [self controlsDefault];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)controlsDefault {
-  self.controlView.centerButton.hidden = NO;
-  self.controlView.compassButton.hidden = NO;
-  self.controlView.zoomView.hidden = NO;
-  self.controlView.controlView.hidden = NO;
-  [self.controlView initDefaultCenterButton];
-  [self.controlView initDefaultCompassButton];
-  [self.controlView initDefaultTTPanControlView];
-  [self.controlView initDefaultTTZoomView];
-  self.controlView.topLayoutConstraintCompassButton.constant = 70;
-  self.controlView.bottomLayoutConstraintCenterButton.constant = -70;
+    self.controlView.centerButton.hidden = NO;
+    self.controlView.compassButton.hidden = NO;
+    self.controlView.zoomView.hidden = NO;
+    self.controlView.controlView.hidden = NO;
+    [self.controlView initDefaultCenterButton];
+    [self.controlView initDefaultCompassButton];
+    [self.controlView initDefaultTTPanControlView];
+    [self.controlView initDefaultTTZoomView];
+    self.controlView.topLayoutConstraintCompassButton.constant = 70;
+    self.controlView.bottomLayoutConstraintCenterButton.constant = -70;
 }
 
 - (void)controlsCustom {
-  self.controlView.centerButton.hidden = NO;
-  self.controlView.compassButton.hidden = NO;
-  self.controlView.zoomView.hidden = NO;
-  self.controlView.controlView.hidden = NO;
+    self.controlView.centerButton.hidden = NO;
+    self.controlView.compassButton.hidden = NO;
+    self.controlView.zoomView.hidden = NO;
+    self.controlView.controlView.hidden = NO;
 
-  UIButton *customCurrentLocationButton = [UIButton new];
-  [customCurrentLocationButton
-      setImage:[UIImage imageNamed:@"custom_current_location"]
-      forState:UIControlStateNormal];
-  [customCurrentLocationButton
-      setImage:[UIImage imageNamed:@"custom_current_location"]
-      forState:UIControlStateHighlighted];
-  self.controlView.centerButton = customCurrentLocationButton;
-  self.controlView.bottomLayoutConstraintCenterButton.constant = -70;
+    UIButton *customCurrentLocationButton = [UIButton new];
+    [customCurrentLocationButton setImage:[UIImage imageNamed:@"custom_current_location"] forState:UIControlStateNormal];
+    [customCurrentLocationButton setImage:[UIImage imageNamed:@"custom_current_location"] forState:UIControlStateHighlighted];
+    self.controlView.centerButton = customCurrentLocationButton;
+    self.controlView.bottomLayoutConstraintCenterButton.constant = -70;
 
-  UIButton *customCompassButton = [UIButton new];
-  [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"]
-                       forState:UIControlStateNormal];
-  [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"]
-                       forState:UIControlStateHighlighted];
-  [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"]
-                       forState:UIControlStateSelected];
-  self.controlView.compassButton = customCompassButton;
-  self.controlView.topLayoutConstraintCompassButton.constant = 70;
+    UIButton *customCompassButton = [UIButton new];
+    [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"] forState:UIControlStateNormal];
+    [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"] forState:UIControlStateHighlighted];
+    [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"] forState:UIControlStateSelected];
+    self.controlView.compassButton = customCompassButton;
+    self.controlView.topLayoutConstraintCompassButton.constant = 70;
 
-  UIButton *customControlLeftButton = [UIButton new];
-  [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_left_custom"]
-                           forState:UIControlStateNormal];
-  [customControlLeftButton
-      setImage:[UIImage imageNamed:@"arrow_left_highlighted_custom"]
-      forState:UIControlStateHighlighted];
-  self.controlView.controlView.leftControlBtn = customControlLeftButton;
-  UIButton *customControlRightButton = [UIButton new];
-  [customControlRightButton setImage:[UIImage imageNamed:@"arrow_right_custom"]
-                            forState:UIControlStateNormal];
-  [customControlRightButton
-      setImage:[UIImage imageNamed:@"arrow_right_highlighted_custom"]
-      forState:UIControlStateHighlighted];
-  self.controlView.controlView.rightControlBtn = customControlRightButton;
+    UIButton *customControlLeftButton = [UIButton new];
+    [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_left_custom"] forState:UIControlStateNormal];
+    [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_left_highlighted_custom"] forState:UIControlStateHighlighted];
+    self.controlView.controlView.leftControlBtn = customControlLeftButton;
+    UIButton *customControlRightButton = [UIButton new];
+    [customControlRightButton setImage:[UIImage imageNamed:@"arrow_right_custom"] forState:UIControlStateNormal];
+    [customControlRightButton setImage:[UIImage imageNamed:@"arrow_right_highlighted_custom"] forState:UIControlStateHighlighted];
+    self.controlView.controlView.rightControlBtn = customControlRightButton;
 
-  UIButton *customControlUpButton = [UIButton new];
-  [customControlUpButton setImage:[UIImage imageNamed:@"arrow_up_custom"]
-                         forState:UIControlStateNormal];
-  [customControlUpButton
-      setImage:[UIImage imageNamed:@"arrow_up_highlighted_custom"]
-      forState:UIControlStateHighlighted];
-  self.controlView.controlView.upControlBtn = customControlUpButton;
+    UIButton *customControlUpButton = [UIButton new];
+    [customControlUpButton setImage:[UIImage imageNamed:@"arrow_up_custom"] forState:UIControlStateNormal];
+    [customControlUpButton setImage:[UIImage imageNamed:@"arrow_up_highlighted_custom"] forState:UIControlStateHighlighted];
+    self.controlView.controlView.upControlBtn = customControlUpButton;
 
-  UIButton *customControlDownButton = [UIButton new];
-  [customControlDownButton setImage:[UIImage imageNamed:@"arrow_down_custom"]
-                           forState:UIControlStateNormal];
-  [customControlDownButton
-      setImage:[UIImage imageNamed:@"arrow_down_highlighted_custom"]
-      forState:UIControlStateHighlighted];
-  self.controlView.controlView.downControlBtn = customControlDownButton;
+    UIButton *customControlDownButton = [UIButton new];
+    [customControlDownButton setImage:[UIImage imageNamed:@"arrow_down_custom"] forState:UIControlStateNormal];
+    [customControlDownButton setImage:[UIImage imageNamed:@"arrow_down_highlighted_custom"] forState:UIControlStateHighlighted];
+    self.controlView.controlView.downControlBtn = customControlDownButton;
 
-  UIButton *customControlZoomInButton = [UIButton new];
-  [customControlZoomInButton setImage:[UIImage imageNamed:@"zoom_in_custom"]
-                             forState:UIControlStateNormal];
-  [customControlZoomInButton
-      setImage:[UIImage imageNamed:@"zoom_in_highlighted_custom"]
-      forState:UIControlStateHighlighted];
-  self.controlView.zoomView.zoomIn = customControlZoomInButton;
-  UIButton *customControlZoomOutButton = [UIButton new];
-  [customControlZoomOutButton setImage:[UIImage imageNamed:@"zoom_out_custom"]
-                              forState:UIControlStateNormal];
-  [customControlZoomOutButton
-      setImage:[UIImage imageNamed:@"zoom_out_highlighted_custom"]
-      forState:UIControlStateHighlighted];
-  self.controlView.zoomView.zoomOut = customControlZoomOutButton;
+    UIButton *customControlZoomInButton = [UIButton new];
+    [customControlZoomInButton setImage:[UIImage imageNamed:@"zoom_in_custom"] forState:UIControlStateNormal];
+    [customControlZoomInButton setImage:[UIImage imageNamed:@"zoom_in_highlighted_custom"] forState:UIControlStateHighlighted];
+    self.controlView.zoomView.zoomIn = customControlZoomInButton;
+    UIButton *customControlZoomOutButton = [UIButton new];
+    [customControlZoomOutButton setImage:[UIImage imageNamed:@"zoom_out_custom"] forState:UIControlStateNormal];
+    [customControlZoomOutButton setImage:[UIImage imageNamed:@"zoom_out_highlighted_custom"] forState:UIControlStateHighlighted];
+    self.controlView.zoomView.zoomOut = customControlZoomOutButton;
 }
 
 - (void)controlsHidden {
-  self.controlView.centerButton.hidden = YES;
-  self.controlView.compassButton.hidden = YES;
-  self.controlView.zoomView.hidden = YES;
-  self.controlView.controlView.hidden = YES;
+    self.controlView.centerButton.hidden = YES;
+    self.controlView.compassButton.hidden = YES;
+    self.controlView.zoomView.hidden = YES;
+    self.controlView.controlView.hidden = YES;
 }
 
 @end

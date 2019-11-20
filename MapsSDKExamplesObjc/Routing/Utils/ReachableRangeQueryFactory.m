@@ -16,54 +16,29 @@
 @implementation ReachableRangeQueryFactory
 
 - (TTReachableRangeQuery *_Nonnull)createReachableRangeQueryForElectric {
-  TTSpeedConsumption consumption[1];
-  consumption[0] = TTSpeedConsumptionMake(50, 6.3);
+    TTSpeedConsumption consumption[1];
+    consumption[0] = TTSpeedConsumptionMake(50, 6.3);
 
-  TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder
-      createWithCenterLocation:[TTCoordinate AMSTERDAM]]
-      withSpeedConsumptionInkWhPairs:consumption
-                               count:1] withVehicleWeight:1600]
-      withCurrentChargeInkWh:43] withMaxChargeInkWh:85]
-      withAuxiliaryPowerInkW:1.7] withAccelerationEfficiency:0.33]
-      withDecelerationEfficiency:0.33] withUphillEfficiency:0.33]
-      withDownhillEfficiency:0.33]
-      withVehicleEngineType:TTOptionVehicleEngineTypeElectric]
-      withEnergyBudgetInKWh:5] build];
-  return query;
+    TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder createWithCenterLocation:[TTCoordinate AMSTERDAM]] withSpeedConsumptionInkWhPairs:consumption count:1] withVehicleWeight:1600] withCurrentChargeInkWh:43] withMaxChargeInkWh:85] withAuxiliaryPowerInkW:1.7]
+        withAccelerationEfficiency:0.33] withDecelerationEfficiency:0.33] withUphillEfficiency:0.33] withDownhillEfficiency:0.33] withVehicleEngineType:TTOptionVehicleEngineTypeElectric] withEnergyBudgetInKWh:5] build];
+    return query;
 }
 
-- (TTReachableRangeQuery *_Nonnull)
-    createReachableRangeQueryForElectricLimitTo2Hours {
-  TTSpeedConsumption consumption[1];
-  consumption[0] = TTSpeedConsumptionMake(50, 6.3);
+- (TTReachableRangeQuery *_Nonnull)createReachableRangeQueryForElectricLimitTo2Hours {
+    TTSpeedConsumption consumption[1];
+    consumption[0] = TTSpeedConsumptionMake(50, 6.3);
 
-  TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder
-      createWithCenterLocation:[TTCoordinate AMSTERDAM]]
-      withSpeedConsumptionInkWhPairs:consumption
-                               count:1] withVehicleWeight:1600]
-      withCurrentChargeInkWh:43] withMaxChargeInkWh:85]
-      withAuxiliaryPowerInkW:1.7] withAccelerationEfficiency:0.33]
-      withDecelerationEfficiency:0.33] withUphillEfficiency:0.33]
-      withDownhillEfficiency:0.33]
-      withVehicleEngineType:TTOptionVehicleEngineTypeElectric]
-      withTimeBudgetInSeconds:7200] build];
-  return query;
+    TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder createWithCenterLocation:[TTCoordinate AMSTERDAM]] withSpeedConsumptionInkWhPairs:consumption count:1] withVehicleWeight:1600] withCurrentChargeInkWh:43] withMaxChargeInkWh:85] withAuxiliaryPowerInkW:1.7]
+        withAccelerationEfficiency:0.33] withDecelerationEfficiency:0.33] withUphillEfficiency:0.33] withDownhillEfficiency:0.33] withVehicleEngineType:TTOptionVehicleEngineTypeElectric] withTimeBudgetInSeconds:7200] build];
+    return query;
 }
 
 - (TTReachableRangeQuery *_Nonnull)createReachableRangeQueryForCombustion {
-  TTSpeedConsumption consumption[1];
-  consumption[0] = TTSpeedConsumptionMake(50, 6.3);
-  TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder
-      createWithCenterLocation:[TTCoordinate AMSTERDAM]]
-      withSpeedConsumptionInLitersPairs:consumption
-                                  count:1] withVehicleWeight:1600]
-      withCurrentFuelInLiters:43] withFuelEnergyDensityInMJoulesPerLiter:34.2]
-      withCurrentAuxiliaryPowerInLitersPerHour:1.7]
-      withAccelerationEfficiency:0.33] withDecelerationEfficiency:0.33]
-      withUphillEfficiency:0.33] withDownhillEfficiency:0.33]
-      withVehicleEngineType:TTOptionVehicleEngineTypeCombustion]
-      withFuelBudgetInLiters:5] build];
-  return query;
+    TTSpeedConsumption consumption[1];
+    consumption[0] = TTSpeedConsumptionMake(50, 6.3);
+    TTReachableRangeQuery *query = [[[[[[[[[[[[[TTReachableRangeQueryBuilder createWithCenterLocation:[TTCoordinate AMSTERDAM]] withSpeedConsumptionInLitersPairs:consumption count:1] withVehicleWeight:1600] withCurrentFuelInLiters:43] withFuelEnergyDensityInMJoulesPerLiter:34.2]
+        withCurrentAuxiliaryPowerInLitersPerHour:1.7] withAccelerationEfficiency:0.33] withDecelerationEfficiency:0.33] withUphillEfficiency:0.33] withDownhillEfficiency:0.33] withVehicleEngineType:TTOptionVehicleEngineTypeCombustion] withFuelBudgetInLiters:5] build];
+    return query;
 }
 
 @end

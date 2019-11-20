@@ -14,8 +14,7 @@
 #import <TomTomOnlineSDKSearch/TomTomOnlineSDKSearch.h>
 #import <TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.h>
 
-@interface SearchReverseGeocodingViewController () <
-    TTMapViewDelegate, TTAnnotationDelegate, TTReverseGeocoderDelegate>
+@interface SearchReverseGeocodingViewController () <TTMapViewDelegate, TTAnnotationDelegate, TTReverseGeocoderDelegate>
 @property(nonatomic, strong) TTReverseGeocoder *reverseGeocoder;
 @property(nonatomic, strong) NSString *geocoderResult;
 @property(nonatomic, strong) TTAnnotation *annotation;
@@ -24,63 +23,57 @@
 @implementation SearchReverseGeocodingViewController
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewSingleSelect alloc] initWithLabels:@[] selectedID:-1];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[] selectedID:-1];
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.reverseGeocoder = [TTReverseGeocoder new];
-  self.mapView.delegate = self;
-  self.reverseGeocoder.delegate = self;
-  self.mapView.annotationManager.delegate = self;
-  self.geocoderResult = @"Loading...";
+    [super viewDidLoad];
+    self.reverseGeocoder = [TTReverseGeocoder new];
+    self.mapView.delegate = self;
+    self.reverseGeocoder.delegate = self;
+    self.mapView.annotationManager.delegate = self;
+    self.geocoderResult = @"Loading...";
 }
 
 #pragma mark Example
 
 - (void)resolveAddressForCoordinates:(CLLocationCoordinate2D)coordinate {
-  TTReverseGeocoderQuery *query = [[TTReverseGeocoderQueryBuilder
-      createWithCLLocationCoordinate2D:coordinate] build];
-  [self.reverseGeocoder reverseGeocoderWithQuery:query];
+    TTReverseGeocoderQuery *query = [[TTReverseGeocoderQueryBuilder createWithCLLocationCoordinate2D:coordinate] build];
+    [self.reverseGeocoder reverseGeocoderWithQuery:query];
 }
 
 #pragma mark TTMapViewDelegate
 
-- (void)mapView:(TTMapView *)mapView
-    didLongPress:(CLLocationCoordinate2D)coordinate {
-  [self.mapView.annotationManager removeAllAnnotations];
-  self.annotation = [TTAnnotation annotationWithCoordinate:coordinate];
-  [self.mapView.annotationManager addAnnotation:self.annotation];
-  [self resolveAddressForCoordinates:coordinate];
+- (void)mapView:(TTMapView *)mapView didLongPress:(CLLocationCoordinate2D)coordinate {
+    [self.mapView.annotationManager removeAllAnnotations];
+    self.annotation = [TTAnnotation annotationWithCoordinate:coordinate];
+    [self.mapView.annotationManager addAnnotation:self.annotation];
+    [self resolveAddressForCoordinates:coordinate];
 }
 
 #pragma mark TTAnnotationDelegate
 
-- (UIView<TTCalloutView> *)annotationManager:(id<TTAnnotationManager>)manager
-                   viewForSelectedAnnotation:
-                       (TTAnnotation *)selectedAnnotation {
-  return [[TTCalloutOutlineView alloc] initWithText:self.geocoderResult];
+- (UIView<TTCalloutView> *)annotationManager:(id<TTAnnotationManager>)manager viewForSelectedAnnotation:(TTAnnotation *)selectedAnnotation {
+    return [[TTCalloutOutlineView alloc] initWithText:self.geocoderResult];
 }
 
 #pragma mark TTReverseGeocoderDelegate
 
-- (void)reverseGeocoder:(TTReverseGeocoder *)reverseGeocoder
-    completedWithResponse:(TTReverseGeocoderResponse *)response {
-  TTReverseGeocoderFullAddress *address = response.result.addresses.firstObject;
-  if (address) {
-    NSString *freeFormAddress = address.address.freeformAddress;
-    if (freeFormAddress) {
-      self.geocoderResult = freeFormAddress;
-    } else {
-      self.geocoderResult = @"Cant resolve address";
+- (void)reverseGeocoder:(TTReverseGeocoder *)reverseGeocoder completedWithResponse:(TTReverseGeocoderResponse *)response {
+    TTReverseGeocoderFullAddress *address = response.result.addresses.firstObject;
+    if (address) {
+        NSString *freeFormAddress = address.address.freeformAddress;
+        if (freeFormAddress) {
+            self.geocoderResult = freeFormAddress;
+        } else {
+            self.geocoderResult = @"Cant resolve address";
+        }
+        [self.mapView.annotationManager selectAnnotation:self.annotation];
     }
-    [self.mapView.annotationManager selectAnnotation:self.annotation];
-  }
 }
 
-- (void)reverseGeocoder:(TTReverseGeocoder *)reverseGeocoder
-        failedWithError:(TTResponseError *)error {
-  [self handleError:error];
+- (void)reverseGeocoder:(TTReverseGeocoder *)reverseGeocoder failedWithError:(TTResponseError *)error {
+    [self handleError:error];
 }
 
 @end

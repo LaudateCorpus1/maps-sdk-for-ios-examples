@@ -21,67 +21,65 @@
 @implementation SearchAddressViewController
 
 - (NSInteger)segmentsForControllSelected {
-  return 0;
+    return 0;
 }
 
 - (NSArray<NSString *> *)segmentsForControll {
-  return @[ @"GLOBAL", @"NEAR ME" ];
+    return @[ @"GLOBAL", @"NEAR ME" ];
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.search = [TTSearch new];
-  self.search.delegate = self;
+    [super viewDidLoad];
+    self.search = [TTSearch new];
+    self.search.delegate = self;
 }
 
 - (void)searchBarFinishedEdittingWith:(NSString *)term {
-  [self.progress show];
-  if (self.segmentedControl.selectedSegmentIndex == 0) {
-    [self searchForTerm:term];
-  } else {
-    if (!self.location) {
-      [self.toast toastWithMessage:@"Location not determined"];
-      self.segmentedControl.selectedSegmentIndex = 0;
-      [self.progress hide];
-      return;
+    [self.progress show];
+    if (self.segmentedControl.selectedSegmentIndex == 0) {
+        [self searchForTerm:term];
+    } else {
+        if (!self.location) {
+            [self.toast toastWithMessage:@"Location not determined"];
+            self.segmentedControl.selectedSegmentIndex = 0;
+            [self.progress hide];
+            return;
+        }
+        [self searchForTerm:term at:self.location.coordinate];
     }
-    [self searchForTerm:term at:self.location.coordinate];
-  }
 }
 
 - (void)segmentChanged:(UISegmentedControl *)sender {
-  [self.searchBar resignFirstResponder];
-  if (sender.selectedSegmentIndex == 1) {
-    self.location = self.locationManager.lastLocation;
-  } else {
-    self.location = nil;
-  }
-  NSString *term = self.searchBar.text;
-  if (term) {
-    [self searchBarFinishedEdittingWith:term];
-  }
+    [self.searchBar resignFirstResponder];
+    if (sender.selectedSegmentIndex == 1) {
+        self.location = self.locationManager.lastLocation;
+    } else {
+        self.location = nil;
+    }
+    NSString *term = self.searchBar.text;
+    if (term) {
+        [self searchBarFinishedEdittingWith:term];
+    }
 }
 
 #pragma mark Examples
 
 - (void)searchForTerm:(NSString *)term {
-  TTSearchQuery *query = [[TTSearchQueryBuilder createWithTerm:term] build];
-  [self.search searchWithQuery:query];
+    TTSearchQuery *query = [[TTSearchQueryBuilder createWithTerm:term] build];
+    [self.search searchWithQuery:query];
 }
 
 - (void)searchForTerm:(NSString *)term at:(CLLocationCoordinate2D)coordinate {
-  TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:term]
-      withPosition:coordinate] build];
-  [self.search searchWithQuery:query];
+    TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:term] withPosition:coordinate] build];
+    [self.search searchWithQuery:query];
 }
 
 #pragma mark TTSearchDelegate
-- (void)search:(TTSearch *)search
-    completedWithResponse:(TTSearchResponse *)response {
-  [self.progress hide];
-  [self displayResults:response.results];
+- (void)search:(TTSearch *)search completedWithResponse:(TTSearchResponse *)response {
+    [self.progress hide];
+    [self displayResults:response.results];
 }
 - (void)search:(TTSearch *)search failedWithError:(TTResponseError *)error {
-  [self handleError:error];
+    [self handleError:error];
 }
 @end

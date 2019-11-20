@@ -14,10 +14,7 @@
 #import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
 #import "ButtonsBaseViewController.h"
 
-@interface CollectionBaseViewController
-    : ButtonsBaseViewController <UICollectionViewDelegate,
-                                 UICollectionViewDataSource,
-                                 UICollectionViewDelegateFlowLayout>
+@interface CollectionBaseViewController : ButtonsBaseViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 - (UIImageView *_Nonnull)getImageViewForIndex:(NSInteger)index;
 

@@ -15,106 +15,76 @@
 @implementation RoutingBaseViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  [self setupEtaView];
-  [self setupMatrixETAView];
+    [super viewDidLoad];
+    [self setupEtaView];
+    [self setupMatrixETAView];
 }
 
 - (void)setupInitialCameraPosition {
-  [self.mapView centerOnCoordinate:[TTCoordinate ALPHEN_AAN_DEN_RIJN]
-                          withZoom:8.5];
+    [self.mapView centerOnCoordinate:[TTCoordinate ALPHEN_AAN_DEN_RIJN] withZoom:8.5];
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:
-           (id<UIViewControllerTransitionCoordinator>)coordinator {
-  [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-  __weak RoutingBaseViewController *weakSelf = self;
-  [coordinator
-      animateAlongsideTransition:^(
-          id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-      }
-      completion:^(
-          id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-        [weakSelf.mapView.routeManager showAllRoutesOverview];
-      }];
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    __weak RoutingBaseViewController *weakSelf = self;
+    [coordinator
+        animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
+        }
+        completion:^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
+          [weakSelf.mapView.routeManager showAllRoutesOverview];
+        }];
 }
 
 - (void)setupEtaView {
-  ETAView *etaView = [ETAView new];
-  [self.view addSubview:etaView];
-  self.etaView = etaView;
-  etaView.translatesAutoresizingMaskIntoConstraints = NO;
-  [self.view
-      addConstraints:[NSLayoutConstraint
-                         constraintsWithVisualFormat:@"H:|-0-[v0]-0-|"
-                                             options:0
-                                             metrics:nil
-                                               views:@{@"v0" : etaView}]];
-  [self.view
-      addConstraints:[NSLayoutConstraint
-                         constraintsWithVisualFormat:@"V:|-0-[v0(50)]"
-                                             options:0
-                                             metrics:nil
-                                               views:@{@"v0" : etaView}]];
+    ETAView *etaView = [ETAView new];
+    [self.view addSubview:etaView];
+    self.etaView = etaView;
+    etaView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[v0]-0-|" options:0 metrics:nil views:@{@"v0" : etaView}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[v0(50)]" options:0 metrics:nil views:@{@"v0" : etaView}]];
 }
 
 - (void)setupMatrixETAView {
-  MatrixETAView *matrixEta = [MatrixETAView new];
-  [self.view addSubview:matrixEta];
-  self.matrixETAView = matrixEta;
-  matrixEta.translatesAutoresizingMaskIntoConstraints = NO;
-  [self.view
-      addConstraints:[NSLayoutConstraint
-                         constraintsWithVisualFormat:@"H:|-0-[v0]-0-|"
-                                             options:0
-                                             metrics:nil
-                                               views:@{@"v0" : matrixEta}]];
-  [self.view
-      addConstraints:[NSLayoutConstraint
-                         constraintsWithVisualFormat:@"V:|-0-[v0(144)]"
-                                             options:0
-                                             metrics:nil
-                                               views:@{@"v0" : matrixEta}]];
-  [self hideMatrixEta];
+    MatrixETAView *matrixEta = [MatrixETAView new];
+    [self.view addSubview:matrixEta];
+    self.matrixETAView = matrixEta;
+    matrixEta.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[v0]-0-|" options:0 metrics:nil views:@{@"v0" : matrixEta}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[v0(144)]" options:0 metrics:nil views:@{@"v0" : matrixEta}]];
+    [self hideMatrixEta];
 }
 
-- (void)showMatrixEta:(BOOL)oneToMany
-    withMatrixResponse:(TTMatrixRouteResponse *)response {
-  self.matrixETAView.hidden = NO;
-  if (oneToMany) {
-    [self.matrixETAView displayETAOneToManyWithMatrix:response];
-  } else {
-    [self.matrixETAView displayETAManyToManyWithMatrix:response];
-  }
+- (void)showMatrixEta:(BOOL)oneToMany withMatrixResponse:(TTMatrixRouteResponse *)response {
+    self.matrixETAView.hidden = NO;
+    if (oneToMany) {
+        [self.matrixETAView displayETAOneToManyWithMatrix:response];
+    } else {
+        [self.matrixETAView displayETAManyToManyWithMatrix:response];
+    }
 }
 
 - (void)hideMatrixEta {
-  self.matrixETAView.hidden = YES;
+    self.matrixETAView.hidden = YES;
 }
 
 - (void)showETA:(TTSummary *)summary {
-  [self.etaView showWithSummary:summary style:ETAViewStylePlain];
+    [self.etaView showWithSummary:summary style:ETAViewStylePlain];
 }
 
 - (void)hideEta {
-  [self.etaView hide];
+    [self.etaView hide];
 }
 
 - (void)displayRouteOverview {
-  UIEdgeInsets insets = UIEdgeInsetsMake(
-      30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale,
-      30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale);
-  self.mapView.contentInset = insets;
-  [self.mapView.routeManager showAllRoutesOverview];
+    UIEdgeInsets insets = UIEdgeInsetsMake(30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale, 30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale);
+    self.mapView.contentInset = insets;
+    [self.mapView.routeManager showAllRoutesOverview];
 }
 
 - (void)zoomToAllMarkers {
-  UIEdgeInsets insets = UIEdgeInsetsMake(
-      80 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale,
-      30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale);
-  self.mapView.contentInset = insets;
-  [self.mapView zoomToAllAnnotations];
+    UIEdgeInsets insets = UIEdgeInsetsMake(80 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale, 30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale);
+    self.mapView.contentInset = insets;
+    [self.mapView zoomToAllAnnotations];
 }
 
 @end

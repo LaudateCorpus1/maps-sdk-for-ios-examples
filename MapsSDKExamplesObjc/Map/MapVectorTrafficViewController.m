@@ -15,64 +15,61 @@
 @implementation MapVectorTrafficViewController
 
 - (void)setupInitialCameraPosition {
-  [self.mapView centerOnCoordinate:[TTCoordinate LONDON] withZoom:12];
+    [self.mapView centerOnCoordinate:[TTCoordinate LONDON] withZoom:12];
 }
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewMultiSelectWithReset alloc]
-      initWithLabels:@[ @"Incidents", @"Flow", @"No traffic" ]
-          selectedID:2];
+    return [[OptionsViewMultiSelectWithReset alloc] initWithLabels:@[ @"Incidents", @"Flow", @"No traffic" ] selectedID:2];
 }
 
 - (void)setupMap {
-  [super setupMap];
-  [self.mapView setTilesType:TTMapTilesVector];
-  self.mapView.trafficTileStyle =
-      [TTVectorTileType setStyle:TTVectorStyleRelative];
-  self.mapView.trafficIncidentsStyle = TTTrafficIncidentsStyleVector;
+    [super setupMap];
+    [self.mapView setTilesType:TTMapTilesVector];
+    self.mapView.trafficTileStyle = [TTVectorTileType setStyle:TTVectorStyleRelative];
+    self.mapView.trafficIncidentsStyle = TTTrafficIncidentsStyleVector;
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 2:
-    [self hideIncidents];
-    [self hideFlow];
-    break;
-  case 1:
-    if (on) {
-      [self displayFlow];
-    } else {
-      [self hideFlow];
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 2:
+        [self hideIncidents];
+        [self hideFlow];
+        break;
+    case 1:
+        if (on) {
+            [self displayFlow];
+        } else {
+            [self hideFlow];
+        }
+        break;
+    default:
+        if (on) {
+            [self displayIncidents];
+        } else {
+            [self hideIncidents];
+        }
     }
-    break;
-  default:
-    if (on) {
-      [self displayIncidents];
-    } else {
-      [self hideIncidents];
-    }
-  }
 }
 
 #pragma mark Examples
 
 - (void)displayIncidents {
-  self.mapView.trafficIncidentsOn = YES;
+    self.mapView.trafficIncidentsOn = YES;
 }
 
 - (void)hideIncidents {
-  self.mapView.trafficIncidentsOn = NO;
+    self.mapView.trafficIncidentsOn = NO;
 }
 
 - (void)displayFlow {
-  self.mapView.trafficFlowOn = YES;
+    self.mapView.trafficFlowOn = YES;
 }
 
 - (void)hideFlow {
-  self.mapView.trafficFlowOn = NO;
+    self.mapView.trafficFlowOn = NO;
 }
 
 @end

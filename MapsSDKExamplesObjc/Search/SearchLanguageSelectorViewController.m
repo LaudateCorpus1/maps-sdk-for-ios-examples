@@ -20,67 +20,61 @@
 @implementation SearchLanguageSelectorViewController
 
 - (NSInteger)segmentsForControllSelected {
-  return 0;
+    return 0;
 }
 
 - (NSArray<NSString *> *)segmentsForControll {
-  return @[ @"🇬🇧 EN", @"🇩🇪 DE", @"🇪🇸 ES", @"🇫🇷 FR" ];
+    return @[ @"🇬🇧 EN", @"🇩🇪 DE", @"🇪🇸 ES", @"🇫🇷 FR" ];
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.search = [TTSearch new];
-  self.search.delegate = self;
+    [super viewDidLoad];
+    self.search = [TTSearch new];
+    self.search.delegate = self;
 }
 
 - (void)segmentChanged:(UISegmentedControl *)sender {
-  [self.searchBar resignFirstResponder];
-  if (self.searchBar.text) {
-    [self.progress show];
-    [self searchForTerm:self.searchBar.text
-           withLanguage:[self languageForIndex:self.segmentedControl
-                                                   .selectedSegmentIndex]];
-  }
+    [self.searchBar resignFirstResponder];
+    if (self.searchBar.text) {
+        [self.progress show];
+        [self searchForTerm:self.searchBar.text withLanguage:[self languageForIndex:self.segmentedControl.selectedSegmentIndex]];
+    }
 }
 
 - (void)searchBarFinishedEdittingWith:(NSString *)term {
-  [self.progress show];
-  [self searchForTerm:term
-         withLanguage:[self languageForIndex:self.segmentedControl
-                                                 .selectedSegmentIndex]];
+    [self.progress show];
+    [self searchForTerm:term withLanguage:[self languageForIndex:self.segmentedControl.selectedSegmentIndex]];
 }
 
 - (NSString *)languageForIndex:(NSInteger)index {
-  switch (index) {
-  case 3:
-    return @"fr-FR";
-  case 2:
-    return @"es-ES";
-  case 1:
-    return @"de-DE";
-  default:
-    return @"en-GB";
-  }
+    switch (index) {
+    case 3:
+        return @"fr-FR";
+    case 2:
+        return @"es-ES";
+    case 1:
+        return @"de-DE";
+    default:
+        return @"en-GB";
+    }
 }
 
 #pragma mark Example
 
 - (void)searchForTerm:(NSString *)term withLanguage:(NSString *)language {
-  TTSearchQuery *query =
-      [[[TTSearchQueryBuilder createWithTerm:term] withLang:language] build];
-  [self.search searchWithQuery:query];
+    TTSearchQuery *query = [[[TTSearchQueryBuilder createWithTerm:term] withLang:language] build];
+    [self.search searchWithQuery:query];
 }
 
 #pragma mark TTSearchDelegate
 
-- (void)search:(TTSearch *)search
-    completedWithResponse:(TTSearchResponse *)response {
-  [self.progress hide];
-  [self displayResults:response.results];
+- (void)search:(TTSearch *)search completedWithResponse:(TTSearchResponse *)response {
+    [self.progress hide];
+    [self displayResults:response.results];
 }
 
 - (void)search:(TTSearch *)search failedWithError:(TTResponseError *)error {
-  [self handleError:error];
+    [self handleError:error];
 }
 
 @end

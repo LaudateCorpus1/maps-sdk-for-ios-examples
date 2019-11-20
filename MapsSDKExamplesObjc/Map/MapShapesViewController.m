@@ -21,105 +21,79 @@
 @implementation MapShapesViewController
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewSingleSelect alloc]
-      initWithLabels:@[ @"Polygon", @"Polyline", @"Circle" ]
-          selectedID:-1];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Polygon", @"Polyline", @"Circle" ] selectedID:-1];
 }
 
 - (void)setupMap {
-  [super setupMap];
-  self.mapView.annotationManager.delegate = self;
+    [super setupMap];
+    self.mapView.annotationManager.delegate = self;
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  [self.mapView.annotationManager removeAllOverlays];
-  switch (ID) {
-  case 2:
-    [self displayCircle];
-    break;
-  case 1:
-    [self displayPolyline];
-    break;
-  default:
-    [self displayPolygon];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    [self.mapView.annotationManager removeAllOverlays];
+    switch (ID) {
+    case 2:
+        [self displayCircle];
+        break;
+    case 1:
+        [self displayPolyline];
+        break;
+    default:
+        [self displayPolygon];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)displayPolygon {
-  UIColor *color = [UIColor random];
-  NSInteger pointsCount = 24;
-  self.values =
-      [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM]
-                                            pointsCount:pointsCount];
-  CLLocationCoordinate2D *coordinates = [self convertCoordinates:_values];
-  TTPolygon *polygon = [TTPolygon polygonWithCoordinates:coordinates
-                                                   count:pointsCount
-                                                 opacity:1
-                                                   color:color
-                                            colorOutline:color];
-  [self.mapView.annotationManager addOverlay:polygon];
-  free(coordinates);
+    UIColor *color = [UIColor random];
+    NSInteger pointsCount = 24;
+    self.values = [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM] pointsCount:pointsCount];
+    CLLocationCoordinate2D *coordinates = [self convertCoordinates:_values];
+    TTPolygon *polygon = [TTPolygon polygonWithCoordinates:coordinates count:pointsCount opacity:1 color:color colorOutline:color];
+    [self.mapView.annotationManager addOverlay:polygon];
+    free(coordinates);
 }
 
 - (void)displayPolyline {
-  UIColor *color = [UIColor random];
-  NSInteger pointsCount = 24;
-  self.values =
-      [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM]
-                                            pointsCount:pointsCount];
-  CLLocationCoordinate2D *coordinates = [self convertCoordinates:_values];
-  TTPolyline *polyline = [TTPolyline polylineWithCoordinates:coordinates
-                                                       count:pointsCount
-                                                     opacity:1
-                                                       width:8
-                                                       color:color];
-  [self.mapView.annotationManager addOverlay:polyline];
-  free(coordinates);
+    UIColor *color = [UIColor random];
+    NSInteger pointsCount = 24;
+    self.values = [CLLocation makeCoordinatesInCenterAreaWithCenter:[TTCoordinate AMSTERDAM] pointsCount:pointsCount];
+    CLLocationCoordinate2D *coordinates = [self convertCoordinates:_values];
+    TTPolyline *polyline = [TTPolyline polylineWithCoordinates:coordinates count:pointsCount opacity:1 width:8 color:color];
+    [self.mapView.annotationManager addOverlay:polyline];
+    free(coordinates);
 }
 
 - (void)displayCircle {
-  UIColor *color = [UIColor random];
-  TTCircle *circle =
-      [TTCircle circleWithCenterCoordinate:[TTCoordinate AMSTERDAM]
-                                    radius:5000
-                                   opacity:1
-                                     width:10
-                                     color:color
-                                      fill:YES
-                               colorOutlet:color];
-  [self.mapView.annotationManager addOverlay:circle];
+    UIColor *color = [UIColor random];
+    TTCircle *circle = [TTCircle circleWithCenterCoordinate:[TTCoordinate AMSTERDAM] radius:5000 opacity:1 width:10 color:color fill:YES colorOutlet:color];
+    [self.mapView.annotationManager addOverlay:circle];
 }
 
 #pragma TTAnnotationDelegate
-- (void)annotationManager:(id<TTAnnotationManager>)manager
-            touchUpCircle:(TTCircle *)circle {
-  // called when circle clicked
+- (void)annotationManager:(id<TTAnnotationManager>)manager touchUpCircle:(TTCircle *)circle {
+    // called when circle clicked
 }
 
-- (void)annotationManager:(id<TTAnnotationManager>)manager
-           touchUpPolygon:(TTPolygon *)polygon {
-  // called when polygon clicked
+- (void)annotationManager:(id<TTAnnotationManager>)manager touchUpPolygon:(TTPolygon *)polygon {
+    // called when polygon clicked
 }
 
-- (void)annotationManager:(id<TTAnnotationManager>)manager
-          touchUpPolyline:(TTPolyline *)polyline {
-  // called when polyline clicked
+- (void)annotationManager:(id<TTAnnotationManager>)manager touchUpPolyline:(TTPolyline *)polyline {
+    // called when polyline clicked
 }
 
-- (CLLocationCoordinate2D *)convertCoordinates:
-    (NSArray<CLLocation *> *)coordinatesValues {
-  CLLocationCoordinate2D *coordinates = (CLLocationCoordinate2D *)malloc(
-      coordinatesValues.count * sizeof(CLLocationCoordinate2D));
-  for (NSUInteger i = 0; i < coordinatesValues.count; i++) {
-    coordinates[i] = coordinatesValues[i].coordinate;
-  }
-  return coordinates;
+- (CLLocationCoordinate2D *)convertCoordinates:(NSArray<CLLocation *> *)coordinatesValues {
+    CLLocationCoordinate2D *coordinates = (CLLocationCoordinate2D *)malloc(coordinatesValues.count * sizeof(CLLocationCoordinate2D));
+    for (NSUInteger i = 0; i < coordinatesValues.count; i++) {
+        coordinates[i] = coordinatesValues[i].coordinate;
+    }
+    return coordinates;
 }
 
 @end

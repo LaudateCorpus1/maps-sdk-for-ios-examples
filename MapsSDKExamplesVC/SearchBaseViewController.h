@@ -14,8 +14,7 @@
 #import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
 #import "TableBaseViewController.h"
 
-@interface SearchBaseViewController
-    : TableBaseViewController <UISearchBarDelegate>
+@interface SearchBaseViewController : TableBaseViewController <UISearchBarDelegate>
 @property(nonatomic, strong) LocationManager *_Nonnull locationManager;
 @property(nonatomic, weak) UISearchBar *_Nullable searchBar;
 @property(nonatomic, weak) UISegmentedControl *_Nullable segmentedControl;

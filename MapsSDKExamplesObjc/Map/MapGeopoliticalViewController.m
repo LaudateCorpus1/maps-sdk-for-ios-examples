@@ -15,37 +15,35 @@
 @implementation MapGeopoliticalViewController
 
 - (void)setupInitialCameraPosition {
-  [self.mapView centerOnCoordinate:[TTCoordinate ISRAEL] withZoom:7];
+    [self.mapView centerOnCoordinate:[TTCoordinate ISRAEL] withZoom:7];
 }
 
 - (OptionsView *)getOptionsView {
-  return
-      [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Unified", @"Local" ]
-                                           selectedID:0];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Unified", @"Local" ] selectedID:0];
 }
 
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  switch (ID) {
-  case 1:
-    [self displayGeopoliticalViewLocal];
-    break;
-  default:
-    [self displayGeopoliticalViewInternational];
-    break;
-  }
+    [super displayExampleWithID:ID on:on];
+    switch (ID) {
+    case 1:
+        [self displayGeopoliticalViewLocal];
+        break;
+    default:
+        [self displayGeopoliticalViewInternational];
+        break;
+    }
 }
 
 #pragma mark Examples
 
 - (void)displayGeopoliticalViewInternational {
-  [self.mapView setGeopoliticalView:TTGeoViewNone];
+    [self.mapView setGeopoliticalView:TTGeoViewNone];
 }
 
 - (void)displayGeopoliticalViewLocal {
-  [self.mapView setGeopoliticalView:TTGeoViewIL];
+    [self.mapView setGeopoliticalView:TTGeoViewIL];
 }
 
 @end

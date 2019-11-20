@@ -15,26 +15,25 @@
 @implementation BaseViewController
 
 - (instancetype)init {
-  self = [super init];
-  if (self) {
-    self.name = @"TomTom SDK Example";
-    self.toast = [[Toast alloc] init];
-    self.progress = [[Progress alloc] init];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.name = @"TomTom SDK Example";
+        self.toast = [[Toast alloc] init];
+        self.progress = [[Progress alloc] init];
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.navigationController.navigationBar.translucent = NO;
-  [self setupNavigationBar];
+    [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
+    [self setupNavigationBar];
 }
 
 - (void)setupNavigationBar {
-  self.navigationItem.title = self.name;
-  self.navigationController.navigationBar.barTintColor = [TTColor BlackLight];
-  self.navigationController.navigationBar.titleTextAttributes =
-      @{NSForegroundColorAttributeName : [TTColor White]};
+    self.navigationItem.title = self.name;
+    self.navigationController.navigationBar.barTintColor = [TTColor BlackLight];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [TTColor White]};
 }
 
 @end

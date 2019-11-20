@@ -20,57 +20,50 @@
 @implementation MapLayersVisibilityViewController
 
 - (void)onMapReady {
-  self.currentStyle = self.mapView.styleManager.currentStyle;
-  [self turnOffLayers];
+    self.currentStyle = self.mapView.styleManager.currentStyle;
+    [self turnOffLayers];
 }
 
 - (void)setupInitialCameraPosition {
-  [self.mapView centerOnCoordinate:[TTCoordinate BERLIN] withZoom:8];
+    [self.mapView centerOnCoordinate:[TTCoordinate BERLIN] withZoom:8];
 }
 
 - (OptionsView *)getOptionsView {
-  return [[OptionsViewMultiSelect alloc]
-      initWithLabels:@[ @"Road network", @"Woodland", @"Build-up" ]
-          selectedID:-1];
+    return [[OptionsViewMultiSelect alloc] initWithLabels:@[ @"Road network", @"Woodland", @"Build-up" ] selectedID:-1];
 }
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
-  [super displayExampleWithID:ID on:on];
-  TTMapLayerVisibility visibility =
-      on ? TTMapLayerVisibilityVisible : TTMapLayerVisibilityNone;
-  NSArray<TTMapLayer *> *layers;
-  switch (ID) {
-  case 2:
-    layers = [self.currentStyle getLayersBySourceLayerRegex:@"Built-up area"];
-    break;
-  case 1:
-    layers = [self.currentStyle getLayersBySourceLayerRegex:@"Woodland.*"];
-    break;
-  default:
-    layers = [self.currentStyle
-        getLayersBySourceLayerRegexs:@[ @".*[rR]oad.*", @".*[mM]otorway.*" ]];
-    break;
-  }
-  [self changeLayers:layers visibility:visibility];
+    [super displayExampleWithID:ID on:on];
+    TTMapLayerVisibility visibility = on ? TTMapLayerVisibilityVisible : TTMapLayerVisibilityNone;
+    NSArray<TTMapLayer *> *layers;
+    switch (ID) {
+    case 2:
+        layers = [self.currentStyle getLayersBySourceLayerRegex:@"Built-up area"];
+        break;
+    case 1:
+        layers = [self.currentStyle getLayersBySourceLayerRegex:@"Woodland.*"];
+        break;
+    default:
+        layers = [self.currentStyle getLayersBySourceLayerRegexs:@[ @".*[rR]oad.*", @".*[mM]otorway.*" ]];
+        break;
+    }
+    [self changeLayers:layers visibility:visibility];
 }
 
-- (void)changeLayers:(NSArray<TTMapLayer *> *)layers
-          visibility:(TTMapLayerVisibility)visibility {
-  for (TTMapLayer *layer in layers) {
-    layer.visibility = visibility;
-  }
+- (void)changeLayers:(NSArray<TTMapLayer *> *)layers visibility:(TTMapLayerVisibility)visibility {
+    for (TTMapLayer *layer in layers) {
+        layer.visibility = visibility;
+    }
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
+    [super viewDidLoad];
 }
 
 - (void)turnOffLayers {
-  NSArray<NSString *> *regexs =
-      @[ @"Built-up area", @"Woodland.*", @".*[rR]oad.*", @".*[mM]otorway.*" ];
-  NSArray<TTMapLayer *> *layers =
-      [self.currentStyle getLayersBySourceLayerRegexs:regexs];
-  [self changeLayers:layers visibility:TTMapLayerVisibilityNone];
+    NSArray<NSString *> *regexs = @[ @"Built-up area", @"Woodland.*", @".*[rR]oad.*", @".*[mM]otorway.*" ];
+    NSArray<TTMapLayer *> *layers = [self.currentStyle getLayersBySourceLayerRegexs:regexs];
+    [self changeLayers:layers visibility:TTMapLayerVisibilityNone];
 }
 
 @end

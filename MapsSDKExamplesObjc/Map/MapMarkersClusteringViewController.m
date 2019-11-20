@@ -18,33 +18,29 @@
 }
 
 - (void)onMapReady {
-  [super onMapReady];
-  [self.mapView zoomToAllAnnotations];
+    [super onMapReady];
+    [self.mapView zoomToAllAnnotations];
 }
 
 - (void)setupMap {
-  [super setupMap];
-  self.mapView.annotationManager.clustering = YES;
-  [self addRandomMarkers];
+    [super setupMap];
+    self.mapView.annotationManager.clustering = YES;
+    [self addRandomMarkers];
 }
 
 - (void)addRandomMarkers {
-  for (int i = 0; i < 90; i++) {
-    CLLocationCoordinate2D coordinate = [CLLocation
-        makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
-    TTAnnotation *annotation =
-        [TTAnnotation annotationWithCoordinate:coordinate];
-    annotation.shouldCluster = YES;
-    [self.mapView.annotationManager addAnnotation:annotation];
-  }
-  for (int i = 0; i < 150; i++) {
-    CLLocationCoordinate2D coordinate = [CLLocation
-        makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate ROTTERDAM]];
-    TTAnnotation *annotation =
-        [TTAnnotation annotationWithCoordinate:coordinate];
-    annotation.shouldCluster = YES;
-    [self.mapView.annotationManager addAnnotation:annotation];
-  }
+    for (int i = 0; i < 90; i++) {
+        CLLocationCoordinate2D coordinate = [CLLocation makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate AMSTERDAM]];
+        TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:coordinate];
+        annotation.shouldCluster = YES;
+        [self.mapView.annotationManager addAnnotation:annotation];
+    }
+    for (int i = 0; i < 150; i++) {
+        CLLocationCoordinate2D coordinate = [CLLocation makeRandomCoordinateForCenteroidWithCenter:[TTCoordinate ROTTERDAM]];
+        TTAnnotation *annotation = [TTAnnotation annotationWithCoordinate:coordinate];
+        annotation.shouldCluster = YES;
+        [self.mapView.annotationManager addAnnotation:annotation];
+    }
 }
 
 @end
