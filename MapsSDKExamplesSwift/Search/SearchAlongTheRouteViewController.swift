@@ -35,20 +35,21 @@ class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteRespo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        progress.show()
         routePlanner.delegate = self
         alongRouteSearch.delegate = self
+    }
 
+    override func onMapReady() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.HAARLEM(), andOrig: TTCoordinate.AMSTERDAM())
             .build()
         routePlanner.plan(with: query)
-        progress.show()
     }
 
     // MARK: OptionsViewDelegate
 
     override func displayExample(withID ID: Int, on: Bool) {
         super.displayExample(withID: ID, on: on)
-        progress.show()
         switch ID {
         case 2:
             searchForEVStations()

@@ -160,6 +160,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
     func batch(_: TTBatchRoute, completedWith response: TTBatchRouteResponse) {
         progress.hide()
         response.visit(self)
+        displayRouteOverview()
     }
 
 
@@ -178,7 +179,6 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
         mapRoute.extraData = response.routes.first?.summary
         mapView.routeManager.add(mapRoute)
         progress.hide()
-        displayRouteOverview()
     }
 
 

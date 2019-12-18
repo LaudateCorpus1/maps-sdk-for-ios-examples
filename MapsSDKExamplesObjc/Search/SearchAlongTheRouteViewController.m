@@ -39,11 +39,11 @@
     [super onMapReady];
     TTRouteQuery *query = [[TTRouteQueryBuilder createWithDest:[TTCoordinate HAARLEM] andOrig:[TTCoordinate AMSTERDAM]] build];
     [self.routePlanner planRouteWithQuery:query];
-    [self.progress show];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.progress show];
     self.routePlanner = [TTRoute new];
     self.alongRouteSearch = [TTAlongRouteSearch new];
     self.routePlanner.delegate = self;
@@ -54,7 +54,6 @@
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {
     [super displayExampleWithID:ID on:on];
-    [self.progress show];
     switch (ID) {
     case 2:
         [self searchForEVStations];
