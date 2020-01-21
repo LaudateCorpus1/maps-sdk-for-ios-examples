@@ -85,6 +85,7 @@ class SearchPolygonsForRevGeoViewController: MapBaseViewController, TTMapViewDel
     // MARK: TTReverseGeocoderDelegate
 
     func reverseGeocoder(_: TTReverseGeocoder, completedWith response: TTReverseGeocoderResponse) {
+        progress.show()
         if let reverseGeocoderAddress = response.result.addresses.first {
             if let freeFormAddress = reverseGeocoderAddress.address.freeformAddress {
                 geocoderResult = freeFormAddress

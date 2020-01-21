@@ -52,7 +52,7 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
     func startRoutingNoAvoids() {
         mapView.annotationManager.removeAllOverlays()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
-            .withTraffic(true)
+            .withTraffic(false)
             .build()
 
         routePlannerBasic.plan(with: query) { result, error in
@@ -74,7 +74,7 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
         dispatchGroup = DispatchGroup()
         mapView.annotationManager.removeAllOverlays()
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
-            .withTraffic(true)
+            .withTraffic(false)
             .build()
 
         dispatchGroup.enter()
@@ -127,7 +127,7 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
         mapView.annotationManager.add(polyline)
 
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
-            .withTraffic(true)
+            .withTraffic(false)
             .build()
         dispatchGroup.enter()
         routePlannerBasic.plan(with: query) { result, error in
@@ -146,7 +146,7 @@ class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TT
         var boundingBoxArray = [boundingBox]
         let query2 = TTRouteQueryBuilder.create(withDest: TTCoordinate.ROMANIA(), andOrig: TTCoordinate.CZECH_REPUBLIC())
             .withAvoidArea(&boundingBoxArray, count: UInt(boundingBoxArray.count))
-            .withTraffic(true)
+            .withTraffic(false)
             .build()
         dispatchGroup.enter()
         routePlannerAvoid.plan(with: query2) { result, error in

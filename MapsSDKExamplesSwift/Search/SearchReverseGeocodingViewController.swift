@@ -29,6 +29,13 @@ class SearchReverseGeocodingViewController: MapBaseViewController, TTMapViewDele
         mapView.delegate = self
         reverseGeocoder.delegate = self
         mapView.annotationManager.delegate = self
+
+        guard let icon = UIImage(named: "info_small") else {
+            return
+        }
+
+        setupEtaView()
+        etaView.update(text: "Drop a pin on map", icon: icon)
     }
 
     // MARK: Example

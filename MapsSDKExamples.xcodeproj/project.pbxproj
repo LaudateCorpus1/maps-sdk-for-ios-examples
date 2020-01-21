@@ -255,6 +255,8 @@
 		746C2A3622F830FF00763F7A /* ic_app_test_layer.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2D22F82F0A00763F7A /* ic_app_test_layer.json */; };
 		746C2A3822F8497900763F7A /* MapImageClusteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746C2A3722F8497900763F7A /* MapImageClusteringViewController.swift */; };
 		746C2A3C22F85ACF00763F7A /* MapImageClusteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746C2A3A22F859BA00763F7A /* MapImageClusteringViewController.m */; };
+		8B62B10623BDF86000CB6188 /* SearchPoiCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */; };
+		8B62B10923BE403C00CB6188 /* SearchPoiCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */; };
 		9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */; };
 		9C6535BD222E5DBD0050EE60 /* MapFollowTheChevronController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BB222E5DBD0050EE60 /* MapFollowTheChevronController.m */; };
 		9C6535C0222E617C0050EE60 /* DrivingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BF222E617C0050EE60 /* DrivingControllerTests.swift */; };
@@ -636,6 +638,9 @@
 		746C2A3722F8497900763F7A /* MapImageClusteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapImageClusteringViewController.swift; sourceTree = "<group>"; };
 		746C2A3922F859BA00763F7A /* MapImageClusteringViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapImageClusteringViewController.h; sourceTree = "<group>"; };
 		746C2A3A22F859BA00763F7A /* MapImageClusteringViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapImageClusteringViewController.m; sourceTree = "<group>"; };
+		8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPoiCategoriesViewController.swift; sourceTree = "<group>"; };
+		8B62B10723BE403C00CB6188 /* SearchPoiCategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPoiCategoriesViewController.h; sourceTree = "<group>"; };
+		8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPoiCategoriesViewController.m; sourceTree = "<group>"; };
 		9C17CB902109E8750085A51B /* OptionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C17CB922109E8750085A51B /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		9C17CB932109E8750085A51B /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -899,6 +904,8 @@
 			children = (
 				7280A2292144F2900078B943 /* SearchAddressViewController.h */,
 				7280A22A2144F2900078B943 /* SearchAddressViewController.m */,
+				8B62B10723BE403C00CB6188 /* SearchPoiCategoriesViewController.h */,
+				8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */,
 				7280A22C2144F2A80078B943 /* SearchCategoryViewController.h */,
 				7280A22D2144F2A80078B943 /* SearchCategoryViewController.m */,
 				7280A22F2144F2BF0078B943 /* SearchLanguageSelectorViewController.h */,
@@ -1057,9 +1064,10 @@
 			isa = PBXGroup;
 			children = (
 				72AA46A521257C650019EC72 /* SearchAddressViewController.swift */,
+				8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */,
 				728325EB212BD98700088FE6 /* SearchCategoryViewController.swift */,
-				728325EF212C3DD700088FE6 /* SearchLanguageSelectorViewController.swift */,
 				7253A654212D56E000C469FF /* SearchTypeaheadParameterViewController.swift */,
+				728325EF212C3DD700088FE6 /* SearchLanguageSelectorViewController.swift */,
 				7253A658212D5CBC00C469FF /* SearchMaxFuzzinessLevelViewController.swift */,
 				7253A65A212D856D00C469FF /* SearchReverseGeocodingViewController.swift */,
 				7253A65C212D8E5F00C469FF /* SearchAlongTheRouteViewController.swift */,
@@ -1557,6 +1565,7 @@
 			files = (
 				9C6535BD222E5DBD0050EE60 /* MapFollowTheChevronController.m in Sources */,
 				746C2A3C22F85ACF00763F7A /* MapImageClusteringViewController.m in Sources */,
+				8B62B10923BE403C00CB6188 /* SearchPoiCategoriesViewController.m in Sources */,
 				7280A255214596DD0078B943 /* RoutingRouteWithWaypointsViewController.m in Sources */,
 				6E9BF26F22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m in Sources */,
 				725FCDDA2281770F007EE921 /* MapDynamicLayerOrderingViewController.m in Sources */,
@@ -1709,6 +1718,7 @@
 				72006960213FA5D6005B20D1 /* SearchLanguageSelectorViewController.swift in Sources */,
 				725FCDD1227FF9FE007EE921 /* MapDynamicLayerOrderingViewController.swift in Sources */,
 				9C77CF3D2106F7B600A3179B /* AppDelegate.swift in Sources */,
+				8B62B10623BDF86000CB6188 /* SearchPoiCategoriesViewController.swift in Sources */,
 				6E9BF26A22201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift in Sources */,
 				72006945213E68DC005B20D1 /* MapMarkersClusteringViewController.swift in Sources */,
 				7200693F213E68CF005B20D1 /* MapEventsViewController.swift in Sources */,

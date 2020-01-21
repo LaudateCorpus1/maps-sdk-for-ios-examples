@@ -141,26 +141,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 0:
                 newViewController = SearchAddressViewController()
             case 1:
-                newViewController = SearchCategoryViewController()
+                newViewController = SearchPoiCategoriesViewController()
             case 2:
-                newViewController = SearchLanguageSelectorViewController()
+                newViewController = SearchCategoryViewController()
             case 3:
-                newViewController = SearchTypeaheadParameterViewController()
+                newViewController = SearchLanguageSelectorViewController()
             case 4:
-                newViewController = SearchMaxFuzzinessLevelViewController()
+                newViewController = SearchTypeaheadParameterViewController()
             case 5:
-                newViewController = SearchReverseGeocodingViewController()
+                newViewController = SearchMaxFuzzinessLevelViewController()
             case 6:
-                newViewController = SearchAlongTheRouteViewController()
+                newViewController = SearchReverseGeocodingViewController()
             case 7:
-                newViewController = SearchGeometryViewController()
+                newViewController = SearchAlongTheRouteViewController()
             case 8:
-                newViewController = SearchEntryPointsViewController()
+                newViewController = SearchGeometryViewController()
             case 9:
-                newViewController = SearchAdditionalDataViewController()
+                newViewController = SearchEntryPointsViewController()
             case 10:
-                newViewController = SearchBatchViewController()
+                newViewController = SearchAdditionalDataViewController()
             case 11:
+                newViewController = SearchBatchViewController()
+            case 12:
                 newViewController = SearchPolygonsForRevGeoViewController()
             default:
                 fatalError("This VC is not handled")

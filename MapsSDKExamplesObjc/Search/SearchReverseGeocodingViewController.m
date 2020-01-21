@@ -33,6 +33,8 @@
     self.reverseGeocoder.delegate = self;
     self.mapView.annotationManager.delegate = self;
     self.geocoderResult = @"Loading...";
+    [self setupEtaView];
+    [self.etaView updateWithText:@"Drop a pin on map" icon:[UIImage imageNamed:@"info_small"]];
 }
 
 #pragma mark Example

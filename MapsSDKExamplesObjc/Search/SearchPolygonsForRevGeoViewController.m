@@ -95,6 +95,7 @@
 
 - (void)reverseGeocoder:(TTReverseGeocoder *)reverseGeocoder completedWithResponse:(TTReverseGeocoderResponse *)response {
     TTReverseGeocoderFullAddress *address = response.result.addresses.firstObject;
+    [self.progress show];
     if (address) {
         NSString *freeFormAddress = address.address.freeformAddress;
         if (freeFormAddress) {

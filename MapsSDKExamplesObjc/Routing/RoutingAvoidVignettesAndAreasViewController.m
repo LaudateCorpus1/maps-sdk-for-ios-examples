@@ -54,7 +54,7 @@
 #pragma mark No avoids
 - (void)startRoutingNoAvoids {
     [self.mapView.annotationManager removeAllOverlays];
-    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:YES] build];
+    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:NO] build];
     __weak RoutingAvoidVignettesAndAreasViewController *weakSelf = self;
     [self.routePlannerBasic planRouteWithQuery:query
                              completionHandler:^(TTRouteResult *_Nullable result, TTResponseError *_Nullable error) {
@@ -75,7 +75,7 @@
 - (void)startRoutingAvoidsVignettes {
     [self.mapView.annotationManager removeAllOverlays];
     dispatch_group_t group = dispatch_group_create();
-    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:YES] build];
+    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:NO] build];
 
     dispatch_group_enter(group);
     __weak RoutingAvoidVignettesAndAreasViewController *weakSelf = self;
@@ -92,7 +92,7 @@
                                dispatch_group_leave(group);
                              }];
     NSArray<NSString *> *vignettesArray = @[ @"HUN", @"CZE", @"SVK" ];
-    TTRouteQuery *query2 = [[[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:YES] withAvoidVignettesArray:vignettesArray] build];
+    TTRouteQuery *query2 = [[[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:NO] withAvoidVignettesArray:vignettesArray] build];
     dispatch_group_enter(group);
     [self.routePlannerAvoid planRouteWithQuery:query2
                              completionHandler:^(TTRouteResult *_Nullable result, TTResponseError *_Nullable error) {
@@ -126,7 +126,7 @@
     TTPolyline *polyline = [TTPolyline polylineWithCoordinates:coordinateArray count:5 opacity:1 width:4 color:[TTColor Blue]];
     [self.mapView.annotationManager addOverlay:polyline];
 
-    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:YES] build];
+    TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:NO] build];
     dispatch_group_enter(group);
     __weak RoutingAvoidVignettesAndAreasViewController *weakSelf = self;
     [self.routePlannerBasic planRouteWithQuery:query
@@ -144,7 +144,7 @@
                              }];
     TTLatLngBounds boundingBox[1];
     boundingBox[0] = TTLatLngBoundsMake([TTCoordinate ARAD_TOP_LEFT_NEIGHBORHOOD], [TTCoordinate ARAD_BOTTOM_RIGHT_NEIGHBORHOOD]);
-    TTRouteQuery *query2 = [[[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:YES] withAvoidArea:boundingBox count:1] build];
+    TTRouteQuery *query2 = [[[[TTRouteQueryBuilder createWithDest:TTCoordinate.ROMANIA andOrig:TTCoordinate.CZECH_REPUBLIC] withTraffic:NO] withAvoidArea:boundingBox count:1] build];
     dispatch_group_enter(group);
     [self.routePlannerAvoid planRouteWithQuery:query2
                              completionHandler:^(TTRouteResult *_Nullable result, TTResponseError *_Nullable error) {

@@ -80,10 +80,15 @@
 #pragma mark TTRouteResponseDelegate
 
 - (void)route:(TTRoute *)route completedWithResult:(TTRouteResult *)result {
+
+    [self.mapView.routeManager removeAllRoutes];
+
     TTFullRoute *plannedRoute = result.routes.firstObject;
+
     if (!plannedRoute) {
         return;
     }
+
     TTMapRoute *mapRoute = [TTMapRoute routeWithCoordinatesData:result.routes.firstObject withRouteStyle:TTMapRouteStyle.defaultActiveStyle imageStart:TTMapRoute.defaultImageDeparture imageEnd:TTMapRoute.defaultImageDestination];
     [self.mapView.routeManager addRoute:mapRoute];
     [self.mapView.routeManager bringToFrontRoute:mapRoute];

@@ -40,6 +40,7 @@
 #import "RouteMatchingViewController.h"
 #import "TrafficIncidentsViewController.h"
 #import "SearchAddressViewController.h"
+#import "SearchPoiCategoriesViewController.h"
 #import "SearchCategoryViewController.h"
 #import "SearchLanguageSelectorViewController.h"
 #import "SearchTypeaheadParameterViewController.h"
@@ -245,36 +246,39 @@
             newViewController = [SearchAddressViewController new];
             break;
         case 1:
-            newViewController = [SearchCategoryViewController new];
+            newViewController = [SearchPoiCategoriesViewController new];
             break;
         case 2:
-            newViewController = [SearchLanguageSelectorViewController new];
+            newViewController = [SearchCategoryViewController new];
             break;
         case 3:
-            newViewController = [SearchTypeaheadParameterViewController new];
+            newViewController = [SearchLanguageSelectorViewController new];
             break;
         case 4:
-            newViewController = [SearchMaxFuzzinessLevelViewController new];
+            newViewController = [SearchTypeaheadParameterViewController new];
             break;
         case 5:
-            newViewController = [SearchReverseGeocodingViewController new];
+            newViewController = [SearchMaxFuzzinessLevelViewController new];
             break;
         case 6:
-            newViewController = [SearchAlongTheRouteViewController new];
+            newViewController = [SearchReverseGeocodingViewController new];
             break;
         case 7:
-            newViewController = [SearchGeometryViewController new];
+            newViewController = [SearchAlongTheRouteViewController new];
             break;
         case 8:
-            newViewController = [SearchEntryPointsViewController new];
+            newViewController = [SearchGeometryViewController new];
             break;
         case 9:
-            newViewController = [SearchAdditionalDataViewController new];
+            newViewController = [SearchEntryPointsViewController new];
             break;
         case 10:
-            newViewController = [SearchBatchViewController new];
+            newViewController = [SearchAdditionalDataViewController new];
             break;
         case 11:
+            newViewController = [SearchBatchViewController new];
+            break;
+        case 12:
             newViewController = [SearchPolygonsForRevGeoViewController new];
             break;
         default:

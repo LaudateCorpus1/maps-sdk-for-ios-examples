@@ -77,6 +77,7 @@ class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRo
     // MARK: TTRouteResponseDelegate
 
     func route(_: TTRoute, completedWith result: TTRouteResult) {
+        mapView.routeManager.removeAllRoutes()
         guard let plannedRoute = result.routes.first else {
             return
         }

@@ -107,6 +107,9 @@ typedef NS_ENUM(NSInteger, BatchRouteType) { BatchRouteTypeTravelMode, BatchRout
 - (void)batch:(TTBatchRoute *_Nonnull)route completedWithResponse:(TTBatchRouteResponse *_Nonnull)response {
     [self.progress hide];
     [response visit:self];
+    UIEdgeInsets insets = UIEdgeInsetsMake(30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale, 30 * UIScreen.mainScreen.scale, 10 * UIScreen.mainScreen.scale);
+    self.mapView.contentInset = insets;
+    [self.mapView.routeManager showAllRoutesOverview];
 }
 
 - (void)batch:(TTBatchRoute *_Nonnull)route failedWithError:(TTResponseError *_Nonnull)responseError {
@@ -120,7 +123,6 @@ typedef NS_ENUM(NSInteger, BatchRouteType) { BatchRouteTypeTravelMode, BatchRout
     mapRoute.extraData = response.routes.firstObject.summary;
     [self.mapView.routeManager addRoute:mapRoute];
     [self.progress hide];
-    [self.mapView.routeManager showAllRoutesOverview];
 }
 
 #pragma mark TTRouteDelegate

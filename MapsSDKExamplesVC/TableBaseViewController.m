@@ -21,12 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.results = [NSArray array];
     UITableView *tableView = [UITableView new];
     self.tableView = tableView;
     tableView.delegate = self;
     tableView.dataSource = self;
     self.view = tableView;
+    [self.tableView reloadData];
 }
 
 - (void)displayResults:(NSArray *)results {
@@ -81,13 +81,14 @@
             trafficCell.trafficLength.text = [FormatUtils formatDistanceWithMeters:cluster.length];
         }
         cell = trafficCell;
+    } else if ([self.results[indexPath.row] isKindOfClass:[TTPoiCategory class]]) {
+        TTPoiCategory *category = (TTPoiCategory *)self.results[indexPath.row];
+        if (category.children.count > 0) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        cell.textLabel.text = category.name;
     }
     return cell;
-}
-
-#pragma mark UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 @end
