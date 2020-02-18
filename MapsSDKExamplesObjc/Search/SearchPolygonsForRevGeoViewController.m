@@ -13,6 +13,7 @@
 #import "SearchPolygonsForRevGeoViewController.h"
 #import <TomTomOnlineSDKSearch/TomTomOnlineSDKSearch.h>
 #import <TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.h>
+#import <MapsSDKExamplesCommon/MapsSDKExamplesCommon-Swift.h>
 
 @interface PolygonAdditionalDataVisitior : NSObject <TTGeoJSONObjectVisitor, TTGeoJSONGeoVisitor>
 @property(nonatomic, strong) NSMutableArray<TTGeoJSONLineString *> *lineStrings;
@@ -106,8 +107,10 @@
         [self.mapView.annotationManager selectAnnotation:self.annotation];
     }
 
+    NSUInteger geometriesZoom = [self.entityType isEqualToString:@"Country"] ? [TTGeometriesZoomByEntityType COUNTRY] : [TTGeometriesZoomByEntityType MUNICIPALITY];
+
     if ([self geometryDataSourceFromResponse:response] != nil) {
-        TTAdditionalDataSearchQuery *query = [[TTAdditionalDataSearchQueryBuilder createWithDataSource:[self geometryDataSourceFromResponse:response]] build];
+        TTAdditionalDataSearchQuery *query = [[[TTAdditionalDataSearchQueryBuilder createWithDataSource:[self geometryDataSourceFromResponse:response]] withGeometriesZoom:geometriesZoom] build];
         [_searchAdditionalData additionalDataSearchWithQuery:query];
     }
 }

@@ -175,3 +175,8 @@ public class TTMapZoom: NSObject {
         return 17
     }
 }
+
+public class TTGeometriesZoomByEntityType: NSObject {
+    @objc public static func COUNTRY() -> UInt { return 5 }
+    @objc public static func MUNICIPALITY() -> UInt { return 15 }
+}

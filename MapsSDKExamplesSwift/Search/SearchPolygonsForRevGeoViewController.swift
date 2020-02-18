@@ -95,11 +95,16 @@ class SearchPolygonsForRevGeoViewController: MapBaseViewController, TTMapViewDel
             mapView.annotationManager.select(annotation)
         }
 
+        let geometriesZoom = entityType == "Country" ? TTGeometriesZoomByEntityType.COUNTRY() : TTGeometriesZoomByEntityType.MUNICIPALITY()
+
         guard let address = response.result.addresses.first else { return }
         guard let additionalDataSources = address.additionalDataSources else { return }
         guard let geometryDataSource = additionalDataSources.geometryDataSource else { return }
 
-        let query = TTAdditionalDataSearchQueryBuilder.create(with: geometryDataSource).build()
+        let query = TTAdditionalDataSearchQueryBuilder.create(with: geometryDataSource)
+            .withGeometriesZoom(geometriesZoom)
+            .build()
+
         searchAdditionalData.additionalDataSearch(with: query)
     }
 
