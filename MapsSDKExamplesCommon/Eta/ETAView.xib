@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,21 +25,19 @@
                         <constraint firstAttribute="width" constant="55" id="Uoh-6o-Zwg"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--- km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asP-ms-DSc">
-                    <rect key="frame" x="272" y="14.5" width="100" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="--- km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asP-ms-DSc">
+                    <rect key="frame" x="316" y="14.5" width="56" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="2NC-RF-1mW"/>
-                        <constraint firstAttribute="width" constant="100" id="wpb-VA-Ai3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJG-Ce-nMh">
-                    <rect key="frame" x="65" y="12.5" width="250" height="25"/>
+                    <rect key="frame" x="65" y="12.5" width="251" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="EnI-ce-u6C"/>
-                        <constraint firstAttribute="width" constant="250" id="mZQ-Jh-Np3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,6 +49,7 @@
                 <constraint firstAttribute="bottom" secondItem="7DV-0M-hyK" secondAttribute="bottom" id="4Vg-Tq-Bjc"/>
                 <constraint firstItem="asP-ms-DSc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Zni-jv-5Z6"/>
                 <constraint firstItem="7DV-0M-hyK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a3i-lF-Bhb"/>
+                <constraint firstItem="asP-ms-DSc" firstAttribute="leading" secondItem="iJG-Ce-nMh" secondAttribute="trailing" id="b7U-oh-cbu"/>
                 <constraint firstItem="iJG-Ce-nMh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="g5g-Cu-QxS"/>
                 <constraint firstItem="7DV-0M-hyK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gLe-Rp-Dd7"/>
                 <constraint firstAttribute="trailing" secondItem="asP-ms-DSc" secondAttribute="trailing" constant="10" id="hFf-xh-BHN"/>
