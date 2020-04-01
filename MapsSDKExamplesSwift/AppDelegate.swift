@@ -61,26 +61,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 12:
                 newViewController = MapCenteringViewController()
             case 13:
-                newViewController = MapPerspectiveViewController()
+                newViewController = MapInitializationViewController()
             case 14:
-                newViewController = MapEventsViewController()
+                newViewController = MapPerspectiveViewController()
             case 15:
-                newViewController = MapUIExtensionsViewController()
+                newViewController = MapEventsViewController()
             case 16:
-                newViewController = MapMarkersViewController()
+                newViewController = MapUIExtensionsViewController()
             case 17:
-                newViewController = MapAdvancedMarkersViewController()
+                newViewController = MapMarkersViewController()
             case 18:
-                newViewController = MapBallonsViewController()
+                newViewController = MapAdvancedMarkersViewController()
             case 19:
-                newViewController = MapShapesViewController()
+                newViewController = MapBallonsViewController()
             case 20:
-                newViewController = MapMarkersClusteringViewController()
+                newViewController = MapShapesViewController()
             case 21:
-                newViewController = MapMultipleViewController()
+                newViewController = MapMarkersClusteringViewController()
             case 22:
-                newViewController = MapWithBuildingHeightsViewController()
+                newViewController = MapMultipleViewController()
             case 23:
+                newViewController = MapWithBuildingHeightsViewController()
+            case 24:
                 newViewController = MapRouteCustomisationViewController()
             default:
                 fatalError("This VC is not handled")

@@ -32,6 +32,8 @@
 		6EB3C4C7215A13DD00AC580C /* RoutingControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4C6215A13DD00AC580C /* RoutingControllerTests.m */; };
 		6EB3C4D5215A233700AC580C /* Maneuver.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB3C4D4215A233600AC580C /* Maneuver.xcassets */; };
 		6EB3C4DE215A287800AC580C /* SearchControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4DD215A287800AC580C /* SearchControllerTests.m */; };
+		6EC1AF1C241F90A30068B60E /* MapInitializationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1AF1B241F90A30068B60E /* MapInitializationViewController.swift */; };
+		6EC1AF1F2420BCB10068B60E /* MapInitializationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1AF1E2420BCB10068B60E /* MapInitializationViewController.m */; };
 		6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */; };
 		6EDCC21F221EB23B006EC951 /* MapLayersVisibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */; };
 		6EDCC222221EB321006EC951 /* MapLayersVisibilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC221221EB321006EC951 /* MapLayersVisibilityViewController.m */; };
@@ -241,6 +243,7 @@
 		72E285C32133E4B600D260CB /* TrafficCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C22133E4B600D260CB /* TrafficCell.xib */; };
 		72E285C92134136500D260CB /* TrafficHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C82134136500D260CB /* TrafficHeader.xib */; };
 		742D9C4222F98CAA0060F740 /* ic_app_demo_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */; };
+		7465803D242B605100B67C40 /* RouteLocationEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7465803C242B605100B67C40 /* RouteLocationEmitter.swift */; };
 		746C2A2622F82C8900763F7A /* ic_app_test_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2522F82C8900763F7A /* ic_app_test_source.json */; };
 		746C2A2A22F82E9400763F7A /* ic_app_test_layer_cluster.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2922F82E9400763F7A /* ic_app_test_layer_cluster.json */; };
 		746C2A2C22F82ECE00763F7A /* ic_app_test_layer_symbol_count.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2B22F82ECE00763F7A /* ic_app_test_layer_symbol_count.json */; };
@@ -402,6 +405,9 @@
 		6EB3C4C6215A13DD00AC580C /* RoutingControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingControllerTests.m; sourceTree = "<group>"; };
 		6EB3C4D4215A233600AC580C /* Maneuver.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Maneuver.xcassets; sourceTree = "<group>"; };
 		6EB3C4DD215A287800AC580C /* SearchControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchControllerTests.m; sourceTree = "<group>"; };
+		6EC1AF1B241F90A30068B60E /* MapInitializationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInitializationViewController.swift; sourceTree = "<group>"; };
+		6EC1AF1D2420BCB10068B60E /* MapInitializationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapInitializationViewController.h; sourceTree = "<group>"; };
+		6EC1AF1E2420BCB10068B60E /* MapInitializationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapInitializationViewController.m; sourceTree = "<group>"; };
 		6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewMultiSelectWithReset.swift; sourceTree = "<group>"; };
 		6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayersVisibilityViewController.swift; sourceTree = "<group>"; };
 		6EDCC220221EB321006EC951 /* MapLayersVisibilityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLayersVisibilityViewController.h; sourceTree = "<group>"; };
@@ -631,6 +637,7 @@
 		72E285CC213418A600D260CB /* ManeuverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverCell.swift; sourceTree = "<group>"; };
 		72E285CE21341BC900D260CB /* ManeuverIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverIconGenerator.swift; sourceTree = "<group>"; };
 		742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ic_app_demo_source.json; sourceTree = "<group>"; };
+		7465803C242B605100B67C40 /* RouteLocationEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLocationEmitter.swift; sourceTree = "<group>"; };
 		746C2A2522F82C8900763F7A /* ic_app_test_source.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ic_app_test_source.json; sourceTree = "<group>"; };
 		746C2A2922F82E9400763F7A /* ic_app_test_layer_cluster.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ic_app_test_layer_cluster.json; sourceTree = "<group>"; };
 		746C2A2B22F82ECE00763F7A /* ic_app_test_layer_symbol_count.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ic_app_test_layer_symbol_count.json; sourceTree = "<group>"; };
@@ -831,6 +838,7 @@
 				721A70492272F5F8009D9F0D /* layer_fill.json */,
 				728E31B52277113700A49B20 /* layer_raster.json */,
 				722027A2213D33CE00296ACF /* Assets.xcassets */,
+				7465803C242B605100B67C40 /* RouteLocationEmitter.swift */,
 			);
 			path = MapsSDKExamplesCommon;
 			sourceTree = "<group>";
@@ -856,6 +864,8 @@
 				72AB7381213FDA4400D72DF1 /* MapStaticImageViewController.m */,
 				72AB7383213FDA5100D72DF1 /* MapCenteringViewController.h */,
 				72AB7384213FDA5100D72DF1 /* MapCenteringViewController.m */,
+				6EC1AF1D2420BCB10068B60E /* MapInitializationViewController.h */,
+				6EC1AF1E2420BCB10068B60E /* MapInitializationViewController.m */,
 				72AB7386213FDA6000D72DF1 /* MapPerspectiveViewController.h */,
 				72AB7387213FDA6000D72DF1 /* MapPerspectiveViewController.m */,
 				72AB7389213FDA6F00D72DF1 /* MapEventsViewController.h */,
@@ -988,6 +998,7 @@
 				7266CFA3211AFEAE00162D91 /* MapCustomStyleViewController.swift */,
 				7266CFA7211AFF5100162D91 /* MapStaticImageViewController.swift */,
 				7266CFA9211AFF7800162D91 /* MapCenteringViewController.swift */,
+				6EC1AF1B241F90A30068B60E /* MapInitializationViewController.swift */,
 				7266CFAB211AFF8F00162D91 /* MapPerspectiveViewController.swift */,
 				7266CFAD211AFFA500162D91 /* MapEventsViewController.swift */,
 				7266CFAF211AFFC700162D91 /* MapUIExtensionsViewController.swift */,
@@ -1603,6 +1614,7 @@
 				7280A264214597360078B943 /* RoutingSupportingPointsViewController.m in Sources */,
 				6E8E940721CCC15200A9788F /* RoutingAvoidVignettesAndAreasViewController.m in Sources */,
 				72AB738B213FDA6F00D72DF1 /* MapEventsViewController.m in Sources */,
+				6EC1AF1F2420BCB10068B60E /* MapInitializationViewController.m in Sources */,
 				722027182139605300296ACF /* main.m in Sources */,
 				7280A252214596CF0078B943 /* RoutingRouteAvoidsViewController.m in Sources */,
 				9C78AB42220735F500EAC9FA /* MapMatchingViewController.m in Sources */,
@@ -1654,6 +1666,7 @@
 				7220276C21396FC000296ACF /* FormatUtils.swift in Sources */,
 				72202783213D01B600296ACF /* SubOptions.swift in Sources */,
 				7220276F21396FC000296ACF /* UIColor.swift in Sources */,
+				7465803D242B605100B67C40 /* RouteLocationEmitter.swift in Sources */,
 				6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */,
 				7220278F213D024B00296ACF /* ETAView.swift in Sources */,
 				7220278D213D024200296ACF /* SubOptionsViewController.swift in Sources */,
@@ -1692,6 +1705,7 @@
 				72AB736F213FD32200D72DF1 /* RoutingSupportingPointsViewController.swift in Sources */,
 				72006967213FA5D6005B20D1 /* SearchAdditionalDataViewController.swift in Sources */,
 				72006937213E68BC005B20D1 /* MapVectorTrafficViewController.swift in Sources */,
+				6EC1AF1C241F90A30068B60E /* MapInitializationViewController.swift in Sources */,
 				72006966213FA5D6005B20D1 /* SearchEntryPointsViewController.swift in Sources */,
 				72006942213E68D6005B20D1 /* MapAdvancedMarkersViewController.swift in Sources */,
 				9C78AB3A22041ED600EAC9FA /* RouteMatchingViewController.swift in Sources */,

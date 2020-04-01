@@ -115,6 +115,7 @@
     }
     [self.mapView.routeManager updateRoute:route style:TTMapRouteStyle.defaultActiveStyle];
     [self.etaView showWithSummary:(TTSummary *)route.extraData style:ETAViewStylePlain];
+    [self.mapView.routeManager bringToFrontRoute:route];
 }
 
 @end

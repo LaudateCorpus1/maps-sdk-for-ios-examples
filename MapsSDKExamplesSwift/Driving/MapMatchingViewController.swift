@@ -22,6 +22,12 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
     var startSending = false
     var matcher: TTMatcher!
 
+    lazy var emitter: RouteLocationEmitter = {
+        let e = RouteLocationEmitter(routeProvider: locationProvider)
+        e.delegate = self
+        return e
+    }()
+
     override func setupInitialCameraPosition() {
         mapView.center(on: locationProvider.locations[0].coordinate, withZoom: 18)
     }
@@ -32,10 +38,8 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
         start()
 
         if startSending == false {
-            OperationQueue().addOperation {
-                self.sendingLocation()
-                self.startSending = true
-            }
+            self.sendingLocation()
+            self.startSending = true
         }
         mapView.maxZoom = TTMapZoom.MAX()
         mapView.minZoom = TTMapZoom.MIN()
@@ -48,6 +52,11 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
         matcher.delegate = self
         setupEtaView()
         etaView.update(text: "Red circle shows raw GPS position", icon: UIImage(named: "info_small")!)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        emitter.stop()
     }
 
     func createChevron() {
@@ -77,25 +86,18 @@ class MapMatchingViewController: MapBaseViewController, TTMapViewDelegate, TTAnn
     }
 
     func sendingLocation() {
-        let locationProvider = LocationCSVProvider(csvFile: "simple_route")
-        for index in 1 ... locationProvider.locations.count {
-            let prev = locationProvider.locations[index - 1]
-            let next = locationProvider.locations[index]
-
-            let providerLocation = ProviderLocation(coordinate: next.coordinate, withRadius: next.radius, withBearing: next.bearing, withAccuracy: next.accuracy)
-            providerLocation.timestamp = next.timestamp
-            providerLocation.speed = next.speed
-
-            matcher(providerLocation: providerLocation)
-
-            let time = next.timestamp - prev.timestamp
-            sleep(UInt32(time / 1000))
-        }
+        emitter.startEmitting()
     }
 
     func drawRedCircle(coordinate: CLLocationCoordinate2D) {
         mapView.annotationManager.removeAllOverlays()
         let redCircle = TTCircle(center: coordinate, radius: 2, opacity: 1, width: 10, color: UIColor.red, fill: true, colorOutlet: UIColor.red)
         mapView.annotationManager.add(redCircle)
+    }
+}
+
+extension MapMatchingViewController: RouteLocationEmitterDelegate {
+    func routeLocationEmitter(_: RouteLocationEmitter, didEmitt location: ProviderLocation) {
+        matcher(providerLocation: location)
     }
 }

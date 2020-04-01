@@ -19,6 +19,7 @@
 #import "MapCustomStyleViewController.h"
 #import "MapStaticImageViewController.h"
 #import "MapCenteringViewController.h"
+#import "MapInitializationViewController.h"
 #import "MapPerspectiveViewController.h"
 #import "MapEventsViewController.h"
 #import "MapUIExtensionsViewController.h"
@@ -132,36 +133,39 @@
             newViewController = [MapCenteringViewController new];
             break;
         case 13:
-            newViewController = [MapPerspectiveViewController new];
+            newViewController = [MapInitializationViewController new];
             break;
         case 14:
-            newViewController = [MapEventsViewController new];
+            newViewController = [MapPerspectiveViewController new];
             break;
         case 15:
-            newViewController = [MapUIExtensionsViewController new];
+            newViewController = [MapEventsViewController new];
             break;
         case 16:
-            newViewController = [MapMarkersViewController new];
+            newViewController = [MapUIExtensionsViewController new];
             break;
         case 17:
-            newViewController = [MapAdvancedMarkersViewController new];
+            newViewController = [MapMarkersViewController new];
             break;
         case 18:
-            newViewController = [MapBallonsViewController new];
+            newViewController = [MapAdvancedMarkersViewController new];
             break;
         case 19:
-            newViewController = [MapShapesViewController new];
+            newViewController = [MapBallonsViewController new];
             break;
         case 20:
-            newViewController = [MapMarkersClusteringViewController new];
+            newViewController = [MapShapesViewController new];
             break;
         case 21:
-            newViewController = [MapMultipleViewController new];
+            newViewController = [MapMarkersClusteringViewController new];
             break;
         case 22:
-            newViewController = [MapWithBuildingHeightsViewController new];
+            newViewController = [MapMultipleViewController new];
             break;
         case 23:
+            newViewController = [MapWithBuildingHeightsViewController new];
+            break;
+        case 24:
             newViewController = [MapRouteCustomisationViewController new];
             break;
         default:
