@@ -20,7 +20,7 @@
 @implementation RoutingRouteWithWaypointsViewController
 
 - (OptionsView *)getOptionsView {
-    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Initial order", @"Best order", @"No waypoints" ] selectedID:-1];
+    return [[OptionsViewSingleSelect alloc] initWithLabels:@[ @"Initial order", @"No waypoints" ] selectedID:-1];
 }
 
 - (void)viewDidLoad {
@@ -48,11 +48,8 @@
     [self.mapView.routeManager removeAllRoutes];
     [self.progress show];
     switch (ID) {
-    case 2:
-        [self displayNoWaypointsRoute];
-        break;
     case 1:
-        [self displayBestOrderRoute];
+        [self displayNoWaypointsRoute];
         break;
     default:
         [self displayInitialOrderRoute];
@@ -64,11 +61,6 @@
 
 - (void)displayInitialOrderRoute {
     TTRouteQuery *query = [[[TTRouteQueryBuilder createWithDest:[TTCoordinate BERLIN] andOrig:[TTCoordinate AMSTERDAM]] withWayPoints:self.waypoints count:3] build];
-    [self.routePlanner planRouteWithQuery:query];
-}
-
-- (void)displayBestOrderRoute {
-    TTRouteQuery *query = [[[[TTRouteQueryBuilder createWithDest:[TTCoordinate BERLIN] andOrig:[TTCoordinate AMSTERDAM]] withWayPoints:self.waypoints count:3] withComputeBestOrder:YES] build];
     [self.routePlanner planRouteWithQuery:query];
 }
 

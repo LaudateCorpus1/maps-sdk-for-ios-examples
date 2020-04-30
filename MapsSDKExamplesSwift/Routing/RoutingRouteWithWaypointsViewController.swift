@@ -20,7 +20,7 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
     var waypoints = [TTCoordinate.HAMBURG(), TTCoordinate.ZURICH(), TTCoordinate.BRUSSELS()]
 
     override func getOptionsView() -> OptionsView {
-        return OptionsViewSingleSelect(labels: ["Initial order", "Best order", "No waypoints"], selectedID: -1)
+        return OptionsViewSingleSelect(labels: ["Initial order", "No waypoints"], selectedID: -1)
     }
 
     override func viewDidLoad() {
@@ -38,10 +38,8 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
         mapView.routeManager.removeAllRoutes()
         progress.show()
         switch ID {
-        case 2:
-            displayNoWaypointsRoute()
         case 1:
-            displayBestOrderRoute()
+            displayNoWaypointsRoute()
         default:
             displayInitialOrderRoute()
         }
@@ -52,14 +50,6 @@ class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRout
     func displayInitialOrderRoute() {
         let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
             .withWayPoints(&waypoints, count: UInt(waypoints.count))
-            .build()
-        routePlanner.plan(with: query)
-    }
-
-    func displayBestOrderRoute() {
-        let query = TTRouteQueryBuilder.create(withDest: TTCoordinate.BERLIN(), andOrig: TTCoordinate.AMSTERDAM())
-            .withWayPoints(&waypoints, count: UInt(waypoints.count))
-            .withComputeBestOrder(true)
             .build()
         routePlanner.plan(with: query)
     }
