@@ -151,20 +151,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 4:
                 newViewController = SearchTypeaheadParameterViewController()
             case 5:
-                newViewController = SearchMaxFuzzinessLevelViewController()
+                newViewController = SearchAutocompleteViewController()
             case 6:
-                newViewController = SearchReverseGeocodingViewController()
+                newViewController = SearchMaxFuzzinessLevelViewController()
             case 7:
-                newViewController = SearchAlongTheRouteViewController()
+                newViewController = SearchReverseGeocodingViewController()
             case 8:
-                newViewController = SearchGeometryViewController()
+                newViewController = SearchAlongTheRouteViewController()
             case 9:
-                newViewController = SearchEntryPointsViewController()
+                newViewController = SearchGeometryViewController()
             case 10:
-                newViewController = SearchAdditionalDataViewController()
+                newViewController = SearchEntryPointsViewController()
             case 11:
-                newViewController = SearchBatchViewController()
+                newViewController = SearchAdditionalDataViewController()
             case 12:
+                newViewController = SearchBatchViewController()
+            case 13:
                 newViewController = SearchPolygonsForRevGeoViewController()
             default:
                 fatalError("This VC is not handled")

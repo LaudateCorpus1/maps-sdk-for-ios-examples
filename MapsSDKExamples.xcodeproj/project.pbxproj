@@ -242,6 +242,9 @@
 		72CEFD0C213D8AB300F12B6F /* MapsSDKExamplesUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7220273F2139607500296ACF /* MapsSDKExamplesUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72E285C32133E4B600D260CB /* TrafficCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C22133E4B600D260CB /* TrafficCell.xib */; };
 		72E285C92134136500D260CB /* TrafficHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C82134136500D260CB /* TrafficHeader.xib */; };
+		74146DE7245840CB00D0071D /* SearchAutocompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74146DE6245840CB00D0071D /* SearchAutocompleteViewController.m */; };
+		7418D0D12456EDB1004B7B6E /* SearchAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */; };
+		7418D0D424571D9E004B7B6E /* AutoCompleteBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */; };
 		742D9C4222F98CAA0060F740 /* ic_app_demo_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */; };
 		7465803D242B605100B67C40 /* RouteLocationEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7465803C242B605100B67C40 /* RouteLocationEmitter.swift */; };
 		746C2A2622F82C8900763F7A /* ic_app_test_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2522F82C8900763F7A /* ic_app_test_source.json */; };
@@ -258,6 +261,9 @@
 		746C2A3622F830FF00763F7A /* ic_app_test_layer.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2D22F82F0A00763F7A /* ic_app_test_layer.json */; };
 		746C2A3822F8497900763F7A /* MapImageClusteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746C2A3722F8497900763F7A /* MapImageClusteringViewController.swift */; };
 		746C2A3C22F85ACF00763F7A /* MapImageClusteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746C2A3A22F859BA00763F7A /* MapImageClusteringViewController.m */; };
+		7470AEB9246345C3005DFBF3 /* SearchResultAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */; };
+		74C336072458997A00EFBF04 /* NSArray+NSArray_Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */; };
+		74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */; };
 		8B62B10623BDF86000CB6188 /* SearchPoiCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */; };
 		8B62B10923BE403C00CB6188 /* SearchPoiCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */; };
 		9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */; };
@@ -636,6 +642,12 @@
 		72E285C82134136500D260CB /* TrafficHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrafficHeader.xib; sourceTree = "<group>"; };
 		72E285CC213418A600D260CB /* ManeuverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverCell.swift; sourceTree = "<group>"; };
 		72E285CE21341BC900D260CB /* ManeuverIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverIconGenerator.swift; sourceTree = "<group>"; };
+		74146DE5245840CB00D0071D /* SearchAutocompleteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAutocompleteViewController.h; sourceTree = "<group>"; };
+		74146DE6245840CB00D0071D /* SearchAutocompleteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchAutocompleteViewController.m; sourceTree = "<group>"; };
+		74146DE82458492600D0071D /* TomTomOnlineSDKSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TomTomOnlineSDKSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7418D0CD2456ECD7004B7B6E /* TomTomOnlineSDKSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TomTomOnlineSDKSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAutocompleteViewController.swift; sourceTree = "<group>"; };
+		7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteBar.swift; sourceTree = "<group>"; };
 		742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ic_app_demo_source.json; sourceTree = "<group>"; };
 		7465803C242B605100B67C40 /* RouteLocationEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLocationEmitter.swift; sourceTree = "<group>"; };
 		746C2A2522F82C8900763F7A /* ic_app_test_source.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ic_app_test_source.json; sourceTree = "<group>"; };
@@ -645,6 +657,11 @@
 		746C2A3722F8497900763F7A /* MapImageClusteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapImageClusteringViewController.swift; sourceTree = "<group>"; };
 		746C2A3922F859BA00763F7A /* MapImageClusteringViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapImageClusteringViewController.h; sourceTree = "<group>"; };
 		746C2A3A22F859BA00763F7A /* MapImageClusteringViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapImageClusteringViewController.m; sourceTree = "<group>"; };
+		7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotation.swift; sourceTree = "<group>"; };
+		74C336052458997A00EFBF04 /* NSArray+NSArray_Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSArray_Map.h"; sourceTree = "<group>"; };
+		74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSArray_Map.m"; sourceTree = "<group>"; };
+		74C336092458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h"; sourceTree = "<group>"; };
+		74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m"; sourceTree = "<group>"; };
 		8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPoiCategoriesViewController.swift; sourceTree = "<group>"; };
 		8B62B10723BE403C00CB6188 /* SearchPoiCategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPoiCategoriesViewController.h; sourceTree = "<group>"; };
 		8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPoiCategoriesViewController.m; sourceTree = "<group>"; };
@@ -723,6 +740,8 @@
 		4677BD7948620868BFCB13D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74146DE82458492600D0071D /* TomTomOnlineSDKSearch.framework */,
+				7418D0CD2456ECD7004B7B6E /* TomTomOnlineSDKSearch.framework */,
 				72C09FF5214C0CDA00F74412 /* Foundation.framework */,
 				72C09FF3214C0CD200F74412 /* UIKit.framework */,
 			);
@@ -804,6 +823,8 @@
 		7220273E2139607500296ACF /* MapsSDKExamplesCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7470AEB7246345A5005DFBF3 /* Annotation */,
+				7418D0D224571D63004B7B6E /* Autocomplete */,
 				72E285C12133E47C00D260CB /* Cell */,
 				72AA469D21217A4F0019EC72 /* ViewControlers */,
 				7220263B21358F9000296ACF /* ActionSheet */,
@@ -912,6 +933,7 @@
 		72202774213BB51400296ACF /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				74C3360824589E0C00EFBF04 /* Autocomplete */,
 				7280A2292144F2900078B943 /* SearchAddressViewController.h */,
 				7280A22A2144F2900078B943 /* SearchAddressViewController.m */,
 				8B62B10723BE403C00CB6188 /* SearchPoiCategoriesViewController.h */,
@@ -1074,6 +1096,7 @@
 		72AA46A321255C7D0019EC72 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */,
 				72AA46A521257C650019EC72 /* SearchAddressViewController.swift */,
 				8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */,
 				728325EB212BD98700088FE6 /* SearchCategoryViewController.swift */,
@@ -1161,6 +1184,35 @@
 				72E285C82134136500D260CB /* TrafficHeader.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7418D0D224571D63004B7B6E /* Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */,
+			);
+			path = Autocomplete;
+			sourceTree = "<group>";
+		};
+		7470AEB7246345A5005DFBF3 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
+		74C3360824589E0C00EFBF04 /* Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				74146DE5245840CB00D0071D /* SearchAutocompleteViewController.h */,
+				74146DE6245840CB00D0071D /* SearchAutocompleteViewController.m */,
+				74C336052458997A00EFBF04 /* NSArray+NSArray_Map.h */,
+				74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */,
+				74C336092458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h */,
+				74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */,
+			);
+			path = Autocomplete;
 			sourceTree = "<group>";
 		};
 		9C17CB912109E8750085A51B /* Model */ = {
@@ -1586,6 +1638,7 @@
 				7280A267214597480078B943 /* RoutingReachableRangeViewController.m in Sources */,
 				72AB7373213FD8AA00D72DF1 /* MapVectorTrafficViewController.m in Sources */,
 				7280A22B2144F2900078B943 /* SearchAddressViewController.m in Sources */,
+				74C336072458997A00EFBF04 /* NSArray+NSArray_Map.m in Sources */,
 				7280A2432144F34E0078B943 /* SearchEntryPointsViewController.m in Sources */,
 				6E14CCFF2148FBB50060C405 /* RoutingBatchRouteViewController.m in Sources */,
 				72AB737F213FDA3400D72DF1 /* MapCustomStyleViewController.m in Sources */,
@@ -1624,6 +1677,7 @@
 				72AB7385213FDA5100D72DF1 /* MapCenteringViewController.m in Sources */,
 				7280A25B214597080078B943 /* RoutingAlternativesRouteViewController.m in Sources */,
 				7220270A2139605300296ACF /* AppDelegate.m in Sources */,
+				74146DE7245840CB00D0071D /* SearchAutocompleteViewController.m in Sources */,
 				7280A2402144F3370078B943 /* SearchGeometryViewController.m in Sources */,
 				72AB7382213FDA4400D72DF1 /* MapStaticImageViewController.m in Sources */,
 				72B5D40F21EF53CB00868D44 /* ReachableRangeQueryFactory.m in Sources */,
@@ -1634,6 +1688,7 @@
 				9C78AB5C220D7ABF00EAC9FA /* GeofencingReportViewController.m in Sources */,
 				7280A23D2144F3220078B943 /* SearchAlongTheRouteViewController.m in Sources */,
 				7280A2312144F2BF0078B943 /* SearchLanguageSelectorViewController.m in Sources */,
+				74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1648,7 +1703,9 @@
 				9C7076782202F1F100B3FF19 /* DrivingSource.swift in Sources */,
 				7220277F213D012200296ACF /* Toast.swift in Sources */,
 				9C70767F2203072F00B3FF19 /* RandomizeCoordinate.swift in Sources */,
+				7470AEB9246345C3005DFBF3 /* SearchResultAnnotation.swift in Sources */,
 				72202792213D025D00296ACF /* ActionSheet.swift in Sources */,
+				7418D0D424571D9E004B7B6E /* AutoCompleteBar.swift in Sources */,
 				7220278E213D024500296ACF /* SubOptionsCollectionViewCell.swift in Sources */,
 				72202780213D012200296ACF /* ToastView.swift in Sources */,
 				7220278B213D023C00296ACF /* OptionsViewController.swift in Sources */,
@@ -1690,6 +1747,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7418D0D12456EDB1004B7B6E /* SearchAutocompleteViewController.swift in Sources */,
 				7200695F213FA5D6005B20D1 /* SearchCategoryViewController.swift in Sources */,
 				72006964213FA5D6005B20D1 /* SearchAlongTheRouteViewController.swift in Sources */,
 				72006962213FA5D6005B20D1 /* SearchMaxFuzzinessLevelViewController.swift in Sources */,

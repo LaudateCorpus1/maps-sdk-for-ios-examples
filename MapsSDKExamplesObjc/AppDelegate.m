@@ -68,6 +68,7 @@
 #import "RoutingAvoidVignettesAndAreasViewController.h"
 #import "RoutingMatrixViewController.h"
 #import "GeofencingReportViewController.h"
+#import "SearchAutocompleteViewController.h"
 
 @interface AppDelegate () <ExampleDisplayRequest>
 
@@ -262,27 +263,30 @@
             newViewController = [SearchTypeaheadParameterViewController new];
             break;
         case 5:
-            newViewController = [SearchMaxFuzzinessLevelViewController new];
+            newViewController = [SearchAutocompleteViewController new];
             break;
         case 6:
-            newViewController = [SearchReverseGeocodingViewController new];
+            newViewController = [SearchMaxFuzzinessLevelViewController new];
             break;
         case 7:
-            newViewController = [SearchAlongTheRouteViewController new];
+            newViewController = [SearchReverseGeocodingViewController new];
             break;
         case 8:
-            newViewController = [SearchGeometryViewController new];
+            newViewController = [SearchAlongTheRouteViewController new];
             break;
         case 9:
-            newViewController = [SearchEntryPointsViewController new];
+            newViewController = [SearchGeometryViewController new];
             break;
         case 10:
-            newViewController = [SearchAdditionalDataViewController new];
+            newViewController = [SearchEntryPointsViewController new];
             break;
         case 11:
-            newViewController = [SearchBatchViewController new];
+            newViewController = [SearchAdditionalDataViewController new];
             break;
         case 12:
+            newViewController = [SearchBatchViewController new];
+            break;
+        case 13:
             newViewController = [SearchPolygonsForRevGeoViewController new];
             break;
         default:
