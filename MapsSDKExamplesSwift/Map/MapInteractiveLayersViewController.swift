@@ -62,7 +62,7 @@ class MapInteractiveLayersViewController: MapBaseViewController, TTMapViewDelega
         toast.toast(message: message)
     }
 
-    func mapView(_ mapView: TTMapView, didChangCameraPosition _: TTCameraPosition) {
+    func mapView(_: TTMapView, didChangCameraPosition _: TTCameraPosition) {
         displayFeaturesToast()
     }
 

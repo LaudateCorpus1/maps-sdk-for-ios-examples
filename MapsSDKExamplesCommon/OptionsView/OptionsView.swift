@@ -23,7 +23,7 @@ public class OptionsView: UIStackView {
         setup(labels: labels, selectedID: selectedID)
     }
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup(labels: ["default"], selectedID: -1)
     }

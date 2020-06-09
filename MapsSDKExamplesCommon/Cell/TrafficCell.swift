@@ -17,7 +17,7 @@ public class TrafficCell: UITableViewCell {
     @IBOutlet public var trafficDelay: UILabel!
     @IBOutlet public var trafficLength: UILabel!
 
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }

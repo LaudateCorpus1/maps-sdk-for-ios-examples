@@ -12,7 +12,7 @@
 import UIKit
 
 class OptionButton: UIButton {
-    open override var isSelected: Bool {
+    override open var isSelected: Bool {
         didSet {
             backgroundColor = isSelected ? TTColor.GreenDark() : TTColor.GreenLight()
         }

@@ -17,7 +17,7 @@ public class Toast: NSObject {
     weak var toastView: ToastView!
     var timer: Timer!
 
-    public override init() {
+    override public init() {
         window = UIApplication.shared.windows.last!
     }
 

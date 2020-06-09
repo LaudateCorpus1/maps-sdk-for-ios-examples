@@ -47,7 +47,7 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
 
     // MARK: TTMapViewDelegate
 
-    func mapView(_: TTMapView, didChangedCameraPosition cameraPosition: TTCameraPosition) {
+    func mapView(_: TTMapView, onCameraChanged cameraPosition: TTCameraPosition) {
         updateSecoundMap(coordinate: cameraPosition.cameraPosition)
     }
 

@@ -12,7 +12,7 @@
 import UIKit
 
 public class OptionsBaseViewController: UICollectionViewController {
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.navigationBar.barTintColor = TTColor.BlackLight()

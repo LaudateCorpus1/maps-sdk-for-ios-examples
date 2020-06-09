@@ -69,6 +69,7 @@
 #import "RoutingMatrixViewController.h"
 #import "GeofencingReportViewController.h"
 #import "SearchAutocompleteViewController.h"
+#import "SearchOpeningHoursViewController.h"
 
 @interface AppDelegate () <ExampleDisplayRequest>
 
@@ -288,6 +289,9 @@
             break;
         case 13:
             newViewController = [SearchPolygonsForRevGeoViewController new];
+            break;
+        case 14:
+            newViewController = [SearchOpeningHoursViewController new];
             break;
         default:
             [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];

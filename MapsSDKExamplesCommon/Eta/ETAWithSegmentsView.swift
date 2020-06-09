@@ -16,7 +16,7 @@ public class ETAWithSegmentsView: UIView {
     weak var etaView: ETAView!
     @objc public weak var segments: UISegmentedControl!
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }

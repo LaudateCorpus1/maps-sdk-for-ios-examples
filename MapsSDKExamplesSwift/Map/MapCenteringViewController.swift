@@ -8,7 +8,6 @@
  * licensee then you are not authorised to use this software in any manner and should
  * immediately return it to TomTom N.V.
  */
-
 import MapsSDKExamplesCommon
 import MapsSDKExamplesVC
 import UIKit
@@ -20,7 +19,7 @@ class MapCenteringViewController: MapBaseViewController {
     }
 
     override func getOptionsView() -> OptionsView {
-        return OptionsViewSingleSelect(labels: ["Amsterdam", "Berlin", "London"], selectedID: 0)
+        return OptionsViewSingleSelect(labels: ["Amsterdam", "Berlin", "Bounding box"], selectedID: 0)
     }
 
     override func setupInitialCameraPosition() {}
@@ -31,7 +30,7 @@ class MapCenteringViewController: MapBaseViewController {
         super.displayExample(withID: ID, on: on)
         switch ID {
         case 2:
-            centerOnLondon()
+            boundingBoxOnAmsterdam()
         case 1:
             centerOnBerlin()
         default:
@@ -42,14 +41,18 @@ class MapCenteringViewController: MapBaseViewController {
     // MARK: Examples
 
     func centerOnAmsterdam() {
-        mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 10)
+        let cameraPosition = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.AMSTERDAM()).withZoom(10).build()
+        mapView.setCameraPosition(cameraPosition)
     }
 
     func centerOnBerlin() {
-        mapView.center(on: TTCoordinate.BERLIN(), withZoom: 10)
+        let cameraPosition = TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.BERLIN()).withZoom(10).build()
+        mapView.setCameraPosition(cameraPosition)
     }
 
-    func centerOnLondon() {
-        mapView.center(on: TTCoordinate.LONDON(), withZoom: 10)
+    func boundingBoxOnAmsterdam() {
+        let boundingBox = TTBoundingBox(topLeft: TTCoordinate.AMSTERDAM_BOUNDINGBOX_LT(), withBottomRight: TTCoordinate.AMSTERDAM_BOUNDINGBOX_RB())
+        let cameraPosition = TTCameraBoundingBoxBuilder.create(with: boundingBox!).build()
+        mapView.setCameraPosition(cameraPosition)
     }
 }

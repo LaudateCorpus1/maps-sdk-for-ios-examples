@@ -15,7 +15,7 @@ public class Progress: NSObject {
     weak var window: UIWindow!
     weak var layer: UIView!
 
-    public override init() {
+    override public init() {
         window = UIApplication.shared.windows.last!
     }
 

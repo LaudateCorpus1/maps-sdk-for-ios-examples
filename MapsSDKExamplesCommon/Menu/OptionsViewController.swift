@@ -15,7 +15,7 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
     @objc public weak var exampleDelegate: ExampleDisplayRequest?
     private let reuseIdentifier = "cellID"
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView?.backgroundColor = TTColor.BlackLight()
@@ -24,15 +24,15 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
         collectionView?.register(OptionsCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
-    public override func viewWillTransition(to _: CGSize, with _: UIViewControllerTransitionCoordinator) {
+    override public func viewWillTransition(to _: CGSize, with _: UIViewControllerTransitionCoordinator) {
         collectionView?.collectionViewLayout.invalidateLayout()
     }
 
-    public override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+    override public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return MenuLabels.valueArray.count
     }
 
-    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! OptionsCollectionViewCell
 
         let option = MenuLabels.valueArray[indexPath.row]
@@ -62,7 +62,7 @@ public class OptionsViewController: OptionsBaseViewController, UICollectionViewD
                             right: TTCollectionViewCell.UIEdgeInsetRight)
     }
 
-    public override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override public func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
         let nextVC = SubOptionsViewController(collectionViewLayout: layout)
         nextVC.exampleDelegate = exampleDelegate

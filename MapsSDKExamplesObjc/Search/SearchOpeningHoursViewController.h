@@ -10,21 +10,12 @@
  * immediately return it to TomTom N.V.
  */
 
-#import "TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h"
+#import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-@implementation TTAutocompleteSegment (TTAutocompleteSegment_Helpers)
-- (NSString *)title {
-    return self.value ? self.value : @"-";
-}
+NS_ASSUME_NONNULL_BEGIN
 
-- (NSString *)subTitle {
-    switch (self.type) {
-    case TTSegmentTypeBrand:
-        return @"Suggested brand";
-    case TTSegmentTypeCategory:
-        return @"Suggested category";
-    case TTSegmentTypePlainText:
-        return @"Suggested plain text";
-    }
-}
+@interface SearchOpeningHoursViewController : MapBaseViewController
+
 @end
+
+NS_ASSUME_NONNULL_END

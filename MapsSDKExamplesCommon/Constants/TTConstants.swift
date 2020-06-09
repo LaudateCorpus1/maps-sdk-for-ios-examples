@@ -81,10 +81,10 @@ public class TTCoordinate: NSObject {
     @objc public static func AMSTERDAM_POLYGON_1() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.388658, 4.859119) }
     @objc public static func AMSTERDAM_POLYGON_2() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.346523, 4.858432) }
     @objc public static func AMSTERDAM_POLYGON_3() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.352185, 4.908557) }
-    @objc public static func AMSTERDAM_BOUNDINGBOX_LT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.3274167028, 4.72924173) }
-    @objc public static func AMSTERDAM_BOUNDINGBOX_RT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.43106373, 5.0310596876) }
+    @objc public static func AMSTERDAM_BOUNDINGBOX_LT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.27817413, 4.72924173) }
+    @objc public static func AMSTERDAM_BOUNDINGBOX_RT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.27817413, 5.07916213) }
     @objc public static func AMSTERDAM_BOUNDINGBOX_LB() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.43106373, 4.72924173) }
-    @objc public static func AMSTERDAM_BOUNDINGBOX_RB() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.3274167028, 4.72924173) }
+    @objc public static func AMSTERDAM_BOUNDINGBOX_RB() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.43106373, 5.07916213) }
     @objc public static func ISRAEL() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(32.009929, 34.843555) }
     @objc public static func INDIA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(23.605569, 68.512920) }
     @objc public static func BRUSSELS() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(50.854954, 4.3051791) }

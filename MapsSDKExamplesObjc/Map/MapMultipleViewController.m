@@ -47,7 +47,7 @@
 }
 
 #pragma mark TTMapViewDelegate
-- (void)mapView:(TTMapView *)mapView didChangedCameraPosition:(TTCameraPosition *)cameraPosition {
+- (void)mapView:(TTMapView *)mapView onCameraChanged:(TTCameraPosition *)cameraPosition {
     [self updateSecoundMap:cameraPosition.cameraPosition];
 }
 

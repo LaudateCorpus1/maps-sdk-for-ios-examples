@@ -16,7 +16,7 @@ public class ManeuverCell: UITableViewCell {
     @IBOutlet public var maneuverDistance: UILabel!
     @IBOutlet public var maneuverDescription: UILabel!
 
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }

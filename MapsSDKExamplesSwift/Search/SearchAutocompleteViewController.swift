@@ -16,6 +16,17 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 extension TTAutocompleteSegment: AutoCompleteBarModel {
+    public var subTitle: String {
+        switch type {
+        case .brand:
+            return "Suggested brand"
+        case .category:
+            return "Suggested category"
+        case .plainText:
+            return "Suggested plain text"
+        }
+    }
+
     public var title: String {
         return value ?? "-"
     }

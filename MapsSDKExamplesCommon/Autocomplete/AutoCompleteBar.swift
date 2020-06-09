@@ -14,6 +14,7 @@ import UIKit
 
 @objc public protocol AutoCompleteBarModel {
     @objc var title: String { get }
+    @objc var subTitle: String { get }
 }
 
 @objc public protocol AutoCompleteBarDelegate: class {
@@ -107,7 +108,22 @@ extension AutoCompleteBar: UITableViewDataSource, UITableViewDelegate {
 
     private func decorate(cell: UITableViewCell, indexPath: IndexPath) {
         let model = data[indexPath.row]
-        cell.textLabel?.text = model.title
+
+        let titleAttributes: [NSAttributedStringKey: Any] = [.foregroundColor: UIColor.black,
+                                                             .font: UIFont.boldSystemFont(ofSize: 15)]
+
+        let subTitleAttributes: [NSAttributedStringKey: Any] = [.foregroundColor: UIColor.lightGray,
+                                                                .font: UIFont.boldSystemFont(ofSize: 10)]
+
+        let title = model.title
+        let subTitle = model.subTitle
+
+        let attribiutedText = NSMutableAttributedString(string: title,
+                                                        attributes: titleAttributes)
+        attribiutedText.append(.init(string: "  "))
+        attribiutedText.append(.init(string: subTitle, attributes: subTitleAttributes))
+
+        cell.textLabel?.attributedText = attribiutedText
     }
 
     public func numberOfSections(in _: UITableView) -> Int {

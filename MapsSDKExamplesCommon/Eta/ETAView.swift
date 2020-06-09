@@ -24,7 +24,7 @@ public class ETAView: UIView {
     @IBOutlet var distance: UILabel!
     @IBOutlet var time: UILabel!
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }

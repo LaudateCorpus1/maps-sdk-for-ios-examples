@@ -168,6 +168,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = SearchBatchViewController()
             case 13:
                 newViewController = SearchPolygonsForRevGeoViewController()
+            case 14:
+                newViewController = SearchOpeningHoursViewController()
             default:
                 fatalError("This VC is not handled")
             }

@@ -14,7 +14,7 @@ import UIKit
 public class ProgressImageView: UIImageView {
     weak var activityIndicator: UIActivityIndicatorView!
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
@@ -38,7 +38,7 @@ public class ProgressImageView: UIImageView {
         activityIndicator.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
 
-    public override var image: UIImage? {
+    override public var image: UIImage? {
         didSet {
             activityIndicator.removeFromSuperview()
         }

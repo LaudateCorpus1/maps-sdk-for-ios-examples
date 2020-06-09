@@ -261,7 +261,11 @@
 		746C2A3622F830FF00763F7A /* ic_app_test_layer.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2D22F82F0A00763F7A /* ic_app_test_layer.json */; };
 		746C2A3822F8497900763F7A /* MapImageClusteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746C2A3722F8497900763F7A /* MapImageClusteringViewController.swift */; };
 		746C2A3C22F85ACF00763F7A /* MapImageClusteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746C2A3A22F859BA00763F7A /* MapImageClusteringViewController.m */; };
+		7470AEB624633332005DFBF3 /* SearchOpeningHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEB524633332005DFBF3 /* SearchOpeningHoursViewController.swift */; };
 		7470AEB9246345C3005DFBF3 /* SearchResultAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */; };
+		7470AEBC24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEBB24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift */; };
+		7470AEBE24643CAB005DFBF3 /* MultiLineCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEBD24643CAB005DFBF3 /* MultiLineCalloutView.swift */; };
+		7470AEC124643E08005DFBF3 /* SearchOpeningHoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEC024643E08005DFBF3 /* SearchOpeningHoursViewController.m */; };
 		74C336072458997A00EFBF04 /* NSArray+NSArray_Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */; };
 		74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */; };
 		8B62B10623BDF86000CB6188 /* SearchPoiCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */; };
@@ -657,7 +661,12 @@
 		746C2A3722F8497900763F7A /* MapImageClusteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapImageClusteringViewController.swift; sourceTree = "<group>"; };
 		746C2A3922F859BA00763F7A /* MapImageClusteringViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapImageClusteringViewController.h; sourceTree = "<group>"; };
 		746C2A3A22F859BA00763F7A /* MapImageClusteringViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapImageClusteringViewController.m; sourceTree = "<group>"; };
+		7470AEB524633332005DFBF3 /* SearchOpeningHoursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOpeningHoursViewController.swift; sourceTree = "<group>"; };
 		7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotation.swift; sourceTree = "<group>"; };
+		7470AEBB24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TTTimeRangeDateTime+Helper.swift"; sourceTree = "<group>"; };
+		7470AEBD24643CAB005DFBF3 /* MultiLineCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineCalloutView.swift; sourceTree = "<group>"; };
+		7470AEBF24643E08005DFBF3 /* SearchOpeningHoursViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchOpeningHoursViewController.h; sourceTree = "<group>"; };
+		7470AEC024643E08005DFBF3 /* SearchOpeningHoursViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchOpeningHoursViewController.m; sourceTree = "<group>"; };
 		74C336052458997A00EFBF04 /* NSArray+NSArray_Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSArray_Map.h"; sourceTree = "<group>"; };
 		74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSArray_Map.m"; sourceTree = "<group>"; };
 		74C336092458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h"; sourceTree = "<group>"; };
@@ -823,6 +832,7 @@
 		7220273E2139607500296ACF /* MapsSDKExamplesCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7470AEBA24643B98005DFBF3 /* TimeRangeDateTime */,
 				7470AEB7246345A5005DFBF3 /* Annotation */,
 				7418D0D224571D63004B7B6E /* Autocomplete */,
 				72E285C12133E47C00D260CB /* Cell */,
@@ -960,6 +970,8 @@
 				7280A2482144F3750078B943 /* SearchBatchViewController.m */,
 				6E9BF26D22201B530033BD98 /* SearchPolygonsForRevGeoViewController.h */,
 				6E9BF26E22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m */,
+				7470AEBF24643E08005DFBF3 /* SearchOpeningHoursViewController.h */,
+				7470AEC024643E08005DFBF3 /* SearchOpeningHoursViewController.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1067,6 +1079,7 @@
 			children = (
 				72AA4696211D8F4F0019EC72 /* CustomCallout.xib */,
 				72AA4693211D8E140019EC72 /* CustomCallout.swift */,
+				7470AEBD24643CAB005DFBF3 /* MultiLineCalloutView.swift */,
 			);
 			path = Callout;
 			sourceTree = "<group>";
@@ -1110,6 +1123,7 @@
 				7253A662212D8EA200C469FF /* SearchAdditionalDataViewController.swift */,
 				7253A664212D8EB800C469FF /* SearchBatchViewController.swift */,
 				6E9BF26922201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift */,
+				7470AEB524633332005DFBF3 /* SearchOpeningHoursViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1200,6 +1214,14 @@
 				7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */,
 			);
 			path = Annotation;
+			sourceTree = "<group>";
+		};
+		7470AEBA24643B98005DFBF3 /* TimeRangeDateTime */ = {
+			isa = PBXGroup;
+			children = (
+				7470AEBB24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift */,
+			);
+			path = TimeRangeDateTime;
 			sourceTree = "<group>";
 		};
 		74C3360824589E0C00EFBF04 /* Autocomplete */ = {
@@ -1689,6 +1711,7 @@
 				7280A23D2144F3220078B943 /* SearchAlongTheRouteViewController.m in Sources */,
 				7280A2312144F2BF0078B943 /* SearchLanguageSelectorViewController.m in Sources */,
 				74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */,
+				7470AEC124643E08005DFBF3 /* SearchOpeningHoursViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1721,7 +1744,9 @@
 				72202794213D032900296ACF /* LicenseViewController.swift in Sources */,
 				9CCB057421885E55006BA780 /* FollowTheChevronSource.swift in Sources */,
 				7220276C21396FC000296ACF /* FormatUtils.swift in Sources */,
+				7470AEBE24643CAB005DFBF3 /* MultiLineCalloutView.swift in Sources */,
 				72202783213D01B600296ACF /* SubOptions.swift in Sources */,
+				7470AEBC24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift in Sources */,
 				7220276F21396FC000296ACF /* UIColor.swift in Sources */,
 				7465803D242B605100B67C40 /* RouteLocationEmitter.swift in Sources */,
 				6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */,
@@ -1751,6 +1776,7 @@
 				7200695F213FA5D6005B20D1 /* SearchCategoryViewController.swift in Sources */,
 				72006964213FA5D6005B20D1 /* SearchAlongTheRouteViewController.swift in Sources */,
 				72006962213FA5D6005B20D1 /* SearchMaxFuzzinessLevelViewController.swift in Sources */,
+				7470AEB624633332005DFBF3 /* SearchOpeningHoursViewController.swift in Sources */,
 				9C78AB4C2209A9D800EAC9FA /* GeofencingReportViewController.swift in Sources */,
 				72006968213FA5D6005B20D1 /* SearchBatchViewController.swift in Sources */,
 				6EDCC21F221EB23B006EC951 /* MapLayersVisibilityViewController.swift in Sources */,
