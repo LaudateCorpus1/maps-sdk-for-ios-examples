@@ -15,7 +15,7 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchMaxFuzzinessLevelViewController: SearchBaseViewController, TTSearchDelegate {
-    let search = TTSearch()
+    let search = TTSearch(key: Key.Search)
 
     override func segmentsForControllSelected() -> Int {
         return 0

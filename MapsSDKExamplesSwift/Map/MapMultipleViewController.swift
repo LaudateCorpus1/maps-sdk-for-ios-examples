@@ -19,7 +19,7 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
         mapView.center(on: TTCoordinate.AMSTERDAM(), withZoom: 12)
     }
 
-    weak var secoundMap: TTMapView!
+    weak var secondMap: TTMapView!
 
     override func setupMap() {
         super.setupMap()
@@ -28,20 +28,22 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
 
     override func onMapReady() {
         super.onMapReady()
-        self.setupSecoundMap()
+        self.setupSecondMap()
     }
 
-    func setupSecoundMap() {
-        let map = TTMapView(frame: CGRect.zero)
-        self.secoundMap = map
-        self.secoundMap.clipsToBounds = true
-        self.secoundMap.layer.borderColor = UIColor.white.cgColor
-        self.secoundMap.layer.borderWidth = TTSecoundMap.SecoundMapBorderSize()
+    func setupSecondMap() {
+        let defaultStyle = TTMapStyleDefaultConfiguration()
+        let builder = TTMapConfigurationBuilder.create().withTrafficKey(Key.Traffic).withMapKey(Key.Map).withMapStyleConfiguration(defaultStyle)
+        let map = TTMapView(mapConfiguration: builder.build())
+        self.secondMap = map
+        self.secondMap.clipsToBounds = true
+        self.secondMap.layer.borderColor = UIColor.white.cgColor
+        self.secondMap.layer.borderWidth = TTSecoundMap.SecoundMapBorderSize()
         let customStyle = Bundle.main.path(forResource: "style", ofType: "json")
-        secoundMap.setStylePath(customStyle)
-        super.mapView.addSubview(secoundMap)
+        secondMap.setStylePath(customStyle)
+        super.mapView.addSubview(secondMap)
         self.setupConstrains()
-        self.secoundMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.AMSTERDAM()).withZoom(8).build())
+        self.secondMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: TTCoordinate.AMSTERDAM()).withZoom(8).build())
         drowShapes()
     }
 
@@ -52,7 +54,7 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
     }
 
     func drowShapes() {
-        self.secoundMap.annotationManager.removeAllOverlays()
+        self.secondMap.annotationManager.removeAllOverlays()
         var coordinates: [CLLocationCoordinate2D] = []
         coordinates.append(self.mapView.currentBounds().nwBounds)
         coordinates.append(CLLocationCoordinate2D(latitude: self.mapView.currentBounds().nwBounds.latitude, longitude: self.mapView.currentBounds().seBounds.longitude))
@@ -62,23 +64,23 @@ class MapMultipleViewController: MapBaseViewController, TTMapViewDelegate {
         let color = UIColor.yellow
         let pointsCount = 5
         let polyLine = TTPolyline(coordinates: &coordinates, count: UInt(pointsCount), opacity: 1, width: 1.0, color: color)
-        self.secoundMap.annotationManager.add(polyLine)
+        self.secondMap.annotationManager.add(polyLine)
     }
 
     func updateSecoundMap(coordinate: CLLocationCoordinate2D) {
-        if self.secoundMap != nil {
+        if self.secondMap != nil {
             drowShapes()
-            self.secoundMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: coordinate).build())
+            self.secondMap.setCameraPosition(TTCameraPositionBuilder.create(withCameraPosition: coordinate).build())
         }
     }
 
     func setupConstrains() {
         let mapSize = super.mapView.bounds.width / 2
-        self.secoundMap.translatesAutoresizingMaskIntoConstraints = false
-        self.secoundMap.heightAnchor.constraint(equalToConstant: mapSize).isActive = true
-        self.secoundMap.widthAnchor.constraint(equalToConstant: mapSize).isActive = true
-        self.secoundMap.topAnchor.constraint(equalTo: self.mapView.topAnchor, constant: 5).isActive = true
-        self.secoundMap.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -5).isActive = true
-        self.secoundMap.layer.cornerRadius = mapSize / 2
+        self.secondMap.translatesAutoresizingMaskIntoConstraints = false
+        self.secondMap.heightAnchor.constraint(equalToConstant: mapSize).isActive = true
+        self.secondMap.widthAnchor.constraint(equalToConstant: mapSize).isActive = true
+        self.secondMap.topAnchor.constraint(equalTo: self.mapView.topAnchor, constant: 5).isActive = true
+        self.secondMap.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -5).isActive = true
+        self.secondMap.layer.cornerRadius = mapSize / 2
     }
 }

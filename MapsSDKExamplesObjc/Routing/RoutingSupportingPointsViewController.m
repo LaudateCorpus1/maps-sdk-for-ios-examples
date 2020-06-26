@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.routePlanner = [TTRoute new];
+    self.routePlanner = [[TTRoute alloc] initWithKey:Key.Routing];
     self.routePlanner.delegate = self;
     self.mapView.routeManager.delegate = self;
     self.suporrtingPoints = malloc(sizeof(CLLocationCoordinate2D) * 5);

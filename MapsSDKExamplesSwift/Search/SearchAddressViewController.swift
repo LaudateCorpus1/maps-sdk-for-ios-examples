@@ -17,7 +17,7 @@ import UIKit
 
 class SearchAddressViewController: SearchBaseViewController, TTSearchDelegate {
     var location: CLLocation?
-    let search = TTSearch()
+    let search = TTSearch(key: Key.Search)
 
     override func segmentsForControllSelected() -> Int {
         return 0

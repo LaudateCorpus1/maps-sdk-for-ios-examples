@@ -25,7 +25,10 @@
 }
 
 - (void)setupMap {
-    TTMapView *mapView = [[TTMapView alloc] initWithFrame:CGRectZero];
+    TTMapStyleDefaultConfiguration *style = [[TTMapStyleDefaultConfiguration alloc] init];
+    TTMapConfiguration *config = [[[[[TTMapConfigurationBuilder createBuilder] withMapKey:Key.Map] withTrafficKey:Key.Traffic] withMapStyleConfiguration:style] build];
+    TTMapView *mapView = [[TTMapView alloc] initWithMapConfiguration:config];
+
     self.view = mapView;
     self.mapView = mapView;
     self.mapView.accessibilityLabel = @"TTMapView";

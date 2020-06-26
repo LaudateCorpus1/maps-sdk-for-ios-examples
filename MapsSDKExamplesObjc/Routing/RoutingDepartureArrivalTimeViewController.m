@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.routePlanner = [TTRoute new];
+    self.routePlanner = [[TTRoute alloc] initWithKey:Key.Routing];
     self.routePlanner.delegate = self;
     self.actionSheet = [[ActionSheet alloc] initWithToast:self.toast viewController:self];
 }

@@ -19,7 +19,7 @@ class MapDynamicLayerOrderingViewController: MapBaseViewController, TTRouteRespo
     let GEOJSON_SOURCE = "geojson-source"
 
     var currentStyle: TTMapStyle!
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
 
     override func viewDidLoad() {
         super.viewDidLoad()

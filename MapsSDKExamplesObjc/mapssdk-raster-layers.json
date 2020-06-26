@@ -1,0 +1,381 @@
+{
+  "glyphs": "[GlyphsUrlPrefixToken]/map/1/glyph/20.0.2-7/{fontstack}/{range}.pbf?key=[OnlineMaps]",
+  "layers": [
+    {
+      "id": "background",
+      "paint": {
+        "background-color": {
+          "stops": [
+            [
+              0,
+              "rgb(224, 236, 208)"
+            ],
+            [
+              9,
+              "rgb(240, 245, 242)"
+            ],
+            [
+              13,
+              "rgb(243, 245, 234)"
+            ],
+            [
+              15,
+              "rgb(233, 234, 216)"
+            ]
+          ]
+        }
+      },
+      "type": "background"
+    },
+    {
+      "id": "tomtom-raster-basic-main-layer",
+      "type": "raster",
+      "source": "tomtom-raster-basic-main"
+    },
+    {
+      "id": "tomtom-raster-basic-night-layer",
+      "type": "raster",
+      "source": "tomtom-raster-basic-night",
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "tomtom-raster-hybrid-main-layer",
+      "type": "raster",
+      "source": "tomtom-raster-hybrid-main",
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "tomtom-raster-hybrid-night-layer",
+      "type": "raster",
+      "source": "tomtom-raster-hybrid-night",
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "tomtom-flow-raster-layer",
+      "type": "raster",
+      "source": "tomtom-flow-raster",
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "tomtom-incidents-layer",
+      "type": "raster",
+      "source": "tomtom-incidents-raster",
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "tomtom-active-route-outline",
+      "type": "line",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "#0D6567",
+        "line-width": {
+          "stops": [
+            [
+              1,
+              9
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              22,
+              28
+            ]
+          ]
+        }
+      },
+      "source": "tomtom-active-route"
+    },
+    {
+      "id": "tomtom-active-route-fill",
+      "type": "line",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "#1ACBCF",
+        "line-width": {
+          "stops": [
+            [
+              1,
+              5
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              22,
+              24
+            ]
+          ]
+        }
+      },
+      "source": "tomtom-active-route"
+    },
+    {
+      "id": "tomtom-raster-labels-main-layer",
+      "type": "raster",
+      "source": "tomtom-raster-labels-main",
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "tomtom-raster-labels-night-layer",
+      "type": "raster",
+      "source": "tomtom-raster-labels-night",
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "tomtom-gpsradius-layer",
+      "type": "circle",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-radius": 0,
+        "circle-color": [
+          "case",
+          [
+            "has",
+            "dimmed"
+          ],
+          "rgba(128, 128, 128, 0.3)",
+          "rgba(0, 162, 189, 0.3)"
+        ],
+        "circle-pitch-alignment": "map"
+      },
+      "source": "tomtom-gpsradius"
+    },
+    {
+      "id": "tomtom-position-layer",
+      "type": "symbol",
+      "layout": {
+        "icon-image": "position_color",
+        "icon-allow-overlap": true,
+        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "map",
+        "visibility": "none"
+      },
+      "source": "tomtom-position"
+    },
+    {
+      "id": "tomtom-chevron-layer",
+      "type": "symbol",
+      "layout": {
+        "icon-image": "chevron_color",
+        "icon-allow-overlap": true,
+        "icon-pitch-alignment": "map",
+        "icon-rotation-alignment": "map",
+        "visibility": "none"
+      },
+      "source": "tomtom-chevron"
+    },
+    {
+      "id": "tomtom-start-route-layer",
+      "type": "symbol",
+      "layout": {
+        "icon-image": "start_route",
+        "icon-allow-overlap": true,
+        "visibility": "none"
+      },
+      "source": "tomtom-start-route"
+    },
+    {
+      "id": "tomtom-end-route-layer",
+      "type": "symbol",
+      "layout": {
+        "icon-image": "end_route",
+        "icon-allow-overlap": true,
+        "visibility": "none"
+      },
+      "source": "tomtom-end-route"
+    }
+  ],
+  "sources": {
+    "tomtom-raster-basic-main": {
+      "type": "raster",
+      "tiles": [
+        "[RasterMapTilesUrlPrefix]/map/1/tile/basic/main/{z}/{x}/{y}.png?key=[OnlineMaps]&language=[Language][GeoView]&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 22
+    },
+    "tomtom-raster-basic-night": {
+      "type": "raster",
+      "tiles": [
+        "[RasterMapTilesUrlPrefix]/map/1/tile/basic/night/{z}/{x}/{y}.png?key=[OnlineMaps]&language=[Language][GeoView]&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 22
+    },
+    "tomtom-raster-hybrid-main": {
+      "type": "raster",
+      "tiles": [
+        "[RasterMapTilesUrlPrefix]/map/1/tile/hybrid/main/{z}/{x}/{y}.png?key=[OnlineMaps]&language=[Language][GeoView]&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 22
+    },
+    "tomtom-raster-hybrid-night": {
+      "type": "raster",
+      "tiles": [
+        "[RasterMapTilesUrlPrefix]/map/1/tile/hybrid/night/{z}/{x}/{y}.png?key=[OnlineMaps]&language=[Language][GeoView]&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 22
+    },
+    "tomtom-flow-raster": {
+      "type": "raster",
+      "tiles": [
+        "[RasterTrafficFlowTilesUrlPrefix]/traffic/map/4/tile/flow/[FlowStyle]/{z}/{x}/{y}.png?key=[OnlineTraffic]&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 5,
+      "maxzoom": 22
+    },
+    "tomtom-incidents-raster": {
+      "type": "raster",
+      "tiles": [
+        "[RasterTrafficIncidentTilesUrlPrefix]/traffic/map/4/tile/incidents/s2/{z}/{x}/{y}.png?key=[OnlineTraffic]&t=-1&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 5,
+      "maxzoom": 22
+    },
+    "tomtom-raster-labels-main": {
+      "type": "raster",
+      "tiles": [
+        "[RasterMapTilesUrlPrefix]/map/1/tile/labels/main/{z}/{x}/{y}.png?key=[OnlineMaps]&language=[Language][GeoView]&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 22
+    },
+    "tomtom-raster-labels-night": {
+      "type": "raster",
+      "tiles": [
+        "[RasterMapTilesUrlPrefix]/map/1/tile/labels/night/{z}/{x}/{y}.png?key=[OnlineMaps]&language=[Language][GeoView]&tileSize=512"
+      ],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 22
+    },
+    "tomtom-gpsradius": {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "tomtom-position": {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "tomtom-chevron": {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "tomtom-start-route": {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                4.908130,
+                52.376452
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "tomtom-end-route": {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                19.449006,
+                51.759396
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "version": 8,
+  "name": "Rasters"
+}

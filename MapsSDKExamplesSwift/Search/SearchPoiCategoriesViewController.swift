@@ -11,7 +11,7 @@ import MapsSDKExamplesVC
 import TomTomOnlineSDKSearch
 
 class SearchPoiCategoriesViewController: TableBaseViewController {
-    private let poiCategoriesService = TTPoiCategories()
+    private let poiCategoriesService = TTPoiCategories(key: Key.Search)
     private var categories: [TTPoiCategory] = []
 
     override func viewDidLoad() {

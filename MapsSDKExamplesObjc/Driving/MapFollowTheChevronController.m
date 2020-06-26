@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _routePlanner = [[TTRoute alloc] init];
+    _routePlanner = [[TTRoute alloc] initWithKey:Key.Routing];
     self.waypoints = malloc(sizeof(CLLocationCoordinate2D) * 3);
     self.waypoints[0] = [TTCoordinate LODZ_SREBRZYNSKA_WAYPOINT_A];
     self.waypoints[1] = [TTCoordinate LODZ_SREBRZYNSKA_WAYPOINT_B];

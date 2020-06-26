@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingRouteWithWaypointsViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
     var waypoints = [TTCoordinate.HAMBURG(), TTCoordinate.ZURICH(), TTCoordinate.BRUSSELS()]
 
     override func getOptionsView() -> OptionsView {

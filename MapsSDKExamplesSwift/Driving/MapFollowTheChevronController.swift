@@ -15,7 +15,7 @@ import TomTomOnlineSDKMaps
 import UIKit
 
 class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
     var waypoints = [TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_A(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_B(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_C()]

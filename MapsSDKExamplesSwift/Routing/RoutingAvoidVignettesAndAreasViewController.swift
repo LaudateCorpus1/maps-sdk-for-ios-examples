@@ -15,8 +15,8 @@ import TomTomOnlineSDKMaps
 import TomTomOnlineSDKRouting
 
 class RoutingAvoidVignettesAndAreasViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTRouteDelegate, TTAnnotationDelegate {
-    let routePlannerBasic = TTRoute()
-    let routePlannerAvoid = TTRoute()
+    let routePlannerBasic = TTRoute(key: Key.Routing)
+    let routePlannerAvoid = TTRoute(key: Key.Routing)
     var dispatchGroup = DispatchGroup()
 
     override func getOptionsView() -> OptionsView {

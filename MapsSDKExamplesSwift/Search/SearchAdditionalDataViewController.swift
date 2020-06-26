@@ -16,8 +16,8 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchAdditionalDataViewController: MapBaseViewController, TTSearchDelegate, TTAdditionalDataSearchDelegate {
-    let search = TTSearch()
-    let searchAdditionalData = TTAdditionalDataSearch()
+    let search = TTSearch(key: Key.Search)
+    let searchAdditionalData = TTAdditionalDataSearch(key: Key.Search)
 
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Poland", "Amsterdam", "Schiphol"], selectedID: -1)

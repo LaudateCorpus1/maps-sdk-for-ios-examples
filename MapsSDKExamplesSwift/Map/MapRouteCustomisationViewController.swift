@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class MapRouteCustomisationViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
     var routeStyle = TTMapRouteStyleBuilder().build()
     var iconStart = TTMapRoute.defaultImageDeparture()
     var iconEnd = TTMapRoute.defaultImageDestination()

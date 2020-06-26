@@ -58,7 +58,7 @@
     _outside = [NSMutableArray new];
     _range = 5000.0;
 
-    _service = [[TTGeofencingReportService alloc] init];
+    _service = [[TTGeofencingReportService alloc] initWithKey:Key.Geofencing];
 
     self.mapView.annotationManager.delegate = self;
     [self.etaView updateWithText:@"Drag a pin inside/outside of a fence" icon:[UIImage imageNamed:@"info_small"]];

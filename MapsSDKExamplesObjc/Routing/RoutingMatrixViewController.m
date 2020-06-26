@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.matrix = [TTMatrixRoute new];
+    self.matrix = [[TTMatrixRoute alloc] initWithKey:Key.Routing];
     self.matrix.delegate = self;
 }
 

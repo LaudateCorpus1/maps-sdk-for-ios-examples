@@ -16,8 +16,8 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchPolygonsForRevGeoViewController: MapBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTReverseGeocoderDelegate, TTAdditionalDataSearchDelegate {
-    let searchAdditionalData = TTAdditionalDataSearch()
-    let reverseGeocoder = TTReverseGeocoder()
+    let searchAdditionalData = TTAdditionalDataSearch(key: Key.Search)
+    let reverseGeocoder = TTReverseGeocoder(key: Key.Search)
     var geocoderResult = "Loading..."
     var annotation: TTAnnotation!
     var entityType: String = "Country"

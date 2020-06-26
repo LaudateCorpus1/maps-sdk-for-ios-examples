@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingTravelModesViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
     var routeStyle = TTMapRouteStyle.defaultActive()
 
     override func getOptionsView() -> OptionsView {

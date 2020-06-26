@@ -15,7 +15,7 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchOpeningHoursViewController: MapBaseViewController {
-    let search = TTSearch()
+    let search = TTSearch(key: Key.Search)
 
     fileprivate func executeQuery() {
         let query = TTSearchQueryBuilder.create(withTerm: "Petrol station")

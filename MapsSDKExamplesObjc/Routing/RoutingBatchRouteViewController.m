@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, BatchRouteType) { BatchRouteTypeTravelMode, BatchRout
     [super viewDidLoad];
     [self setupDict];
     self.mapView.routeManager.delegate = self;
-    self.batchRoute = [TTBatchRoute new];
+    self.batchRoute = [[TTBatchRoute alloc] initWithKey:Key.Routing];
     self.batchRoute.delegate = self;
 }
 
@@ -73,7 +73,7 @@ typedef NS_ENUM(NSInteger, BatchRouteType) { BatchRouteTypeTravelMode, BatchRout
     TTRouteQuery *queryPedestrain = [[[[[TTRouteQueryBuilder createWithDest:[TTCoordinate ROTTERDAM] andOrig:[TTCoordinate AMSTERDAM]] withComputeBestOrder:YES] withTraffic:YES] withTravelMode:TTOptionTravelModePedestrian] build];
     TTBatchRouteQuery *batchQuery = [[[[TTBatchRouteQueryBuilder createRouteQuery:queryCar] addRouteQuery:queryTruck] addRouteQuery:queryPedestrain] build];
 
-    self.batchRoute = [[TTBatchRoute alloc] init];
+    self.batchRoute = [[TTBatchRoute alloc] initWithKey:Key.Routing];
     self.batchRoute.delegate = self;
     [self.batchRoute batchRouteWithQuery:batchQuery];
 }
@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, BatchRouteType) { BatchRouteTypeTravelMode, BatchRout
     TTRouteQuery *queryEco = [[[[[TTRouteQueryBuilder createWithDest:[TTCoordinate ROTTERDAM] andOrig:[TTCoordinate AMSTERDAM]] withComputeBestOrder:YES] withTraffic:YES] withRouteType:TTOptionTypeRouteEco] build];
 
     TTBatchRouteQuery *batchQuery = [[[[TTBatchRouteQueryBuilder createRouteQuery:queryFastest] addRouteQuery:queryShortest] addRouteQuery:queryEco] build];
-    self.batchRoute = [[TTBatchRoute alloc] init];
+    self.batchRoute = [[TTBatchRoute alloc] initWithKey:Key.Routing];
     self.batchRoute.delegate = self;
     [self.batchRoute batchRouteWithQuery:batchQuery];
 }
@@ -97,7 +97,7 @@ typedef NS_ENUM(NSInteger, BatchRouteType) { BatchRouteTypeTravelMode, BatchRout
     TTRouteQuery *queryTollRoads = [[[[[TTRouteQueryBuilder createWithDest:[TTCoordinate OSLO] andOrig:[TTCoordinate AMSTERDAM]] withComputeBestOrder:YES] withTraffic:YES] withAvoidType:TTOptionTypeAvoidTollRoads] build];
 
     TTBatchRouteQuery *batchQuery = [[[[TTBatchRouteQueryBuilder createRouteQuery:queryMotorways] addRouteQuery:queryFerries] addRouteQuery:queryTollRoads] build];
-    self.batchRoute = [[TTBatchRoute alloc] init];
+    self.batchRoute = [[TTBatchRoute alloc] initWithKey:Key.Routing];
     self.batchRoute.delegate = self;
     [self.batchRoute batchRouteWithQuery:batchQuery];
 }

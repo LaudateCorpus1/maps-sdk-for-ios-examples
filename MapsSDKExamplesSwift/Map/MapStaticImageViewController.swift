@@ -81,7 +81,7 @@ class MapStaticImageViewController: CollectionBaseViewController {
 
     private func performQuery(_ query: TTStaticImageQuery) -> UIImageView {
         let imageView = ProgressImageView(frame: CGRect.zero)
-        let staticImage = TTStaticImage()
+        let staticImage = TTStaticImage(key: Key.Map)
         staticImage.image(for: query) { image, _ in
             guard let image = image else {
                 return

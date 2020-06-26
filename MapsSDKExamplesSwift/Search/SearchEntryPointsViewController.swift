@@ -20,7 +20,7 @@ class CustomAnnotation: TTAnnotation {
 }
 
 class SearchEntryPointsViewController: MapBaseViewController, TTSearchDelegate, TTAnnotationDelegate {
-    let search = TTSearch()
+    let search = TTSearch(key: Key.Search)
     var entryPointLabel: String?
 
     override func getOptionsView() -> OptionsView {

@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingAlternativesRouteViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTRouteDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
 
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["1", "3", "5"], selectedID: -1)

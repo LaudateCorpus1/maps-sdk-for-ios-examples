@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingReachableRangeViewController: RoutingBaseViewController, TTReachableRangeDelegate {
-    let reachabeRange = TTReachableRange()
+    let reachabeRange = TTReachableRange(key: Key.Routing)
     let queryFactory = ReachableRangeQueryFactory()
 
     override func getOptionsView() -> OptionsView {

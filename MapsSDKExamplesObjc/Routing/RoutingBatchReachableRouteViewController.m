@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.batchRoute = [TTBatchRoute new];
+    self.batchRoute = [[TTBatchRoute alloc] initWithKey:Key.Routing];
     self.queryFactory = [ReachableRangeQueryFactory new];
     self.polylines = [NSMutableArray new];
     self.mapView.annotationManager.delegate = self;

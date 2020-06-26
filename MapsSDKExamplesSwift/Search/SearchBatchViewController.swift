@@ -16,7 +16,7 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchBatchViewController: MapBaseViewController, TTBatchSearchDelegate, TTBatchVisistor {
-    let batchSearch = TTBatchSearch()
+    let batchSearch = TTBatchSearch(key: Key.Search)
 
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Parking", "Gas", "Bar"], selectedID: -1)

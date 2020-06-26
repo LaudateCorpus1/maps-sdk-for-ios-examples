@@ -15,7 +15,7 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchTypeaheadParameterViewController: SearchBaseViewController, TTSearchDelegate {
-    let search = TTSearch()
+    let search = TTSearch(key: Key.Search)
 
     override func shouldDisplaySegmentedControll() -> Bool {
         return false

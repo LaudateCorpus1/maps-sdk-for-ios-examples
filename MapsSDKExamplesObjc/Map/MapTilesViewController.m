@@ -35,11 +35,13 @@
 #pragma mark Examples
 
 - (void)displayVectors {
-    [self.mapView setTilesType:TTMapTilesVector];
+    TTMapStyleConfiguration *configuration = [[TTMapStyleConfigurationBuilder createWithStyleURL:@"asset://../../vector_style.json"] build];
+    [self.mapView.styleManager loadStyleConfiguration:configuration withCompletion:nil];
 }
 
 - (void)displayRaster {
-    [self.mapView setTilesType:TTMapTilesRaster];
+    TTMapStyleConfiguration *configuration = [[TTMapStyleConfigurationBuilder createWithStyleURL:@"asset://../../mapssdk-raster-layers.json"] build];
+    [self.mapView.styleManager loadStyleConfiguration:configuration withCompletion:nil];
 }
 
 @end

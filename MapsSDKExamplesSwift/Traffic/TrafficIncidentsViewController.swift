@@ -15,7 +15,7 @@ import TomTomOnlineSDKTraffic
 import UIKit
 
 class TrafficIncidentsViewController: TrafficBaseViewController, TTTrafficIncidentsDelegate {
-    let traffic = TTTrafficIncidents()
+    let traffic = TTTrafficIncidents(key: Key.Traffic)
 
     override func viewDidLoad() {
         super.viewDidLoad()

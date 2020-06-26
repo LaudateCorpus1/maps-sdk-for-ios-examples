@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.batchSearch = [TTBatchSearch new];
+    self.batchSearch = [[TTBatchSearch alloc] initWithKey:Key.Search];
     self.batchSearch.delegate = self;
 }
 

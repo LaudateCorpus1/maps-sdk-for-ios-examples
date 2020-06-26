@@ -12,17 +12,7 @@
 
 import Foundation
 import TomTomOnlineSDKSearch
-
-public extension TTOpeningHours {
-    @objc func humanReadableHours() -> String {
-        let result = timeRanges.map { (timeRange) -> String in
-            "OPEN: \(timeRange.startTime.readableFormat()) CLOSE \(timeRange.endTime.readableFormat())"
-        }.joined(separator: "\n")
-        return result
-    }
-}
-
-public extension TTTimeRangeDateTime {
+extension DateFormatter {
     static var parseFormater: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd H:m"
@@ -39,12 +29,78 @@ public extension TTTimeRangeDateTime {
         return formatter
     }()
 
+    static var displayMinutesFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier: "en_GB")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter
+    }()
+}
+
+extension Date {
+    func days(since: Date) -> Int? {
+        let calendar = Calendar.current
+
+        let maybeDate1 = calendar.date(bySettingHour: 12, minute: 00, second: 00, of: calendar.startOfDay(for: self))
+        let maybeDate2 = calendar.date(bySettingHour: 12, minute: 00, second: 00, of: calendar.startOfDay(for: since))
+
+        guard let date1 = maybeDate1, let date2 = maybeDate2 else {
+            return nil
+        }
+        let components = calendar.dateComponents([.day], from: date2, to: date1)
+        return components.day ?? 0
+    }
+}
+
+public extension TTOpeningHours {
+    func dates(in range: TTTimeRange) -> String {
+        guard let openDate = range.startTime.timeDate(), let closeDate = range.endTime.timeDate() else {
+            return "OPEN: \(range.startTime.readableFormat()) CLOSE \(range.endTime.readableFormat())"
+        }
+
+        guard let days = closeDate.days(since: openDate) else {
+            return "OPEN: \(range.startTime.readableFormat()) CLOSE \(range.endTime.readableFormat())"
+        }
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+
+        var result: [String] = []
+
+        for index in 0 ... days - 1 {
+            let nOpenDate = calendar.date(byAdding: .day, value: index, to: openDate) ?? Date()
+            let weekday = calendar.component(.weekday, from: nOpenDate) - 1
+            let weakDaySymbol = dateFormatter.weekdaySymbols[weekday]
+            let openMin = DateFormatter.displayMinutesFormatter.string(from: openDate)
+            let closeMin = DateFormatter.displayMinutesFormatter.string(from: closeDate)
+            let readableName: String
+            if openMin == closeMin {
+                readableName = "\(weakDaySymbol) Open 24h"
+            } else {
+                readableName = "\(weakDaySymbol) \(openMin) - \(closeMin)"
+            }
+            result.append(readableName)
+        }
+        let joined = result.joined(separator: "\n")
+        return joined
+    }
+
+    @objc func humanReadableHours() -> String {
+        let result = timeRanges.map { (timeRange) -> String in
+            dates(in: timeRange)
+
+        }.joined(separator: "\n")
+        return result
+    }
+}
+
+public extension TTTimeRangeDateTime {
     func timeDate() -> Date? {
         let dateStr = date
         let m = minute
         let h = hour
         let str = "\(dateStr) \(h):\(m)"
-        let maybeDate = TTTimeRangeDateTime.parseFormater.date(from: str)
+        let maybeDate = DateFormatter.parseFormater.date(from: str)
         return maybeDate
     }
 
@@ -52,7 +108,7 @@ public extension TTTimeRangeDateTime {
         guard let td = timeDate() else {
             return "-"
         }
-        let result = TTTimeRangeDateTime.displayFormatter.string(from: td)
+        let result = DateFormatter.displayFormatter.string(from: td)
         return result
     }
 }

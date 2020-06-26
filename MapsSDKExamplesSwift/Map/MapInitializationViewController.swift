@@ -80,22 +80,26 @@ class MapInitializationViewController: MapBaseViewController, TTMapViewDelegate 
             .withPitch(30)
             .withBearing(-90)
             .build()
-        let config = TTMapConfigurationBuilder.create().withViewportTransform(transform)
+        let config = TTMapConfigurationBuilder.create().withViewportTransform(transform).withMapKey(Key.Map).withTrafficKey(Key.Traffic)
+
         let position = TTLogoPosition(verticalPosition: .top, horizontalPosition: .right, verticalOffset: 35, horizontalOffset: -170)
-        config.withTomTomLogoPosition(position)
-        map = TTMapView(frame: self.view.bounds, mapConfiguration: config.build())
+        let style = TTMapStyleDefaultConfiguration()
+        config.withTomTomLogoPosition(position).withMapStyleConfiguration(style)
+        map = TTMapView(mapConfiguration: config.build())
         setupMapViewConstraint()
     }
 
     func mapConfigurationWithStartingPoint() {
         self.map?.removeFromSuperview()
         self.map = nil
-        let builder = TTMapConfigurationBuilder.create()
+        let builder = TTMapConfigurationBuilder.create().withTrafficKey(Key.Traffic).withMapKey(Key.Map)
         let transform = TTCenterOnPointBuilder.create(withCenter: TTCoordinate.LODZ_ZEROMSKIEGO()).withZoom(15).build()
         let config = builder.withViewportTransform(transform)
         let position = TTLogoPosition(verticalPosition: .bottom, horizontalPosition: .right, verticalOffset: -65, horizontalOffset: -170)
         config.withTomTomLogoPosition(position)
-        map = TTMapView(frame: self.view.bounds, mapConfiguration: config.build())
+        let style = TTMapStyleDefaultConfiguration()
+        config.withMapStyleConfiguration(style)
+        map = TTMapView(mapConfiguration: config.build())
         setupMapViewConstraint()
     }
 

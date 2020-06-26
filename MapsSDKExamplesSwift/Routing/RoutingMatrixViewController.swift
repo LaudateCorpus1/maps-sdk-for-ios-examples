@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingMatrixViewController: RoutingBaseViewController, TTMatrixRouteResponseDelegate {
-    let matrixRouting = TTMatrixRoute()
+    let matrixRouting = TTMatrixRoute(key: Key.Routing)
     var oneToManySelected = true
 
     override func setupInitialCameraPosition() {

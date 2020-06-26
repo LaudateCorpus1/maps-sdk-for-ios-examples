@@ -77,7 +77,7 @@
     [self.toast toastWithMessage:message];
 }
 
-- (void)mapView:(TTMapView *_Nonnull)mapView didChangCameraPosition:(TTCameraPosition *)cameraPosition {
+- (void)mapView:(TTMapView *)mapView onCameraChanged:(TTCameraPosition *)cameraPosition {
     [self displayFeaturesToast];
 }
 

@@ -79,11 +79,13 @@
     NSArray *arrayCoordinates = [NSArray
         arrayWithObjects:[[CLLocation alloc] init:[TTCoordinate AMSTERDAM_BOUNDINGBOX_LT]], [[CLLocation alloc] init:[TTCoordinate AMSTERDAM_BOUNDINGBOX_RT]], [[CLLocation alloc] init:[TTCoordinate AMSTERDAM_BOUNDINGBOX_LB]], [[CLLocation alloc] init:[TTCoordinate AMSTERDAM_BOUNDINGBOX_RB]], nil];
     TTCenterOnGeometry *transform = [[[[TTCenterOnGeometryBuilder createWithGeometry:arrayCoordinates withPadding:UIEdgeInsetsZero] withPitch:30] withBearing:-90] build];
-    TTMapConfigurationBuilder *config = [[TTMapConfigurationBuilder createBuilder] withViewportTransform:transform];
+    TTMapConfigurationBuilder *config = [[[[TTMapConfigurationBuilder createBuilder] withViewportTransform:transform] withMapKey:Key.Map] withTrafficKey:Key.Traffic];
 
     TTLogoPosition *position = [[TTLogoPosition alloc] initWithVerticalPosition:top horizontalPosition:right verticalOffset:35 horizontalOffset:-170];
     [config withTomTomLogoPosition:position];
-    self.map = [[TTMapView alloc] initWithFrame:CGRectZero mapConfiguration:[config build]];
+    TTMapStyleDefaultConfiguration *style = [[TTMapStyleDefaultConfiguration alloc] init];
+    [config withMapStyleConfiguration:style];
+    self.map = [[TTMapView alloc] initWithMapConfiguration:[config build]];
     [self setupMapViewConstraint];
 }
 
@@ -91,10 +93,12 @@
     [self.map removeFromSuperview];
     self.map = NULL;
     TTCenterOnPoint *transform = [[[TTCenterOnPointBuilder createWithCenter:[TTCoordinate LODZ_ZEROMSKIEGO]] withZoom:15] build];
-    TTMapConfigurationBuilder *config = [[TTMapConfigurationBuilder createBuilder] withViewportTransform:transform];
+    TTMapConfigurationBuilder *config = [[[[TTMapConfigurationBuilder createBuilder] withViewportTransform:transform] withMapKey:Key.Map] withTrafficKey:Key.Traffic];
     TTLogoPosition *position = [[TTLogoPosition alloc] initWithVerticalPosition:bottom horizontalPosition:right verticalOffset:-65 horizontalOffset:-170];
     [config withTomTomLogoPosition:position];
-    self.map = [[TTMapView alloc] initWithFrame:CGRectZero mapConfiguration:[config build]];
+    TTMapStyleDefaultConfiguration *style = [[TTMapStyleDefaultConfiguration alloc] init];
+    [config withMapStyleConfiguration:style];
+    self.map = [[TTMapView alloc] initWithMapConfiguration:[config build]];
     [self setupMapViewConstraint];
 }
 

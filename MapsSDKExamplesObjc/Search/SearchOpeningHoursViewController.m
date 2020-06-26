@@ -24,7 +24,7 @@
 
 - (TTSearch *)search {
     if (_search == NULL) {
-        _search = [[TTSearch alloc] init];
+        _search = [[TTSearch alloc] initWithKey:Key.Search];
     }
     return _search;
 }

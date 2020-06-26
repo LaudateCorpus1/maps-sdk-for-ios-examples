@@ -17,7 +17,7 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchGeometryViewController: MapBaseViewController, TTGeometrySearchDelegate {
-    let geometrySearch = TTGeometrySearch()
+    let geometrySearch = TTGeometrySearch(key: Key.Search)
     var geometryShape: [TTSearchShape] = []
 
     override func getOptionsView() -> OptionsView {

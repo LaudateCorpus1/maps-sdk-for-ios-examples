@@ -21,9 +21,16 @@ class MapRasterTrafficViewController: MapBaseViewController {
 
     override func setupMap() {
         super.setupMap()
-        mapView.setTilesType(.raster)
-        mapView.trafficTileStyle = TTRasterTileType.setStyle(.relative)
-        mapView.trafficIncidentsStyle = .raster
+        loadRasterMapTiles()
+    }
+
+    func loadRasterMapTiles() {
+        let configuration = TTMapStyleConfigurationBuilder.create(withStyleURL: "asset://../../mapssdk-raster-layers.json").build()
+        mapView.styleManager.load(configuration) { [weak self]
+            in
+            guard let self = self else { return }
+            self.setupInitialCameraPosition()
+        }
     }
 
     override func setupInitialCameraPosition() {
@@ -56,18 +63,30 @@ class MapRasterTrafficViewController: MapBaseViewController {
     // MARK: Examples
 
     func displayIncidents() {
-        mapView.trafficIncidentsOn = true
+        let layers = mapView.styleManager.currentStyle.getLayersByRegex("tomtom-incidents-layer")
+        layers.forEach { layer in
+            layer.visibility = .visible
+        }
     }
 
     func hideIncidents() {
-        mapView.trafficIncidentsOn = false
+        let layers = mapView.styleManager.currentStyle.getLayersByRegex("tomtom-incidents-layer")
+        layers.forEach { layer in
+            layer.visibility = .none
+        }
     }
 
     func displayFlow() {
-        mapView.trafficFlowOn = true
+        let layers = mapView.styleManager.currentStyle.getLayersByRegex("tomtom-flow-raster-layer")
+        layers.forEach { layer in
+            layer.visibility = .visible
+        }
     }
 
     func hideFlow() {
-        mapView.trafficFlowOn = false
+        let layers = mapView.styleManager.currentStyle.getLayersByRegex("tomtom-flow-raster-layer")
+        layers.forEach { layer in
+            layer.visibility = .none
+        }
     }
 }

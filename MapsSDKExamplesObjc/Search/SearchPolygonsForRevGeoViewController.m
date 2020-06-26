@@ -58,9 +58,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.reverseGeocoder = [TTReverseGeocoder new];
+    self.reverseGeocoder = [[TTReverseGeocoder alloc] initWithKey:Key.Search];
     self.mapView.delegate = self;
-    self.searchAdditionalData = [TTAdditionalDataSearch new];
+    self.searchAdditionalData = [[TTAdditionalDataSearch alloc] initWithKey:Key.Search];
     self.searchAdditionalData.delegate = self;
     self.reverseGeocoder.delegate = self;
     self.mapView.annotationManager.delegate = self;

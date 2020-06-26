@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingRouteTypesViewController: RoutingBaseViewController, TTRouteResponseDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
 
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Fastest", "Shortest", "Eco"], selectedID: -1)

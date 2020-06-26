@@ -39,19 +39,20 @@ class SearchAutocompleteViewController: BaseViewController {
         return bar
     }()
 
-    lazy var searchAPI = TTSearch()
+    lazy var searchAPI = TTSearch(key: Key.Search)
 
     lazy var mapView: TTMapView = {
-        var builder = TTMapConfigurationBuilder.create()
+        let defaultStyle = TTMapStyleDefaultConfiguration()
+        var builder = TTMapConfigurationBuilder.create().withMapStyleConfiguration(defaultStyle)
         let centerOnPoint = TTCenterOnPointBuilder.create(withCenter: TTCoordinate.AMSTERDAM()).withZoom(9).build()
         builder = builder.withViewportTransform(centerOnPoint)
-        let mapView = TTMapView(frame: .zero, mapConfiguration: builder.build())
+        let mapView = TTMapView(frame: .zero, mapConfiguration: builder.withMapKey(Key.Map).withTrafficKey(Key.Traffic).build())
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.annotationManager.delegate = self
         return mapView
     }()
 
-    lazy var autocomplete = TTAutocomplete()
+    lazy var autocomplete = TTAutocomplete(key: Key.Search)
 
     override func loadView() {
         super.loadView()

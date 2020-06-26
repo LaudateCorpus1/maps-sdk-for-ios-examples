@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.routePlanner = [TTRoute new];
+    self.routePlanner = [[TTRoute alloc] initWithKey:Key.Routing];
     self.routePlanner.delegate = self;
     self.waypoints = malloc(sizeof(CLLocationCoordinate2D) * 3);
     self.waypoints[0] = [TTCoordinate HAMBURG];

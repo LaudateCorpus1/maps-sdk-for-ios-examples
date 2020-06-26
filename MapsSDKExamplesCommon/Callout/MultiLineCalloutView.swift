@@ -33,7 +33,7 @@ public class MultiLineCalloutView: UIView {
         return label
     }()
 
-    static let calloutSize: CGSize = .init(width: 270, height: 120)
+    static let calloutSize: CGSize = .init(width: 270, height: 130)
 
     @objc public init(text: String, title: String) {
         super.init(frame: .init(origin: .zero, size: MultiLineCalloutView.calloutSize))

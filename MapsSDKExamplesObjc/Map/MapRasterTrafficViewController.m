@@ -25,9 +25,19 @@
 
 - (void)setupMap {
     [super setupMap];
-    [self.mapView setTilesType:TTMapTilesRaster];
-    self.mapView.trafficTileStyle = [TTRasterTileType setStyle:TTRasterStyleRelative];
-    self.mapView.trafficIncidentsStyle = TTTrafficIncidentsStyleRaster;
+    [self loadRasterMapTiles];
+}
+
+- (void)loadRasterMapTiles {
+    __weak MapRasterTrafficViewController *weakSelf = self;
+    TTMapStyleConfiguration *configuration = [[TTMapStyleConfigurationBuilder createWithStyleURL:@"asset://../../mapssdk-raster-layers.json"] build];
+    [self.mapView.styleManager loadStyleConfiguration:configuration
+                                       withCompletion:^{
+                                         MapRasterTrafficViewController *strongSelf = weakSelf;
+                                         if (!strongSelf)
+                                             return;
+                                         [strongSelf setupInitialCameraPosition];
+                                       }];
 }
 
 #pragma mark OptionsViewDelegate
@@ -58,19 +68,31 @@
 #pragma mark Examples
 
 - (void)displayIncidents {
-    self.mapView.trafficIncidentsOn = YES;
+    NSArray<TTMapLayer *> *layers = [self.mapView.styleManager.currentStyle getLayersByRegex:@"tomtom-incidents-layer"];
+    for (TTMapLayer *layer in layers) {
+        layer.visibility = TTMapLayerVisibilityVisible;
+    }
 }
 
 - (void)hideIncidents {
-    self.mapView.trafficIncidentsOn = NO;
+    NSArray<TTMapLayer *> *layers = [self.mapView.styleManager.currentStyle getLayersByRegex:@"tomtom-incidents-layer"];
+    for (TTMapLayer *layer in layers) {
+        layer.visibility = TTMapLayerVisibilityNone;
+    }
 }
 
 - (void)displayFlow {
-    self.mapView.trafficFlowOn = YES;
+    NSArray<TTMapLayer *> *layers = [self.mapView.styleManager.currentStyle getLayersByRegex:@"tomtom-flow-raster-layer"];
+    for (TTMapLayer *layer in layers) {
+        layer.visibility = TTMapLayerVisibilityVisible;
+    }
 }
 
 - (void)hideFlow {
-    self.mapView.trafficFlowOn = NO;
+    NSArray<TTMapLayer *> *layers = [self.mapView.styleManager.currentStyle getLayersByRegex:@"tomtom-flow-raster-layer"];
+    for (TTMapLayer *layer in layers) {
+        layer.visibility = TTMapLayerVisibilityNone;
+    }
 }
 
 @end

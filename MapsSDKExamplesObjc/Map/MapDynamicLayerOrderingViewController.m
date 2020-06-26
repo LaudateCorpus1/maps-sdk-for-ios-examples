@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [self.progress show];
     [super viewDidLoad];
-    self.routePlanner = [[TTRoute alloc] init];
+    self.routePlanner = [[TTRoute alloc] initWithKey:Key.Routing];
 }
 
 - (void)setupInitialCameraPosition {

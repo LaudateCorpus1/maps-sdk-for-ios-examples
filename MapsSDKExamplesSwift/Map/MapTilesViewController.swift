@@ -34,10 +34,12 @@ class MapTilesViewController: MapBaseViewController {
     // MARK: Examples
 
     func displayVectors() {
-        mapView.setTilesType(.vector)
+        let configuration = TTMapStyleConfigurationBuilder.create(withStyleURL: "asset://../../vector_style.json").build()
+        mapView.styleManager.load(configuration, withCompletion: nil)
     }
 
     func displayRaster() {
-        mapView.setTilesType(.raster)
+        let configuration = TTMapStyleConfigurationBuilder.create(withStyleURL: "asset://../../mapssdk-raster-layers.json").build()
+        mapView.styleManager.load(configuration, withCompletion: nil)
     }
 }

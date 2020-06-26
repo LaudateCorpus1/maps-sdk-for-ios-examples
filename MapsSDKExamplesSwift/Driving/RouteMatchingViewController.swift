@@ -17,7 +17,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RouteMatchingViewController: RoutingBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTMatcherDelegate, TTRouteResponseDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
     var waypoints = [TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_A(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_B(),
                      TTCoordinate.LODZ_SREBRZYNSKA_WAYPOINT_C()]

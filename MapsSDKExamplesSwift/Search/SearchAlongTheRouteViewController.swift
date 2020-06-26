@@ -17,8 +17,8 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchAlongTheRouteViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTAlongRouteSearchDelegate {
-    let routePlanner = TTRoute()
-    let alongRouteSearch = TTAlongRouteSearch()
+    let routePlanner = TTRoute(key: Key.Routing)
+    let alongRouteSearch = TTAlongRouteSearch(key: Key.Search)
     var mapRoute: TTMapRoute!
 
     override func setupInitialCameraPosition() {

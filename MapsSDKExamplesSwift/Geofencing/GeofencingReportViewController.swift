@@ -48,7 +48,7 @@ class GeofencingReportViewController: GeofencingBaseViewController, TTAnnotation
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        service = TTGeofencingReportService()
+        service = TTGeofencingReportService(key: Key.Geofencing)
         mapView.annotationManager.delegate = self
         etaView.update(text: "Drag a pin inside/outside of a fence", icon: UIImage(named: "info_small")!)
     }

@@ -30,8 +30,8 @@
     [super viewDidLoad];
     self.mapView.annotationManager.delegate = self;
     self.mapView.routeManager.delegate = self;
-    self.routePlannerBasic = [TTRoute new];
-    self.routePlannerAvoid = [TTRoute new];
+    self.routePlannerBasic = [[TTRoute alloc] initWithKey:Key.Routing];
+    self.routePlannerAvoid = [[TTRoute alloc] initWithKey:Key.Routing];
 }
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {

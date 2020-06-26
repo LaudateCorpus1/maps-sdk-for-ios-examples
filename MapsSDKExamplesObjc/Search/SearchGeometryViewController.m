@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.geometrySearch = [TTGeometrySearch new];
+    self.geometrySearch = [[TTGeometrySearch alloc] initWithKey:Key.Search];
     self.geometryShape = [NSMutableArray array];
     [self createShapesForSearch];
     self.geometrySearch.delegate = self;

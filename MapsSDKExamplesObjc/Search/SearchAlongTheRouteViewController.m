@@ -44,8 +44,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.progress show];
-    self.routePlanner = [TTRoute new];
-    self.alongRouteSearch = [TTAlongRouteSearch new];
+    self.routePlanner = [[TTRoute alloc] initWithKey:Key.Routing];
+    self.alongRouteSearch = [[TTAlongRouteSearch alloc] initWithKey:Key.Search];
     self.routePlanner.delegate = self;
     self.alongRouteSearch.delegate = self;
 }

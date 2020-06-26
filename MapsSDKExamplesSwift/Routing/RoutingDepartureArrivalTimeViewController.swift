@@ -18,7 +18,7 @@ import UIKit
 class RoutingDepartureArrivalTimeViewController: RoutingBaseViewController, TTRouteResponseDelegate {
     var actionSheet: ActionSheet!
     var etaStyle = ETAView.ETAViewStyle.plain
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
 
     override func getOptionsView() -> OptionsView {
         return OptionsViewSingleSelect(labels: ["Departure at", "Arrival at"], selectedID: -1)

@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingBatchReachableRouteViewController: RoutingBaseViewController, TTBatchRouteVisistor, TTBatchRouteResponseDelegate, TTAnnotationDelegate {
-    let batchRoute = TTBatchRoute()
+    let batchRoute = TTBatchRoute(key: Key.Routing)
     let queryFactory = ReachableRangeQueryFactory()
     var polylines: [TTPolyline] = []
     var index = 0

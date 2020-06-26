@@ -22,7 +22,7 @@ enum BatchRouteType: Int {
 }
 
 class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVisistor, TTBatchRouteResponseDelegate, TTRouteDelegate {
-    var batchRoute = TTBatchRoute()
+    var batchRoute = TTBatchRoute(key: Key.Routing)
     var type = BatchRouteType.BatchRouteTypeTravelMode
     var routeDesc = [BatchRouteType.BatchRouteTypeTravelMode: ["Travel by Car", "Travel by Truck", "Travel by Pedestrian"],
                      BatchRouteType.BatchRouteTypeRoute: ["Fastest route", "Shortest route", "Eco route"],
@@ -38,7 +38,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        batchRoute = TTBatchRoute()
+        batchRoute = TTBatchRoute(key: Key.Routing)
         batchRoute.delegate = self
         mapView.routeManager.delegate = self
     }
@@ -90,7 +90,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
             .add(queryPedestrain)
             .build()
 
-        batchRoute = TTBatchRoute()
+        batchRoute = TTBatchRoute(key: Key.Routing)
         batchRoute.delegate = self
         batchRoute.batchRoute(with: batchQuery)
     }
@@ -120,7 +120,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
             .add(queryEco)
             .build()
 
-        batchRoute = TTBatchRoute()
+        batchRoute = TTBatchRoute(key: Key.Routing)
         batchRoute.delegate = self
         batchRoute.batchRoute(with: batchQuery)
     }
@@ -150,7 +150,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
             .add(queryTollRoads)
             .build()
 
-        batchRoute = TTBatchRoute()
+        batchRoute = TTBatchRoute(key: Key.Routing)
         batchRoute.delegate = self
         batchRoute.batchRoute(with: batchQuery)
     }

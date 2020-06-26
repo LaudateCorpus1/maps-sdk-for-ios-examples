@@ -270,6 +270,11 @@
 		74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */; };
 		8B62B10623BDF86000CB6188 /* SearchPoiCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */; };
 		8B62B10923BE403C00CB6188 /* SearchPoiCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */; };
+		94EB893924488513002CAB72 /* vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB893824488513002CAB72 /* vector_style.json */; };
+		94EB893B24488519002CAB72 /* mapssdk-raster-layers.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB893A24488519002CAB72 /* mapssdk-raster-layers.json */; };
+		94EB893F24488C38002CAB72 /* vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB893E24488C38002CAB72 /* vector_style.json */; };
+		94EB894124488C3D002CAB72 /* mapssdk-raster-layers.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB894024488C3D002CAB72 /* mapssdk-raster-layers.json */; };
+		9C5D00F72497AEBE00269F5D /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D00F62497AEBE00269F5D /* Keys.swift */; };
 		9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */; };
 		9C6535BD222E5DBD0050EE60 /* MapFollowTheChevronController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BB222E5DBD0050EE60 /* MapFollowTheChevronController.m */; };
 		9C6535C0222E617C0050EE60 /* DrivingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BF222E617C0050EE60 /* DrivingControllerTests.swift */; };
@@ -674,9 +679,14 @@
 		8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPoiCategoriesViewController.swift; sourceTree = "<group>"; };
 		8B62B10723BE403C00CB6188 /* SearchPoiCategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPoiCategoriesViewController.h; sourceTree = "<group>"; };
 		8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPoiCategoriesViewController.m; sourceTree = "<group>"; };
+		94EB893824488513002CAB72 /* vector_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vector_style.json; sourceTree = "<group>"; };
+		94EB893A24488519002CAB72 /* mapssdk-raster-layers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mapssdk-raster-layers.json"; sourceTree = "<group>"; };
+		94EB893E24488C38002CAB72 /* vector_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vector_style.json; sourceTree = "<group>"; };
+		94EB894024488C3D002CAB72 /* mapssdk-raster-layers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mapssdk-raster-layers.json"; sourceTree = "<group>"; };
 		9C17CB902109E8750085A51B /* OptionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C17CB922109E8750085A51B /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		9C17CB932109E8750085A51B /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		9C5D00F62497AEBE00269F5D /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFollowTheChevronController.swift; sourceTree = "<group>"; };
 		9C6535BB222E5DBD0050EE60 /* MapFollowTheChevronController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFollowTheChevronController.m; sourceTree = "<group>"; };
 		9C6535BC222E5DBD0050EE60 /* MapFollowTheChevronController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFollowTheChevronController.h; sourceTree = "<group>"; };
@@ -822,6 +832,8 @@
 				6EB3C4D4215A233600AC580C /* Maneuver.xcassets */,
 				72AB739E213FE89200D72DF1 /* gif_annotation.gif */,
 				72AB739F213FE89200D72DF1 /* style.json */,
+				94EB893E24488C38002CAB72 /* vector_style.json */,
+				94EB894024488C3D002CAB72 /* mapssdk-raster-layers.json */,
 				7200695A213EAF6C005B20D1 /* LaunchScreen.storyboard */,
 				722027162139605300296ACF /* Info.plist */,
 				722027172139605300296ACF /* main.m */,
@@ -870,6 +882,7 @@
 				728E31B52277113700A49B20 /* layer_raster.json */,
 				722027A2213D33CE00296ACF /* Assets.xcassets */,
 				7465803C242B605100B67C40 /* RouteLocationEmitter.swift */,
+				9C5D00F62497AEBE00269F5D /* Keys.swift */,
 			);
 			path = MapsSDKExamplesCommon;
 			sourceTree = "<group>";
@@ -1300,6 +1313,8 @@
 				7220268221392EBD00296ACF /* gif_annotation.gif */,
 				7266CFB9211B0B6A00162D91 /* style.json */,
 				9C77CF482106F7B800A3179B /* Info.plist */,
+				94EB893824488513002CAB72 /* vector_style.json */,
+				94EB893A24488519002CAB72 /* mapssdk-raster-layers.json */,
 				9C77CF452106F7B800A3179B /* LaunchScreen.storyboard */,
 			);
 			path = MapsSDKExamplesSwift;
@@ -1552,6 +1567,7 @@
 				7280A26C21479E030078B943 /* ManeuverCell.xib in Resources */,
 				7280A26D21479E030078B943 /* TrafficCell.xib in Resources */,
 				746C2A3122F830FE00763F7A /* ic_app_test_layer_symbol_count.json in Resources */,
+				94EB894124488C3D002CAB72 /* mapssdk-raster-layers.json in Resources */,
 				7280A26E21479E030078B943 /* TrafficHeader.xib in Resources */,
 				722A8908216B73E900078A32 /* LICENSE.pdf in Resources */,
 				72AB73A0213FE89200D72DF1 /* gif_annotation.gif in Resources */,
@@ -1559,6 +1575,7 @@
 				6EB3C4D5215A233700AC580C /* Maneuver.xcassets in Resources */,
 				746C2A3222F830FE00763F7A /* ic_app_test_layer.json in Resources */,
 				9C78AB43220735FC00EAC9FA /* simple_route.csv in Resources */,
+				94EB893F24488C38002CAB72 /* vector_style.json in Resources */,
 				728E31B72277114200A49B20 /* layer_raster.json in Resources */,
 				7200695B213EAF6C005B20D1 /* LaunchScreen.storyboard in Resources */,
 				7215017421A6B25B0016C396 /* MatrixRow.xib in Resources */,
@@ -1610,6 +1627,7 @@
 				72E285C92134136500D260CB /* TrafficHeader.xib in Resources */,
 				72E285C32133E4B600D260CB /* TrafficCell.xib in Resources */,
 				746C2A3522F830FF00763F7A /* ic_app_test_layer_symbol_count.json in Resources */,
+				94EB893B24488519002CAB72 /* mapssdk-raster-layers.json in Resources */,
 				7266CFBA211B0B6A00162D91 /* style.json in Resources */,
 				729FFC802134234600467D60 /* Maneuver.xcassets in Resources */,
 				722A8907216B73E900078A32 /* LICENSE.pdf in Resources */,
@@ -1617,6 +1635,7 @@
 				9C77CF472106F7B800A3179B /* LaunchScreen.storyboard in Resources */,
 				746C2A3622F830FF00763F7A /* ic_app_test_layer.json in Resources */,
 				729FFC82213426DF00467D60 /* ManeuverCell.xib in Resources */,
+				94EB893924488513002CAB72 /* vector_style.json in Resources */,
 				728E31B82277114200A49B20 /* layer_raster.json in Resources */,
 				7220268321392EBD00296ACF /* gif_annotation.gif in Resources */,
 				7215017521A6B25C0016C396 /* MatrixRow.xib in Resources */,
@@ -1752,6 +1771,7 @@
 				6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */,
 				7220278F213D024B00296ACF /* ETAView.swift in Sources */,
 				7220278D213D024200296ACF /* SubOptionsViewController.swift in Sources */,
+				9C5D00F72497AEBE00269F5D /* Keys.swift in Sources */,
 				7220277021396FC000296ACF /* Date.swift in Sources */,
 				7220277121396FC000296ACF /* CLLocation.swift in Sources */,
 				7200692D213E4F3F005B20D1 /* ManeuverCell.swift in Sources */,

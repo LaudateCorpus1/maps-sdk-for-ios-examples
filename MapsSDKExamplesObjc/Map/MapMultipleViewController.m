@@ -33,7 +33,9 @@
 }
 
 - (void)setupSecondMap {
-    TTMapView *map = [[TTMapView alloc] initWithFrame:CGRectZero];
+    TTMapStyleDefaultConfiguration *style = [[TTMapStyleDefaultConfiguration alloc] init];
+    TTMapConfiguration *config = [[[[[TTMapConfigurationBuilder createBuilder] withMapKey:Key.Map] withTrafficKey:Key.Traffic] withMapStyleConfiguration:style] build];
+    TTMapView *map = [[TTMapView alloc] initWithMapConfiguration:config];
     self.secondMap = map;
     self.secondMap.clipsToBounds = true;
     self.secondMap.layer.borderColor = UIColor.whiteColor.CGColor;

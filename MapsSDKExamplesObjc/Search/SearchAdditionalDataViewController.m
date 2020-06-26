@@ -58,9 +58,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.search = [TTSearch new];
+    self.search = [[TTSearch alloc] initWithKey:Key.Search];
     self.search.delegate = self;
-    self.searchAdditionalData = [TTAdditionalDataSearch new];
+    self.searchAdditionalData = [[TTAdditionalDataSearch alloc] initWithKey:Key.Search];
     self.searchAdditionalData.delegate = self;
 }
 

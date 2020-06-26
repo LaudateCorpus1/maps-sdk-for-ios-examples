@@ -18,13 +18,6 @@ class MapVectorTrafficViewController: MapBaseViewController {
         mapView.center(on: TTCoordinate.LONDON(), withZoom: 12)
     }
 
-    override func setupMap() {
-        super.setupMap()
-        mapView.setTilesType(.vector)
-        mapView.trafficTileStyle = TTVectorTileType.setStyle(.relative)
-        mapView.trafficIncidentsStyle = .vector
-    }
-
     override func getOptionsView() -> OptionsView {
         return OptionsViewMultiSelectWithReset(labels: ["Incidents", "Flow", "No traffic"], selectedID: 2)
     }

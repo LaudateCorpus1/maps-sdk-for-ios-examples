@@ -17,7 +17,7 @@ import UIKit
 class RoutingManeuverListViewController: TableBaseViewController, TTRouteResponseDelegate {
     var locationManager: LocationManager!
     var etaView: ETAWithSegmentsView!
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
 
     override func viewDidLoad() {
         super.viewDidLoad()

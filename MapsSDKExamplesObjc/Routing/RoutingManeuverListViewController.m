@@ -25,7 +25,7 @@
     [super viewDidLoad];
     self.locationManager = LocationManager.shared;
     [self.locationManager start];
-    self.routePlanner = [TTRoute new];
+    self.routePlanner = [[TTRoute alloc] initWithKey:Key.Routing];
     self.routePlanner.delegate = self;
     ETAWithSegmentsView *etaView = [[ETAWithSegmentsView alloc] initWithFrame:CGRectMake(0, 0, 0, 80)];
     self.etaView = etaView;

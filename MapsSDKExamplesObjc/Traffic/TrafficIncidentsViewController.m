@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.traffic = [TTTrafficIncidents new];
+    self.traffic = [[TTTrafficIncidents alloc] initWithKey:Key.Traffic];
     self.traffic.delegate = self;
     [self displayIncidents];
 }

@@ -64,7 +64,7 @@
 
 - (UIImageView *)performQuery:(TTStaticImageQuery *)query {
     UIImageView *imageView = [[ProgressImageView alloc] initWithFrame:CGRectZero];
-    TTStaticImage *staticImage = [TTStaticImage new];
+    TTStaticImage *staticImage = [[TTStaticImage alloc] initWithKey:Key.Map];
     [staticImage imageForQuery:query
              completionHandler:^(UIImage *_Nullable image, TTResponseError *_Nullable error) {
                if (error) {

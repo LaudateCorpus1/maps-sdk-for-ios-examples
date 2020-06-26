@@ -16,7 +16,7 @@ import TomTomOnlineSDKRouting
 import UIKit
 
 class RoutingConsumptionModelViewController: RoutingBaseViewController, TTRouteResponseDelegate, TTRouteDelegate {
-    let routePlanner = TTRoute()
+    let routePlanner = TTRoute(key: Key.Routing)
     var style = ETAView.ETAViewStyle.consumptionKWh
 
     override func getOptionsView() -> OptionsView {

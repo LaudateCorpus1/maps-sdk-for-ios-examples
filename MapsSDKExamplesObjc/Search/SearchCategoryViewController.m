@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.search = [TTSearch new];
+    self.search = [[TTSearch alloc] initWithKey:Key.Search];
     self.search.delegate = self;
 }
 

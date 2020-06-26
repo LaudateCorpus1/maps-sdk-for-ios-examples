@@ -15,7 +15,7 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchCategoryViewController: SearchBaseViewController, TTSearchDelegate {
-    let search = TTSearch()
+    let search = TTSearch(key: Key.Search)
 
     override func shouldDisplaySearchBar() -> Bool {
         return false

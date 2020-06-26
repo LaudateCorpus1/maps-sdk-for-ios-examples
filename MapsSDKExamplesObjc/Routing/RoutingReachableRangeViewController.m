@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.queryFactory = [ReachableRangeQueryFactory alloc];
-    self.reachabeRange = [TTReachableRange new];
+    self.reachabeRange = [[TTReachableRange alloc] initWithKey:Key.Routing];
     self.reachabeRange.delegate = self;
 }
 

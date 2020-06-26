@@ -38,21 +38,22 @@
 
 - (TTSearch *)search {
     if (_search == NULL) {
-        _search = [[TTSearch alloc] init];
+        _search = [[TTSearch alloc] initWithKey:Key.Search];
     }
     return _search;
 }
 
 - (TTAutocomplete *)autocomplete {
     if (_autocomplete == NULL) {
-        _autocomplete = [[TTAutocomplete alloc] init];
+        _autocomplete = [[TTAutocomplete alloc] initWithKey:Key.Search];
     }
     return _autocomplete;
 }
 
 - (TTMapView *)mapView {
     if (_mapView == NULL) {
-        TTMapConfigurationBuilder *configBuilder = [TTMapConfigurationBuilder createBuilder];
+        TTMapStyleDefaultConfiguration *styleConfig = [[TTMapStyleDefaultConfiguration alloc] init];
+        TTMapConfigurationBuilder *configBuilder = [[[[TTMapConfigurationBuilder createBuilder] withMapStyleConfiguration:styleConfig] withMapKey:Key.Map] withTrafficKey:Key.Traffic];
         TTCenterOnPointBuilder *transformBuilder = [[TTCenterOnPointBuilder createWithCenter:[TTCoordinate AMSTERDAM]] withZoom:9];
         [configBuilder withViewportTransform:[transformBuilder build]];
         _mapView = [[TTMapView alloc] initWithFrame:CGRectZero mapConfiguration:[configBuilder build]];

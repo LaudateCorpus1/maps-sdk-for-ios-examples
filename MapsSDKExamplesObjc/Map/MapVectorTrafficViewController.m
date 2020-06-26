@@ -22,13 +22,6 @@
     return [[OptionsViewMultiSelectWithReset alloc] initWithLabels:@[ @"Incidents", @"Flow", @"No traffic" ] selectedID:2];
 }
 
-- (void)setupMap {
-    [super setupMap];
-    [self.mapView setTilesType:TTMapTilesVector];
-    self.mapView.trafficTileStyle = [TTVectorTileType setStyle:TTVectorStyleRelative];
-    self.mapView.trafficIncidentsStyle = TTTrafficIncidentsStyleVector;
-}
-
 #pragma mark OptionsViewDelegate
 
 - (void)displayExampleWithID:(NSInteger)ID on:(BOOL)on {

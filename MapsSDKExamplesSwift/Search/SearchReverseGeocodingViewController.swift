@@ -16,7 +16,7 @@ import TomTomOnlineSDKSearch
 import UIKit
 
 class SearchReverseGeocodingViewController: MapBaseViewController, TTMapViewDelegate, TTAnnotationDelegate, TTReverseGeocoderDelegate {
-    let reverseGeocoder = TTReverseGeocoder()
+    let reverseGeocoder = TTReverseGeocoder(key: Key.Search)
     var geocoderResult = "Loading..."
     var annotation: TTAnnotation!
 

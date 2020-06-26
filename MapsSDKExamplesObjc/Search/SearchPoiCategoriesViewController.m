@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.progress show];
-    _poiCategoriesService = [[TTPoiCategories alloc] init];
+    _poiCategoriesService = [[TTPoiCategories alloc] initWithKey:Key.Search];
 
     _poiCategoriesService.delegate = self;
     TTPoiCategoriesQuery *query = [[TTPoiCategoriesQueryBuilder create] build];

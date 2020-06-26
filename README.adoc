@@ -14,6 +14,7 @@ More information on how to start is available on: https://developer.tomtom.com/m
 * https://developer.tomtom.com/maps-sdk-ios/traffic-0[Search]
 * https://developer.tomtom.com/maps-sdk-ios/search-0[Routing]
 * https://developer.tomtom.com/maps-sdk-ios/route-0[Traffic]
+* https://developer.tomtom.com/maps-sdk-ios/geofencing-public-preview[Geofencing]
 * https://developer.tomtom.com/maps-sdk-ios/release-notes[Release notes]
 * https://developer.tomtom.com/maps-sdk-ios/migrate-google-maps-tomtom[Migration guide from Google Maps SDK]
 
@@ -23,6 +24,7 @@ More information on how to start is available on: https://developer.tomtom.com/m
 * https://developer.tomtom.com/maps-sdk-ios/api-reference-4[Appledocs for Search]
 * https://developer.tomtom.com/maps-sdk-ios/api-reference-5[Appledocs for Routing]
 * https://developer.tomtom.com/maps-sdk-ios/api-reference-6[Appledocs for Traffic]
+* https://developer.tomtom.com/maps-sdk-ios/api-reference-19[Appledocs for Geofencing]
 
 == Project set up
 
@@ -53,25 +55,26 @@ You can do so by adding Maps SDK modules to Podfile and running pod install agai
 * SEARCH - Getting started
 * ROUTING - Getting started
 * TRAFFIC - Getting started
+* GEOFECNING - Getting started
 
 === Configuration for all Maps SDK modules
 
-To include all Maps SDK modules in your app, modify Info.plist:
+To include all Maps SDK modules in your app, modify Keys.swift:
 
-*  Add service keys inside Info.plist taken from http://developer.tomtom.com.
-
-*  Modify Info.plist.
+*  Add service keys inside Keys.swift taken from http://developer.tomtom.com.
 
 *  Create Podfile.
 
 [source,ruby,indent=0]
 ----
-pod 'TomTomOnlineSDKMaps'
-pod 'TomTomOnlineSDKSearch'
-pod 'TomTomOnlineSDKRouting'
-pod 'TomTomOnlineSDKTraffic'
-pod 'TomTomOnlineSDKMapsUIExtensions'
-pod 'TomTomOnlineSDKMapsStaticImage'
+  pod 'TomTomOnlineSDKSearch'
+  pod 'TomTomOnlineSDKRouting'
+  pod 'TomTomOnlineSDKMaps'
+  pod 'TomTomOnlineSDKMapsUIExtensions'
+  pod 'TomTomOnlineSDKMapsStaticImage'
+  pod 'TomTomOnlineSDKTraffic'
+  pod 'TomTomOnlineSDKMapsDriving'
+  pod 'TomTomOnlineSDKGeofencing'
 ----
 
 *  Now, go to the console and install the frameworks by typing *pod install*
