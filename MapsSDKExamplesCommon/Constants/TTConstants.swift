@@ -130,6 +130,9 @@ public class TTCoordinate: NSObject {
     @objc public static func SAN_JOSE_IMG1() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.76028, -122.454246) }
     @objc public static func SAN_JOSE_IMG2() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(36.926304, -121.967966) }
     @objc public static func SAN_JOSE_IMG3() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.455662, -122.492698) }
+    @objc public static func ROUEN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(49.443233, 1.099971) }
+    @objc public static func SAINT_DENIS() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(48.936050, 2.365010) }
+    @objc public static func EINDHOVEN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.436600, 5.478000) }
 }
 
 public class TTCamera: NSObject {

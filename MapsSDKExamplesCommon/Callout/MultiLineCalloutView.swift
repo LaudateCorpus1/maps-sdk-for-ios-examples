@@ -33,10 +33,8 @@ public class MultiLineCalloutView: UIView {
         return label
     }()
 
-    static let calloutSize: CGSize = .init(width: 270, height: 130)
-
-    @objc public init(text: String, title: String) {
-        super.init(frame: .init(origin: .zero, size: MultiLineCalloutView.calloutSize))
+    @objc public init(text: String, title: String, calloutSize: CGSize) {
+        super.init(frame: .init(origin: .zero, size: calloutSize))
 
         addSubview(titleLabel)
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true

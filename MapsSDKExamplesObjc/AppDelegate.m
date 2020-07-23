@@ -70,6 +70,7 @@
 #import "GeofencingReportViewController.h"
 #import "SearchAutocompleteViewController.h"
 #import "SearchOpeningHoursViewController.h"
+#import "LongDistanceEVRoutingViewController.h"
 
 @interface AppDelegate () <ExampleDisplayRequest>
 
@@ -226,6 +227,9 @@
             break;
         case 13:
             newViewController = [RoutingAvoidVignettesAndAreasViewController new];
+            break;
+        case 14:
+            newViewController = [LongDistanceEVRoutingViewController new];
             break;
         default:
             [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];

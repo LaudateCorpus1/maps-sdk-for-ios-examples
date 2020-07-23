@@ -65,7 +65,7 @@
         NSString *text = [annotation.result.poi.openingHours humanReadableHours];
         NSString *title = [annotation.result.poi name];
 
-        MultiLineCalloutView *contentView = [[MultiLineCalloutView alloc] initWithText:text title:title];
+        MultiLineCalloutView *contentView = [[MultiLineCalloutView alloc] initWithText:text title:title calloutSize:CGSizeMake(270, 130)];
         return [[TTCalloutOutlineView alloc] initWithUIView:contentView];
     }
 }

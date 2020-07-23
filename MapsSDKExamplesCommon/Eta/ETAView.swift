@@ -41,6 +41,18 @@ public class ETAView: UIView {
         isHidden = true
     }
 
+    @objc public func show(summary: RouteSummaryEV, vehicle: ElectricVehicle) {
+        guard let components = summary.arrivalTime?.components else { return }
+
+        let batteryLeft = (summary.remainingChargeAtArrivalInkWh / vehicle.vehicleConsumption.maxChargeInkWh) * 100
+
+        time.text = String(format: "%02d:%02d Battery left: %0.2f%%.", components.hour, components.minute, batteryLeft)
+        leftIcon.image = UIImage(named: "Destination")!
+
+        distance.text = "\(FormatUtils.formatDistance(meters: UInt(summary.lengthInMetersValue)))"
+        isHidden = false
+    }
+
     @objc public func show(summary: TTSummary, style: ETAView.ETAViewStyle) {
         let components = summary.arrivalTime.components
         switch style {

@@ -52,8 +52,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _projectId1 = @"57287023-a968-492c-8473-7e049a606425";
-    _projectId2 = @"fcf6d609-550d-49ff-bcdf-02bba08baa28";
+    _projectId1 = @"b7bc0eef-0e34-4dcf-90e0-3987aa2c7748";
+    _projectId2 = @"e5ee4262-b29a-46ff-a4a4-112dd27b01bd";
     _inside = [NSMutableArray new];
     _outside = [NSMutableArray new];
     _range = 5000.0;

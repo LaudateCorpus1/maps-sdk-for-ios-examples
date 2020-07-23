@@ -246,6 +246,7 @@
 		7418D0D12456EDB1004B7B6E /* SearchAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */; };
 		7418D0D424571D9E004B7B6E /* AutoCompleteBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */; };
 		742D9C4222F98CAA0060F740 /* ic_app_demo_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */; };
+		74617FF124AC8C8D00CDB164 /* ChargingStationCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74617FF024AC8C8D00CDB164 /* ChargingStationCalloutView.swift */; };
 		7465803D242B605100B67C40 /* RouteLocationEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7465803C242B605100B67C40 /* RouteLocationEmitter.swift */; };
 		746C2A2622F82C8900763F7A /* ic_app_test_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2522F82C8900763F7A /* ic_app_test_source.json */; };
 		746C2A2A22F82E9400763F7A /* ic_app_test_layer_cluster.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2922F82E9400763F7A /* ic_app_test_layer_cluster.json */; };
@@ -266,6 +267,11 @@
 		7470AEBC24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEBB24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift */; };
 		7470AEBE24643CAB005DFBF3 /* MultiLineCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEBD24643CAB005DFBF3 /* MultiLineCalloutView.swift */; };
 		7470AEC124643E08005DFBF3 /* SearchOpeningHoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7470AEC024643E08005DFBF3 /* SearchOpeningHoursViewController.m */; };
+		7490231524B71EDE00C6F9C0 /* LongDistanceEVRoutingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74613A0824AA4A800073F3A0 /* LongDistanceEVRoutingViewController.swift */; };
+		7490231624B71EE800C6F9C0 /* ElectricVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74172DAC24AF014E00215EF9 /* ElectricVehicle.swift */; };
+		7490231824B71EE800C6F9C0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74172DB024AF027D00215EF9 /* Route.swift */; };
+		7490231924B71EED00C6F9C0 /* ChargeStationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74617FEE24AC826A00CDB164 /* ChargeStationAnnotation.swift */; };
+		7490231A24B7265800C6F9C0 /* LongDistanceEVRoutingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74613A0B24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.m */; };
 		74C336072458997A00EFBF04 /* NSArray+NSArray_Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */; };
 		74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */; };
 		8B62B10623BDF86000CB6188 /* SearchPoiCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */; };
@@ -654,10 +660,17 @@
 		74146DE5245840CB00D0071D /* SearchAutocompleteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAutocompleteViewController.h; sourceTree = "<group>"; };
 		74146DE6245840CB00D0071D /* SearchAutocompleteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchAutocompleteViewController.m; sourceTree = "<group>"; };
 		74146DE82458492600D0071D /* TomTomOnlineSDKSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TomTomOnlineSDKSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74172DAC24AF014E00215EF9 /* ElectricVehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricVehicle.swift; sourceTree = "<group>"; };
+		74172DB024AF027D00215EF9 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		7418D0CD2456ECD7004B7B6E /* TomTomOnlineSDKSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TomTomOnlineSDKSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAutocompleteViewController.swift; sourceTree = "<group>"; };
 		7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteBar.swift; sourceTree = "<group>"; };
 		742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ic_app_demo_source.json; sourceTree = "<group>"; };
+		74613A0824AA4A800073F3A0 /* LongDistanceEVRoutingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongDistanceEVRoutingViewController.swift; sourceTree = "<group>"; };
+		74613A0A24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongDistanceEVRoutingViewController.h; sourceTree = "<group>"; };
+		74613A0B24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongDistanceEVRoutingViewController.m; sourceTree = "<group>"; };
+		74617FEE24AC826A00CDB164 /* ChargeStationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeStationAnnotation.swift; sourceTree = "<group>"; };
+		74617FF024AC8C8D00CDB164 /* ChargingStationCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationCalloutView.swift; sourceTree = "<group>"; };
 		7465803C242B605100B67C40 /* RouteLocationEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLocationEmitter.swift; sourceTree = "<group>"; };
 		746C2A2522F82C8900763F7A /* ic_app_test_source.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ic_app_test_source.json; sourceTree = "<group>"; };
 		746C2A2922F82E9400763F7A /* ic_app_test_layer_cluster.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ic_app_test_layer_cluster.json; sourceTree = "<group>"; };
@@ -844,6 +857,7 @@
 		7220273E2139607500296ACF /* MapsSDKExamplesCommon */ = {
 			isa = PBXGroup;
 			children = (
+				74172DAB24AF013A00215EF9 /* EVRouting */,
 				7470AEBA24643B98005DFBF3 /* TimeRangeDateTime */,
 				7470AEB7246345A5005DFBF3 /* Annotation */,
 				7418D0D224571D63004B7B6E /* Autocomplete */,
@@ -993,6 +1007,8 @@
 			isa = PBXGroup;
 			children = (
 				72B5D40C21EF539400868D44 /* Utils */,
+				74613A0A24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.h */,
+				74613A0B24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.m */,
 				7280A24A2145968D0078B943 /* RoutingTravelModesViewController.h */,
 				7280A24B2145968D0078B943 /* RoutingTravelModesViewController.m */,
 				7280A24D214596AE0078B943 /* RoutingRouteTypesViewController.h */,
@@ -1093,6 +1109,7 @@
 				72AA4696211D8F4F0019EC72 /* CustomCallout.xib */,
 				72AA4693211D8E140019EC72 /* CustomCallout.swift */,
 				7470AEBD24643CAB005DFBF3 /* MultiLineCalloutView.swift */,
+				74617FF024AC8C8D00CDB164 /* ChargingStationCalloutView.swift */,
 			);
 			path = Callout;
 			sourceTree = "<group>";
@@ -1144,6 +1161,7 @@
 		72AA46AD21269C960019EC72 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
+				74613A0824AA4A800073F3A0 /* LongDistanceEVRoutingViewController.swift */,
 				723F7BD521EDB49B006AC52F /* Utils */,
 				72AA46AE21269CDB0019EC72 /* RoutingTravelModesViewController.swift */,
 				72AA46BC2126E5700019EC72 /* RoutingRouteTypesViewController.swift */,
@@ -1213,6 +1231,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		74172DAB24AF013A00215EF9 /* EVRouting */ = {
+			isa = PBXGroup;
+			children = (
+				74172DAC24AF014E00215EF9 /* ElectricVehicle.swift */,
+				74172DB024AF027D00215EF9 /* Route.swift */,
+			);
+			path = EVRouting;
+			sourceTree = "<group>";
+		};
 		7418D0D224571D63004B7B6E /* Autocomplete */ = {
 			isa = PBXGroup;
 			children = (
@@ -1225,6 +1252,7 @@
 			isa = PBXGroup;
 			children = (
 				7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */,
+				74617FEE24AC826A00CDB164 /* ChargeStationAnnotation.swift */,
 			);
 			path = Annotation;
 			sourceTree = "<group>";
@@ -1671,6 +1699,7 @@
 				746C2A3C22F85ACF00763F7A /* MapImageClusteringViewController.m in Sources */,
 				8B62B10923BE403C00CB6188 /* SearchPoiCategoriesViewController.m in Sources */,
 				7280A255214596DD0078B943 /* RoutingRouteWithWaypointsViewController.m in Sources */,
+				7490231A24B7265800C6F9C0 /* LongDistanceEVRoutingViewController.m in Sources */,
 				6E9BF26F22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m in Sources */,
 				725FCDDA2281770F007EE921 /* MapDynamicLayerOrderingViewController.m in Sources */,
 				9C78AB462207471A00EAC9FA /* RouteMatchingViewController.m in Sources */,
@@ -1742,10 +1771,13 @@
 				7220278A213D023800296ACF /* OptionsBaseViewController.swift in Sources */,
 				9C78AB3C22042F6E00EAC9FA /* LocationUtils.swift in Sources */,
 				9C70767D2203037200B3FF19 /* LocationsCSVProvider.swift in Sources */,
+				74617FF124AC8C8D00CDB164 /* ChargingStationCalloutView.swift in Sources */,
 				9C7076782202F1F100B3FF19 /* DrivingSource.swift in Sources */,
 				7220277F213D012200296ACF /* Toast.swift in Sources */,
+				7490231924B71EED00C6F9C0 /* ChargeStationAnnotation.swift in Sources */,
 				9C70767F2203072F00B3FF19 /* RandomizeCoordinate.swift in Sources */,
 				7470AEB9246345C3005DFBF3 /* SearchResultAnnotation.swift in Sources */,
+				7490231824B71EE800C6F9C0 /* Route.swift in Sources */,
 				72202792213D025D00296ACF /* ActionSheet.swift in Sources */,
 				7418D0D424571D9E004B7B6E /* AutoCompleteBar.swift in Sources */,
 				7220278E213D024500296ACF /* SubOptionsCollectionViewCell.swift in Sources */,
@@ -1782,6 +1814,7 @@
 				7215017321A6AA330016C396 /* MatrixRow.swift in Sources */,
 				72202787213D01C400296ACF /* OptionsViewSingleSelect.swift in Sources */,
 				72202784213D01BA00296ACF /* TTConstants.swift in Sources */,
+				7490231624B71EE800C6F9C0 /* ElectricVehicle.swift in Sources */,
 				7200692B213E4EBD005B20D1 /* AboutViewController.swift in Sources */,
 				7220276E21396FC000296ACF /* LocationManager.swift in Sources */,
 				7220276B21396FC000296ACF /* Math.swift in Sources */,
@@ -1799,6 +1832,7 @@
 				7470AEB624633332005DFBF3 /* SearchOpeningHoursViewController.swift in Sources */,
 				9C78AB4C2209A9D800EAC9FA /* GeofencingReportViewController.swift in Sources */,
 				72006968213FA5D6005B20D1 /* SearchBatchViewController.swift in Sources */,
+				7490231524B71EDE00C6F9C0 /* LongDistanceEVRoutingViewController.swift in Sources */,
 				6EDCC21F221EB23B006EC951 /* MapLayersVisibilityViewController.swift in Sources */,
 				7200695E213FA5D0005B20D1 /* SearchAddressViewController.swift in Sources */,
 				72006939213E68C2005B20D1 /* MapLanguageViewController.swift in Sources */,
@@ -2010,6 +2044,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2019,6 +2054,7 @@
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.4.595;
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2555,6 +2591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2564,6 +2601,7 @@
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.4.595;
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2776,6 +2814,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2784,6 +2823,7 @@
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.4.595;
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2800,6 +2840,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2809,6 +2850,7 @@
 				INFOPLIST_FILE = MapsSDKExamplesSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.4.595;
 				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

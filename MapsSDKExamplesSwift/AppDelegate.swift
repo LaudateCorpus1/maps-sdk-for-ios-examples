@@ -124,6 +124,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = RoutingMatrixViewController()
             case 13:
                 newViewController = RoutingAvoidVignettesAndAreasViewController()
+            case 14:
+                newViewController = LongDistanceEVRoutingViewController()
             default:
                 fatalError("This VC is not handled")
             }

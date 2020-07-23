@@ -55,7 +55,7 @@ extension SearchOpeningHoursViewController: TTAnnotationDelegate {
         }
         let text = selectedAnnotation.result.poi?.openingHours?.humanReadableHours() ?? "-"
         let title = selectedAnnotation.result.poi?.name ?? "-"
-        let view = MultiLineCalloutView(text: text, title: title)
+        let view = MultiLineCalloutView(text: text, title: title, calloutSize: .init(width: 270, height: 130))
         return TTCalloutOutlineView(uiView: view)
     }
 
