@@ -163,14 +163,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 9:
                 newViewController = SearchGeometryViewController()
             case 10:
-                newViewController = SearchEntryPointsViewController()
+                newViewController = SearchChargingStationsViewController()
             case 11:
-                newViewController = SearchAdditionalDataViewController()
+                newViewController = SearchEntryPointsViewController()
             case 12:
-                newViewController = SearchBatchViewController()
+                newViewController = SearchAdditionalDataViewController()
             case 13:
-                newViewController = SearchPolygonsForRevGeoViewController()
+                newViewController = SearchBatchViewController()
             case 14:
+                newViewController = SearchPolygonsForRevGeoViewController()
+            case 15:
                 newViewController = SearchOpeningHoursViewController()
             default:
                 fatalError("This VC is not handled")

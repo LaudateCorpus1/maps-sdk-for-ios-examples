@@ -274,6 +274,9 @@
 		7490231A24B7265800C6F9C0 /* LongDistanceEVRoutingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74613A0B24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.m */; };
 		74C336072458997A00EFBF04 /* NSArray+NSArray_Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */; };
 		74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */; };
+		74D3188024D06E9B00F4188D /* SearchChargingStationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3187F24D06E9B00F4188D /* SearchChargingStationsViewController.swift */; };
+		74F4C85E24D161D800F2DFD2 /* ChargeStationDetailsAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F4C85D24D161D800F2DFD2 /* ChargeStationDetailsAnnotation.swift */; };
+		74F4C86124D20F1100F2DFD2 /* SearchChargingStationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F4C86024D20F1000F2DFD2 /* SearchChargingStationsViewController.m */; };
 		8B62B10623BDF86000CB6188 /* SearchPoiCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */; };
 		8B62B10923BE403C00CB6188 /* SearchPoiCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */; };
 		94EB893924488513002CAB72 /* vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB893824488513002CAB72 /* vector_style.json */; };
@@ -689,6 +692,10 @@
 		74C336062458997A00EFBF04 /* NSArray+NSArray_Map.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSArray_Map.m"; sourceTree = "<group>"; };
 		74C336092458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TTAutocompleteSegment+TTAutocompleteSegment_Helpers.h"; sourceTree = "<group>"; };
 		74C3360A2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m"; sourceTree = "<group>"; };
+		74D3187F24D06E9B00F4188D /* SearchChargingStationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchChargingStationsViewController.swift; sourceTree = "<group>"; };
+		74F4C85D24D161D800F2DFD2 /* ChargeStationDetailsAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeStationDetailsAnnotation.swift; sourceTree = "<group>"; };
+		74F4C85F24D20F1000F2DFD2 /* SearchChargingStationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchChargingStationsViewController.h; sourceTree = "<group>"; };
+		74F4C86024D20F1000F2DFD2 /* SearchChargingStationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchChargingStationsViewController.m; sourceTree = "<group>"; };
 		8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPoiCategoriesViewController.swift; sourceTree = "<group>"; };
 		8B62B10723BE403C00CB6188 /* SearchPoiCategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPoiCategoriesViewController.h; sourceTree = "<group>"; };
 		8B62B10823BE403C00CB6188 /* SearchPoiCategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPoiCategoriesViewController.m; sourceTree = "<group>"; };
@@ -999,6 +1006,8 @@
 				6E9BF26E22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m */,
 				7470AEBF24643E08005DFBF3 /* SearchOpeningHoursViewController.h */,
 				7470AEC024643E08005DFBF3 /* SearchOpeningHoursViewController.m */,
+				74F4C85F24D20F1000F2DFD2 /* SearchChargingStationsViewController.h */,
+				74F4C86024D20F1000F2DFD2 /* SearchChargingStationsViewController.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1139,6 +1148,7 @@
 		72AA46A321255C7D0019EC72 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				74D3187F24D06E9B00F4188D /* SearchChargingStationsViewController.swift */,
 				7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */,
 				72AA46A521257C650019EC72 /* SearchAddressViewController.swift */,
 				8B62B10523BDF86000CB6188 /* SearchPoiCategoriesViewController.swift */,
@@ -1253,6 +1263,7 @@
 			children = (
 				7470AEB8246345C3005DFBF3 /* SearchResultAnnotation.swift */,
 				74617FEE24AC826A00CDB164 /* ChargeStationAnnotation.swift */,
+				74F4C85D24D161D800F2DFD2 /* ChargeStationDetailsAnnotation.swift */,
 			);
 			path = Annotation;
 			sourceTree = "<group>";
@@ -1729,6 +1740,7 @@
 				6E241CFA21AEDD2500818A53 /* MapMultipleViewController.m in Sources */,
 				72B5D40B21EF3D7E00868D44 /* RoutingBatchReachableRouteViewController.m in Sources */,
 				72AB737C213FDA2800D72DF1 /* MapGeopoliticalViewController.m in Sources */,
+				74F4C86124D20F1100F2DFD2 /* SearchChargingStationsViewController.m in Sources */,
 				72AB7391213FDA8B00D72DF1 /* MapMarkersViewController.m in Sources */,
 				72202778213BB56300296ACF /* MapTilesViewController.m in Sources */,
 				72AB739A213FDAB100D72DF1 /* MapShapesViewController.m in Sources */,
@@ -1795,6 +1807,7 @@
 				72202794213D032900296ACF /* LicenseViewController.swift in Sources */,
 				9CCB057421885E55006BA780 /* FollowTheChevronSource.swift in Sources */,
 				7220276C21396FC000296ACF /* FormatUtils.swift in Sources */,
+				74F4C85E24D161D800F2DFD2 /* ChargeStationDetailsAnnotation.swift in Sources */,
 				7470AEBE24643CAB005DFBF3 /* MultiLineCalloutView.swift in Sources */,
 				72202783213D01B600296ACF /* SubOptions.swift in Sources */,
 				7470AEBC24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift in Sources */,
@@ -1884,6 +1897,7 @@
 				2C526E7522F82AF800158278 /* MapInteractiveLayersViewController.swift in Sources */,
 				72AB7369213FD32200D72DF1 /* RoutingRouteAvoidsViewController.swift in Sources */,
 				72AB7370213FD32200D72DF1 /* RoutingReachableRangeViewController.swift in Sources */,
+				74D3188024D06E9B00F4188D /* SearchChargingStationsViewController.swift in Sources */,
 				72006943213E68D8005B20D1 /* MapBallonsViewController.swift in Sources */,
 				72AB736C213FD32200D72DF1 /* RoutingAlternativesRouteViewController.swift in Sources */,
 				7200693D213E68CA005B20D1 /* MapCenteringViewController.swift in Sources */,

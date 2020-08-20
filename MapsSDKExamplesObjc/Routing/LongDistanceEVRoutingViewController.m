@@ -134,7 +134,7 @@
     if (annotation == NULL) {
         return [[TTCalloutOutlineView alloc] initWithText:@"-"];
     } else {
-        ChargingStationCalloutView *contentView = [[ChargingStationCalloutView alloc] initWithText:[NSString stringWithFormat:@"Wait time: %li minutes", (long)[@(annotation.info.chargingTime / 60.0) integerValue]] title:@"Charging station waypoint"];
+        ChargingStationCalloutView *contentView = [[ChargingStationCalloutView alloc] initWithText:[NSString stringWithFormat:@"Wait time: %li minutes", (long)[@(annotation.info.chargingTime / 60.0) integerValue]] title:@"Charging station waypoint" height:70];
         return [[TTCalloutOutlineView alloc] initWithUIView:contentView];
     }
 }

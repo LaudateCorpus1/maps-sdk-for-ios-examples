@@ -133,6 +133,8 @@ public class TTCoordinate: NSObject {
     @objc public static func ROUEN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(49.443233, 1.099971) }
     @objc public static func SAINT_DENIS() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(48.936050, 2.365010) }
     @objc public static func EINDHOVEN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.436600, 5.478000) }
+    @objc public static func AMSTERDAM_TOP_LEFT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.414694, 4.834834) }
+    @objc public static func AMSTERDAM_BOTTOM_RIGHT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.334709, 4.971877) }
 }
 
 public class TTCamera: NSObject {

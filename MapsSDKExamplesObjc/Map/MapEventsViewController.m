@@ -56,5 +56,9 @@
         break;
     }
 }
+- (void)mapView:(TTMapView *)mapView onCenterStatusChanged:(TTMapCenteredState)centeredState {
+}
 
+- (void)mapView:(TTMapView *)mapView onCameraChanged:(TTCameraPosition *)cameraPosition withState:(TTMapCameraChangeState)state {
+}
 @end

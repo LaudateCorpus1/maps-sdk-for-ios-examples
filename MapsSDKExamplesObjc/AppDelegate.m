@@ -71,7 +71,7 @@
 #import "SearchAutocompleteViewController.h"
 #import "SearchOpeningHoursViewController.h"
 #import "LongDistanceEVRoutingViewController.h"
-
+#import "SearchChargingStationsViewController.h"
 @interface AppDelegate () <ExampleDisplayRequest>
 
 @end
@@ -283,18 +283,21 @@
             newViewController = [SearchGeometryViewController new];
             break;
         case 10:
-            newViewController = [SearchEntryPointsViewController new];
+            newViewController = [SearchChargingStationsViewController new];
             break;
         case 11:
-            newViewController = [SearchAdditionalDataViewController new];
+            newViewController = [SearchEntryPointsViewController new];
             break;
         case 12:
-            newViewController = [SearchBatchViewController new];
+            newViewController = [SearchAdditionalDataViewController new];
             break;
         case 13:
-            newViewController = [SearchPolygonsForRevGeoViewController new];
+            newViewController = [SearchBatchViewController new];
             break;
         case 14:
+            newViewController = [SearchPolygonsForRevGeoViewController new];
+            break;
+        case 15:
             newViewController = [SearchOpeningHoursViewController new];
             break;
         default:

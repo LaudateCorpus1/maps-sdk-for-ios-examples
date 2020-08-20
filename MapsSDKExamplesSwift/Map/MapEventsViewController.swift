@@ -50,4 +50,10 @@ class MapEventsViewController: MapBaseViewController, TTMapViewDelegate {
             toast(message: "Panning finished", coordinate: coordinate)
         }
     }
+
+    func mapView(_: TTMapView, onCenterStatusChanged _: TTMapCenteredState) {
+    }
+
+    func mapView(_: TTMapView, onCameraChanged _: TTCameraPosition, with _: TTMapCameraChangeState) {
+    }
 }
