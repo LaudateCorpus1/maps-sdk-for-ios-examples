@@ -415,7 +415,9 @@
 		6E14CCFE2148FBB50060C405 /* RoutingBatchRouteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingBatchRouteViewController.m; sourceTree = "<group>"; };
 		6E241CF821AEDD2500818A53 /* MapMultipleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapMultipleViewController.h; sourceTree = "<group>"; };
 		6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMultipleViewController.m; sourceTree = "<group>"; };
+		6E365F6D2158EE1800FD24D2 /* XCUIElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCUIElement.h; sourceTree = "<group>"; };
 		6E365F6E2158EE1800FD24D2 /* XCUIElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCUIElement.m; sourceTree = "<group>"; };
+		6E365F702158F18800FD24D2 /* XCTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCTestCase.h; sourceTree = "<group>"; };
 		6E365F712158F18800FD24D2 /* XCTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCTestCase.m; sourceTree = "<group>"; };
 		6E377D6F211050DC0060DB9E /* TTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTConstants.swift; sourceTree = "<group>"; };
 		6E4620EC21C3FE4D005E19FE /* RoutingAvoidVignettesAndAreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingAvoidVignettesAndAreasViewController.swift; sourceTree = "<group>"; };
@@ -461,8 +463,10 @@
 		7215017021A6A50B0016C396 /* MatrixRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatrixRow.xib; sourceTree = "<group>"; };
 		7215017221A6AA330016C396 /* MatrixRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixRow.swift; sourceTree = "<group>"; };
 		7216F24321521BEA00DB2159 /* MapsSDKExamplesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapsSDKExamplesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7216F24721521BEA00DB2159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7216F250215224DF00DB2159 /* MapControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControllerTests.swift; sourceTree = "<group>"; };
 		7216F2572152326900DB2159 /* MapsSDKExamplesObjcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapsSDKExamplesObjcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7216F25B2152326900DB2159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7216F2662152343A00DB2159 /* MapControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapControllerTests.m; sourceTree = "<group>"; };
 		7216F26B2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficIncidentsViewControllerTests.swift; sourceTree = "<group>"; };
 		7216F26D215260DD00DB2159 /* RoutingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingControllerTests.swift; sourceTree = "<group>"; };
@@ -502,6 +506,7 @@
 		7238475321A7FE43007F775D /* RoutingMatrixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingMatrixViewController.m; sourceTree = "<group>"; };
 		723F24C4216F63AE007D7FB1 /* MapsSDKExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapsSDKExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		723F24C6216F63AE007D7FB1 /* MapsSDKExamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsSDKExamples.h; sourceTree = "<group>"; };
+		723F24C7216F63AE007D7FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		723F7BD321ECC6FE006AC52F /* RoutingBatchReachableRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingBatchReachableRouteViewController.swift; sourceTree = "<group>"; };
 		723F7BD621EDB4C6006AC52F /* ReachableRangeQueryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachableRangeQueryFactory.swift; sourceTree = "<group>"; };
 		724CF8F021BA80A700CF5C83 /* MapRouteCustomisationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRouteCustomisationViewController.swift; sourceTree = "<group>"; };
@@ -746,6 +751,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7216F24021521BEA00DB2159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7216F2542152326900DB2159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		722027032139605300296ACF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -756,6 +775,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		722027392139607500296ACF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		723F24C0216F63AE007D7FB1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -802,6 +828,30 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		6EB3C4C2215A11C500AC580C /* Traffic */ = {
+			isa = PBXGroup;
+			children = (
+				6EB3C4C3215A11E400AC580C /* TrafficIncidentsViewControllerTests.m */,
+			);
+			path = Traffic;
+			sourceTree = "<group>";
+		};
+		6EB3C4C5215A13BF00AC580C /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				6EB3C4C6215A13DD00AC580C /* RoutingControllerTests.m */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		6EB3C4DC215A280200AC580C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6EB3C4DD215A287800AC580C /* SearchControllerTests.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		72006902213E4BCF005B20D1 /* MapsSDKExamplesVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,6 +877,78 @@
 				72006904213E4BCF005B20D1 /* Info.plist */,
 			);
 			path = MapsSDKExamplesVC;
+			sourceTree = "<group>";
+		};
+		7216F24421521BEA00DB2159 /* MapsSDKExamplesSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C6535BE222E617C0050EE60 /* Driving */,
+				7216F24F215224C800DB2159 /* Map */,
+				7216F2692152383600DB2159 /* Traffic */,
+				7216F2682152382E00DB2159 /* Search */,
+				7216F26A2152384A00DB2159 /* Routing */,
+				7216F24721521BEA00DB2159 /* Info.plist */,
+				7216F29B2154BA4600DB2159 /* XCUIElement.swift */,
+				7216F29D2155023F00DB2159 /* XCTestCase.swift */,
+			);
+			path = MapsSDKExamplesSwiftUITests;
+			sourceTree = "<group>";
+		};
+		7216F24F215224C800DB2159 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				7216F250215224DF00DB2159 /* MapControllerTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		7216F2582152326900DB2159 /* MapsSDKExamplesObjcUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C6535C5222E65320050EE60 /* Driving */,
+				7216F2642152341400DB2159 /* Map */,
+				6EB3C4C2215A11C500AC580C /* Traffic */,
+				6EB3C4DC215A280200AC580C /* Search */,
+				6EB3C4C5215A13BF00AC580C /* Routing */,
+				6E365F6D2158EE1800FD24D2 /* XCUIElement.h */,
+				6E365F6E2158EE1800FD24D2 /* XCUIElement.m */,
+				7216F25B2152326900DB2159 /* Info.plist */,
+				6E365F702158F18800FD24D2 /* XCTestCase.h */,
+				6E365F712158F18800FD24D2 /* XCTestCase.m */,
+			);
+			path = MapsSDKExamplesObjcUITests;
+			sourceTree = "<group>";
+		};
+		7216F2642152341400DB2159 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				7216F2662152343A00DB2159 /* MapControllerTests.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		7216F2682152382E00DB2159 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7216F2832152694000DB2159 /* SearchControllerTests.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7216F2692152383600DB2159 /* Traffic */ = {
+			isa = PBXGroup;
+			children = (
+				7216F26B2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift */,
+			);
+			path = Traffic;
+			sourceTree = "<group>";
+		};
+		7216F26A2152384A00DB2159 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				7216F26D215260DD00DB2159 /* RoutingControllerTests.swift */,
+			);
+			path = Routing;
 			sourceTree = "<group>";
 		};
 		7220263B21358F9000296ACF /* ActionSheet */ = {
@@ -1048,6 +1170,15 @@
 				6E8E940621CCC15200A9788F /* RoutingAvoidVignettesAndAreasViewController.m */,
 			);
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		723F24C5216F63AE007D7FB1 /* MapsSDKExamples */ = {
+			isa = PBXGroup;
+			children = (
+				723F24C6216F63AE007D7FB1 /* MapsSDKExamples.h */,
+				723F24C7216F63AE007D7FB1 /* Info.plist */,
+			);
+			path = MapsSDKExamples;
 			sourceTree = "<group>";
 		};
 		723F7BD521EDB49B006AC52F /* Utils */ = {
@@ -1298,6 +1429,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9C6535BE222E617C0050EE60 /* Driving */ = {
+			isa = PBXGroup;
+			children = (
+				9C6535BF222E617C0050EE60 /* DrivingControllerTests.swift */,
+			);
+			path = Driving;
+			sourceTree = "<group>";
+		};
+		9C6535C5222E65320050EE60 /* Driving */ = {
+			isa = PBXGroup;
+			children = (
+				9C6535C8222E69FA0050EE60 /* DrivingControllerTests.m */,
+			);
+			path = Driving;
+			sourceTree = "<group>";
+		};
 		9C7076742202EC0D00B3FF19 /* Driving */ = {
 			isa = PBXGroup;
 			children = (
@@ -1314,9 +1461,12 @@
 			children = (
 				722A8906216B73E900078A32 /* LICENSE.pdf */,
 				9C77CF3B2106F7B600A3179B /* MapsSDKExamplesSwift */,
+				7216F24421521BEA00DB2159 /* MapsSDKExamplesSwiftUITests */,
 				722027072139605300296ACF /* MapsSDKExamplesObjc */,
+				7216F2582152326900DB2159 /* MapsSDKExamplesObjcUITests */,
 				7220273E2139607500296ACF /* MapsSDKExamplesCommon */,
 				72006902213E4BCF005B20D1 /* MapsSDKExamplesVC */,
+				723F24C5216F63AE007D7FB1 /* MapsSDKExamples */,
 				9C77CF3A2106F7B600A3179B /* Products */,
 				4677BD7948620868BFCB13D1 /* Frameworks */,
 				6CBAAB968C218EA2894BB058 /* Pods */,
@@ -1430,6 +1580,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		723F24C1216F63AE007D7FB1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				723F24C8216F63AE007D7FB1 /* MapsSDKExamples.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1451,6 +1609,42 @@
 			productName = MapsSDKExamplesVC;
 			productReference = 72006901213E4BCF005B20D1 /* MapsSDKExamplesVC.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		7216F24221521BEA00DB2159 /* MapsSDKExamplesSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7216F24E21521BEA00DB2159 /* Build configuration list for PBXNativeTarget "MapsSDKExamplesSwiftUITests" */;
+			buildPhases = (
+				7216F23F21521BEA00DB2159 /* Sources */,
+				7216F24021521BEA00DB2159 /* Frameworks */,
+				7216F24121521BEA00DB2159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7216F24921521BEA00DB2159 /* PBXTargetDependency */,
+			);
+			name = MapsSDKExamplesSwiftUITests;
+			productName = MapsSDKExamplesSwiftUITests;
+			productReference = 7216F24321521BEA00DB2159 /* MapsSDKExamplesSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		7216F2562152326900DB2159 /* MapsSDKExamplesObjcUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7216F25E2152326900DB2159 /* Build configuration list for PBXNativeTarget "MapsSDKExamplesObjcUITests" */;
+			buildPhases = (
+				7216F2532152326900DB2159 /* Sources */,
+				7216F2542152326900DB2159 /* Frameworks */,
+				7216F2552152326900DB2159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7216F25D2152326900DB2159 /* PBXTargetDependency */,
+			);
+			name = MapsSDKExamplesObjcUITests;
+			productName = MapsSDKExamplesObjcUITests;
+			productReference = 7216F2572152326900DB2159 /* MapsSDKExamplesObjcUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		722027052139605300296ACF /* MapsSDKExamplesObjc */ = {
 			isa = PBXNativeTarget;
@@ -1488,6 +1682,26 @@
 			name = MapsSDKExamplesCommon;
 			productName = MapsSDKExamplesUI;
 			productReference = 7220273D2139607500296ACF /* MapsSDKExamplesCommon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		723F24C3216F63AE007D7FB1 /* MapsSDKExamples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 723F24CD216F63AE007D7FB1 /* Build configuration list for PBXNativeTarget "MapsSDKExamples" */;
+			buildPhases = (
+				723F24BF216F63AE007D7FB1 /* Sources */,
+				723F24C0216F63AE007D7FB1 /* Frameworks */,
+				723F24C1216F63AE007D7FB1 /* Headers */,
+				723F24C2216F63AE007D7FB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				723F24D1216F6466007D7FB1 /* PBXTargetDependency */,
+				723F24CF216F6463007D7FB1 /* PBXTargetDependency */,
+			);
+			name = MapsSDKExamples;
+			productName = MapsSDKExamples;
+			productReference = 723F24C4216F63AE007D7FB1 /* MapsSDKExamples.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		9C77CF382106F7B600A3179B /* MapsSDKExamplesSwift */ = {
@@ -1573,9 +1787,12 @@
 			projectRoot = "";
 			targets = (
 				9C77CF382106F7B600A3179B /* MapsSDKExamplesSwift */,
+				7216F24221521BEA00DB2159 /* MapsSDKExamplesSwiftUITests */,
 				722027052139605300296ACF /* MapsSDKExamplesObjc */,
+				7216F2562152326900DB2159 /* MapsSDKExamplesObjcUITests */,
 				7220273C2139607500296ACF /* MapsSDKExamplesCommon */,
 				72006900213E4BCF005B20D1 /* MapsSDKExamplesVC */,
+				723F24C3216F63AE007D7FB1 /* MapsSDKExamples */,
 			);
 		};
 /* End PBXProject section */
@@ -1586,6 +1803,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7200695D213FA0A9005B20D1 /* TrafficHeader.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7216F24121521BEA00DB2159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7216F2552152326900DB2159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1649,6 +1880,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		723F24C2216F63AE007D7FB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C77CF372106F7B600A3179B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1699,6 +1937,34 @@
 				72006955213EACF1005B20D1 /* TrafficBaseViewController.m in Sources */,
 				7200691E213E4BEB005B20D1 /* MapBaseViewController.m in Sources */,
 				72006951213E845B005B20D1 /* TableBaseViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7216F23F21521BEA00DB2159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C6535C0222E617C0050EE60 /* DrivingControllerTests.swift in Sources */,
+				7216F29C2154BA4600DB2159 /* XCUIElement.swift in Sources */,
+				7216F29E2155023F00DB2159 /* XCTestCase.swift in Sources */,
+				7216F2842152694000DB2159 /* SearchControllerTests.swift in Sources */,
+				7216F26C2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift in Sources */,
+				7216F251215224DF00DB2159 /* MapControllerTests.swift in Sources */,
+				7216F26E215260DD00DB2159 /* RoutingControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7216F2532152326900DB2159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB3C4C4215A11E400AC580C /* TrafficIncidentsViewControllerTests.m in Sources */,
+				7216F2672152343A00DB2159 /* MapControllerTests.m in Sources */,
+				6E365F722158F18800FD24D2 /* XCTestCase.m in Sources */,
+				6EB3C4C7215A13DD00AC580C /* RoutingControllerTests.m in Sources */,
+				9C6535CA222E69FA0050EE60 /* DrivingControllerTests.m in Sources */,
+				6E365F6F2158EE1800FD24D2 /* XCUIElement.m in Sources */,
+				6EB3C4DE215A287800AC580C /* SearchControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1834,6 +2100,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		723F24BF216F63AE007D7FB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C77CF352106F7B600A3179B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1917,10 +2190,30 @@
 			target = 7220273C2139607500296ACF /* MapsSDKExamplesCommon */;
 			targetProxy = 72006933213E55A1005B20D1 /* PBXContainerItemProxy */;
 		};
+		7216F24921521BEA00DB2159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C77CF382106F7B600A3179B /* MapsSDKExamplesSwift */;
+			targetProxy = 7216F24821521BEA00DB2159 /* PBXContainerItemProxy */;
+		};
+		7216F25D2152326900DB2159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 722027052139605300296ACF /* MapsSDKExamplesObjc */;
+			targetProxy = 7216F25C2152326900DB2159 /* PBXContainerItemProxy */;
+		};
 		722027612139688500296ACF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7220273C2139607500296ACF /* MapsSDKExamplesCommon */;
 			targetProxy = 722027602139688500296ACF /* PBXContainerItemProxy */;
+		};
+		723F24CF216F6463007D7FB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C77CF382106F7B600A3179B /* MapsSDKExamplesSwift */;
+			targetProxy = 723F24CE216F6463007D7FB1 /* PBXContainerItemProxy */;
+		};
+		723F24D1216F6466007D7FB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 722027052139605300296ACF /* MapsSDKExamplesObjc */;
+			targetProxy = 723F24D0216F6466007D7FB1 /* PBXContainerItemProxy */;
 		};
 		72C09FED214BEA9100F74412 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1949,11 +2242,11 @@
 		72006919213E4BCF005B20D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1961,10 +2254,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1975,11 +2266,11 @@
 		7200691A213E4BCF005B20D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1987,10 +2278,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2056,10 +2345,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X34KK79YFQ;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2069,10 +2358,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.595;
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f275ba89-e969-4da3-8715-6282b3b3260f";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2084,9 +2372,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X34KK79YFQ;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2095,10 +2383,10 @@
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.mapssdkexamples.objective-c";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f275ba89-e969-4da3-8715-6282b3b3260f";
+				PROVISIONING_PROFILE_SPECIFIER = "Online Maps SDK Examples Enterprise";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2107,11 +2395,11 @@
 		720E0312214BC41A0080E2EA /* Enterprise */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X34KK79YFQ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2123,10 +2411,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesCommon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2138,11 +2424,11 @@
 		720E0314214BC41A0080E2EA /* Enterprise */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X34KK79YFQ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2150,10 +2436,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2165,16 +2449,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesSwiftUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5af181df-43d1-423e-8ffa-ea927f7a3d7e";
+				PROVISIONING_PROFILE_SPECIFIER = "Development com.tomtom.mapssdkexamples.*";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesSwift;
@@ -2184,17 +2468,17 @@
 		7216F24B21521BEA00DB2159 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesSwiftUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
+				PROVISIONING_PROFILE_SPECIFIER = "AppStore com.tomtom.mapssdkexamples.*";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesSwift;
@@ -2204,17 +2488,17 @@
 		7216F24C21521BEA00DB2159 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesSwiftUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d0f8cf10-0d18-4ea5-8f48-567ebecaaa8f";
+				PROVISIONING_PROFILE_SPECIFIER = "Ad-hoc comt.tomtom.mapssdkexamples.*";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesSwift;
@@ -2224,17 +2508,17 @@
 		7216F24D21521BEA00DB2159 /* Enterprise */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X34KK79YFQ;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesSwiftUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f275ba89-e969-4da3-8715-6282b3b3260f";
+				PROVISIONING_PROFILE_SPECIFIER = "Online Maps SDK Examples Enterprise";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesSwift;
@@ -2244,17 +2528,15 @@
 		7216F25F2152326900DB2159 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesObjcUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesObjcUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesObjc;
 			};
@@ -2263,17 +2545,15 @@
 		7216F2602152326900DB2159 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesObjcUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesObjcUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesObjc;
 			};
@@ -2282,17 +2562,15 @@
 		7216F2612152326900DB2159 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesObjcUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesObjcUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesObjc;
 			};
@@ -2301,17 +2579,15 @@
 		7216F2622152326900DB2159 /* Enterprise */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = MapsSDKExamplesObjcUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.MapsSDKExamplesObjcUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MapsSDKExamplesObjc;
 			};
@@ -2323,9 +2599,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2334,10 +2609,10 @@
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.mapssdkexamples.objective-c";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5af181df-43d1-423e-8ffa-ea927f7a3d7e";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.tomtom.mapssdkexamples.objective-c";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2350,9 +2625,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2361,10 +2636,10 @@
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.mapssdkexamples.objective-c";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.tomtom.mapssdkexamples.objective-c";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2373,11 +2648,11 @@
 		722027552139607500296ACF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2389,10 +2664,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesCommon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -2405,11 +2678,11 @@
 		722027562139607500296ACF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2421,10 +2694,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesCommon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2436,12 +2707,11 @@
 		723F24C9216F63AE007D7FB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2449,10 +2719,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamples;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2464,12 +2732,11 @@
 		723F24CA216F63AE007D7FB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2477,10 +2744,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamples;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2492,12 +2757,11 @@
 		723F24CB216F63AE007D7FB1 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2505,10 +2769,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamples;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2520,12 +2782,11 @@
 		723F24CC216F63AE007D7FB1 /* Enterprise */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2533,10 +2794,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamples;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2603,10 +2862,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2616,10 +2875,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.595;
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d0f8cf10-0d18-4ea5-8f48-567ebecaaa8f";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.tomtom.mapssdkexamples.swift";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2631,9 +2890,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2642,10 +2901,10 @@
 				INFOPLIST_FILE = MapsSDKExamplesObjc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.mapssdkexamples.objective-c";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d0f8cf10-0d18-4ea5-8f48-567ebecaaa8f";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.tomtom.mapssdkexamples.objective-c";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2654,11 +2913,11 @@
 		72C09FE6214BC42E00F74412 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2670,10 +2929,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesCommon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2685,11 +2942,11 @@
 		72C09FE8214BC42E00F74412 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2697,10 +2954,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2827,9 +3082,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2838,10 +3093,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.595;
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5af181df-43d1-423e-8ffa-ea927f7a3d7e";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.tomtom.mapssdkexamples.swift";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2852,10 +3107,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B6D6JH974Q;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2865,10 +3120,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.595;
-				PRODUCT_BUNDLE_IDENTIFIER = "----your-bundle-here----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.tomtom.mapssdkexamples.swift";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2884,6 +3139,28 @@
 				7200691A213E4BCF005B20D1 /* Release */,
 				72C09FE8214BC42E00F74412 /* Adhoc */,
 				720E0314214BC41A0080E2EA /* Enterprise */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7216F24E21521BEA00DB2159 /* Build configuration list for PBXNativeTarget "MapsSDKExamplesSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7216F24A21521BEA00DB2159 /* Debug */,
+				7216F24B21521BEA00DB2159 /* Release */,
+				7216F24C21521BEA00DB2159 /* Adhoc */,
+				7216F24D21521BEA00DB2159 /* Enterprise */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7216F25E2152326900DB2159 /* Build configuration list for PBXNativeTarget "MapsSDKExamplesObjcUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7216F25F2152326900DB2159 /* Debug */,
+				7216F2602152326900DB2159 /* Release */,
+				7216F2612152326900DB2159 /* Adhoc */,
+				7216F2622152326900DB2159 /* Enterprise */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2906,6 +3183,17 @@
 				722027562139607500296ACF /* Release */,
 				72C09FE6214BC42E00F74412 /* Adhoc */,
 				720E0312214BC41A0080E2EA /* Enterprise */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		723F24CD216F63AE007D7FB1 /* Build configuration list for PBXNativeTarget "MapsSDKExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				723F24C9216F63AE007D7FB1 /* Debug */,
+				723F24CA216F63AE007D7FB1 /* Release */,
+				723F24CB216F63AE007D7FB1 /* Adhoc */,
+				723F24CC216F63AE007D7FB1 /* Enterprise */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
