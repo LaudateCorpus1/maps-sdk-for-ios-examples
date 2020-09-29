@@ -38,7 +38,9 @@
                       NSArray<SearchResultAnnotation *> *annotations = [[response.results filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TTSearchResult *_Nullable evaluatedObject, NSDictionary<NSString *, id> *_Nullable bindings) {
                                                                                             return evaluatedObject.poi.openingHours != NULL;
                                                                                           }]] map:^id _Nonnull(TTSearchResult *_Nonnull obj) {
-                        return [[SearchResultAnnotation alloc] initWithResult:obj];
+                        SearchResultAnnotation *annotation = [[SearchResultAnnotation alloc] initWithResult:obj];
+                        annotation.canShowCallout = true;
+                        return annotation;
                       }];
 
                       [self.mapView.annotationManager addAnnotations:annotations];
