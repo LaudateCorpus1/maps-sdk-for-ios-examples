@@ -1,4 +1,3 @@
-//
 /**
  * Copyright (c) 2020 TomTom N.V. All rights reserved.
  *
@@ -10,17 +9,16 @@
  * immediately return it to TomTom N.V.
  */
 
-import Foundation
-import TomTomOnlineSDKMaps
-import TomTomOnlineSDKSearch
+import UIKit
 
-public class SearchResultAnnotation: TTAnnotation {
-    @objc public let result: TTSearchResult
+@objc public class TTErrorUIAlertController: UIAlertController {
+    @objc public class func create() -> UIAlertController {
+        let alert = UIAlertController(title: "Ups..", message: "something went wrong", preferredStyle: UIAlertControllerStyle.alert)
 
-    @objc public init(result: TTSearchResult) {
-        self.result = result
-        let image = TTAnnotationImage.createPNG(withName: "Favourite")!
-        super.init(coordinate: result.position, annotationImage: image, anchor: .bottom, type: .focal)
-        self.canShowCallout = false
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { _ in
+
+        }))
+
+        return alert
     }
 }

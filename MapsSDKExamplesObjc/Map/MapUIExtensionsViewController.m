@@ -67,8 +67,6 @@
     [self.controlView initDefaultCompassButton];
     [self.controlView initDefaultTTPanControlView];
     [self.controlView initDefaultTTZoomView];
-    self.controlView.topLayoutConstraintCompassButton.constant = 70;
-    self.controlView.bottomLayoutConstraintCenterButton.constant = -70;
 }
 
 - (void)controlsCustom {
@@ -80,16 +78,12 @@
     UIButton *customCurrentLocationButton = [UIButton new];
     [customCurrentLocationButton setImage:[UIImage imageNamed:@"custom_current_location"] forState:UIControlStateNormal];
     [customCurrentLocationButton setImage:[UIImage imageNamed:@"custom_current_location"] forState:UIControlStateHighlighted];
-    self.controlView.centerButton = customCurrentLocationButton;
-    self.controlView.bottomLayoutConstraintCenterButton.constant = -70;
-
+    [self.controlView setCenterButton:customCurrentLocationButton withDefaultConstraints:YES];
     UIButton *customCompassButton = [UIButton new];
     [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"] forState:UIControlStateNormal];
     [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"] forState:UIControlStateHighlighted];
     [customCompassButton setImage:[UIImage imageNamed:@"custom_compass"] forState:UIControlStateSelected];
-    self.controlView.compassButton = customCompassButton;
-    self.controlView.topLayoutConstraintCompassButton.constant = 70;
-
+    [self.controlView setCenterButton:customCompassButton withDefaultConstraints:YES];
     UIButton *customControlLeftButton = [UIButton new];
     [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_left_custom"] forState:UIControlStateNormal];
     [customControlLeftButton setImage:[UIImage imageNamed:@"arrow_left_highlighted_custom"] forState:UIControlStateHighlighted];

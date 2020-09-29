@@ -65,8 +65,6 @@ class MapUIExtensionsViewController: MapBaseViewController {
         controlView.initDefaultCompassButton()
         controlView.initDefaultTTPanControlView()
         controlView.initDefaultTTZoom()
-        controlView.topLayoutConstraintCompassButton?.constant = 70
-        controlView.bottomLayoutConstraintCenterButton?.constant = -70
     }
 
     func controlsCustom() {
@@ -78,16 +76,12 @@ class MapUIExtensionsViewController: MapBaseViewController {
         let customCurrentLocationButton = UIButton()
         customCurrentLocationButton.setImage(UIImage(named: "custom_current_location"), for: .normal)
         customCurrentLocationButton.setImage(UIImage(named: "custom_current_location"), for: .highlighted)
-        controlView.centerButton = customCurrentLocationButton
-        controlView.bottomLayoutConstraintCenterButton?.constant = -70
-
+        controlView.setCenter(customCurrentLocationButton, withDefaultConstraints: true)
         let customCompassButton = UIButton()
         customCompassButton.setImage(UIImage(named: "custom_compass"), for: .normal)
         customCompassButton.setImage(UIImage(named: "custom_compass"), for: .highlighted)
         customCompassButton.setImage(UIImage(named: "custom_compass"), for: .selected)
-        controlView.compassButton = customCompassButton
-        controlView.topLayoutConstraintCompassButton?.constant = 70
-
+        controlView.setCompassButton(customCompassButton, withDefaultConstraints: true)
         let customControlLeftButton = UIButton()
         customControlLeftButton.setImage(UIImage(named: "arrow_left_custom"), for: .normal)
         customControlLeftButton.setImage(UIImage(named: "arrow_left_highlighted_custom"), for: .highlighted)

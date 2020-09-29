@@ -130,6 +130,7 @@ class OptionsCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
+    @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has been implement")
     }

@@ -10,17 +10,8 @@
  * immediately return it to TomTom N.V.
  */
 
-import Foundation
-import TomTomOnlineSDKMaps
-import TomTomOnlineSDKSearch
+#import <MapsSDKExamplesVC/MapsSDKExamplesVC.h>
 
-public class SearchResultAnnotation: TTAnnotation {
-    @objc public let result: TTSearchResult
+@interface SearchPoiDetailsAndPhotosViewController : MapBaseViewController
 
-    @objc public init(result: TTSearchResult) {
-        self.result = result
-        let image = TTAnnotationImage.createPNG(withName: "Favourite")!
-        super.init(coordinate: result.position, annotationImage: image, anchor: .bottom, type: .focal)
-        self.canShowCallout = false
-    }
-}
+@end

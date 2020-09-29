@@ -39,18 +39,18 @@ static NSString *reusableID = @"CollectionBaseViewControllerCellID";
     self.view = collectionView;
 }
 
-- (UIImageView *)getImageViewForIndex:(NSInteger)index {
+- (UIImageView *)getImageViewForIndex:(UNUSED_PARAM NSInteger)index {
     return [UIImageView new];
 }
 
 #pragma mark UICollectionViewDelegate
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UNUSED_PARAM UICollectionView *)collectionView didSelectItemAtIndexPath:(UNUSED_PARAM NSIndexPath *)indexPath {
 }
 
 #pragma mark UICollectionViewDataSource
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UNUSED_PARAM UICollectionView *)collectionView numberOfItemsInSection:(UNUSED_PARAM NSInteger)section {
     return 6;
 }
 
@@ -66,7 +66,7 @@ static NSString *reusableID = @"CollectionBaseViewControllerCellID";
 
 #pragma mark UICollectionViewDelegateFlowLayout
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UNUSED_PARAM UICollectionView *)collectionView layout:(UNUSED_PARAM UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(UNUSED_PARAM NSIndexPath *)indexPath {
     CGFloat frame = self.view.frame.size.width < self.view.frame.size.height ? self.view.frame.size.width : self.view.frame.size.height;
     CGFloat width = frame * 0.480;
     return CGSizeMake(width, width);

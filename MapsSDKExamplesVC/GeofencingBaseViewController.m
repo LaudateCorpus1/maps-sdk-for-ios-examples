@@ -56,7 +56,7 @@
     __block NSString *text = @" The location is";
     if (inside.count > 0) {
         text = [NSString stringWithFormat:@"%@\n %@", text, @"inside of fences: "];
-        [inside enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *_Nonnull stop) {
+        [inside enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, UNUSED_PARAM BOOL *_Nonnull stop) {
           if (idx > 0) {
               text = [NSString stringWithFormat:@"%@, \n \"%@\"", text, name];
           } else {
@@ -66,7 +66,7 @@
     }
     if (outside.count > 0) {
         text = [NSString stringWithFormat:@"%@\n %@", text, @"outside of fences: "];
-        [outside enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *_Nonnull stop) {
+        [outside enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, UNUSED_PARAM BOOL *_Nonnull stop) {
           if (idx > 0) {
               text = [NSString stringWithFormat:@"%@, \n \"%@\"", text, name];
           } else {

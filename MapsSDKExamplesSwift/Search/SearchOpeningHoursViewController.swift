@@ -34,8 +34,11 @@ class SearchOpeningHoursViewController: MapBaseViewController {
             let annotations = response
                 .results
                 .filter { $0.poi?.openingHours != nil }
-                .map { SearchResultAnnotation(result: $0) }
-
+                .map { (result) -> SearchResultAnnotation in
+                    let annotation = SearchResultAnnotation(result: result)
+                    annotation.canShowCallout = true
+                    return annotation
+                }
             self.mapView.annotationManager.add(annotations)
             self.mapView.zoomToAllAnnotations()
         }

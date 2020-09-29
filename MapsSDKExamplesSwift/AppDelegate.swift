@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
     var window: UIWindow?
     weak var mainVC: OptionsViewController!
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
@@ -174,6 +174,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = SearchPolygonsForRevGeoViewController()
             case 15:
                 newViewController = SearchOpeningHoursViewController()
+            case 16:
+                newViewController = SearchPoiDetailsAndPhotosViewController()
             default:
                 fatalError("This VC is not handled")
             }

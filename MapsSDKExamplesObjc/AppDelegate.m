@@ -53,6 +53,7 @@
 #import "SearchAdditionalDataViewController.h"
 #import "SearchBatchViewController.h"
 #import "SearchPolygonsForRevGeoViewController.h"
+#import "SearchPoiDetailsAndPhotosViewController.h"
 #import "RoutingTravelModesViewController.h"
 #import "RoutingRouteTypesViewController.h"
 #import "RoutingRouteAvoidsViewController.h"
@@ -299,6 +300,9 @@
             break;
         case 15:
             newViewController = [SearchOpeningHoursViewController new];
+            break;
+        case 16:
+            newViewController = [SearchPoiDetailsAndPhotosViewController new];
             break;
         default:
             [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];

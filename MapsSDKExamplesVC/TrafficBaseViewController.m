@@ -20,11 +20,11 @@
     self.tableView.delegate = self;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UNUSED_PARAM UITableView *)tableView viewForHeaderInSection:(UNUSED_PARAM NSInteger)section {
     return [[NSBundle bundleForClass:[TrafficBaseViewController class]] loadNibNamed:@"TrafficHeader" owner:self options:nil].firstObject;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UNUSED_PARAM UITableView *)tableView heightForHeaderInSection:(UNUSED_PARAM NSInteger)section {
     return 40;
 }
 

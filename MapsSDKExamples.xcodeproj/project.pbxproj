@@ -18,6 +18,8 @@
 		2C526E8222F82BB200158278 /* interactive_layers_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C526E7B22F82B5E00158278 /* interactive_layers_data.json */; };
 		2C526E8322F82BB200158278 /* interactive_layers_fill_layer.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C526E7922F82B5E00158278 /* interactive_layers_fill_layer.json */; };
 		2C526E8422F82BB200158278 /* interactive_layers_outline_layer.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C526E7A22F82B5E00158278 /* interactive_layers_outline_layer.json */; };
+		6E1318932506576A00879C15 /* PoiDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E131891250656E300879C15 /* PoiDetailsModel.swift */; };
+		6E1318952507A19100879C15 /* TTErrorUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1318942507A19100879C15 /* TTErrorUIAlertController.swift */; };
 		6E14CCFC2148F7D10060C405 /* RoutingBatchRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCFB2148F7D10060C405 /* RoutingBatchRouteViewController.swift */; };
 		6E14CCFF2148FBB50060C405 /* RoutingBatchRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E14CCFE2148FBB50060C405 /* RoutingBatchRouteViewController.m */; };
 		6E241CFA21AEDD2500818A53 /* MapMultipleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E241CF921AEDD2500818A53 /* MapMultipleViewController.m */; };
@@ -35,6 +37,8 @@
 		6EC1AF1C241F90A30068B60E /* MapInitializationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1AF1B241F90A30068B60E /* MapInitializationViewController.swift */; };
 		6EC1AF1F2420BCB10068B60E /* MapInitializationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1AF1E2420BCB10068B60E /* MapInitializationViewController.m */; };
 		6EC9A83F221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */; };
+		6ECC582E24FE72C700380F40 /* SearchPoiDetailsAndPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECC582D24FE72C700380F40 /* SearchPoiDetailsAndPhotosViewController.swift */; };
+		6ECC583124FE72E100380F40 /* SearchPoiDetailsAndPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECC583024FE72E100380F40 /* SearchPoiDetailsAndPhotosViewController.m */; };
 		6EDCC21F221EB23B006EC951 /* MapLayersVisibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */; };
 		6EDCC222221EB321006EC951 /* MapLayersVisibilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDCC221221EB321006EC951 /* MapLayersVisibilityViewController.m */; };
 		6EFEB0BE233A1ED600A3415B /* MapWithBuildingHeightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFEB0BD233A1ED600A3415B /* MapWithBuildingHeightsViewController.swift */; };
@@ -242,10 +246,14 @@
 		72CEFD0C213D8AB300F12B6F /* MapsSDKExamplesUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7220273F2139607500296ACF /* MapsSDKExamplesUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72E285C32133E4B600D260CB /* TrafficCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C22133E4B600D260CB /* TrafficCell.xib */; };
 		72E285C92134136500D260CB /* TrafficHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E285C82134136500D260CB /* TrafficHeader.xib */; };
+		7405BFE12502645000559670 /* PoiDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E1E342500FDA00048E3D8 /* PoiDetailsViewController.swift */; };
+		7405BFE22502645300559670 /* SocialMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405BFDD250263E800559670 /* SocialMediaView.swift */; };
+		7405BFE32502645600559670 /* PoiInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405BFDF2502642000559670 /* PoiInfoView.swift */; };
 		74146DE7245840CB00D0071D /* SearchAutocompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74146DE6245840CB00D0071D /* SearchAutocompleteViewController.m */; };
 		7418D0D12456EDB1004B7B6E /* SearchAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */; };
 		7418D0D424571D9E004B7B6E /* AutoCompleteBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */; };
 		742D9C4222F98CAA0060F740 /* ic_app_demo_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */; };
+		745E1E39250102580048E3D8 /* ImageScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E1E362500FE160048E3D8 /* ImageScroller.swift */; };
 		74617FF124AC8C8D00CDB164 /* ChargingStationCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74617FF024AC8C8D00CDB164 /* ChargingStationCalloutView.swift */; };
 		7465803D242B605100B67C40 /* RouteLocationEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7465803C242B605100B67C40 /* RouteLocationEmitter.swift */; };
 		746C2A2622F82C8900763F7A /* ic_app_test_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 746C2A2522F82C8900763F7A /* ic_app_test_source.json */; };
@@ -410,6 +418,8 @@
 		2C526E7922F82B5E00158278 /* interactive_layers_fill_layer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = interactive_layers_fill_layer.json; path = MapsSDKExamplesCommon/interactive_layers_fill_layer.json; sourceTree = SOURCE_ROOT; };
 		2C526E7A22F82B5E00158278 /* interactive_layers_outline_layer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = interactive_layers_outline_layer.json; path = MapsSDKExamplesCommon/interactive_layers_outline_layer.json; sourceTree = SOURCE_ROOT; };
 		2C526E7B22F82B5E00158278 /* interactive_layers_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = interactive_layers_data.json; path = MapsSDKExamplesCommon/interactive_layers_data.json; sourceTree = SOURCE_ROOT; };
+		6E131891250656E300879C15 /* PoiDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiDetailsModel.swift; sourceTree = "<group>"; };
+		6E1318942507A19100879C15 /* TTErrorUIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTErrorUIAlertController.swift; sourceTree = "<group>"; };
 		6E14CCFB2148F7D10060C405 /* RoutingBatchRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingBatchRouteViewController.swift; sourceTree = "<group>"; };
 		6E14CCFD2148FBB50060C405 /* RoutingBatchRouteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutingBatchRouteViewController.h; sourceTree = "<group>"; };
 		6E14CCFE2148FBB50060C405 /* RoutingBatchRouteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutingBatchRouteViewController.m; sourceTree = "<group>"; };
@@ -435,6 +445,9 @@
 		6EC1AF1D2420BCB10068B60E /* MapInitializationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapInitializationViewController.h; sourceTree = "<group>"; };
 		6EC1AF1E2420BCB10068B60E /* MapInitializationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapInitializationViewController.m; sourceTree = "<group>"; };
 		6EC9A83E221EC1E100799614 /* OptionsViewMultiSelectWithReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewMultiSelectWithReset.swift; sourceTree = "<group>"; };
+		6ECC582D24FE72C700380F40 /* SearchPoiDetailsAndPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPoiDetailsAndPhotosViewController.swift; sourceTree = "<group>"; };
+		6ECC582F24FE72E100380F40 /* SearchPoiDetailsAndPhotosViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPoiDetailsAndPhotosViewController.h; sourceTree = "<group>"; };
+		6ECC583024FE72E100380F40 /* SearchPoiDetailsAndPhotosViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPoiDetailsAndPhotosViewController.m; sourceTree = "<group>"; };
 		6EDCC21E221EB23B006EC951 /* MapLayersVisibilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayersVisibilityViewController.swift; sourceTree = "<group>"; };
 		6EDCC220221EB321006EC951 /* MapLayersVisibilityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLayersVisibilityViewController.h; sourceTree = "<group>"; };
 		6EDCC221221EB321006EC951 /* MapLayersVisibilityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapLayersVisibilityViewController.m; sourceTree = "<group>"; };
@@ -665,6 +678,8 @@
 		72E285C82134136500D260CB /* TrafficHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrafficHeader.xib; sourceTree = "<group>"; };
 		72E285CC213418A600D260CB /* ManeuverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverCell.swift; sourceTree = "<group>"; };
 		72E285CE21341BC900D260CB /* ManeuverIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManeuverIconGenerator.swift; sourceTree = "<group>"; };
+		7405BFDD250263E800559670 /* SocialMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaView.swift; sourceTree = "<group>"; };
+		7405BFDF2502642000559670 /* PoiInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiInfoView.swift; sourceTree = "<group>"; };
 		74146DE5245840CB00D0071D /* SearchAutocompleteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAutocompleteViewController.h; sourceTree = "<group>"; };
 		74146DE6245840CB00D0071D /* SearchAutocompleteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchAutocompleteViewController.m; sourceTree = "<group>"; };
 		74146DE82458492600D0071D /* TomTomOnlineSDKSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TomTomOnlineSDKSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -674,6 +689,8 @@
 		7418D0D02456EDB1004B7B6E /* SearchAutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAutocompleteViewController.swift; sourceTree = "<group>"; };
 		7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteBar.swift; sourceTree = "<group>"; };
 		742D9C4122F98CAA0060F740 /* ic_app_demo_source.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ic_app_demo_source.json; sourceTree = "<group>"; };
+		745E1E342500FDA00048E3D8 /* PoiDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiDetailsViewController.swift; sourceTree = "<group>"; };
+		745E1E362500FE160048E3D8 /* ImageScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScroller.swift; sourceTree = "<group>"; };
 		74613A0824AA4A800073F3A0 /* LongDistanceEVRoutingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongDistanceEVRoutingViewController.swift; sourceTree = "<group>"; };
 		74613A0A24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongDistanceEVRoutingViewController.h; sourceTree = "<group>"; };
 		74613A0B24AA4B410073F3A0 /* LongDistanceEVRoutingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongDistanceEVRoutingViewController.m; sourceTree = "<group>"; };
@@ -986,6 +1003,7 @@
 		7220273E2139607500296ACF /* MapsSDKExamplesCommon */ = {
 			isa = PBXGroup;
 			children = (
+				745E1E332500FD860048E3D8 /* PoiDetails */,
 				74172DAB24AF013A00215EF9 /* EVRouting */,
 				7470AEBA24643B98005DFBF3 /* TimeRangeDateTime */,
 				7470AEB7246345A5005DFBF3 /* Annotation */,
@@ -1130,6 +1148,8 @@
 				7470AEC024643E08005DFBF3 /* SearchOpeningHoursViewController.m */,
 				74F4C85F24D20F1000F2DFD2 /* SearchChargingStationsViewController.h */,
 				74F4C86024D20F1000F2DFD2 /* SearchChargingStationsViewController.m */,
+				6ECC582F24FE72E100380F40 /* SearchPoiDetailsAndPhotosViewController.h */,
+				6ECC583024FE72E100380F40 /* SearchPoiDetailsAndPhotosViewController.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1295,6 +1315,7 @@
 				7253A664212D8EB800C469FF /* SearchBatchViewController.swift */,
 				6E9BF26922201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift */,
 				7470AEB524633332005DFBF3 /* SearchOpeningHoursViewController.swift */,
+				6ECC582D24FE72C700380F40 /* SearchPoiDetailsAndPhotosViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1387,6 +1408,19 @@
 				7418D0D324571D9E004B7B6E /* AutoCompleteBar.swift */,
 			);
 			path = Autocomplete;
+			sourceTree = "<group>";
+		};
+		745E1E332500FD860048E3D8 /* PoiDetails */ = {
+			isa = PBXGroup;
+			children = (
+				745E1E342500FDA00048E3D8 /* PoiDetailsViewController.swift */,
+				6E1318942507A19100879C15 /* TTErrorUIAlertController.swift */,
+				6E131891250656E300879C15 /* PoiDetailsModel.swift */,
+				745E1E362500FE160048E3D8 /* ImageScroller.swift */,
+				7405BFDD250263E800559670 /* SocialMediaView.swift */,
+				7405BFDF2502642000559670 /* PoiInfoView.swift */,
+			);
+			path = PoiDetails;
 			sourceTree = "<group>";
 		};
 		7470AEB7246345A5005DFBF3 /* Annotation */ = {
@@ -1928,15 +1962,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745E1E39250102580048E3D8 /* ImageScroller.swift in Sources */,
 				72006920213E4BEB005B20D1 /* ButtonsBaseViewController.m in Sources */,
 				7200691F213E4BEB005B20D1 /* BaseViewController.m in Sources */,
 				7200696C213FA98E005B20D1 /* SearchBaseViewController.m in Sources */,
 				72AB7366213FC2E100D72DF1 /* RoutingBaseViewController.m in Sources */,
 				9C78AB60220D7B5200EAC9FA /* GeofencingBaseViewController.m in Sources */,
+				7405BFE22502645300559670 /* SocialMediaView.swift in Sources */,
+				7405BFE32502645600559670 /* PoiInfoView.swift in Sources */,
 				72006949213E7805005B20D1 /* CollectionBaseViewController.m in Sources */,
+				7405BFE12502645000559670 /* PoiDetailsViewController.swift in Sources */,
 				72006955213EACF1005B20D1 /* TrafficBaseViewController.m in Sources */,
 				7200691E213E4BEB005B20D1 /* MapBaseViewController.m in Sources */,
 				72006951213E845B005B20D1 /* TableBaseViewController.m in Sources */,
+				6E1318932506576A00879C15 /* PoiDetailsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2036,6 +2075,7 @@
 				9C78AB5C220D7ABF00EAC9FA /* GeofencingReportViewController.m in Sources */,
 				7280A23D2144F3220078B943 /* SearchAlongTheRouteViewController.m in Sources */,
 				7280A2312144F2BF0078B943 /* SearchLanguageSelectorViewController.m in Sources */,
+				6ECC583124FE72E100380F40 /* SearchPoiDetailsAndPhotosViewController.m in Sources */,
 				74C3360B2458A0A400EFBF04 /* TTAutocompleteSegment+TTAutocompleteSegment_Helpers.m in Sources */,
 				7470AEC124643E08005DFBF3 /* SearchOpeningHoursViewController.m in Sources */,
 			);
@@ -2074,6 +2114,7 @@
 				9CCB057421885E55006BA780 /* FollowTheChevronSource.swift in Sources */,
 				7220276C21396FC000296ACF /* FormatUtils.swift in Sources */,
 				74F4C85E24D161D800F2DFD2 /* ChargeStationDetailsAnnotation.swift in Sources */,
+				6E1318952507A19100879C15 /* TTErrorUIAlertController.swift in Sources */,
 				7470AEBE24643CAB005DFBF3 /* MultiLineCalloutView.swift in Sources */,
 				72202783213D01B600296ACF /* SubOptions.swift in Sources */,
 				7470AEBC24643BA8005DFBF3 /* TTTimeRangeDateTime+Helper.swift in Sources */,
@@ -2138,6 +2179,7 @@
 				72006940213E68D1005B20D1 /* MapUIExtensionsViewController.swift in Sources */,
 				7200694A213E7F24005B20D1 /* MapStaticImageViewController.swift in Sources */,
 				723F7BD421ECC6FE006AC52F /* RoutingBatchReachableRouteViewController.swift in Sources */,
+				6ECC582E24FE72C700380F40 /* SearchPoiDetailsAndPhotosViewController.swift in Sources */,
 				72006961213FA5D6005B20D1 /* SearchTypeaheadParameterViewController.swift in Sources */,
 				7200695C213EB224005B20D1 /* TrafficIncidentsViewController.swift in Sources */,
 				9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */,
@@ -2257,6 +2299,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2281,6 +2324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2361,7 +2405,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.mapssdkexamples.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f275ba89-e969-4da3-8715-6282b3b3260f";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Enterprise;
@@ -2387,7 +2431,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f275ba89-e969-4da3-8715-6282b3b3260f";
 				PROVISIONING_PROFILE_SPECIFIER = "Online Maps SDK Examples Enterprise";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Enterprise;
@@ -2439,6 +2483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2614,7 +2659,7 @@
 				PROVISIONING_PROFILE = "5af181df-43d1-423e-8ffa-ea927f7a3d7e";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.tomtom.mapssdkexamples.objective-c";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2640,7 +2685,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.tomtom.mapssdkexamples.objective-c";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -2879,7 +2924,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d0f8cf10-0d18-4ea5-8f48-567ebecaaa8f";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.tomtom.mapssdkexamples.swift";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Adhoc;
@@ -2905,7 +2950,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d0f8cf10-0d18-4ea5-8f48-567ebecaaa8f";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.tomtom.mapssdkexamples.objective-c";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Adhoc;
@@ -2957,6 +3002,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomtom.MapsSDKExamplesVC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3097,7 +3143,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5af181df-43d1-423e-8ffa-ea927f7a3d7e";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.tomtom.mapssdkexamples.swift";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3124,7 +3170,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f59af620-d2d8-4ba8-b083-9949c461b896";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.tomtom.mapssdkexamples.swift";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

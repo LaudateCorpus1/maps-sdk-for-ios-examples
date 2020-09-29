@@ -17,6 +17,7 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
         setup()
     }
 
+    @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has been implement")
     }
