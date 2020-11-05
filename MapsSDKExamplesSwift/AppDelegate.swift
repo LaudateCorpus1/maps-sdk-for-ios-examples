@@ -49,40 +49,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
             case 6:
                 newViewController = MapLayersVisibilityViewController()
             case 7:
-                newViewController = MapDynamicMapSourcesViewController()
+                newViewController = MapPoiLayersVisibilityViewController()
             case 8:
-                newViewController = MapDynamicLayerOrderingViewController()
+                newViewController = MapDynamicMapSourcesViewController()
             case 9:
-                newViewController = MapInteractiveLayersViewController()
+                newViewController = MapDynamicLayerOrderingViewController()
             case 10:
-                newViewController = MapImageClusteringViewController()
+                newViewController = MapInteractiveLayersViewController()
             case 11:
-                newViewController = MapStaticImageViewController()
+                newViewController = MapImageClusteringViewController()
             case 12:
-                newViewController = MapCenteringViewController()
+                newViewController = MapStaticImageViewController()
             case 13:
-                newViewController = MapInitializationViewController()
+                newViewController = MapCenteringViewController()
             case 14:
-                newViewController = MapPerspectiveViewController()
+                newViewController = MapInitializationViewController()
             case 15:
-                newViewController = MapEventsViewController()
+                newViewController = MapPerspectiveViewController()
             case 16:
-                newViewController = MapUIExtensionsViewController()
+                newViewController = MapSnapshotImageViewController()
             case 17:
-                newViewController = MapMarkersViewController()
+                newViewController = MapEventsViewController()
             case 18:
-                newViewController = MapAdvancedMarkersViewController()
+                newViewController = MapUIExtensionsViewController()
             case 19:
-                newViewController = MapBallonsViewController()
+                newViewController = MapMarkersViewController()
             case 20:
-                newViewController = MapShapesViewController()
+                newViewController = MapAdvancedMarkersViewController()
             case 21:
-                newViewController = MapMarkersClusteringViewController()
+                newViewController = MapBallonsViewController()
             case 22:
-                newViewController = MapMultipleViewController()
+                newViewController = MapShapesViewController()
             case 23:
-                newViewController = MapWithBuildingHeightsViewController()
+                newViewController = MapMarkersClusteringViewController()
             case 24:
+                newViewController = MapMultipleViewController()
+            case 25:
+                newViewController = MapWithBuildingHeightsViewController()
+            case 26:
                 newViewController = MapRouteCustomisationViewController()
             default:
                 fatalError("This VC is not handled")

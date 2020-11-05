@@ -29,7 +29,7 @@ import TomTomOnlineSDKRouting
         self.travelMode = travelMode
     }
 
-    @objc public static var fastestWithTraffic: RouteOptions {
-        return RouteOptions(routeType: .fastest, considerTraffic: true, avoidTypes: [], travelMode: .car)
+    @objc public static var fastestWithoutTraffic: RouteOptions {
+        return RouteOptions(routeType: .fastest, considerTraffic: false, avoidTypes: [], travelMode: .car)
     }
 }

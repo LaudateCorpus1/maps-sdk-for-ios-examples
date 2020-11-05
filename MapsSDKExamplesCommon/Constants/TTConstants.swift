@@ -35,7 +35,7 @@ public class TTColor: NSObject {
     @objc public static func GreenBright() -> UIColor { return UIColor(red: 0.19, green: 0.94, blue: 0.00, alpha: 1.0) }
 }
 
-struct TTCollectionViewCell {
+enum TTCollectionViewCell {
     static let UIEdgeInsetTop: CGFloat = 8.0
     static let UIEdgeInsetBottom: CGFloat = 8.0
     static let UIEdgeInsetLeft: CGFloat = 8.0
@@ -65,6 +65,8 @@ public class TTCoordinate: NSObject {
     @objc public static func LONDON_TOP_LEFT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.544300, -0.176267) }
     @objc public static func LONDON_BOTTOM_RIGHT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.465582, -0.071777) }
     @objc public static func BERLIN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.520007, 13.404954) }
+    @objc public static func BERLIN_BOUNDINGBOX_LT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.525902, 13.387796) }
+    @objc public static func BERLIN_BOUNDINGBOX_RB() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.518000, 13.403953) }
     @objc public static func POLAND() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.9324518, 16.8922826) }
     @objc public static func AMSTERDAM() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.377271, 4.909466) }
     @objc public static func AMSTERDAM_CENTER_LOCATION() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.373154, 4.890659) }
@@ -171,7 +173,7 @@ public class TTCamera: NSObject {
     }
 
     @objc public static func MAP_DEFAULT_INSETS() -> UIEdgeInsets {
-        return UIEdgeInsetsMake(TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale)
+        return UIEdgeInsets(top: TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, left: TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale, bottom: TTCamera.DEFAULT_VERTICAL_PADDING() * UIScreen.main.scale, right: TTCamera.DEFAULT_HORIZONTAL_PADDING() * UIScreen.main.scale)
     }
 }
 

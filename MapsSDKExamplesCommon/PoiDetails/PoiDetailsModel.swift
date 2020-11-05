@@ -26,12 +26,12 @@ import UIKit
 
     @objc public init?(photos: [UIImage], annotationData: SearchResultAnnotation, poiDetails: PoiDetails) {
         guard let poiName = annotationData.result.poi?.name,
-            let adress = annotationData.result.address.freeformAddress,
-            let ratingValue = poiDetails.rating?.value,
-            let maxRating = poiDetails.rating?.maxValue,
-            let pricing = poiDetails.priceRange?.value,
-            let maxPricing = poiDetails.priceRange?.maxValue,
-            let category = annotationData.result.poi?.categories.first else { return nil }
+              let adress = annotationData.result.address.freeformAddress,
+              let ratingValue = poiDetails.rating?.value,
+              let maxRating = poiDetails.rating?.maxValue,
+              let pricing = poiDetails.priceRange?.value,
+              let maxPricing = poiDetails.priceRange?.maxValue,
+              let category = annotationData.result.poi?.categories.first else { return nil }
 
         let socialMediaArray = poiDetails.socialMedia.map { $0.url }
         let df = DateFormatter()

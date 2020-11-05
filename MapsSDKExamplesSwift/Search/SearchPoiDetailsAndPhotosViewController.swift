@@ -71,7 +71,7 @@ extension SearchPoiDetailsAndPhotosViewController: TTAnnotationDelegate {
         mapView.center(on: annotation.coordinate)
 
         guard let poiAnnotation = annotation as? SearchResultAnnotation,
-            let additionalDataSources = poiAnnotation.result.additionalDataSources
+              let additionalDataSources = poiAnnotation.result.additionalDataSources
         else {
             return
         }

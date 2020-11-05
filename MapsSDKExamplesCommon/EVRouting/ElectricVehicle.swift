@@ -18,17 +18,17 @@ import TomTomOnlineSDKRouting
 
     var currentChargeInkWh: Double = 20
 
-    var auxiliaryPowerInkW: Double = 0.2
+    var auxiliaryPowerInkW: Double = 1
 
     var speedConsumptionInKWhPerHundredKm: [NSNumber: NSNumber] = [77: 32, 18.01: 10.87]
 }
 
 @objc class LongRangeConsumption: NSObject, ElectricVehicleConsumption {
-    var maxChargeInkWh: Double = 80
+    var maxChargeInkWh: Double = 100
 
-    var currentChargeInkWh: Double = 20
+    var currentChargeInkWh: Double = 40
 
-    var auxiliaryPowerInkW: Double = 0.2
+    var auxiliaryPowerInkW: Double = 1
 
     var speedConsumptionInKWhPerHundredKm: [NSNumber: NSNumber] = [77: 32, 18.01: 10.87]
 }
@@ -49,7 +49,7 @@ import TomTomOnlineSDKRouting
 
     public var minChargeAtChargingStopsInkWh: Double = 4
 
-    public var chargingModes: [ChargingMode] = [.init(chargingConnections: [.init(facilityType: .charge380To480V3PhaseAt32A, plugType: .IEC62196TypeTwoOutlet)],
+    public var chargingModes: [ChargingMode] = [.init(chargingConnections: [.init(facilityType: .charge380To480V3PhaseAt32A, plugType: .IEC62196TypeTwoOutlet), .init(facilityType: .charge200To240V1PhaseAt16A, plugType: .IEC62196TypeTwoOutlet), .init(facilityType: .charge200To240V1PhaseAt32A, plugType: .IEC62196TypeTwoOutlet)],
                                                       chargingCurves: [.init(chargeInKwh: 6, timeToCharge: 360), .init(chargeInKwh: 50, timeToCharge: 4680)])]
 }
 
@@ -58,6 +58,6 @@ import TomTomOnlineSDKRouting
 
     public var minChargeAtChargingStopsInkWh: Double = 8
 
-    public var chargingModes: [ChargingMode] = [.init(chargingConnections: [.init(facilityType: .charge380To480V3PhaseAt32A, plugType: .IEC62196TypeTwoOutlet)],
-                                                      chargingCurves: [.init(chargeInKwh: 6, timeToCharge: 360), .init(chargeInKwh: 80, timeToCharge: 6680)])]
+    public var chargingModes: [ChargingMode] = [.init(chargingConnections: [.init(facilityType: .charge380To480V3PhaseAt32A, plugType: .IEC62196TypeTwoOutlet), .init(facilityType: .charge200To240V1PhaseAt16A, plugType: .IEC62196TypeTwoOutlet), .init(facilityType: .charge200To240V1PhaseAt32A, plugType: .IEC62196TypeTwoOutlet)],
+                                                      chargingCurves: [.init(chargeInKwh: 6, timeToCharge: 360), .init(chargeInKwh: 100, timeToCharge: 6680)])]
 }

@@ -25,7 +25,7 @@ public class MatrixETAView: UITableView, UITableViewDataSource, UITableViewDeleg
     private var currentThirdColumn = [String]()
     private var results: [TTMatrixRoutingResultKey: TTMatrixRouteResult]?
 
-    override public init(frame: CGRect, style: UITableViewStyle) {
+    override public init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setup()
     }

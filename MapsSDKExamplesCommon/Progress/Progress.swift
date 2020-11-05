@@ -30,7 +30,7 @@ public class Progress: NSObject {
         superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[v0]-0-|", options: [], metrics: nil, views: ["v0": layer]))
         superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v0]-0-|", options: [], metrics: nil, views: ["v0": layer]))
 
-        let activitiIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let activitiIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activitiIndicator.color = TTColor.White()
         layer.addSubview(activitiIndicator)
         activitiIndicator.startAnimating()

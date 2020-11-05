@@ -50,7 +50,7 @@
     CLLocationCoordinate2D origin = [TTCoordinate AMSTERDAM];
     CLLocationCoordinate2D destination = [TTCoordinate BERLIN];
     ElectricVehicle *vehicle = [ElectricVehicle longRange];
-    RouteOptions *routeOptions = [RouteOptions fastestWithTraffic];
+    RouteOptions *routeOptions = [RouteOptions fastestWithoutTraffic];
     LongRangeChargingSchema *shortRange = [[LongRangeChargingSchema alloc] init];
 
     __weak LongDistanceEVRoutingViewController *weakSelf = self;
@@ -62,11 +62,25 @@
                                   charging:shortRange
                                 completion:^(NSArray<FullRouteEV *> *_Nullable result, NSError *_Nullable error) {
                                   LongDistanceEVRoutingViewController *strongSelf = weakSelf;
-                                  if (strongSelf != NULL && result != NULL && result.count > 0) {
-                                      [strongSelf displayRoute:result[0] forVehicle:vehicle];
-                                      [strongSelf drawChargingStation:result[0]];
+                                  if (strongSelf != NULL) {
+                                      if (result != NULL && result.count > 0) {
+                                          [strongSelf displayRoute:result[0] forVehicle:vehicle];
+                                          [strongSelf drawChargingStation:result[0]];
+                                      } else {
+                                          [strongSelf handleNoRoutesFound];
+                                      }
                                   }
                                 }];
+}
+- (void)handleNoRoutesFound {
+    [self.progress hide];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Info" message:@"Failed to fetch route info, please try again later." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction *_Nonnull action) {
+                                              [alert dismissViewControllerAnimated:YES completion:NULL];
+                                            }]];
+    [self presentViewController:alert animated:YES completion:NULL];
 }
 
 - (void)planRouteShortRange {
@@ -76,7 +90,7 @@
     CLLocationCoordinate2D origin = [TTCoordinate AMSTERDAM];
     CLLocationCoordinate2D destination = [TTCoordinate BERLIN];
     ElectricVehicle *vehicle = [ElectricVehicle shortRange];
-    RouteOptions *routeOptions = [RouteOptions fastestWithTraffic];
+    RouteOptions *routeOptions = [RouteOptions fastestWithoutTraffic];
     __weak LongDistanceEVRoutingViewController *weakSelf = self;
     ShortRangeChargingSchema *shortRange = [[ShortRangeChargingSchema alloc] init];
 
@@ -87,9 +101,13 @@
                                   charging:shortRange
                                 completion:^(NSArray<FullRouteEV *> *_Nullable result, NSError *_Nullable error) {
                                   LongDistanceEVRoutingViewController *strongSelf = weakSelf;
-                                  if (strongSelf != NULL && result != NULL && result.count > 0) {
-                                      [strongSelf displayRoute:result[0] forVehicle:vehicle];
-                                      [strongSelf drawChargingStation:result[0]];
+                                  if (strongSelf != NULL) {
+                                      if (result != NULL && result.count > 0) {
+                                          [strongSelf displayRoute:result[0] forVehicle:vehicle];
+                                          [strongSelf drawChargingStation:result[0]];
+                                      } else {
+                                          [strongSelf handleNoRoutesFound];
+                                      }
                                   }
                                 }];
 }

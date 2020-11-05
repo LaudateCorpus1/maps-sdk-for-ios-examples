@@ -13,9 +13,9 @@ import UIKit
 
 @objc public class TTErrorUIAlertController: UIAlertController {
     @objc public class func create() -> UIAlertController {
-        let alert = UIAlertController(title: "Ups..", message: "something went wrong", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Ups..", message: "something went wrong", preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
 
         }))
 

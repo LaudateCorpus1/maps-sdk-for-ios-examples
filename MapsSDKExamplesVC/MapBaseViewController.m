@@ -52,4 +52,21 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[v0(50)]" options:0 metrics:nil views:@{@"v0" : etaView}]];
 }
 
+- (void)setupSnapshotButton {
+    self.snapshotButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.snapshotButton addTarget:self action:@selector(snapshotClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *snapImage = [UIImage imageNamed:@"camera"];
+    [self.snapshotButton setImage:snapImage forState:UIControlStateNormal];
+    self.snapshotButton.translatesAutoresizingMaskIntoConstraints = false;
+    [self.view addSubview:self.snapshotButton];
+
+    [self.snapshotButton.bottomAnchor constraintEqualToAnchor:self.mapView.bottomAnchor constant:-50].active = true;
+    [self.snapshotButton.rightAnchor constraintEqualToAnchor:self.mapView.rightAnchor constant:-30].active = true;
+    [self.snapshotButton.heightAnchor constraintEqualToConstant:50].active = true;
+    [self.snapshotButton.widthAnchor constraintEqualToConstant:50].active = true;
+}
+
+- (void)snapshotClicked:(UIButton *)sender {
+}
+
 @end

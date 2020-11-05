@@ -88,6 +88,7 @@
     if (!self.chevron) {
         return;
     }
+    [self.mapView.trackingManager setTrackingScreenCoordinates:CGPointMake(200, 500)];
     [self.mapView.trackingManager setBearingSmoothingFilter:[TTTrackingManagerDefault bearingSmoothFactor]];
     [self.mapView.trackingManager startTrackingObject:self.chevron];
 }

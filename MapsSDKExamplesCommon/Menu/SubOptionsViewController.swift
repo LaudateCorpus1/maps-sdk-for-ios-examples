@@ -51,7 +51,7 @@ class SubOptionsViewController: OptionsBaseViewController, UICollectionViewDeleg
         let orientation = UIApplication.shared.statusBarOrientation
         let spaceLeftAndRight = TTCollectionViewCell.UIEdgeInsetRight + TTCollectionViewCell.UIEdgeInsetLeft
 
-        if UIInterfaceOrientationIsPortrait(orientation) {
+        if orientation.isPortrait {
             return CGSize(width: (self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.HeightPortrait)
         } else {
             return CGSize(width: (self.collectionView?.frame.width)! - spaceLeftAndRight, height: TTCollectionViewCell.HeightLandscape)

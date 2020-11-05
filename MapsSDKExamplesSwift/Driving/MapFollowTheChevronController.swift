@@ -81,6 +81,7 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
         mapView.setCameraPosition(camera)
 
         guard let chevron = self.chevron else { return }
+        mapView.trackingManager.setTrackingScreenCoordinates(CGPoint(x: 200, y: 500))
         mapView.trackingManager.setBearingSmoothingFilter(TTTrackingManagerDefault.bearingSmoothFactor())
         mapView.trackingManager.start(chevron)
     }

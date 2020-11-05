@@ -110,11 +110,11 @@ extension AutoCompleteBar: UITableViewDataSource, UITableViewDelegate {
     private func decorate(cell: UITableViewCell, indexPath: IndexPath) {
         let model = data[indexPath.row]
 
-        let titleAttributes: [NSAttributedStringKey: Any] = [.foregroundColor: UIColor.black,
-                                                             .font: UIFont.boldSystemFont(ofSize: 15)]
+        let titleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black,
+                                                              .font: UIFont.boldSystemFont(ofSize: 15)]
 
-        let subTitleAttributes: [NSAttributedStringKey: Any] = [.foregroundColor: UIColor.lightGray,
-                                                                .font: UIFont.boldSystemFont(ofSize: 10)]
+        let subTitleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.lightGray,
+                                                                 .font: UIFont.boldSystemFont(ofSize: 10)]
 
         let title = model.title
         let subTitle = model.subTitle

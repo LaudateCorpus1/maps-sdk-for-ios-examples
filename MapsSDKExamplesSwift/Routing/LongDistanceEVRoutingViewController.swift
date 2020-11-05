@@ -52,7 +52,7 @@ class LongDistanceEVRoutingViewController: RoutingBaseViewController, TTRouteRes
         let origin = TTCoordinate.AMSTERDAM()
         let destination = TTCoordinate.BERLIN()
         let vehicle = ElectricVehicle.longRange
-        let route = RouteOptions.fastestWithTraffic
+        let route = RouteOptions.fastestWithoutTraffic
         let chargeSchema = LongRangeChargingSchema()
 
         evPlanner.planRoute(origin: origin, destination: destination, electricVehicle: vehicle, route: route, charging: chargeSchema) { [weak self] routes, _ in
@@ -60,8 +60,19 @@ class LongDistanceEVRoutingViewController: RoutingBaseViewController, TTRouteRes
             if let route = routes?.first {
                 self.drawRoute(route, vehicle: vehicle)
                 self.drawChargingStation(route)
+            } else {
+                self.handleNoRoutesFound()
             }
         }
+    }
+
+    func handleNoRoutesFound() {
+        progress.hide()
+        let alert = UIAlertController(title: "Info", message: "Failed to fetch route info, please try again later.", preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default, handler: { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
 
     func planRouteShortRange() {
@@ -70,13 +81,15 @@ class LongDistanceEVRoutingViewController: RoutingBaseViewController, TTRouteRes
         let origin = TTCoordinate.AMSTERDAM()
         let destination = TTCoordinate.BERLIN()
         let vehicle = ElectricVehicle.shortRange
-        let route = RouteOptions.fastestWithTraffic
+        let route = RouteOptions.fastestWithoutTraffic
         let chargeSchema = ShortRangeChargingSchema()
         evPlanner.planRoute(origin: origin, destination: destination, electricVehicle: vehicle, route: route, charging: chargeSchema) { [weak self] routes, _ in
             guard let self = self else { return }
             if let route = routes?.first {
                 self.drawRoute(route, vehicle: vehicle)
                 self.drawChargingStation(route)
+            } else {
+                self.handleNoRoutesFound()
             }
         }
     }

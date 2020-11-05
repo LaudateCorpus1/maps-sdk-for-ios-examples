@@ -18,9 +18,12 @@
 
 @property(nonatomic, weak) ETAView *etaView;
 @property(nonatomic, weak) TTMapView *mapView;
+@property(nonatomic) UIButton *snapshotButton;
 - (void)setupEtaView;
 - (void)setupMap;
 - (void)setupInitialCameraPosition;
 - (void)onMapReady;
+- (void)setupSnapshotButton;
+- (void)snapshotClicked:(UIButton *)sender;
 
 @end

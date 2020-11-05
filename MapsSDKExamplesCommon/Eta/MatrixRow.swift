@@ -18,7 +18,7 @@ class MatrixRow: UITableViewCell {
     @IBOutlet var label_4: UILabel!
     @IBOutlet var label_5: UILabel!
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }

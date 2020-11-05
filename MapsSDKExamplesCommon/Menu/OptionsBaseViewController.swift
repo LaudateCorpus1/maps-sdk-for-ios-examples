@@ -16,7 +16,7 @@ public class OptionsBaseViewController: UICollectionViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.barTintColor = TTColor.BlackLight()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = TTColor.White()
 
@@ -26,9 +26,9 @@ public class OptionsBaseViewController: UICollectionViewController {
     func setupRightButton() {
         let customNavView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         let copyrightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        copyrightButton.setImage(UIImage(named: "info_icon"), for: UIControlState.normal)
+        copyrightButton.setImage(UIImage(named: "info_icon"), for: UIControl.State.normal)
 
-        copyrightButton.addTarget(self, action: #selector(self.pressCopyrightButton), for: UIControlEvents.touchUpInside)
+        copyrightButton.addTarget(self, action: #selector(self.pressCopyrightButton), for: UIControl.Event.touchUpInside)
         customNavView.addSubview(copyrightButton)
         let rightBarButton = UIBarButtonItem(customView: customNavView)
         self.navigationItem.rightBarButtonItem = rightBarButton

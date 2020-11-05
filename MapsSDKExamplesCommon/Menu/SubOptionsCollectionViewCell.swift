@@ -100,8 +100,8 @@ class SubOptionsCollectionViewCell: UICollectionViewCell {
 
     let goIntoButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "Combined-Shape-Hilight"), for: UIControlState.normal)
-        button.setImage(UIImage(named: "Combined-Shape"), for: UIControlState.highlighted)
+        button.setImage(UIImage(named: "Combined-Shape-Hilight"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "Combined-Shape"), for: UIControl.State.highlighted)
         button.addTarget(self, action: #selector(pressButton(_:)), for: .touchUpInside)
 
         return button
