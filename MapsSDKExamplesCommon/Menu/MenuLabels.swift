@@ -70,7 +70,7 @@ public class MenuLabels: NSObject {
                                                                     titleLabel: "Map perspective",
                                                                     subtitleLabel: "Switch between 2D and 3D mode to change map perspective"),
                                                          SubOptions(iconImage: "snapshot",
-                                                                    titleLabel: "Share snapshot image",
+                                                                    titleLabel: "Map snapshot image",
                                                                     subtitleLabel: "The snapshot functionality generates a static image of the map with markers, routes, and shapes that are rendered on the map."),
                                                          SubOptions(iconImage: "map_events_image",
                                                                     titleLabel: "Map events",
