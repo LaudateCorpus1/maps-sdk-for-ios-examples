@@ -1189,35 +1189,6 @@
       "type": "line"
     },
     {
-      "id": "Toll minor local road t",
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "line-round-limit": 1.05,
-        "visibility": "visible"
-      },
-      "metadata": "group:road",
-      "minzoom": 10,
-      "paint": {
-        "line-color": "rgb(46, 53, 85)",
-        "line-width": {
-          "stops": [
-            [
-              15,
-              10
-            ],
-            [
-              18,
-              19
-            ]
-          ]
-        }
-      },
-      "source": "vectorTiles",
-      "source-layer": "Toll minor local road",
-      "type": "line"
-    },
-    {
       "id": "Toll local road t",
       "layout": {
         "line-cap": "round",
@@ -1710,21 +1681,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 15,
+      "minzoom": 13,
       "paint": {
-        "line-color": "rgb(43, 49, 56)",
-        "line-width": {
-          "stops": [
-            [
-              15,
-              8
-            ],
-            [
-              18,
-              16
-            ]
-          ]
-        }
+        "line-color": "rgb(46, 53, 85)",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          2,
+          14,
+          4,
+          15,
+          10,
+          16,
+          14,
+          17,
+          16,
+          18,
+          18
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -1812,7 +1788,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(45, 46, 46)",
         "line-width": {
@@ -2549,21 +2525,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 14,
+      "minzoom": 13,
       "paint": {
         "line-color": "rgb(75, 84, 90)",
-        "line-width": {
-          "stops": [
-            [
-              14,
-              2
-            ],
-            [
-              18,
-              12
-            ]
-          ]
-        }
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2,
+          15,
+          5,
+          16,
+          8,
+          17,
+          10,
+          18,
+          12
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -3455,7 +3436,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-width": {
@@ -3501,7 +3482,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-pattern": "under-construction-night",
@@ -5037,21 +5018,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 15,
+      "minzoom": 13,
       "paint": {
-        "line-color": "rgb(43, 49, 56)",
-        "line-width": {
-          "stops": [
-            [
-              15,
-              8
-            ],
-            [
-              18,
-              16
-            ]
-          ]
-        }
+        "line-color": "rgb(46, 53, 85)",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          2,
+          14,
+          4,
+          15,
+          10,
+          16,
+          14,
+          17,
+          16,
+          18,
+          18
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -5139,7 +5125,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(45, 46, 46)",
         "line-width": {
@@ -5876,21 +5862,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 14,
+      "minzoom": 13,
       "paint": {
         "line-color": "rgb(75, 84, 90)",
-        "line-width": {
-          "stops": [
-            [
-              14,
-              2
-            ],
-            [
-              18,
-              12
-            ]
-          ]
-        }
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2,
+          15,
+          5,
+          16,
+          8,
+          17,
+          10,
+          18,
+          12
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -6782,7 +6773,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-width": {
@@ -6828,7 +6819,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-pattern": "under-construction-night",
@@ -11009,21 +11000,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 15,
+      "minzoom": 12,
       "paint": {
-        "line-color": "rgb(47, 51, 58)",
-        "line-width": {
-          "stops": [
-            [
-              15,
-              8
-            ],
-            [
-              18,
-              16
-            ]
-          ]
-        }
+        "line-color": "rgb(46, 53, 85)",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          2,
+          14,
+          4,
+          15,
+          10,
+          16,
+          14,
+          17,
+          16,
+          18,
+          18
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -11108,7 +11104,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(45, 46, 46)",
         "line-width": {
@@ -11825,21 +11821,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 14,
+      "minzoom": 12,
       "paint": {
         "line-color": "rgb(75, 84, 90)",
-        "line-width": {
-          "stops": [
-            [
-              14,
-              2
-            ],
-            [
-              18,
-              12
-            ]
-          ]
-        }
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2,
+          15,
+          5,
+          16,
+          8,
+          17,
+          10,
+          18,
+          12
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -12707,7 +12708,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-width": {
@@ -12752,7 +12753,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-pattern": "under-construction-night",
@@ -14250,21 +14251,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 15,
+      "minzoom": 13,
       "paint": {
-        "line-color": "rgb(47, 51, 58)",
-        "line-width": {
-          "stops": [
-            [
-              15,
-              8
-            ],
-            [
-              18,
-              16
-            ]
-          ]
-        }
+        "line-color": "rgb(46, 53, 85)",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          2,
+          14,
+          4,
+          15,
+          10,
+          16,
+          14,
+          17,
+          16,
+          18,
+          18
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -14352,7 +14358,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(45, 46, 46)",
         "line-width": {
@@ -15089,21 +15095,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 14,
+      "minzoom": 13,
       "paint": {
         "line-color": "rgb(75, 84, 90)",
-        "line-width": {
-          "stops": [
-            [
-              14,
-              2
-            ],
-            [
-              18,
-              12
-            ]
-          ]
-        }
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2,
+          15,
+          5,
+          16,
+          8,
+          17,
+          10,
+          18,
+          12
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -15995,7 +16006,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-width": {
@@ -16041,7 +16052,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-pattern": "under-construction-night",
@@ -17577,21 +17588,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 15,
+      "minzoom": 13,
       "paint": {
-        "line-color": "rgb(47, 51, 58)",
-        "line-width": {
-          "stops": [
-            [
-              15,
-              8
-            ],
-            [
-              18,
-              16
-            ]
-          ]
-        }
+        "line-color": "rgb(46, 53, 85)",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          2,
+          14,
+          4,
+          15,
+          10,
+          16,
+          14,
+          17,
+          16,
+          18,
+          18
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -17679,7 +17695,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(45, 46, 46)",
         "line-width": {
@@ -18416,21 +18432,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 14,
+      "minzoom": 13,
       "paint": {
         "line-color": "rgb(75, 84, 90)",
-        "line-width": {
-          "stops": [
-            [
-              14,
-              2
-            ],
-            [
-              18,
-              12
-            ]
-          ]
-        }
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2,
+          15,
+          5,
+          16,
+          8,
+          17,
+          10,
+          18,
+          12
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -19322,7 +19343,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-width": {
@@ -19368,7 +19389,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-pattern": "under-construction-night",
@@ -20904,21 +20925,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 15,
+      "minzoom": 13,
       "paint": {
-        "line-color": "rgb(47, 51, 58)",
-        "line-width": {
-          "stops": [
-            [
-              15,
-              8
-            ],
-            [
-              18,
-              16
-            ]
-          ]
-        }
+        "line-color": "rgb(46, 53, 85)",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          2,
+          14,
+          4,
+          15,
+          10,
+          16,
+          14,
+          17,
+          16,
+          18,
+          18
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -21006,7 +21032,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(45, 46, 46)",
         "line-width": {
@@ -21743,21 +21769,26 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 14,
+      "minzoom": 13,
       "paint": {
         "line-color": "rgb(75, 84, 90)",
-        "line-width": {
-          "stops": [
-            [
-              14,
-              2
-            ],
-            [
-              18,
-              12
-            ]
-          ]
-        }
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2,
+          15,
+          5,
+          16,
+          8,
+          17,
+          10,
+          18,
+          12
+        ]
       },
       "source": "vectorTiles",
       "source-layer": "Toll minor local road",
@@ -22649,7 +22680,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-width": {
@@ -22695,7 +22726,7 @@
         "visibility": "visible"
       },
       "metadata": "group:road",
-      "minzoom": 11,
+      "minzoom": 10,
       "paint": {
         "line-color": "rgb(80, 87, 90)",
         "line-pattern": "under-construction-night",
@@ -104450,7 +104481,7 @@
             ],
             [
               8,
-              "road_closed_grey"
+              "road_closed"
             ],
             [
               9,
@@ -104467,6 +104498,10 @@
             [
               12,
               "detour_grey"
+            ],
+            [
+              14,
+              "broken_down_vehicle_grey"
             ]
           ]
         },
@@ -104537,7 +104572,7 @@
             ],
             [
               8,
-              "road_closed_orange"
+              "road_closed"
             ],
             [
               9,
@@ -104554,6 +104589,10 @@
             [
               12,
               "detour_orange"
+            ],
+            [
+              14,
+              "broken_down_vehicle_orange"
             ]
           ]
         },
@@ -104624,7 +104663,7 @@
             ],
             [
               8,
-              "road_closed_light_red"
+              "road_closed"
             ],
             [
               9,
@@ -104641,6 +104680,10 @@
             [
               12,
               "detour_light_red"
+            ],
+            [
+              14,
+              "broken_down_vehicle_light_red"
             ]
           ]
         },
@@ -104711,7 +104754,7 @@
             ],
             [
               8,
-              "road_closed_dark_red"
+              "road_closed"
             ],
             [
               9,
@@ -104728,6 +104771,10 @@
             [
               12,
               "detour_dark_red"
+            ],
+            [
+              14,
+              "broken_down_vehicle_dark_red"
             ]
           ]
         },
@@ -104798,7 +104845,7 @@
             ],
             [
               8,
-              "road_closed_grey"
+              "road_closed"
             ],
             [
               9,
@@ -104815,6 +104862,10 @@
             [
               12,
               "detour_grey"
+            ],
+            [
+              14,
+              "broken_down_vehicle_grey"
             ]
           ]
         },
@@ -114148,7 +114199,7 @@
     }
   ],
   "metadata": {
-    
+
   },
   "sources": {
     "vectorTiles": {

@@ -48,6 +48,8 @@ class MapEventsViewController: MapBaseViewController, TTMapViewDelegate {
             toast(message: "Panning", coordinate: coordinate)
         case .end:
             toast(message: "Panning finished", coordinate: coordinate)
+        @unknown default:
+            return
         }
     }
 

@@ -190,7 +190,7 @@ class RoutingBatchRouteViewController: RoutingBaseViewController, TTBatchRouteVi
         }
         mapView.routeManager.update(route, style: TTMapRouteStyle.defaultActive())
         mapView.routeManager.bring(toFrontRoute: route)
-        let desc = routeDesc[type]![mapView.routeManager.routes.index(of: route)!]
+        let desc = routeDesc[type]![mapView.routeManager.routes.firstIndex(of: route)!]
         updateEta(mapRoute: route, desc: desc)
     }
 

@@ -59,7 +59,6 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
         container.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[container]|", options: [], metrics: nil, views: ["container": container]))
         scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[container]|", options: [], metrics: nil, views: ["container": container]))
-        container.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0)
         container.heightAnchor.constraint(equalToConstant: 660).isActive = true
 
         let textView = UITextView()
