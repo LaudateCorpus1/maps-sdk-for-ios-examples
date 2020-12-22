@@ -39,11 +39,11 @@
 #pragma mark Examples
 
 - (void)displayGeopoliticalViewInternational {
-    [self.mapView setGeopoliticalView:TTGeoViewNone];
+    [self.mapView setGeopoliticalViewLocal:@"Unified"];
 }
 
 - (void)displayGeopoliticalViewLocal {
-    [self.mapView setGeopoliticalView:TTGeoViewIL];
+    [self.mapView setGeopoliticalViewLocal:@"IL"];
 }
 
 @end

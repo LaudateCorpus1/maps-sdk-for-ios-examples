@@ -31,10 +31,7 @@
 		6E9BF26A22201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF26922201B1B0033BD98 /* SearchPolygonsForRevGeoViewController.swift */; };
 		6E9BF26F22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BF26E22201B530033BD98 /* SearchPolygonsForRevGeoViewController.m */; };
 		6EA5B028252F137000A2F80F /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6EB3C4C4215A11E400AC580C /* TrafficIncidentsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4C3215A11E400AC580C /* TrafficIncidentsViewControllerTests.m */; };
-		6EB3C4C7215A13DD00AC580C /* RoutingControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4C6215A13DD00AC580C /* RoutingControllerTests.m */; };
 		6EB3C4D5215A233700AC580C /* Maneuver.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB3C4D4215A233600AC580C /* Maneuver.xcassets */; };
-		6EB3C4DE215A287800AC580C /* SearchControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3C4DD215A287800AC580C /* SearchControllerTests.m */; };
 		6EC11780254702C10008131C /* MapSnapshotImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1177F254702C10008131C /* MapSnapshotImageViewController.swift */; };
 		6EC11788254702F20008131C /* MapSnapshotImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC11787254702F20008131C /* MapSnapshotImageViewController.m */; };
 		6EC1AF1C241F90A30068B60E /* MapInitializationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1AF1B241F90A30068B60E /* MapInitializationViewController.swift */; };
@@ -106,11 +103,6 @@
 		7215017321A6AA330016C396 /* MatrixRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7215017221A6AA330016C396 /* MatrixRow.swift */; };
 		7215017421A6B25B0016C396 /* MatrixRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7215017021A6A50B0016C396 /* MatrixRow.xib */; };
 		7215017521A6B25C0016C396 /* MatrixRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7215017021A6A50B0016C396 /* MatrixRow.xib */; };
-		7216F251215224DF00DB2159 /* MapControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F250215224DF00DB2159 /* MapControllerTests.swift */; };
-		7216F2672152343A00DB2159 /* MapControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7216F2662152343A00DB2159 /* MapControllerTests.m */; };
-		7216F26C2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F26B2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift */; };
-		7216F26E215260DD00DB2159 /* RoutingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F26D215260DD00DB2159 /* RoutingControllerTests.swift */; };
-		7216F2842152694000DB2159 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F2832152694000DB2159 /* SearchControllerTests.swift */; };
 		7216F29C2154BA4600DB2159 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F29B2154BA4600DB2159 /* XCUIElement.swift */; };
 		7216F29E2155023F00DB2159 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216F29D2155023F00DB2159 /* XCTestCase.swift */; };
 		721A70472272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721A70462272EDE9009D9F0D /* MapDynamicMapSourcesViewController.m */; };
@@ -298,8 +290,6 @@
 		9C5D00F72497AEBE00269F5D /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D00F62497AEBE00269F5D /* Keys.swift */; };
 		9C6535BA222E59990050EE60 /* MapFollowTheChevronController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535B9222E59990050EE60 /* MapFollowTheChevronController.swift */; };
 		9C6535BD222E5DBD0050EE60 /* MapFollowTheChevronController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BB222E5DBD0050EE60 /* MapFollowTheChevronController.m */; };
-		9C6535C0222E617C0050EE60 /* DrivingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535BF222E617C0050EE60 /* DrivingControllerTests.swift */; };
-		9C6535CA222E69FA0050EE60 /* DrivingControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6535C8222E69FA0050EE60 /* DrivingControllerTests.m */; };
 		9C7076762202EC5100B3FF19 /* MapMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7076752202EC5100B3FF19 /* MapMatchingViewController.swift */; };
 		9C7076782202F1F100B3FF19 /* DrivingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7076772202F1F100B3FF19 /* DrivingSource.swift */; };
 		9C70767A2202F39300B3FF19 /* ProviderLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7076792202F39300B3FF19 /* ProviderLocation.swift */; };
@@ -1925,13 +1915,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C6535C0222E617C0050EE60 /* DrivingControllerTests.swift in Sources */,
 				7216F29C2154BA4600DB2159 /* XCUIElement.swift in Sources */,
 				7216F29E2155023F00DB2159 /* XCTestCase.swift in Sources */,
-				7216F2842152694000DB2159 /* SearchControllerTests.swift in Sources */,
-				7216F26C2152388000DB2159 /* TrafficIncidentsViewControllerTests.swift in Sources */,
-				7216F251215224DF00DB2159 /* MapControllerTests.swift in Sources */,
-				7216F26E215260DD00DB2159 /* RoutingControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1939,13 +1924,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EB3C4C4215A11E400AC580C /* TrafficIncidentsViewControllerTests.m in Sources */,
-				7216F2672152343A00DB2159 /* MapControllerTests.m in Sources */,
 				6E365F722158F18800FD24D2 /* XCTestCase.m in Sources */,
-				6EB3C4C7215A13DD00AC580C /* RoutingControllerTests.m in Sources */,
-				9C6535CA222E69FA0050EE60 /* DrivingControllerTests.m in Sources */,
 				6E365F6F2158EE1800FD24D2 /* XCUIElement.m in Sources */,
-				6EB3C4DE215A287800AC580C /* SearchControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

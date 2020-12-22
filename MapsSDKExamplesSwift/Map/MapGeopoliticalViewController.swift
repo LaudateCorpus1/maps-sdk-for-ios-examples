@@ -37,10 +37,10 @@ class MapGeopoliticalViewController: MapBaseViewController {
     // MARK: Examples
 
     func displayGeopoliticalViewInternational() {
-        mapView.setGeopolitical(.none)
+        mapView.setGeopoliticalViewLocal("Unified")
     }
 
     func displayGeopoliticalViewLocal() {
-        mapView.setGeopolitical(.IL)
+        mapView.setGeopoliticalViewLocal("IL")
     }
 }
