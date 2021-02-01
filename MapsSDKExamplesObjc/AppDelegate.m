@@ -75,6 +75,8 @@
 #import "LongDistanceEVRoutingViewController.h"
 #import "SearchChargingStationsViewController.h"
 #import "MapPoiLayersVisibilityViewController.h"
+#import "ZoomingTheRouteViewController.h"
+#import "MapTrafficAlongTheRouteViewController.h"
 
 @interface AppDelegate () <ExampleDisplayRequest>
 
@@ -181,6 +183,9 @@
         case 26:
             newViewController = [MapRouteCustomisationViewController new];
             break;
+        case 27:
+            newViewController = [MapTrafficAlongTheRouteViewController new];
+            break;
         default:
             [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];
             break;
@@ -255,6 +260,9 @@
             break;
         case 2:
             newViewController = [RouteMatchingViewController new];
+            break;
+        case 3:
+            newViewController = [ZoomingTheRouteViewController new];
             break;
         default:
             [NSException raise:NSInternalInconsistencyException format:@"This VC is not handled"];

@@ -125,6 +125,7 @@ public class TTCoordinate: NSObject {
     @objc public static func BUCKINGHAM_PALACE_TOP_RIGHT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.500520, -0.140731) }
     @objc public static func BUCKINGHAM_PALACE_BOTTOM_RIGHT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.499731, -0.142518) }
     @objc public static func BUCKINGHAM_PALACE_BOTTOM_LEFT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.501392, -0.144229) }
+    @objc public static func AMSTERDAM_TOP_LEFT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.414694, 4.834834) }
     @objc public static func SAN_JOSE() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.3361905, -121.8905833) }
     @objc public static func SAN_JOSE_9RD() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(37.176238, -122.139924) }
     @objc public static func SANTA_CRUZ() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(36.9749416, -122.0285259) }
@@ -135,8 +136,18 @@ public class TTCoordinate: NSObject {
     @objc public static func ROUEN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(49.443233, 1.099971) }
     @objc public static func SAINT_DENIS() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(48.936050, 2.365010) }
     @objc public static func EINDHOVEN() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.436600, 5.478000) }
-    @objc public static func AMSTERDAM_TOP_LEFT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.414694, 4.834834) }
     @objc public static func AMSTERDAM_BOTTOM_RIGHT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.334709, 4.971877) }
+    @objc public static func WARSAW_EAST() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.251571, 21.085594) }
+    @objc public static func WARSAW_WEST() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(52.254684, 20.588450) }
+    @objc public static func LONDON_CITY_AIRPORT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.5048, 0.0495) }
+    @objc public static func HEATHROW_AIRPORT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.4700, -0.4543) }
+    @objc public static func TOWER_OF_LONDON() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.5081124, -0.0759493) }
+    @objc public static func THE_NATIONAL_GALLERY() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(51.508929, -0.128299) }
+    @objc public static func ONTARIO_INTERNATIONAL_AIRPORT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(34.0603, -117.5979) }
+    @objc public static func LOS_ANGELES_INTERNATIONAL_AIRPORT() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(33.9415889, -118.40853) }
+    @objc public static func DOWN_TOWN_LOS_ANGELES() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(34.0407, -118.2468) }
+    @objc public static func SANTA_MONICA() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(34.0195, -118.4912) }
+    @objc public static func BEVERLY_HILS() -> CLLocationCoordinate2D { return CLLocationCoordinate2DMake(34.0736, -118.4004) }
 }
 
 public class TTCamera: NSObject {

@@ -88,6 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = MapWithBuildingHeightsViewController()
             case 26:
                 newViewController = MapRouteCustomisationViewController()
+            case 27:
+                newViewController = MapTrafficAlongTheRoute()
             default:
                 fatalError("This VC is not handled")
             }
@@ -141,6 +143,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ExampleDisplayRequest {
                 newViewController = MapMatchingViewController()
             case 2:
                 newViewController = RouteMatchingViewController()
+            case 3:
+                newViewController = ZoomingTheRouteViewController()
             default:
                 fatalError("This VC is not handled")
             }
