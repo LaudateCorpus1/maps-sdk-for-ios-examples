@@ -66,7 +66,7 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
     }
 
     func createChevron() {
-        self.mapView.isShowsUserLocation = false
+        mapView.isShowsUserLocation = false
         let animation = TTChevronAnimationOptionsBuilder.create(withAnimatedCornerRounding: false).build()
         chevron = TTChevronObject(normalImage: TTChevronObject.defaultNormalImage(), withDimmedImage: TTChevronObject.defaultDimmedImage(), with: animation)
     }
@@ -108,8 +108,9 @@ class MapFollowTheChevronController: RoutingBaseViewController, TTRouteResponseD
         progress.hide()
 
         createChevron()
-        mapView.trackingManager.add(self.chevron!)
-        source = MapFollowTheChevronSource(trackingManager: self.mapView.trackingManager, trackingObject: self.chevron!, route: mapRoute)
+        guard let chevron = chevron else { return }
+        mapView.trackingManager.add(chevron)
+        source = MapFollowTheChevronSource(trackingManager: mapView.trackingManager, routeManager: mapView.routeManager, trackingObject: chevron, route: mapRoute)
         source?.activate()
     }
 

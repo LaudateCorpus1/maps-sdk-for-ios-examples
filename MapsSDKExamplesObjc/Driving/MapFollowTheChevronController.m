@@ -114,7 +114,7 @@
 
     [self createChevron];
     [self.mapView.trackingManager addTrackingObject:self.chevron];
-    self.source = [[MapFollowTheChevronSource alloc] initWithTrackingManager:self.mapView.trackingManager trackingObject:self.chevron route:mapRoute];
+    self.source = [[MapFollowTheChevronSource alloc] initWithTrackingManager:self.mapView.trackingManager routeManager:self.mapView.routeManager trackingObject:self.chevron route:mapRoute];
     [self.source activate];
 }
 

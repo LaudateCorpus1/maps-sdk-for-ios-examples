@@ -14,20 +14,24 @@ import Foundation
 import TomTomOnlineSDKMaps
 
 @objc open class MapFollowTheChevronSource: NSObject, TTLocationSource {
-    let manager: TTTrackingManager
+    let trackingManager: TTTrackingManager
+    let routeManager: TTRouteManager
     let object: TTChevronObject
     let mapRoute: TTMapRoute
     var timer: Timer?
     var prevCoordinate: CLLocationCoordinate2D?
 
-    @objc public init(trackingManager: TTTrackingManager, trackingObject: TTChevronObject, route: TTMapRoute) {
-        manager = trackingManager
+    @objc public init(trackingManager: TTTrackingManager, routeManager: TTRouteManager, trackingObject: TTChevronObject, route: TTMapRoute) {
+        self.trackingManager = trackingManager
+        self.routeManager = routeManager
         object = trackingObject
         mapRoute = route
         prevCoordinate = LocationUtils.coordinateForValue(value: mapRoute.coordinatesData()[0])
         let location = TTLocation(coordinate: prevCoordinate!, withBearing: 0)
-        manager.update(object, with: location)
+        trackingManager.update(object, with: location)
         object.isHidden = true
+        let style = TTMapRouteStyleLayerBuilder().withColor(UIColor(red: 255 / 255, green: 153 / 255, blue: 0, alpha: 1.0)).build()
+        routeManager.activateProgress(alongTheRoute: route, withStyling: style)
     }
 
     public func activate() {
@@ -42,13 +46,15 @@ import TomTomOnlineSDKMaps
             let coordiante = LocationUtils.coordinateForValue(value: self.mapRoute.coordinatesData()[index])
             let bearing = LocationUtils.bearingWithCoordinate(coordinate: coordiante, prevCoordianate: self.prevCoordinate!)
             let location = TTLocation(coordinate: coordiante, withBearing: bearing)
-            self.manager.update(self.object, with: location)
+            self.trackingManager.update(self.object, with: location)
             self.prevCoordinate = coordiante
+            self.routeManager.updateProgress(alongTheRoute: self.mapRoute, with: location)
         })
     }
 
     public func deactivate() {
         // Stop Service
         timer?.invalidate()
+        routeManager.deactivateProgress(alongTheRoute: mapRoute)
     }
 }
